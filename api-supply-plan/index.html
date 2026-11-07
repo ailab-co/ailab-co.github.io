@@ -1,0 +1,1479 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>API供应链与多站经营 · 酷加科技</title><style>:root{--ink:#172833;--muted:#64737d;--paper:#f5f6f2;--line:#dce2de;--teal:#167768;--amber:#a46b18;--blue:#3065aa;--violet:#7654a2;--radius:14px}*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:90px}body{margin:0;background:var(--paper);color:var(--ink);font:15px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif}button,a,input{font:inherit}button{cursor:pointer}button:focus-visible,a:focus-visible,summary:focus-visible{outline:3px solid #d88725;outline-offset:4px}button{color:inherit}a{color:var(--blue)}.mast{height:86px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);padding:0 max(32px,calc((100vw - 1480px)/2))}.brand{display:flex;align-items:center;gap:12px;color:var(--ink);font-size:19px;font-weight:750;text-decoration:none}.brandmark{background:#e7ede6;border-radius:12px;font-size:36px;color:#b37535;line-height:44px;width:44px;text-align:center}.brand-sub{font-size:12px;color:var(--muted);font-weight:500;margin-left:18px}.edition{font-size:12px;letter-spacing:1px;color:var(--muted)}.edition i{display:inline-block;height:4px;width:4px;border-radius:50%;background:#8d9b92;margin:3px 10px}main{max-width:1480px;padding:0 32px;margin:auto}.intro{display:flex;align-items:center;justify-content:space-between;gap:40px;padding:52px 0 38px}.eyebrow,.section-label{font-size:12px;font-weight:700;letter-spacing:1.6px;color:var(--teal);margin:0 0 12px}h1{font-size:clamp(30px,3.5vw,48px);line-height:1.23;letter-spacing:-1.4px;margin:0 0 18px;font-weight:730}p{margin:0 0 14px}.intro p{font-size:16px;color:var(--muted);line-height:1.9;margin:0}.intro-note{padding:10px 0 10px 28px;border-left:2px solid #d6ded7;min-width:245px}.intro-note>span{font-size:12px;color:var(--muted)}.intro-note ol{list-style:decimal-leading-zero;margin:10px 0 16px;padding-left:30px;line-height:1.95;font-weight:600}.intro-note li::marker{font-size:12px;color:#9caa9e}.intro-note small{font-size:11px;color:#7a8278}.tabs{display:flex;border-bottom:1px solid #ccd7ce;gap:8px;background:var(--paper);position:sticky;top:0;z-index:5;padding-top:12px}.tab{border:0;background:none;padding:16px 20px 18px;white-space:nowrap;border-bottom:3px solid transparent;font-weight:600;color:var(--muted)}.tab .num{font-size:11px;color:#9aa59c;margin-right:9px}.tab[aria-selected=true]{border-color:var(--teal);color:var(--teal)}.view-head{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;padding:34px 0 14px}.view-head h2{font-size:27px;letter-spacing:-.5px;margin:0 0 8px}.view-head p:last-child{color:var(--muted);max-width:780px;margin-bottom:0}.legend{display:flex;gap:15px;flex-wrap:wrap;max-width:285px;font-size:11px;color:var(--muted);padding-bottom:4px}.legend>span{white-space:nowrap}.dot{display:inline-block;width:8px;height:8px;border-radius:3px;margin-right:5px}.teal{background:var(--teal)}.amber{background:var(--amber)}.blue{background:var(--blue)}.violet{background:var(--violet)}.reading-hint{display:flex;justify-content:space-between;align-items:center;color:#839086;font-size:12px;padding:12px 0}.reading-hint button{background:none;border:0;color:var(--teal);font-size:12px}.workspace{display:grid;grid-template-columns:minmax(0,1fr) 302px;gap:24px;align-items:start}.workspace.details-hidden{grid-template-columns:minmax(0,1fr)}.details-hidden aside{display:none}#diagram{min-width:0}.band{border:1px solid var(--line);background:#fff;border-radius:var(--radius);padding:22px}.band+.band{margin-top:20px}.band-head{display:flex;align-items:center;gap:12px;margin-bottom:17px}.band-no{width:28px;height:28px;background:#eef1ec;color:#7b897d;display:grid;place-items:center;border-radius:8px;font-size:11px;font-weight:700;flex-shrink:0}.band-head h3{font-size:16px;margin:0}.band-head small{margin-left:auto;color:var(--muted);font-size:11px}.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}.cards.three{grid-template-columns:repeat(3,minmax(0,1fr))}.cards.four{grid-template-columns:repeat(4,minmax(0,1fr))}.module{--tone:#627275;--tint:#f5f7f5;display:flex;position:relative;flex-direction:column;align-items:flex-start;text-align:left;min-height:116px;width:100%;border:1px solid #dce3df;border-top:3px solid var(--tone);border-radius:10px;background:var(--tint);padding:17px 18px;transition:box-shadow .15s,border-color .15s}.module[data-color=teal]{--tone:var(--teal);--tint:#eff8f4}.module[data-color=amber]{--tone:var(--amber);--tint:#fcf6e9}.module[data-color=blue]{--tone:var(--blue);--tint:#f0f5fc}.module[data-color=violet]{--tone:var(--violet);--tint:#f6f1fb}.module:hover{border-color:var(--tone);box-shadow:0 4px 16px #203c3010}.module.selected{outline:2px solid var(--tone);outline-offset:2px}.module strong{font-size:15px;line-height:1.45;padding-right:15px}.module .arrow{position:absolute;right:12px;top:13px;color:var(--tone);font-size:16px}.module p{font-size:12px;line-height:1.65;color:#6d787b;margin:8px 0 0}.module .status{font-size:10px;color:var(--tone);border:1px solid color-mix(in srgb,var(--tone),transparent 76%);border-radius:5px;padding:1px 6px;margin-top:12px;background:#ffffffa0}.bridge{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;color:#7c8980;font-size:11px;min-height:58px;letter-spacing:.4px}.bridge:before{content:"";height:15px;border-left:1px solid #b9c8bd}.bridge:after{content:"▼";font-size:9px;color:#9daf9e}.supply-band{background:#f5faf6;border-color:#bcd6c6}.supply-band .band-no{background:#dceee3;color:var(--teal)}.supply-exit{margin-top:17px}.supply-exit .module{min-height:84px;background:#e0f0e7}.band-note{font-size:12px;color:var(--muted);padding-top:15px;margin:0}.family{border:1px solid #d6dfed;border-radius:11px;padding:17px;background:#f9fbff}.family.b{border-color:#e0d6ed;background:#fcfaff}.family h4{margin:0 0 4px;font-size:15px}.family>p{font-size:12px;color:var(--muted);margin:0 0 15px}.family .cards{grid-template-columns:1fr}.family .module{min-height:90px}.family .module .status{margin-top:8px}.customer-strip{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px;color:#6f7c77;text-align:center;font-size:12px;border-top:1px dashed #d8dfda;margin-top:17px;padding-top:15px}.subline{height:25px;border-left:1px dashed #bbcdc0;margin-left:50%}.wide{grid-column:1/-1}.inspector-inner{position:sticky;top:92px;border:1px solid var(--line);border-radius:var(--radius);padding:22px;background:#fff}.inspector-top{display:flex;align-items:center;justify-content:space-between;font-size:11px;letter-spacing:1px;color:#829086;border-bottom:1px solid #edf0eb;padding-bottom:13px}.inspector-top button{background:none;border:0;font-size:23px;line-height:1;color:#7f8b83}aside{align-self:stretch}#detail-content h3{font-size:23px;line-height:1.4;margin:20px 0 13px}#detail-content .detail-status{display:inline-block;border-radius:4px;background:#eff3ed;color:#60806b;font-size:11px;padding:2px 7px;margin-top:16px}#detail-content p{font-size:13px;color:#66766e}#detail-content h4{font-size:12px;margin:21px 0 8px;color:#273f31}#detail-content ul{font-size:13px;margin:0;padding-left:18px;color:#526259}#detail-content li{margin:5px 0}#detail-content .boundary{border-left:2px solid #d7b368;background:#faf8ef;padding:11px 12px;margin-top:20px;color:#7c6a48;font-size:12px}.detail-foot{border-top:1px solid var(--line);padding-top:14px;margin-top:20px;font-size:11px;color:#8d978e}.callout{background:#eaf2eb;border:1px solid #cddcd0;border-radius:10px;padding:16px 19px;font-size:13px;color:#456452}.flow-list{display:grid;gap:12px}.flow-row{display:grid;grid-template-columns:42px 1fr;gap:14px;align-items:start}.flow-step{font-size:14px;background:#eaf0e9;border-radius:50%;width:36px;height:36px;display:grid;place-items:center;color:#65806a;margin-top:8px}.statusline{display:flex;gap:9px;flex-wrap:wrap;margin:14px 0}.statusline span{background:#f0f3ef;border-radius:5px;padding:4px 9px;font-size:11px;color:#6d786f}.analysis{padding-top:52px;margin-top:14px}.analysis h2,.research h2{font-size:25px;letter-spacing:-.4px;margin:0 0 20px}.prose-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}.prose{padding:22px;border-top:2px solid #bdcfbd;background:#fff;border-radius:0 0 10px 10px}.prose h3{font-size:16px;margin:0 0 11px}.prose p{font-size:14px;color:var(--muted);margin:0;line-height:1.85}.analysis .callout{margin:20px 0}table{border-collapse:collapse;width:100%;font-size:13px;background:#fff}th,td{padding:15px 17px;border-bottom:1px solid #e7ece6;text-align:left;vertical-align:top}th{color:#54705a;background:#ebf1e9;font-weight:650}td{color:#52645c}.table-wrap{border:1px solid var(--line);border-radius:10px;overflow:auto;margin:20px 0}.research{margin-top:52px;padding:35px 0;border-top:1px solid #ced8cd}.research>div>p{color:var(--muted);font-size:13px}.research details{border:1px solid var(--line);border-radius:10px;background:white;margin:12px 0}.research summary{padding:18px 22px;font-size:14px;font-weight:600;cursor:pointer}.report-body{padding:4px 26px 26px;max-width:1100px;color:#526259;font-size:14px}.report-body h2{font-size:22px;margin-top:30px}.report-body h3{font-size:18px;margin-top:24px}.report-body p{line-height:1.9}.report-body table{min-width:650px}.report-body pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#f4f6f1;padding:12px;font-size:12px}.report-body code{overflow-wrap:anywhere}.report-body a{overflow-wrap:anywhere}footer{padding:25px 0 40px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:20px;font-size:11px;color:#849087}.mobile-detail-title{display:none}#diagram .soft-heading{font-size:13px;color:#7c897f;margin:18px 0 10px}.split{display:grid;grid-template-columns:1fr 1fr;gap:18px}.divider-label{text-align:center;color:#7b8b80;font-size:12px;margin:16px 0}.stage-progress{font-size:12px;color:#7d8c80}.phase .module{min-height:95px}.links-list{list-style:none;padding:0;margin:0}.links-list li{margin:8px 0}.inline-note{font-size:12px;color:var(--muted);margin-top:14px}.fact-label{font-size:11px;font-weight:500;color:#7c8c80;display:block;margin-top:6px}
+@media(min-width:1400px){.family .cards{grid-template-columns:repeat(3,minmax(0,1fr))}.family .module{padding:15px 12px}.family .module strong{font-size:14px}.overview-families{grid-template-columns:1fr}.overview-families .family .cards{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:1100px){.workspace{grid-template-columns:minmax(0,1fr) 270px;gap:16px}.cards.four{grid-template-columns:repeat(2,minmax(0,1fr))}.cards.three{grid-template-columns:repeat(2,minmax(0,1fr))}.prose-grid{grid-template-columns:1fr}.module{padding:15px}.legend{display:none}.tab{padding:14px 13px}.intro-note{min-width:200px}}
+@media(max-width:800px){main{padding:0 18px}.mast{height:68px;padding:0 18px}.brand-sub{display:none}.edition{font-size:10px}.intro{padding:32px 0;gap:20px}.intro-note{display:none}h1{font-size:34px}.intro p{font-size:14px}.tabs{overflow-x:auto;gap:0;scrollbar-width:none}.tab{padding:14px 13px;font-size:13px}.tab .num{display:none}.view-head{padding-top:25px}.view-head h2{font-size:24px}.view-head p{font-size:13px}.workspace{display:block}.band{padding:17px}.band-head{gap:9px}.band-head h3{font-size:14px}.band-head small{font-size:10px}.module{min-height:108px;padding:14px 12px}.module strong{font-size:14px}.cards,.cards.three{gap:10px}.module p{font-size:12px}.split{grid-template-columns:1fr}.family .cards{grid-template-columns:repeat(3,minmax(0,1fr))}.family .module{padding:12px 9px}.family .module strong{font-size:13px}.family .module p{font-size:11px}.reading-hint{font-size:11px}.reading-hint button{font-size:11px}#inspector{display:none}body.detail-open #inspector{display:block;position:fixed;inset:0;z-index:20;background:#152d2860;padding-top:15vh}body.detail-open .inspector-inner{position:relative;top:0;border-radius:20px 20px 0 0;margin:0;height:85vh;overflow:auto;padding:20px 24px 35px;box-shadow:0 -8px 40px #18251f20}.inspector-top button{font-size:30px;width:36px;height:36px}body.detail-open{overflow:hidden}.analysis{padding-top:32px}.analysis h2,.research h2{font-size:22px}.prose-grid{gap:12px}th,td{padding:12px}footer{flex-direction:column;gap:5px}.report-body{padding:0 17px 20px}.report-body table{min-width:600px}.flow-row{grid-template-columns:28px 1fr;gap:10px}.flow-step{width:27px;height:27px;font-size:11px}.customer-strip{font-size:11px}}
+@media(max-width:380px){.cards,.cards.three,.cards.four,.family .cards{grid-template-columns:1fr}.brand{font-size:16px}h1{font-size:30px}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+@media print{.tabs,.reading-hint,#inspector,.intro-note{display:none!important}.workspace{display:block}.mast{height:50px}.intro{padding:20px 0}.module{break-inside:avoid}.band{break-inside:avoid}main{max-width:none;padding:0}.research details:not([open]){display:none}body{background:#fff}.module .arrow{display:none}}
+</style><style>body.panorama-mode main{max-width:none;padding:0 30px}body.panorama-mode .mast{height:65px;padding:0 30px}body.panorama-mode .intro{padding:18px 0 14px}body.panorama-mode .intro h1{font-size:28px;margin:0;line-height:1.4}body.panorama-mode .intro h1 br{display:none}body.panorama-mode .intro .eyebrow{margin-bottom:4px}body.panorama-mode .intro p,body.panorama-mode .intro-note{display:none}body.panorama-mode .tabs{padding-top:0}body.panorama-mode .view-head{padding:15px 0 4px}body.panorama-mode .view-head h2{font-size:22px;margin:0 0 4px}body.panorama-mode #view-kicker{display:none}body.panorama-mode .view-head p{font-size:12px}body.panorama-mode .reading-hint{padding:6px 0}body.panorama-mode .workspace{display:block}body.panorama-mode #inspector{display:none}body.panorama-detail #inspector{display:block;position:fixed;z-index:40;right:32px;top:150px;width:330px;max-height:calc(100vh - 180px);overflow:auto;box-shadow:0 12px 60px #16342b25;border-radius:14px}body.panorama-detail .inspector-inner{position:static}body.panorama-mode .analysis,body.panorama-mode .research,body.panorama-mode footer{max-width:1416px;margin-left:auto;margin-right:auto}.flow-shell{border:1px solid #c8d8cc;border-radius:15px;overflow:hidden;background:white}.flow-toolbar{display:flex;justify-content:space-between;align-items:center;gap:15px;padding:12px 18px;border-bottom:1px solid #dce6dd;background:#fcfdfb}.flow-toolbar strong{font-size:14px}.flow-toolbar>div>span{font-size:11px;color:#809087;margin-left:16px}.flow-controls{display:flex;align-items:center;gap:7px;flex-shrink:0}.flow-controls button{border:1px solid #d3dfd6;background:#fff;border-radius:6px;padding:5px 10px;font-size:12px;min-height:32px}.flow-controls button:hover{background:#edf5ee}.flow-controls output{width:49px;text-align:center;font-size:11px;color:#617467;font-variant-numeric:tabular-nums}.flow-viewport{height:calc(100svh - 322px);min-height:590px;position:relative;overflow:hidden;background-color:#f8faf7;background-image:radial-gradient(#cedbce 1px,transparent 1px);background-size:20px 20px;touch-action:none;cursor:grab;isolation:isolate}.flow-viewport:active{cursor:grabbing}.flow-transform{width:2400px;height:2260px;position:absolute;left:0;top:0;transform-origin:0 0;will-change:transform}.flow-transform svg{width:2400px;height:2260px;display:block;overflow:visible;user-select:none}.flow-node{cursor:pointer;outline:none}.flow-node>rect:first-of-type{stroke-width:1.5;filter:drop-shadow(0 3px 3px #182e2110)}.flow-node:hover>rect:first-of-type{stroke-width:3;filter:drop-shadow(0 3px 8px #182e2125)}.flow-selection{fill:none;stroke:#d58d23;stroke-width:3;opacity:0;pointer-events:none}.flow-node.selected .flow-selection,.flow-node:focus-visible .flow-selection{opacity:1}.flow-title{font:650 21px -apple-system,BlinkMacSystemFont,"PingFang SC",sans-serif;fill:#223a3a;pointer-events:none}.flow-copy{font:16px -apple-system,BlinkMacSystemFont,"PingFang SC",sans-serif;fill:#586b6a;pointer-events:none}.flow-group{fill:#fff;stroke:#d6dfda;stroke-width:1.5}.flow-group-title{font:650 22px -apple-system,BlinkMacSystemFont,"PingFang SC",sans-serif;fill:#324d40}.flow-group-sub{font:16px -apple-system,BlinkMacSystemFont,"PingFang SC",sans-serif;fill:#63776d}.flow-caption{font:15px -apple-system,BlinkMacSystemFont,"PingFang SC",sans-serif;fill:#6c7b71;paint-order:stroke;stroke:#f8faf7;stroke-width:8;stroke-linejoin:round}.flow-edge{stroke:#6b8e80;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}.flow-edge.dashed{stroke:#b08d4c;stroke-dasharray:7 6}.flow-bottom{display:flex;justify-content:space-between;gap:15px;align-items:center;border-top:1px solid #dce6dd;font-size:11px;color:#7a897f;padding:8px 15px}.flow-shell:fullscreen,.flow-shell.flow-expanded{width:100vw;height:100vh;border-radius:0;border:0}.flow-shell:fullscreen .flow-viewport,.flow-shell.flow-expanded .flow-viewport{height:calc(100vh - 94px);min-height:0}.flow-expanded{position:fixed;inset:0;z-index:25}.flow-shell:fullscreen #inspector{top:90px;right:20px;max-height:calc(100vh - 120px)}
+@media(max-width:1100px){.flow-toolbar>div>span{display:none}.flow-controls{gap:4px}.flow-controls button{padding:5px 8px}.flow-bottom>span:last-child{display:none}}
+@media(max-width:800px){body.panorama-mode main{padding:0 12px}body.panorama-mode .mast{padding:0 15px;height:58px}body.panorama-mode .intro h1{font-size:23px}body.panorama-mode .view-head h2{font-size:18px}.flow-toolbar{align-items:flex-start;flex-direction:column;padding:10px}.flow-controls{flex-wrap:wrap;width:100%;justify-content:space-between}.flow-controls button{font-size:11px;padding:4px 7px}.flow-viewport{height:65svh;min-height:480px}.flow-bottom{font-size:10px;padding:8px}.flow-shell:fullscreen .flow-viewport{height:calc(100svh - 135px)}body.panorama-detail #inspector{inset:0;width:auto;max-height:none;overflow:visible;border-radius:0;padding-top:15vh;background:#18382b55}body.panorama-detail #inspector .inspector-inner{height:85vh;overflow:auto;border-radius:18px 18px 0 0}.flow-shell:fullscreen #inspector{top:0;right:0;max-height:none}}
+@media print{.flow-toolbar,.flow-bottom{display:none}.flow-viewport{height:auto;min-height:0;overflow:visible}.flow-transform{position:static;width:100%;height:auto;transform:none!important}.flow-transform svg{width:100%;height:auto}.flow-shell{border:0}}
+
+.dot.ops{background:#267f98}.dot.copper{background:#9b5b35}.module[data-color=ops]{--tone:#267f98;--tint:#eff9fc}.module[data-color=copper]{--tone:#9b5b35;--tint:#fff4ea}
+
+/* v05: priorities express delivery order; domain frames express ownership. */
+.flow-transform,.flow-transform svg{height:2640px}.flow-priority{font:750 18px -apple-system,BlinkMacSystemFont,"PingFang SC",sans-serif;paint-order:stroke;stroke:white;stroke-width:5px;stroke-linejoin:round;pointer-events:none}.flow-node>rect:first-of-type{stroke-width:2.5}.flow-node[data-priority=F]{opacity:.78}.mvp-emphasis .flow-node[data-priority=F],.mvp-emphasis .flow-node[data-priority=P2]{opacity:.25}.priority-legend{display:flex;flex-wrap:wrap;gap:10px 28px;padding:12px 18px;border-bottom:1px solid #dce6dd;background:#fff;font-size:13px}.priority-legend>span{display:flex;align-items:center;gap:7px}.priority-legend i{height:12px;width:12px;border-radius:3px}.priority-legend small{color:#67766d;font-size:12px}.flow-controls button[aria-pressed=true]{background:#e1f3ec;border-color:#087f75;color:#075e57}.flow-shell:fullscreen,.flow-shell.flow-expanded{display:flex;flex-direction:column}.flow-shell:fullscreen .flow-viewport,.flow-shell.flow-expanded .flow-viewport{height:auto;min-height:0;flex:1}.flow-toolbar,.priority-legend,.flow-bottom{flex-shrink:0}
+.priority-badge{display:inline-block!important;color:var(--priority);background:color-mix(in srgb,var(--priority),white 93%);border:1px solid color-mix(in srgb,var(--priority),white 65%);font-size:12px;font-weight:700;padding:3px 9px;border-radius:6px;margin-top:10px}.workspace{display:block}.workspace #inspector{display:none}.workspace .cards{grid-template-columns:repeat(3,minmax(0,1fr))}.detail-meta{display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding-top:16px}#detail-content .detail-meta .detail-status,#detail-content .detail-meta .priority-badge{margin:0}
+body.modal-open{overflow:hidden}body.modal-open #inspector,body.modal-open .flow-shell:fullscreen #inspector{display:flex;position:fixed;inset:0;width:auto;max-height:none;z-index:60;padding:24px;align-items:center;justify-content:center;overflow:hidden;background:#12292280;backdrop-filter:blur(4px);border-radius:0;box-shadow:none}body.modal-open #inspector .inspector-inner{position:relative;top:auto;width:min(1000px,100%);height:auto;max-height:calc(100svh - 48px);margin:0;overflow-y:auto;overscroll-behavior:contain;border-radius:18px;padding:0 32px 30px;box-shadow:0 20px 80px #10251e40;background:#fff}body.modal-open .inspector-top{position:sticky;top:0;z-index:2;background:#fff;padding:16px 0;font-size:13px;letter-spacing:.3px}body.modal-open .inspector-top button{font-size:30px;min-width:44px;min-height:44px;border-radius:8px;background:#f2f5f1}#detail-content h3{font-size:28px;margin:18px 0 14px}#detail-content p,#detail-content ul{font-size:16px;line-height:1.9;color:#354d43}#detail-content h4{font-size:17px;margin:22px 0 10px}#detail-content .detail-lead{font-size:17px;color:#42584d}.meeting-note{background:#f2f7f5;border:1px solid #d8e6de;border-radius:12px;padding:4px 20px 16px;margin:20px 0}.meeting-note small{font-size:12px;color:#6b7a72}.source-time{color:#16735c;font-weight:650;font-size:13px;display:block;margin-bottom:8px}.detail-grid{display:grid;grid-template-columns:1fr 1.15fr;gap:32px}#detail-content .boundary{font-size:15px;border-radius:0 8px 8px 0;padding:16px 18px}#detail-content .boundary p{margin:6px 0 0}.pending-note{border-top:1px solid #e3e8e1;margin-top:25px}#detail-content .detail-foot{font-size:13px;color:#63736a;line-height:1.8}.basis-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}.basis-actions button{border:1px solid #c5d7cd;border-radius:7px;padding:8px 12px;background:#f5f9f6;color:#22644c}
+@media(max-width:850px){.workspace .cards{grid-template-columns:repeat(2,minmax(0,1fr))}.detail-grid{grid-template-columns:1fr;gap:0}body.modal-open #inspector,body.modal-open .flow-shell:fullscreen #inspector{padding:10px}body.modal-open #inspector .inspector-inner{max-height:calc(100svh - 20px);border-radius:14px;padding:0 20px 24px}#detail-content h3{font-size:24px}#detail-content p,#detail-content ul{font-size:16px}.priority-legend{gap:8px 14px;padding:10px;font-size:12px}.priority-legend small{display:none}.flow-toolbar strong{font-size:13px}.flow-controls button{min-height:40px}.flow-bottom{flex-wrap:wrap}}
+@media(max-width:400px){.workspace .cards{grid-template-columns:1fr}.meeting-note{padding:3px 14px 12px}.priority-legend{gap:8px 12px}}
+@media print{.priority-legend{display:flex}.flow-transform,.flow-transform svg{height:auto}body.modal-open #inspector{display:none}}
+</style></head>
+<body>
+<header class="mast"><a href="#panorama" class="brand" aria-label="回到全景"><span class="brandmark">＋</span><span>酷加科技<span class="brand-sub">产品与架构规划</span></span></a><span class="edition">规划版 05 <i></i> 2026.11.07</span></header>
+<main>
+ <section class="intro"><div><div class="eyebrow">API 业务 / 供应链与销售经营</div><h1>一套采购供应链，<br>支撑多个销售站。</h1><p>把上游资源、进货价格和采购财务集中管理；<br class="desktop">让各个站点独立选择商品、经营客户、制定售价。</p></div><div class="intro-note"><span>这版先说清三件事</span><ol><li>我们向谁采购</li><li>供应链管到哪里</li><li>各销售站怎样经营</li></ol><small>目标架构 ≠ 全部已经上线</small></div></section>
+ <nav class="tabs" role="tablist" aria-label="规划视角"></nav>
+ <section class="view-head"><div><p id="view-kicker" class="eyebrow"></p><h2 id="view-title"></h2><p id="view-desc"></p></div><div class="legend"><span><i class="dot teal"></i>采购供给</span><span><i class="dot amber"></i>采购财务</span><span><i class="dot ops"></i>运营支撑</span><span><i class="dot blue"></i>销售站 A</span><span><i class="dot violet"></i>销售站 B</span></div></section>
+ <div class="reading-hint"><span>点击模块查看会议依据、本期工作、验收与待定项</span><button id="toggle-details" type="button" aria-controls="inspector">收起说明栏</button></div>
+ <div class="workspace"><section id="diagram" role="tabpanel" tabindex="-1" aria-label="架构图"></section><aside id="inspector" aria-label="模块说明" role="dialog" aria-modal="true" aria-labelledby="detail-title" hidden><div class="inspector-inner"><div class="inspector-top"><span>模块说明 · 会议与MVP对照</span><button id="close-details" aria-label="关闭模块说明">×</button></div><div id="detail-content" aria-live="polite"></div></div></aside></div>
+ <section class="analysis" id="analysis"><div class="section-label">方案与边界</div><h2 id="analysis-title"></h2><div id="analysis-body"></div></section>
+ <section class="research"><div><div class="section-label">调研底稿</div><h2>保留结论，也保留依据。</h2><p>代码核查基准：gateway-ext 2.28.0 · <code>390d7bb</code>。下方记录区分源码事实、现场观察与未来建议。</p></div><div id="reports"></div></section>
+ <footer><span>酷加科技 · API业务规划 · 第五版 · 已批准MVP与会议依据</span><span>本页为讨论与设计资料，不执行采购、调用或配置变更。</span></footer>
+</main><script>window.PLAN_DATA = {
+  "nodes": {
+    "official": {
+      "title": "综合官方平台",
+      "short": "阿里云百炼、火山引擎等",
+      "color": "neutral",
+      "status": "上游类型",
+      "purpose": "提供覆盖多种模型的官方服务。供应链分别核对每个平台、账号及地域。",
+      "work": [
+        "模型与规格目录",
+        "账号权限、采购报价与套餐",
+        "余额、账单与接口版本"
+      ],
+      "boundary": "属于外部上游，不是图中的A、B销售站；接口完备程度仍需逐家核验。",
+      "priority": "P1",
+      "meeting": {
+        "time": "00:11–00:24",
+        "text": "上游既有官方平台、单模型厂商，也有聚合转售渠道；来源、接口和账务能力差异很大。"
+      },
+      "mvp": "先从真实业务选择少量上游和精确规格；登记来源声明、账号与已验证能力，不整站自动开放。",
+      "acceptance": "首批服务有明确来源、调用规格、报价证据和失败处理。",
+      "pending": "首批型号、账号、采购来源及测试预算待确认；宣传名称不等于真实模型身份。"
+    },
+    "special": {
+      "title": "专业模型厂商",
+      "short": "MiniMax、ElevenLabs等",
+      "color": "neutral",
+      "status": "上游类型",
+      "purpose": "向专业或特定类别的模型厂商采购服务。",
+      "work": [
+        "专门协议和输入约束",
+        "Token、时长、字符等计量",
+        "并发、任务查询与下载"
+      ],
+      "boundary": "同厂商不同地区、产品和账号的权限与费用不能合并推定。",
+      "priority": "P1",
+      "meeting": {
+        "time": "00:11–00:24",
+        "text": "上游既有官方平台、单模型厂商，也有聚合转售渠道；来源、接口和账务能力差异很大。"
+      },
+      "mvp": "先从真实业务选择少量上游和精确规格；登记来源声明、账号与已验证能力，不整站自动开放。",
+      "acceptance": "首批服务有明确来源、调用规格、报价证据和失败处理。",
+      "pending": "首批型号、账号、采购来源及测试预算待确认；宣传名称不等于真实模型身份。"
+    },
+    "reseller": {
+      "title": "聚合与转售渠道",
+      "short": "官方Key转发、订阅或账号池",
+      "color": "neutral",
+      "status": "上游类型",
+      "purpose": "收录更丰富的转售供给，并保留来源及质量差异。",
+      "work": [
+        "具体分组与上游原始ID",
+        "来源声明及其核验状态",
+        "价格、下线、限流与质量变化"
+      ],
+      "boundary": "同一站可有不同来源分组；低价、型号自报或名称相同都不证明等价。",
+      "priority": "P1",
+      "meeting": {
+        "time": "00:11–00:24",
+        "text": "上游既有官方平台、单模型厂商，也有聚合转售渠道；来源、接口和账务能力差异很大。"
+      },
+      "mvp": "先从真实业务选择少量上游和精确规格；登记来源声明、账号与已验证能力，不整站自动开放。",
+      "acceptance": "首批服务有明确来源、调用规格、报价证据和失败处理。",
+      "pending": "首批型号、账号、采购来源及测试预算待确认；宣传名称不等于真实模型身份。"
+    },
+    "compute": {
+      "title": "其他模型与计算",
+      "short": "GPU平台、自有部署、工作流",
+      "color": "neutral",
+      "status": "上游类型",
+      "purpose": "把API、计算资源和自建模型作为不同采购服务登记。",
+      "work": [
+        "AutoDL、优云等不同服务用途",
+        "运行规格、队列与产物",
+        "计算成本与模型调用成本"
+      ],
+      "boundary": "同一采购平台的GPU管理Key不等于推理Key，自托管能力须独立验收。",
+      "priority": "P2",
+      "meeting": {
+        "time": "00:15–00:18；01:39–01:45",
+        "text": "讨论了自部署语音、数字人、视频及云GPU资源；并发、质量和供给稳定性仍需测量。"
+      },
+      "mvp": "已有自部署或算力平台推理API可按同一标准候选进入首批；完整GPU部署/调度能力留到后续，不额外建设。",
+      "acceptance": "将来接入时须有明确实现、容量、用量和成本证据。",
+      "pending": "GPU类型、并发、成本和区域未核验；不得将讨论中的性能数字作为承诺。"
+    },
+    "connect": {
+      "title": "上游连接与适配",
+      "short": "调用、查询、任务与交付协议",
+      "color": "teal",
+      "status": "部分已有",
+      "purpose": "复用现有适配器，逐步形成统一的供应商连接能力。",
+      "work": [
+        "认证与权限范围",
+        "文本流式和媒体异步协议",
+        "提交、查询、下载与错误归一"
+      ],
+      "boundary": "模型提交结果未知时保留原请求核验，不自动换标识重发。",
+      "priority": "P1",
+      "meeting": {
+        "time": "00:23–00:24；01:03–01:07；01:23–01:25",
+        "text": "快速接入新上游是核心诉求；仅搬资料并不能向下游提供服务，需要明确且可用的接口。"
+      },
+      "mvp": "抽出可独立运行的供货服务，复用已有适配；先验证一条完整执行链，再迁入其余首批服务。",
+      "acceptance": "实际调用能返回可交付结果和可信用量，并被原销售站正确扣退费。",
+      "pending": "现有standalone是测试夹具；生产入口、服务鉴权和新任务/用量合同兼容需补。"
+    },
+    "scan": {
+      "title": "采集与持续核验",
+      "short": "目录、报价、余额、账单和网页",
+      "color": "teal",
+      "status": "部分已有",
+      "purpose": "把上游变化转成带时间、来源和版本的事实。",
+      "work": [
+        "优先读取目录、价格和账单API",
+        "缺接口时用受控网页读取或人工补录",
+        "定时扫描、差异检查与失败状态"
+      ],
+      "boundary": "Models返回某个ID，不等于账号能调用、质量可靠或计费已核验。扫描不是自动付费测试。",
+      "priority": "P2",
+      "meeting": {
+        "time": "00:24–00:27；01:00–01:02",
+        "text": "希望定时查余额和报价，API不完整时网页或人工补充；张海潮提醒网页改版会造成错配。"
+      },
+      "mvp": "MVP先保留首批来源快照、更新时间、差异和人工补录；自动轮询全渠道、完整附件管理后续深化。",
+      "acceptance": "采集失败保留旧事实并提示过期；新报价不自动覆盖人工采用的价格和结论。",
+      "pending": "采集周期和失效阈值待确认；备注附件不能包含明文Key、Cookie或客户正文。"
+    },
+    "catalog": {
+      "title": "供应商与接入主档",
+      "short": "采购账号、凭证、连接和资料",
+      "color": "teal",
+      "status": "已有基础",
+      "purpose": "集中维护我们向谁采购、用哪个账号、怎样连接。模型身份和成本规则由两个专门模块维护。",
+      "work": [
+        "供应商、采购账号与凭证用途",
+        "协议、地域、分组和连接配置",
+        "沟通记录、合同、附件及采用状态"
+      ],
+      "boundary": "供应商不是模型；同一账号可以提供多个模型或实现，不按每把Key重复建供应商。",
+      "priority": "P0",
+      "meeting": {
+        "time": "00:23–00:27；00:38–00:40",
+        "text": "账号、余额、渠道和资料散落；供应链应统一维护，销售合作方拿货但不取得上游凭证。"
+      },
+      "mvp": "关联现有供应商、采购账号和凭证；明确资源账号与对账账号映射以及唯一写入者。",
+      "acceptance": "可从一条供给追到采购账号、凭证用途及费用证据，销售站不必读上游渠道Key。",
+      "pending": "两套supplier_accounts不能凭名称合并；承接人与数据迁移清单待确认。"
+    },
+    "finance": {
+      "title": "上游采购财务",
+      "short": "上游充值、余额、实扣与结算",
+      "color": "amber",
+      "status": "待整合",
+      "purpose": "供应链维护与外部上游的资金和结算关系，独立于销售站的客户账。",
+      "work": [
+        "上游现金、赠额和套餐",
+        "真实实扣、补扣与退款",
+        "成本规则核验和账单差异"
+      ],
+      "boundary": "采购财务不是终端客户钱包；对销售站供货费用由站点拿货与供货账关联。",
+      "priority": "P1",
+      "meeting": {
+        "time": "00:24–00:27；00:44–00:48",
+        "text": "部分上游没有余额和账单API；采购资金、批发收入与零售收入不能混成一个数字。"
+      },
+      "mvp": "先把首批采购账号、充值/赠额/实扣/退款和账单证据关联；无接口可人工核对并标更新时间。",
+      "acceptance": "查询失败与真实零余额不同；无法逐笔归属的差额保留待核，不伪造成本。",
+      "pending": "全渠道自动采集与完整财务系统后续深化；初期不动客户钱包。"
+    },
+    "supplyapi": {
+      "title": "统一API接入层",
+      "short": "站点身份统一，方法与权限分组",
+      "color": "ops",
+      "status": "目标能力",
+      "purpose": "一个统一入口连接供应链和运营支撑，提供调用、日志、费用与结算方法。逻辑接口统一不要求后端只有一个进程。",
+      "work": [
+        "每站专属site_id与服务Key",
+        "调用/任务、日志/运营、费用、结算接口",
+        "方法级权限与审计"
+      ],
+      "boundary": "供货执行仍归供应链；日志索引归运营支撑；客户零售账归本站。一把Key可以有多种权限，也可按用途拆Key。",
+      "priority": "P1",
+      "meeting": {
+        "time": "00:23–00:24；01:03–01:07；01:23–01:25",
+        "text": "快速接入新上游是核心诉求；仅搬资料并不能向下游提供服务，需要明确且可用的接口。"
+      },
+      "mvp": "抽出可独立运行的供货服务，复用已有适配；先验证一条完整执行链，再迁入其余首批服务。",
+      "acceptance": "实际调用能返回可交付结果和可信用量，并被原销售站正确扣退费。",
+      "pending": "现有standalone是测试夹具；生产入口、服务鉴权和新任务/用量合同兼容需补。"
+    },
+    "A1": {
+      "title": "A1 · 酷加现有站",
+      "short": "展开本站经营、客户计费与拿货对账",
+      "color": "blue",
+      "status": "现有站＋规划展开",
+      "purpose": "A1拥有自己的客户、团队、销售规则和钱包，通过专属站点Key从统一平台拿货。",
+      "work": [
+        "本站登录、鉴权、团队和客户Key",
+        "自己的售价、积分、扣款及退款",
+        "按平台请求ID关联拿货成本与销售收入",
+        "统一查询本站调用日志"
+      ],
+      "boundary": "new-api继续作为A1现有执行/扣费实现；新增功能是规划，未迁移当前钱账。",
+      "priority": "P1",
+      "meeting": {
+        "time": "00:51–00:54；01:07–01:11；本轮用户确认",
+        "text": "内部团队先用顺，同时让杭州合作方能够开号和demo；销售站边界简化但仍承担经营与客户交付。"
+      },
+      "mvp": "逐服务改为调用供货API；保留客户身份、原钱包和既有媒体交付，明确已迁入/原路径。",
+      "acceptance": "内部人员走完剧本处理、生图、视频及查费用；杭州隔离身份可独立演示。",
+      "pending": "杭州当前不自动等于独立品牌站交付；具体第一批规格与人员分工待定。"
+    },
+    "A2": {
+      "title": "A2 · 第二实例",
+      "short": "同代码，不同经营配置",
+      "color": "blue",
+      "status": "规划实例",
+      "purpose": "使用A体系同一份代码，部署另一套销售实例。",
+      "work": [
+        "独立品牌、模型范围和售价",
+        "自己的用户、Key与钱包",
+        "独立站点身份访问供应链"
+      ],
+      "boundary": "同代码不等于共享用户或余额。是否独立服务器与数据库属于部署选择。",
+      "priority": "F",
+      "meeting": {
+        "time": "00:32–00:40；00:51–00:54；01:07–01:11",
+        "text": "讨论同代码多实例、其他实现和合作方自建前端；不同经营模式可以使用同一供货体系。"
+      },
+      "mvp": "保留长期位置，当前先用A1和杭州隔离试用身份验证供货合同；不建设全部实例或订阅钱包。",
+      "acceptance": "后续实例依同一身份/接口/费用合同接入，各自客户账和权益独立。",
+      "pending": "实例数量、独立品牌、订阅套餐、地区与收款主体均未纳入本期实施。"
+    },
+    "A3": {
+      "title": "A3 · 境外或客户站",
+      "short": "同代码，按站隔离",
+      "color": "blue",
+      "status": "规划实例",
+      "purpose": "可以面向不同地区或客户经营，仍复用A体系。",
+      "work": [
+        "站点域名、身份与回调配置",
+        "模型、价格、付款与客户策略",
+        "本站账单、资产和权限"
+      ],
+      "boundary": "境内外身份和钱包默认不互通；实例隔离不能仅靠换一个域名。",
+      "priority": "F",
+      "meeting": {
+        "time": "00:32–00:40；00:51–00:54；01:07–01:11",
+        "text": "讨论同代码多实例、其他实现和合作方自建前端；不同经营模式可以使用同一供货体系。"
+      },
+      "mvp": "保留长期位置，当前先用A1和杭州隔离试用身份验证供货合同；不建设全部实例或订阅钱包。",
+      "acceptance": "后续实例依同一身份/接口/费用合同接入，各自客户账和权益独立。",
+      "pending": "实例数量、独立品牌、订阅套餐、地区与收款主体均未纳入本期实施。"
+    },
+    "B1": {
+      "title": "B1 · 轻量站",
+      "short": "B体系的一个实例",
+      "color": "violet",
+      "status": "规划实例",
+      "purpose": "以另一套代码实现更精简的销售服务，仍通过同一供货API采购。",
+      "work": [
+        "少量模型和简单客户流程",
+        "自己的身份与收费实现",
+        "遵守统一供货接口"
+      ],
+      "boundary": "不要求使用new-api，也不要求继承A体系前端。",
+      "priority": "F",
+      "meeting": {
+        "time": "00:32–00:40；00:51–00:54；01:07–01:11",
+        "text": "讨论同代码多实例、其他实现和合作方自建前端；不同经营模式可以使用同一供货体系。"
+      },
+      "mvp": "保留长期位置，当前先用A1和杭州隔离试用身份验证供货合同；不建设全部实例或订阅钱包。",
+      "acceptance": "后续实例依同一身份/接口/费用合同接入，各自客户账和权益独立。",
+      "pending": "实例数量、独立品牌、订阅套餐、地区与收款主体均未纳入本期实施。"
+    },
+    "B2": {
+      "title": "B2 · 多模态站",
+      "short": "B体系的业务配置实例",
+      "color": "violet",
+      "status": "规划实例",
+      "purpose": "在B体系中配置以图像、视频等为主的商品和使用流程。",
+      "work": [
+        "规格选择和参考素材",
+        "任务查询、下载和费用说明",
+        "本站独立用户与资产"
+      ],
+      "boundary": "B2是B代码体系的实例；确需第三套独立实现时另行命名，不能与订阅C体系混淆。",
+      "priority": "F",
+      "meeting": {
+        "time": "00:32–00:40；00:51–00:54；01:07–01:11",
+        "text": "讨论同代码多实例、其他实现和合作方自建前端；不同经营模式可以使用同一供货体系。"
+      },
+      "mvp": "保留长期位置，当前先用A1和杭州隔离试用身份验证供货合同；不建设全部实例或订阅钱包。",
+      "acceptance": "后续实例依同一身份/接口/费用合同接入，各自客户账和权益独立。",
+      "pending": "实例数量、独立品牌、订阅套餐、地区与收款主体均未纳入本期实施。"
+    },
+    "B3": {
+      "title": "B3 · 专属客户站",
+      "short": "B体系的另一实例",
+      "color": "violet",
+      "status": "规划实例",
+      "purpose": "针对具体客户组合商品、界面和经营配置。",
+      "work": [
+        "客户独立品牌与授权范围",
+        "按业务选择模型和商品",
+        "独立账单与服务身份"
+      ],
+      "boundary": "客户自管服务器时不下发我们的原始上游Key，应经统一供货接口执行。",
+      "priority": "F",
+      "meeting": {
+        "time": "00:32–00:40；00:51–00:54；01:07–01:11",
+        "text": "讨论同代码多实例、其他实现和合作方自建前端；不同经营模式可以使用同一供货体系。"
+      },
+      "mvp": "保留长期位置，当前先用A1和杭州隔离试用身份验证供货合同；不建设全部实例或订阅钱包。",
+      "acceptance": "后续实例依同一身份/接口/费用合同接入，各自客户账和权益独立。",
+      "pending": "实例数量、独立品牌、订阅套餐、地区与收款主体均未纳入本期实施。"
+    },
+    "identity": {
+      "title": "供应商与采购账号",
+      "short": "稳定ID、用途、权限与凭证版本",
+      "color": "teal",
+      "status": "已有基础",
+      "purpose": "复用现有供应商、多账号与加密凭证表，先补身份映射。",
+      "work": [
+        "供应商品牌与实际采购对象",
+        "账号、区域、工作空间和用途",
+        "凭证轮换与出站访问审计"
+      ],
+      "boundary": "不按名称合并账号。Nice Video与NiceRouter、MiniMax中国站与国际站要分别核对。",
+      "priority": "P0",
+      "meeting": {
+        "time": "00:23–00:27；00:38–00:40",
+        "text": "账号、余额、渠道和资料散落；供应链应统一维护，销售合作方拿货但不取得上游凭证。"
+      },
+      "mvp": "关联现有供应商、采购账号和凭证；明确资源账号与对账账号映射以及唯一写入者。",
+      "acceptance": "可从一条供给追到采购账号、凭证用途及费用证据，销售站不必读上游渠道Key。",
+      "pending": "两套supplier_accounts不能凭名称合并；承接人与数据迁移清单待确认。"
+    },
+    "models": {
+      "title": "统一模型目录与供给映射",
+      "short": "官方版本、实现变种、上游映射",
+      "color": "teal",
+      "status": "独立设计模块",
+      "purpose": "回答买的到底是什么：模型家族 → 发布版本 → 实现/变种 → 具体渠道供给。官方身份与开源/闭源属性分别记录。",
+      "work": [
+        "维护官方名称、精确发布版本和出处",
+        "保留上游原始ID、改名、滚动别名的历史映射",
+        "H3等自部署供给分别登记权重、量化、推理与能力；未知保持未知",
+        "同一版本可映射多条供给，记录证据、适用范围与核验状态",
+        "用稳定供给ID和版本连接采购成本模块"
+      ],
+      "boundary": "AutoDL与优云的H3先分别核对，不默认同实现，也不凭渠道不同断言一定不同。用户举的1017、0618仅为命名示例，尚未核实这些精确官方版本。",
+      "priority": "P0",
+      "meeting": {
+        "time": "00:27–00:32；00:55–01:00",
+        "text": "官方精确版本、上游改名和滚动版本需要映射；H3等同名供给的质量与实现可能不同。"
+      },
+      "mvp": "明确家族→发布版本→实现/变种→渠道供给四层；首批服务绑定规格与映射证据。",
+      "acceptance": "同名但不同能力/质量不自动混入容灾；历史调用保留当时映射版本。",
+      "pending": "黑盒权重/精确版本未知就标未知；录音中的型号及日期代号不当作已核实发布事实。"
+    },
+    "prices": {
+      "title": "采购成本与计量规则",
+      "short": "按供给、规格和用量计算进货成本",
+      "color": "amber",
+      "status": "独立设计模块",
+      "purpose": "成本绑定具体渠道供给与采购账号适用范围，不只绑定模型名。原始报价、用量事实、成本核算和实际结算分别保存。",
+      "work": [
+        "文本：输入、输出、缓存等Token及分档口径",
+        "多模态：按张、按次、按条、输出秒或视频Token",
+        "保留分辨率、质量、输入模式、参考素材等条件",
+        "费率、最低收费、取整、附加费、有效期和退款政策版本化",
+        "对同一业务请求计算预计成本；调用后核算并对上游实扣"
+      ],
+      "boundary": "按秒和按Token不能直接比单价；没有真实换算依据不发明比例。缺用量或规则时标估计/未知，不当免费。这是采购成本，不是客户销售价。",
+      "priority": "P0",
+      "meeting": {
+        "time": "00:44–00:48；00:55–00:59",
+        "text": "文档与费用分离；相同接口可以挂不同计费规则，采购价、批发价、零售价需要三层。"
+      },
+      "mvp": "按具体供给和规格维护Token/张/条/秒及参考素材规则，保留来源、币种、用量口径和版本。",
+      "acceptance": "固定一个业务请求能解释报价公式；缺证据显示未知，不按零价执行。",
+      "pending": "首批计量口径、参考素材费、退款条件和真实实扣证据逐条核实。"
+    },
+    "evidence": {
+      "title": "备注与附件",
+      "short": "沟通、协议、测试、合同与凭证",
+      "color": "teal",
+      "status": "规划补充",
+      "purpose": "让资料能按供应商、账号、型号、价格版本找到。",
+      "work": [
+        "当前摘要与追加时间线",
+        "来源链接、附件版本与摘要",
+        "私有文件存储及访问权限"
+      ],
+      "boundary": "密码和Key不放普通备注或索引；源文件变化生成差异，不自动覆盖人工结论。",
+      "priority": "P2",
+      "meeting": {
+        "time": "00:24–00:27；01:00–01:02",
+        "text": "希望定时查余额和报价，API不完整时网页或人工补充；张海潮提醒网页改版会造成错配。"
+      },
+      "mvp": "MVP先保留首批来源快照、更新时间、差异和人工补录；自动轮询全渠道、完整附件管理后续深化。",
+      "acceptance": "采集失败保留旧事实并提示过期；新报价不自动覆盖人工采用的价格和结论。",
+      "pending": "采集周期和失效阈值待确认；备注附件不能包含明文Key、Cookie或客户正文。"
+    },
+    "adopt": {
+      "title": "候选与采用",
+      "short": "收录、核验、采用、暂停分别维护",
+      "color": "teal",
+      "status": "部分已有",
+      "purpose": "供应链足够全，同时让销售站知道哪些供给可以使用。",
+      "work": [
+        "目录发现与账号权限分开",
+        "按规格记录测试覆盖",
+        "明确向哪些站开放"
+      ],
+      "boundary": "不把所有候选自动上架；不恢复每个型号必须先付费测试才能登记的循环门槛。",
+      "priority": "P1",
+      "meeting": {
+        "time": "00:29–00:32；00:59–01:02",
+        "text": "贵和快并不保证质量；采购选择需要历史成功率、时延及能力证据，而不是只看最低价。"
+      },
+      "mvp": "首批供给按能力/规格/来源授权；采用与采集分离；只在已认可的备选范围切换。",
+      "acceptance": "未采用供给不能因低价自动被调用；未知提交不得借容灾生成第二份。",
+      "pending": "全自动优选路由后续再做；本方观测与供应商公布成功率分开。"
+    },
+    "availability": {
+      "title": "可用性与采购选择",
+      "short": "稳定性、限流、预算与来源变更",
+      "color": "teal",
+      "status": "需整合",
+      "purpose": "在满足服务能力和等级的范围内选择采购来源。",
+      "work": [
+        "观测时间和失败原因",
+        "账号可用额度与共享并发",
+        "变更告警及明确的停用状态"
+      ],
+      "boundary": "不能为了便宜切换到未认可的质量分组；余额扫描不能保证跨站实时防超用。",
+      "priority": "P1",
+      "meeting": {
+        "time": "00:29–00:32；00:59–01:02",
+        "text": "贵和快并不保证质量；采购选择需要历史成功率、时延及能力证据，而不是只看最低价。"
+      },
+      "mvp": "首批供给按能力/规格/来源授权；采用与采集分离；只在已认可的备选范围切换。",
+      "acceptance": "未采用供给不能因低价自动被调用；未知提交不得借容灾生成第二份。",
+      "pending": "全自动优选路由后续再做；本方观测与供应商公布成功率分开。"
+    },
+    "products": {
+      "title": "本站商品与上架",
+      "short": "选择卖哪些模型、规格和档位",
+      "color": "blue",
+      "status": "部分已有",
+      "purpose": "每个销售站从授权供应链中挑选自己的商品。",
+      "work": [
+        "模型范围与规格",
+        "销售服务等级",
+        "上架状态与文档"
+      ],
+      "boundary": "一个大而全的供应链可以支撑一个只卖三款模型的站。",
+      "priority": "P1",
+      "meeting": {
+        "time": "00:31–00:34；00:40–00:48",
+        "text": "销售方按目标客户选货与定价；有的只需要少量明确服务，零售价不能泄露真实采购底价。"
+      },
+      "mvp": "A1只采用获授权供给和规格，维护商品及零售价快照；首批商品明确价格和能力边界。",
+      "acceptance": "采购价变更不静默改客户售价；容灾不能临时改价；未定价/未授权规格明确拒绝。",
+      "pending": "参考价加5%只是既有默认建议，人工可覆盖；套餐、复杂促销后续深化。"
+    },
+    "retail": {
+      "title": "销售定价与运营",
+      "short": "零售价、套餐、折扣和促销",
+      "color": "blue",
+      "status": "部分已有",
+      "purpose": "售价由站点经营策略决定，采购成本提供决策依据。",
+      "work": [
+        "默认报价与人工覆盖",
+        "站点价格版本",
+        "未来套餐与活动规则"
+      ],
+      "boundary": "kuadd参考价加5%是可用默认建议，不是所有站永远统一加价。促销可低于成本。",
+      "priority": "P1",
+      "meeting": {
+        "time": "00:31–00:34；00:40–00:48",
+        "text": "销售方按目标客户选货与定价；有的只需要少量明确服务，零售价不能泄露真实采购底价。"
+      },
+      "mvp": "A1只采用获授权供给和规格，维护商品及零售价快照；首批商品明确价格和能力边界。",
+      "acceptance": "采购价变更不静默改客户售价；容灾不能临时改价；未定价/未授权规格明确拒绝。",
+      "pending": "参考价加5%只是既有默认建议，人工可覆盖；套餐、复杂促销后续深化。"
+    },
+    "customer": {
+      "title": "客户与分销策略",
+      "short": "客户等级、代理、返佣与服务",
+      "color": "blue",
+      "status": "目标范围",
+      "purpose": "决定这个站面向谁、怎样销售和维护客户。",
+      "work": [
+        "目标客户与服务承诺",
+        "代理关系和分销规则",
+        "客户分组与运营策略"
+      ],
+      "boundary": "完整分销与返佣尚不作为已实现功能展示；也不归采购供应链定价。",
+      "priority": "P2",
+      "meeting": {
+        "time": "00:38–00:41；01:09–01:11",
+        "text": "不同销售方有自己的客户关系、营销与定价；轻量站可以复用基座。"
+      },
+      "mvp": "本期只支持已明确的内部/杭州试点开通和服务；完整代理返佣、营销和多品牌经营以后深化。",
+      "acceptance": "杭州测试账号的范围、费用与服务边界清楚。",
+      "pending": "分销关系、收款主体、返佣和独立品牌要求另行确认。"
+    },
+    "users": {
+      "title": "本站用户与权限",
+      "short": "注册、账号、Key、额度和资产隔离",
+      "color": "blue",
+      "status": "已有基础",
+      "purpose": "沿用本站身份体系，按站点管理终端客户。",
+      "work": [
+        "注册登录和主子账号",
+        "API Key及模型授权",
+        "本站数据与资产归属"
+      ],
+      "boundary": "A1、A2同代码也各自隔离用户；账号联通需要另行明确决定。",
+      "priority": "P1",
+      "meeting": {
+        "time": "00:32–00:35；01:16–01:17",
+        "text": "各站有各自客户；客户身份、管理员身份与供货服务身份不应混在一起。"
+      },
+      "mvp": "复用现有用户/主子账号与Key权限；确认同站客户隔离、试用范围及服务身份映射。",
+      "acceptance": "客户只能查询/下载自己的任务素材；管理员会话不能替代生成使用的客户Key。",
+      "pending": "完整企业团队/统一跨站账号不进入本期；不因同手机号自动合并钱包。"
+    },
+    "wallet": {
+      "title": "本站钱包与客户账单",
+      "short": "收款、预扣、扣款、退款",
+      "color": "blue",
+      "status": "已有基础",
+      "purpose": "保持客户资金写入者唯一，解释每次零售消费。",
+      "work": [
+        "现有new-api原生扣款退款",
+        "请求价格与消费记录",
+        "支付及自动充值后续补齐"
+      ],
+      "boundary": "采购财务按站归集成本，不另扣这个客户钱包。新引擎不能与旧引擎重复扣款。",
+      "priority": "P1",
+      "meeting": {
+        "time": "00:41–00:45；01:15–01:20；本轮设计确认",
+        "text": "New API位置和数量会中没有定案；本轮已确认保留原客户钱包，不同步重写扣退费。"
+      },
+      "mvp": "复用原生余额、实扣和退款；验证新供货用量/异步任务合同，确认唯一客户资金写入者。",
+      "acceptance": "生成、拒绝、未知、取消/退款及重启后不重复扣款；不得用直接改余额补账。",
+      "pending": "中央是否另需执行引擎取决于兼容验证；不是本轮已决定双New API。"
+    },
+    "delivery": {
+      "title": "本站调用与交付",
+      "short": "对话、素材、任务、下载与费用",
+      "color": "blue",
+      "status": "部分已有",
+      "purpose": "承接客户端请求，并把供应链执行结果交付给客户。",
+      "work": [
+        "流式响应和用量",
+        "媒体提交与查询",
+        "客户资产、下载与错误处理"
+      ],
+      "boundary": "HTTP受理不等于生成成功。任务结果未知不能擅自重新生成。",
+      "priority": "P1",
+      "meeting": {
+        "time": "00:51–00:54；01:07–01:11；本轮用户确认",
+        "text": "内部团队先用顺，同时让杭州合作方能够开号和demo；销售站边界简化但仍承担经营与客户交付。"
+      },
+      "mvp": "逐服务改为调用供货API；保留客户身份、原钱包和既有媒体交付，明确已迁入/原路径。",
+      "acceptance": "内部人员走完剧本处理、生图、视频及查费用；杭州隔离身份可独立演示。",
+      "pending": "杭州当前不自动等于独立品牌站交付；具体第一批规格与人员分工待定。"
+    },
+    "newapi": {
+      "title": "现阶段执行引擎",
+      "short": "A1当前使用new-api",
+      "color": "blue",
+      "status": "当前实现",
+      "purpose": "负责现有站原生鉴权、路由和客户扣款等执行。",
+      "work": [
+        "原生Key和账户额度",
+        "渠道、任务插件及费率配置",
+        "实际消费和退款记录"
+      ],
+      "boundary": "保留A1现有客户钱包与扣退费；中央执行引擎的数量和放置仍须验证，不假定所有站都要重复安装。",
+      "priority": "P1",
+      "meeting": {
+        "time": "00:41–00:45；01:15–01:20；本轮设计确认",
+        "text": "New API位置和数量会中没有定案；本轮已确认保留原客户钱包，不同步重写扣退费。"
+      },
+      "mvp": "复用原生余额、实扣和退款；验证新供货用量/异步任务合同，确认唯一客户资金写入者。",
+      "acceptance": "生成、拒绝、未知、取消/退款及重启后不重复扣款；不得用直接改余额补账。",
+      "pending": "中央是否另需执行引擎取决于兼容验证；不是本轮已决定双New API。"
+    },
+    "resourcepg": {
+      "title": "资源库 PostgreSQL",
+      "short": "供应商、凭证、目录、报价、合同",
+      "color": "teal",
+      "status": "源码与页面已核查",
+      "purpose": "现有resource_library具有独立schema，是拆分起点。",
+      "work": [
+        "供应商与账号凭证",
+        "目录及报价版本",
+        "产品合同与采集记录"
+      ],
+      "boundary": "正式入口仍挂在网关，不等于已经有独立生产供应链服务。",
+      "priority": "P0",
+      "meeting": {
+        "time": "01:18–01:25",
+        "text": "多个数据库的数据存放和责任不清；先分领域边界，不等于立即合库或拆成大量服务。"
+      },
+      "mvp": "逐表确定资源、采购、批发、零售和任务主本；建立ID映射，迁移期间只保留一个权威写入者。",
+      "acceptance": "两侧只按合同访问对方数据；不存在两个后台同时改同一价格后互相覆盖。",
+      "pending": "物理合库不在本期；历史ID及采用/发布耦合需工程盘点。"
+    },
+    "gatewaydb": {
+      "title": "网关 MySQL",
+      "short": "采用成本、销售价、归属及对账",
+      "color": "blue",
+      "status": "源码已核查",
+      "purpose": "当前采购事实和销售运行状态仍有一部分存放在这里。",
+      "work": [
+        "price_rules与sale_prices",
+        "渠道与产品发布绑定",
+        "供应商资金证据和另一套账号表"
+      ],
+      "boundary": "不能按同名把两套supplier_accounts直接合并；迁移要保留ID与历史归属。",
+      "priority": "P0",
+      "meeting": {
+        "time": "01:18–01:25",
+        "text": "多个数据库的数据存放和责任不清；先分领域边界，不等于立即合库或拆成大量服务。"
+      },
+      "mvp": "逐表确定资源、采购、批发、零售和任务主本；建立ID映射，迁移期间只保留一个权威写入者。",
+      "acceptance": "两侧只按合同访问对方数据；不存在两个后台同时改同一价格后互相覆盖。",
+      "pending": "物理合库不在本期；历史ID及采用/发布耦合需工程盘点。"
+    },
+    "nativedb": {
+      "title": "new-api MySQL",
+      "short": "客户Key、余额、日志、任务、渠道",
+      "color": "blue",
+      "status": "源码已核查",
+      "purpose": "现阶段客户钱账的核心执行数据。",
+      "work": [
+        "客户原生余额与实扣",
+        "渠道与路由能力",
+        "原生调用和任务记录"
+      ],
+      "boundary": "网关除了HTTP还直接读这些表；应把依赖收拢到站点适配层。",
+      "priority": "P1",
+      "meeting": {
+        "time": "00:41–00:45；01:15–01:20；本轮设计确认",
+        "text": "New API位置和数量会中没有定案；本轮已确认保留原客户钱包，不同步重写扣退费。"
+      },
+      "mvp": "复用原生余额、实扣和退款；验证新供货用量/异步任务合同，确认唯一客户资金写入者。",
+      "acceptance": "生成、拒绝、未知、取消/退款及重启后不重复扣款；不得用直接改余额补账。",
+      "pending": "中央是否另需执行引擎取决于兼容验证；不是本轮已决定双New API。"
+    },
+    "assets": {
+      "title": "内容与资产存储",
+      "short": "客户正文、媒体任务和产物",
+      "color": "neutral",
+      "status": "已有基础",
+      "purpose": "保留客户调用内容、素材和交付记录的独立归属。",
+      "work": [
+        "gateway_content及任务记录",
+        "客户鉴权下载",
+        "资源测试的独立加密文件"
+      ],
+      "boundary": "客户资产与供应商商务附件不是同一类资料，不因拆供应链而全量复制。",
+      "priority": "P1",
+      "meeting": {
+        "time": "设计确认：资产边界；会议关联00:55–01:02",
+        "text": "原稿强调多模态差异；已批准设计进一步区分供应商资料、执行临时产物和客户长期资产。"
+      },
+      "mvp": "保留现有内容/资产能力，按用途与身份授权；供应链只持有履约所需副本，销售站维护客户长期资产。",
+      "acceptance": "私有正文、供应商附件和客户产物不能因拆分混成同一权限域。",
+      "pending": "保留期和清理确认配置待定；已有可用下载权限不可退化。"
+    },
+    "p0": {
+      "title": "① 冻结样本、主本与接口",
+      "short": "先定身份、模型、三价和错误合同",
+      "color": "teal",
+      "status": "已批准范围 · 推进建议",
+      "purpose": "冻结首批样本及供货合同；两条开发线以假服务并行验证。",
+      "work": [
+        "冻结首批样本及供货合同；两条开发线以假服务并行验证。",
+        "有明确版本、唯一写入者和验收请求。"
+      ],
+      "boundary": "负责人及规格待三人确认。",
+      "priority": "P0",
+      "meeting": {
+        "time": "本轮已批准设计：第一批",
+        "text": "先定数据主本、身份、供给/计量和接口合同，不从新空库开始。"
+      },
+      "mvp": "冻结首批样本及供货合同；两条开发线以假服务并行验证。",
+      "acceptance": "有明确版本、唯一写入者和验收请求。",
+      "pending": "负责人及规格待三人确认。"
+    },
+    "p1": {
+      "title": "② 独立供货服务试点",
+      "short": "目录、调用、任务与费用实际贯通",
+      "color": "teal",
+      "status": "已批准范围 · 推进建议",
+      "purpose": "独立启动和站点鉴权，先接一条主力服务的任务与费用。",
+      "work": [
+        "独立启动和站点鉴权，先接一条主力服务的任务与费用。",
+        "不依赖销售管理员会话，能完成实际供货。"
+      ],
+      "boundary": "原资源库测试夹具不能直接当生产服务。",
+      "priority": "P1",
+      "meeting": {
+        "time": "本轮已批准设计：第二批",
+        "text": "独立供货MVP需要真正运行和执行，不能只开放目录。"
+      },
+      "mvp": "独立启动和站点鉴权，先接一条主力服务的任务与费用。",
+      "acceptance": "不依赖销售管理员会话，能完成实际供货。",
+      "pending": "原资源库测试夹具不能直接当生产服务。"
+    },
+    "p2": {
+      "title": "③ 原销售站渐进接入",
+      "short": "适配原钱包，逐服务迁入",
+      "color": "amber",
+      "status": "已批准范围 · 推进建议",
+      "purpose": "验证任务/用量协议与原钱包扣退费，逐服务迁入。",
+      "work": [
+        "验证任务/用量协议与原钱包扣退费，逐服务迁入。",
+        "异常、退款及同站/跨站隔离均有证明。"
+      ],
+      "boundary": "引擎适配由工程验证，不能另造钱包绕过。",
+      "priority": "P1",
+      "meeting": {
+        "time": "本轮已批准设计：第三批",
+        "text": "原销售站应渐进接入，原客户钱账保持。"
+      },
+      "mvp": "验证任务/用量协议与原钱包扣退费，逐服务迁入。",
+      "acceptance": "异常、退款及同站/跨站隔离均有证明。",
+      "pending": "引擎适配由工程验证，不能另造钱包绕过。"
+    },
+    "p3": {
+      "title": "④ 内部验收与杭州演示",
+      "short": "业务交付、查费、隔离和回退",
+      "color": "blue",
+      "status": "已批准范围 · 推进建议",
+      "purpose": "真实操作验收、费用核对、发布与回退演练；其他模型按范围继续留旧路径。",
+      "work": [
+        "真实操作验收、费用核对、发布与回退演练；其他模型按范围继续留旧路径。",
+        "用户能自己找到结果与费用，在途任务不因回退丢失。"
+      ],
+      "boundary": "真实付费测试预算另行确认。",
+      "priority": "P1",
+      "meeting": {
+        "time": "本轮已批准设计：第四批",
+        "text": "内部业务可用与杭州演示才是阶段交付。"
+      },
+      "mvp": "真实操作验收、费用核对、发布与回退演练；其他模型按范围继续留旧路径。",
+      "acceptance": "用户能自己找到结果与费用，在途任务不因回退丢失。",
+      "pending": "真实付费测试预算另行确认。"
+    },
+    "p4": {
+      "title": "远期扩展，保留蓝图",
+      "short": "全模型、多实例、复杂经营以后再定",
+      "color": "violet",
+      "status": "已批准范围 · 推进建议",
+      "purpose": "当前不排全量迁移；依据首批运行证据再决定扩展。",
+      "work": [
+        "当前不排全量迁移；依据首批运行证据再决定扩展。",
+        "扩展不能破坏首期身份、费用及任务合同。"
+      ],
+      "boundary": "时间与范围未承诺。",
+      "priority": "F",
+      "meeting": {
+        "time": "本轮明确非本期范围",
+        "text": "完整多站平台、全模型、复杂订阅和自动经营留在长期蓝图。"
+      },
+      "mvp": "当前不排全量迁移；依据首批运行证据再决定扩展。",
+      "acceptance": "扩展不能破坏首期身份、费用及任务合同。",
+      "pending": "时间与范围未承诺。"
+    },
+    "opsAuth": {
+      "title": "站点身份与供货权限",
+      "short": "专属Key、模型清单、预算与限流",
+      "color": "ops",
+      "status": "规划能力",
+      "purpose": "运营支撑为每个销售实例建立独立site_id和服务身份。一个站点Key可以访问多组API，服务端按权限决定范围。",
+      "work": [
+        "获授权供给、规格与环境",
+        "调用、运营只读、财务等用途权限",
+        "并发、速率、预算、停用与轮换"
+      ],
+      "boundary": "本站客户Key不等于站点供货Key；身份来自鉴权，不相信客户端随意填写的site_id。",
+      "priority": "P0",
+      "meeting": {
+        "time": "01:03–01:07；01:16–01:17",
+        "text": "既希望统一Key使用体验，也讨论了管理凭证与一组子Key；后台管理人员和客户身份要区分。"
+      },
+      "mvp": "稳定partner/site身份；独立服务鉴权，目录/调用/日志/费用按权限开放，Key可轮换。",
+      "acceptance": "伪造site_id无效；跨站请求拒绝；Key轮换不改变旧任务和价格合同归属。",
+      "pending": "试点身份、允许服务、额度和角色权限待配置；管理Key不进浏览器。"
+    },
+    "opsLogs": {
+      "title": "统一调用与费用关联",
+      "short": "请求ID、尝试、任务与账务引用",
+      "color": "ops",
+      "status": "规划能力",
+      "purpose": "运营支撑统一维护调用索引和查询入口，关联供应链及各销售站产生的事实。",
+      "work": [
+        "platform_request_id关联全链路",
+        "一个调用可有多个attempt与上游task",
+        "关联供货费用和本站客户扣款/退款",
+        "站内拒绝事件也按统一格式归集"
+      ],
+      "boundary": "日志系统不再建平行扣费账本。上游实扣、供货费用、客户扣款分别引用各自权威来源。",
+      "priority": "P1",
+      "meeting": {
+        "time": "00:49–00:51；01:23–01:25",
+        "text": "销售站可能在到达平台前拒绝；平台执行与站内事件需要统一关联，但事实来源各有归属。"
+      },
+      "mvp": "平台ID关联本地请求、尝试、上游任务和三类费用；拒绝、失败、未知也有记录。",
+      "acceptance": "从一个请求能解释做了什么、产物在哪、费用为什么待核；查询只返回本站获授权记录。",
+      "pending": "站内未到达供货的请求允许平台ID为空；正文与元数据权限、保留期分开。"
+    },
+    "opsRisk": {
+      "title": "运行风控与告警",
+      "short": "横向公共能力，不另建一套大平台",
+      "color": "ops",
+      "status": "规划能力",
+      "purpose": "统一监测执行状态与费用完整性，按站点隔离查询和排障。",
+      "work": [
+        "未知提交保留原请求恢复",
+        "费用延迟、差异、低余额告警",
+        "分站日志权限、正文与元数据分开"
+      ],
+      "boundary": "跨境与不同站的客户正文不默认汇总到一个物理库；财务确认和付款仍须相应权限。",
+      "priority": "P1",
+      "meeting": {
+        "time": "01:11–01:18",
+        "text": "运营支撑的定义在会中仍不清楚；限流属于调用执行的一部分，不能把所有技术模块塞进独立大系统。"
+      },
+      "mvp": "作为横向能力提供预算/限流、未知任务、交付失败、费用差异的可见性与处置入口。",
+      "acceptance": "管理员知道该查原任务、恢复取件还是核账；故障不能默认成功、免费或继续无限调用。",
+      "pending": "阈值待真实基线；不为本期额外建立大型监控平台或平行账本。"
+    },
+    "trade": {
+      "title": "批发费用与供货账",
+      "short": "独立于上游采购账与客户零售账",
+      "color": "amber",
+      "status": "规划能力",
+      "purpose": "平台按合作方合同确认批发费用，记录应付、待核和退款调整；不将真实采购底价直接交给合作方。",
+      "work": [
+        "站点适用供货规则与版本",
+        "每次调用的费用、补扣和退款",
+        "站点结算单与差异明细"
+      ],
+      "boundary": "采购成本、批发价、零售价分别维护。批发费用按可交付与可信计量确认；结果未知不重发、不猜零费用。",
+      "priority": "P1",
+      "meeting": {
+        "time": "00:46–00:50；设计确认：批发费用状态矩阵",
+        "text": "会议明确三价和各自记账；后续已批准以“结果可交付且计量齐备”确认批发应付。"
+      },
+      "mvp": "受理仅估算/占用；拒绝或失败不记成功服务费；未知待核；确认后用关联调整记录退款和迟到费用。",
+      "acceptance": "采购实扣与批发费用不混账；同事件重送不重复入账，调价不改旧记录。",
+      "pending": "文本流式部分交付须有可信计量；最终不可交付依合同调整；上游扣费不自动转嫁。"
+    },
+    "invokeApi": {
+      "title": "供给与调用接口",
+      "short": "目录、规格、提交、查询、产物",
+      "color": "teal",
+      "status": "目标接口组",
+      "purpose": "销售站用专属服务身份调用供应链获授权供给。",
+      "work": [
+        "目录与能力合同",
+        "幂等提交和平台请求ID",
+        "任务查询与产物交付"
+      ],
+      "boundary": "查询任务不是重新生成；供应商原始凭证不发给客户站浏览器。",
+      "priority": "P1",
+      "meeting": {
+        "time": "00:23–00:24；01:03–01:07；01:23–01:25",
+        "text": "快速接入新上游是核心诉求；仅搬资料并不能向下游提供服务，需要明确且可用的接口。"
+      },
+      "mvp": "抽出可独立运行的供货服务，复用已有适配；先验证一条完整执行链，再迁入其余首批服务。",
+      "acceptance": "实际调用能返回可交付结果和可信用量，并被原销售站正确扣退费。",
+      "pending": "现有standalone是测试夹具；生产入口、服务鉴权和新任务/用量合同兼容需补。"
+    },
+    "logsApi": {
+      "title": "日志与运营接口",
+      "short": "调用明细、状态、尝试与统计",
+      "color": "ops",
+      "status": "目标接口组",
+      "purpose": "A/B/C站可以各自做界面，但查询同一套运营合同下的本站记录。",
+      "work": [
+        "请求ID查询",
+        "任务和尝试关联",
+        "错误和用量筛选"
+      ],
+      "boundary": "只返回本站授权记录；客户正文与调用元数据分别授权。",
+      "priority": "P1",
+      "meeting": {
+        "time": "00:49–00:51；01:23–01:25",
+        "text": "销售站可能在到达平台前拒绝；平台执行与站内事件需要统一关联，但事实来源各有归属。"
+      },
+      "mvp": "平台ID关联本地请求、尝试、上游任务和三类费用；拒绝、失败、未知也有记录。",
+      "acceptance": "从一个请求能解释做了什么、产物在哪、费用为什么待核；查询只返回本站获授权记录。",
+      "pending": "站内未到达供货的请求允许平台ID为空；正文与元数据权限、保留期分开。"
+    },
+    "chargesApi": {
+      "title": "计费与查费用接口",
+      "short": "拿货价、费用、退款和调整",
+      "color": "amber",
+      "status": "目标接口组",
+      "purpose": "返回这个站的供货价格版本、实际费用事件和确认状态。",
+      "work": [
+        "站点适用拿货价",
+        "请求费用与调整事件",
+        "费用状态、币种和版本"
+      ],
+      "boundary": "不会返回其他站采购细节，不替A1决定客户销售价或直接扣A1客户钱包。",
+      "priority": "P1",
+      "meeting": {
+        "time": "00:46–00:50；设计确认：批发费用状态矩阵",
+        "text": "会议明确三价和各自记账；后续已批准以“结果可交付且计量齐备”确认批发应付。"
+      },
+      "mvp": "受理仅估算/占用；拒绝或失败不记成功服务费；未知待核；确认后用关联调整记录退款和迟到费用。",
+      "acceptance": "采购实扣与批发费用不混账；同事件重送不重复入账，调价不改旧记录。",
+      "pending": "文本流式部分交付须有可信计量；最终不可交付依合同调整；上游扣费不自动转嫁。"
+    },
+    "settleApi": {
+      "title": "结算与对账接口",
+      "short": "结算单、明细、差异与确认",
+      "color": "amber",
+      "status": "目标接口组",
+      "purpose": "为销售站和供应链提供统一对账入口。",
+      "work": [
+        "结算单及明细导出",
+        "费用事件去重和关联",
+        "差异查询与按权限确认"
+      ],
+      "boundary": "查账和结算确认是不同权限；具备调用Key不代表有自动付款或修改账单权限。",
+      "priority": "P2",
+      "meeting": {
+        "time": "00:48–00:50；01:15–01:18",
+        "text": "计费和结算是不同职责，账期与收款主体会带来额外复杂度。"
+      },
+      "mvp": "MVP先有逐笔费用引用、差异查询与人工核对；完整结算单、账期、授信和自动确认后续深化。",
+      "acceptance": "调用与退款可逐笔核对，缺证据显示待核；查询Key不获得付款权限。",
+      "pending": "收款、开票、账期和确认权限单独定；不把完整结算产品作为首批调用前提。"
+    },
+    "teams": {
+      "title": "本站团队与鉴权",
+      "short": "团队、成员、客户Key及额度",
+      "color": "blue",
+      "status": "部分已有",
+      "purpose": "由A1管理自己的客户组织、授权和额度关系。",
+      "work": [
+        "主子账号及团队角色",
+        "客户Key、模型范围与权限",
+        "团队预算归属和使用限制"
+      ],
+      "boundary": "完整企业团队是待细化功能；现有子账号不等于已实现所有团队规则。",
+      "priority": "P1",
+      "meeting": {
+        "time": "00:32–00:35；01:16–01:17",
+        "text": "各站有各自客户；客户身份、管理员身份与供货服务身份不应混在一起。"
+      },
+      "mvp": "复用现有用户/主子账号与Key权限；确认同站客户隔离、试用范围及服务身份映射。",
+      "acceptance": "客户只能查询/下载自己的任务素材；管理员会话不能替代生成使用的客户Key。",
+      "pending": "完整企业团队/统一跨站账号不进入本期；不因同手机号自动合并钱包。"
+    },
+    "siteReconcile": {
+      "title": "A1拿货对账与利润",
+      "short": "关联拿货成本和客户销售账",
+      "color": "blue",
+      "status": "规划能力",
+      "purpose": "A1以平台请求ID把本站销售收入与供应链拿货费用对应起来。",
+      "work": [
+        "本地请求ID到平台请求ID",
+        "客户净扣款与拿货净成本",
+        "暂估/已确认毛利、迟到退款和调整"
+      ],
+      "boundary": "一次逻辑调用可有多条费用事件。毛利不是扣除全部运营费用后的净利润，缺成本不填零。",
+      "priority": "P1",
+      "meeting": {
+        "time": "00:45–00:50",
+        "text": "采购成本、批发价、零售收入各自核对；销售站利润应按本站拿货费用计算。"
+      },
+      "mvp": "按平台请求ID关联零售净扣款与供货净费用；暂估、确认和调整分开显示。",
+      "acceptance": "能解释一笔利润的币种/单位/价格版本；费用未知不能显示零成本或已盈利。",
+      "pending": "毛差不等于扣除带宽、研发、税费后的净利润；预充值未用不直接算已赚收入。"
+    },
+    "C1": {
+      "title": "C1 · 订阅销售站",
+      "short": "独立用户、订阅订单与权益",
+      "color": "copper",
+      "status": "规划实例",
+      "purpose": "C体系展示另一种销售方式：客户按周期订阅，站点仍按实际调用向供应链拿货。",
+      "work": [
+        "订阅商品与订单",
+        "独立客户、权限和周期账单",
+        "同一套站点身份、日志和供货接口"
+      ],
+      "boundary": "不要求逐次向客户收费，也不强制使用new-api。订阅站仍然有每次调用的采购成本。",
+      "priority": "F",
+      "meeting": {
+        "time": "00:32–00:40；00:51–00:54；01:07–01:11",
+        "text": "讨论同代码多实例、其他实现和合作方自建前端；不同经营模式可以使用同一供货体系。"
+      },
+      "mvp": "保留长期位置，当前先用A1和杭州隔离试用身份验证供货合同；不建设全部实例或订阅钱包。",
+      "acceptance": "后续实例依同一身份/接口/费用合同接入，各自客户账和权益独立。",
+      "pending": "实例数量、独立品牌、订阅套餐、地区与收款主体均未纳入本期实施。"
+    },
+    "subscription": {
+      "title": "订阅套餐与权益",
+      "short": "周期、额度、权限和续订",
+      "color": "copper",
+      "status": "规划能力",
+      "purpose": "C站维护客户购买的订阅与权益，不由采购供应链决定销售套餐。",
+      "work": [
+        "周期订单和可用模型",
+        "套餐额度、权益消耗",
+        "续订、到期及退款规则"
+      ],
+      "boundary": "无限、按次或按额度均需明确商业规则；不能用站点供货Key代替客户订阅校验。",
+      "priority": "F",
+      "meeting": {
+        "time": "00:32–00:40；00:51–00:54；01:07–01:11",
+        "text": "讨论同代码多实例、其他实现和合作方自建前端；不同经营模式可以使用同一供货体系。"
+      },
+      "mvp": "保留长期位置，当前先用A1和杭州隔离试用身份验证供货合同；不建设全部实例或订阅钱包。",
+      "acceptance": "后续实例依同一身份/接口/费用合同接入，各自客户账和权益独立。",
+      "pending": "实例数量、独立品牌、订阅套餐、地区与收款主体均未纳入本期实施。"
+    },
+    "subscriptionCost": {
+      "title": "周期收入与采购消耗",
+      "short": "按周期核算，再按规则分摊",
+      "color": "copper",
+      "status": "规划能力",
+      "purpose": "按订阅周期对照收入与真实采购消耗。",
+      "work": [
+        "周期销售收入",
+        "请求级采购成本汇总",
+        "退款、权益和成本差异"
+      ],
+      "boundary": "没有逐次客户扣款不代表零成本；不能把整月订阅费重复算进每次调用。",
+      "priority": "F",
+      "meeting": {
+        "time": "00:32–00:40；00:51–00:54；01:07–01:11",
+        "text": "讨论同代码多实例、其他实现和合作方自建前端；不同经营模式可以使用同一供货体系。"
+      },
+      "mvp": "保留长期位置，当前先用A1和杭州隔离试用身份验证供货合同；不建设全部实例或订阅钱包。",
+      "acceptance": "后续实例依同一身份/接口/费用合同接入，各自客户账和权益独立。",
+      "pending": "实例数量、独立品牌、订阅套餐、地区与收款主体均未纳入本期实施。"
+    },
+    "clientsA": {
+      "title": "A体系各实例自己的客户",
+      "short": "A1/A2/A3用户和钱包分别隔离",
+      "color": "blue",
+      "status": "按站隔离",
+      "purpose": "同代码体系内，各实例仍经营自己的客户。",
+      "work": [
+        "本站身份、Key和团队",
+        "本站销售策略与钱包",
+        "本站账单和资产"
+      ],
+      "boundary": "这里没有跨站共享客户钱包；各实例可复用代码而保持数据隔离。",
+      "priority": "P1",
+      "meeting": {
+        "time": "00:32–00:35；本轮用户确认",
+        "text": "内部先用顺；杭州合作方能够开号演示；长期各实例有自己的客户。"
+      },
+      "mvp": "先验收A1内部用户和杭州试用身份；其他A实例客户仅保留蓝图。",
+      "acceptance": "无需开发者逐步代操作即可完成获准工作流，并找到任务与费用。",
+      "pending": "实际样本、使用频率和失败成本要现场记录，不用目录数量证明产品价值。"
+    },
+    "clientsB": {
+      "title": "B体系各实例自己的客户",
+      "short": "B1/B2/B3各自客户及账单",
+      "color": "violet",
+      "status": "按站隔离",
+      "purpose": "B体系可以自选执行实现，但统一供货与日志合同。",
+      "work": [
+        "本站客户和权限",
+        "本站计费与交付",
+        "本站运营查询"
+      ],
+      "boundary": "自研不能绕开供货鉴权，也不能读取其他站日志。",
+      "priority": "F",
+      "meeting": {
+        "time": "00:32–00:40；00:51–00:54；01:07–01:11",
+        "text": "讨论同代码多实例、其他实现和合作方自建前端；不同经营模式可以使用同一供货体系。"
+      },
+      "mvp": "保留长期位置，当前先用A1和杭州隔离试用身份验证供货合同；不建设全部实例或订阅钱包。",
+      "acceptance": "后续实例依同一身份/接口/费用合同接入，各自客户账和权益独立。",
+      "pending": "实例数量、独立品牌、订阅套餐、地区与收款主体均未纳入本期实施。"
+    },
+    "clientsC": {
+      "title": "C体系的订阅客户",
+      "short": "订阅订单、权益与周期账单",
+      "color": "copper",
+      "status": "按站隔离",
+      "purpose": "订阅客户购买的是本站定义的套餐和权益。",
+      "work": [
+        "客户订阅身份",
+        "权益使用",
+        "本站周期账单"
+      ],
+      "boundary": "供应链只看到该站的采购请求，不替客户订阅计价。",
+      "priority": "F",
+      "meeting": {
+        "time": "00:32–00:40；00:51–00:54；01:07–01:11",
+        "text": "讨论同代码多实例、其他实现和合作方自建前端；不同经营模式可以使用同一供货体系。"
+      },
+      "mvp": "保留长期位置，当前先用A1和杭州隔离试用身份验证供货合同；不建设全部实例或订阅钱包。",
+      "acceptance": "后续实例依同一身份/接口/费用合同接入，各自客户账和权益独立。",
+      "pending": "实例数量、独立品牌、订阅套餐、地区与收款主体均未纳入本期实施。"
+    },
+    "wholesale": {
+      "title": "合作方合同与批发定价",
+      "short": "合作方可见的是批发价，不是采购底价",
+      "color": "amber",
+      "status": "已批准范围 · 推进建议",
+      "purpose": "独立维护合作方合同与批发方案；价格绑定稳定合作方/站点身份，Key仅承载授权。",
+      "work": [
+        "合作方身份与合同适用范围",
+        "批发价格方案、规格条件与生效版本",
+        "价格发布、变更及访问审计"
+      ],
+      "boundary": "本模块不修改上游原始报价，也不替销售站决定客户零售价。",
+      "priority": "P0",
+      "meeting": {
+        "time": "00:45–00:48",
+        "text": "张海潮指出不能把真实拿货底价交给合作方；随后明确采购成本、批发价、零售价三层及差异化供货价。"
+      },
+      "mvp": "独立维护合作方合同与批发方案；价格绑定稳定合作方/站点身份，Key仅承载授权。",
+      "acceptance": "同一供给可给不同合作方不同报价；普通合作方看不到采购底价；改采购价不改历史合同价。",
+      "pending": "初始批发价、默认方案、促销与预算由卓光确认；不默认统一加价或自动授信。"
+    },
+    "contract": {
+      "title": "供货合同与协作边界",
+      "short": "明确接口、数据主本及唯一写入者",
+      "color": "teal",
+      "status": "已批准范围 · 推进建议",
+      "purpose": "冻结目录、提交、任务、用量/费用和错误合同；两条开发线使用同一假供货服务并行开发。",
+      "work": [
+        "两侧接口与错误语义",
+        "数据主本、ID和版本关系",
+        "兼容边界、假服务与契约验收"
+      ],
+      "boundary": "同仓开发不等于共享数据主本；逻辑模块清晰不要求一框一进程。",
+      "priority": "P0",
+      "meeting": {
+        "time": "01:03–01:07；01:20–01:25",
+        "text": "一个供货身份访问调用、日志和费用；业务层边界要清楚，但初期应用数不宜过多。"
+      },
+      "mvp": "冻结目录、提交、任务、用量/费用和错误合同；两条开发线使用同一假供货服务并行开发。",
+      "acceptance": "供货不依赖销售管理员会话或客户库；销售通过接口拿货，不跨库维护上游。",
+      "pending": "执行引擎放置和具体适配由工程验证；不能预设中心必须再部署一套New API。"
+    },
+    "tasks": {
+      "title": "执行任务与恢复",
+      "short": "稳定ID、异步任务、未知与重启恢复",
+      "color": "teal",
+      "status": "已批准范围 · 推进建议",
+      "purpose": "持久化平台请求、尝试、上游任务；区分受理、执行、未知、生成和可交付，重启恢复原任务。",
+      "work": [
+        "平台请求与上游任务映射",
+        "任务状态、幂等和执行租约",
+        "重启、未知提交与回退恢复"
+      ],
+      "boundary": "HTTP受理、生成成功和可交付是不同状态；不确定时不能自动再生成。",
+      "priority": "P1",
+      "meeting": {
+        "time": "00:49–00:51；01:23–01:25",
+        "text": "调用日志要跨边界关联，应用过度拆分会增加异步通信与故障排查难度。"
+      },
+      "mvp": "持久化平台请求、尝试、上游任务；区分受理、执行、未知、生成和可交付，重启恢复原任务。",
+      "acceptance": "同幂等键只对应原逻辑请求；提交断线不自动新建生成；回退不丢在途任务。",
+      "pending": "具体worker/引擎复用方案待工程确认；成功率必须有窗口、样本量与分母。"
+    },
+    "handoff": {
+      "title": "素材与产物交接",
+      "short": "供应链临时产物 → 销售站长期归档",
+      "color": "teal",
+      "status": "已批准范围 · 推进建议",
+      "purpose": "供应链负责上游素材映射、取件与临时产物；返回受控引用；销售站负责客户归属与长期归档。",
+      "work": [
+        "参考素材到上游的受控映射",
+        "上游产物取件与临时存储",
+        "向销售站交接及归档确认"
+      ],
+      "boundary": "供应链守站点隔离，销售站守客户归属；临时产物与客户长期素材库是不同生命周期。",
+      "priority": "P1",
+      "meeting": {
+        "time": "会议关联：00:55–01:02；设计补充：office-hours审阅",
+        "text": "会议讨论了多模态实现差异；后续设计审阅补齐了“生成后由谁取件、归档和交付”的边界。"
+      },
+      "mvp": "供应链负责上游素材映射、取件与临时产物；返回受控引用；销售站负责客户归属与长期归档。",
+      "acceptance": "跨站及同站两客户不能越权取件；归档失败只重试归档，不再次生成或计费。",
+      "pending": "临时保留上限、交接确认及清理规则启用前明确；原始供应商链接和凭证不下发。"
+    },
+    "mvpGate": {
+      "title": "MVP验收与待定项",
+      "short": "内部用顺＋杭州演示＋两侧可协作",
+      "color": "ops",
+      "status": "已批准范围 · 推进建议",
+      "purpose": "先冻结首批真实业务样本、接口主本和验收规则；以目录→调用→任务→交付→费用闭环评估。",
+      "work": [
+        "首批业务样本与验收口径",
+        "已确认范围及五项开放决定",
+        "内部使用、杭州演示和可恢复性证据"
+      ],
+      "boundary": "本节点是规划检查入口，不是新增线上业务子系统，也不是新的任务状态台账。",
+      "priority": "P0",
+      "meeting": {
+        "time": "本轮用户确认；CEO评审T1–T5",
+        "text": "用户明确内部可用与三人分工是阶段目标；拆供应链本身是里程碑，不是拖到以后再做。"
+      },
+      "mvp": "先冻结首批真实业务样本、接口主本和验收规则；以目录→调用→任务→交付→费用闭环评估。",
+      "acceptance": "文本/图像/视频首批样本全部贯通；能核对未知、重复、退款和回退。",
+      "pending": "五项待定：精确型号规格、预算/价格/保留上限、分工、引擎适配、部署区域。"
+    }
+  },
+  "reports": [
+    {
+      "title": "已批准 · 独立供应链MVP设计",
+      "html": "<p>日期：2026-11-07，北京时间。流程：gstack office-hours。</p><p>状态：APPROVED。用户于 2026-11-07 明确确认设计稿（含资产边界与首期批发费用规则），进入 CEO 评审；不构成部署或收费操作授权。</p><p>仓库：ailab-co/gateway-ext；研究分支：codex/lingkeai-api-discovery-20261003。</p><h2>业务目标与需求证据</h2><p>第一使用方是公司内部制作团队，首先让日常模型调用顺畅；并行支持杭州合作方开号、演示和销售准备。用户已明确：供应链 MVP、供货接口和销售站职责拆分本身就是里程碑，使卓光、谢海、张海潮能分工维护。</p><p>现状痛点来自原稿和用户回答：供应商账号、余额、报价分散；同名模型的规格、质量和计费不同；接入与销售逻辑交织，协作和改动困难。外部付费量、当前内部用量和失败成本尚未独立核验，不用于收入预测。</p><h2>已确定的路线</h2><p>采用 B：独立供货服务，现有销售站分批接入；可以同仓开发，先不强制分仓。不是从零重写：复用 resource_library、已有供应商适配、任务、价格版本及核账能力，保留销售站的 new-api 客户钱包和扣退费路径。</p><p>A“现有应用内模块化”未选，原因是运行与发布仍绑定；C“完整目标平台建成后整体切换”未选，原因是交付及迁移范围过大。</p><h2>MVP 边界</h2><p>供应链维护供应商与凭证、模型/实现/供给映射、采购价格、合作方批发价、上游执行与任务，以及采购/供货费用事实。销售站保留客户身份、终端 Key、商品、零售价、客户钱包及用户体验。统一运营先复用模块和查询合同，不另建大型运营平台。</p><pre>内部用户 / 杭州试用身份\n  → 现有销售站：客户权限、零售价、原客户钱包\n  → 独立供货服务：站点鉴权、目录、批发价、执行、任务、费用\n  → 已核验上游\n</pre><p>首批建议各选一个真实在用的文本、生图、视频服务及明确规格，作为有限试点；精确清单由卓光与内部使用者确认后冻结，不扩成全量模型迁移。每类可分批启用，全部选定样本贯通后才宣布本阶段完成。</p><p>供货服务不能依赖销售站管理员会话或直读其客户库；销售站经 API 获取获授权目录、调用、任务和费用，不直读供应链数据库或持有迁入服务的供应商凭证。暂未迁入的模型维持原路径并明确标识，不混称已独立。</p><h2>价格、身份与可靠性</h2><p>- 采购成本、合作方批发价、终端零售价各有版本和权限。报价绑定稳定合作方/站点身份与合同，Key 轮换不改变历史；普通合作方只见自己的批发价和费用。</p><p>- 站点请求用稳定幂等标识，平台受理后生成关联 ID；一次请求可关联多次尝试、任务、费用及退款。客户端填入的站点 ID 不能替代鉴权归属。</p><p>- 供应链记录采购成本和供货费用，销售站继续由现有引擎扣退客户款，禁止双重扣款。批发价不能因实际路由变化而静默重定；采购未知、暂估与确认状态分开。</p><p>- 首期杭州通过现有销售站的隔离账户/Key 演示，不自动解释为独立品牌站交付。供货试点仅授权内部及明确试点身份，以有限额度/预算控制，不开放自动授信或新增在线支付；具体阈值启用前确认。</p><p>- 明确失败、提交未知、处理中、成功及下载失败分别记录；未知先查原请求，不自动重发。任务完成但归档失败只恢复归档，不重新生成。错误及账务事件可靠留存，正文权限与元数据分开。</p><h3>素材与产物的责任边界</h3><p>供应链持有执行任务、上游参考素材映射和待交付产物的权威记录，负责上游取件、临时归档及取件失败恢复；销售站继续持有客户素材库、客户任务归属和长期资产归档的权威记录。两侧保存的是不同生命周期的副本，不共同修改一份资产主本。</p><p>销售站先验证客户对素材/任务的访问权，再用站点身份提交；平台只接受该身份范围内的素材引用。供应链返回站点范围内的受控产物引用，销售站经服务鉴权取件或代理下载，再向已验证的所属客户交付；不把站点 Key、供应商凭证或原始供应商下载链接交给终端客户。销售站不得将任意客户端提供的任务 ID 直接透传查询。</p><p>跨站隔离由供应链验证，同站不同客户的任务、素材和产物归属由销售站验证。长期归档失败由销售站恢复，从供应链原任务重新取件，不重新调用生成；供应链收到归档确认前不能按正常已交付状态清理临时副本，异常保留上限及到期处理在启用前配置并告警。验收包含同站两客户及跨站的非法素材引用、任务查询和下载。</p><h3>首期批发费用规则提案（需随设计稿确认）</h3><p>批发费用与上游实扣分别记。建议以“合同约定结果已可交付且用量足够计价”为批发应付成立条件，禁止仅凭受理或 HTTP 200 确认费用：</p><div class=\"table-wrap\"><table><tr><th>状态</th><th>批发费用</th><th>处理责任</th></tr><tr><td>已受理、尚未完成</td><td>可记录估算及预算占用，不确认最终应付</td><td>供应链跟踪原请求</td></tr><tr><td>明确拒绝或生成失败</td><td>不形成成功服务费用，释放对应占用；上游若仍扣费作为采购差异保留</td><td>供应链核账，不转嫁为成功调用</td></tr><tr><td>提交/结果/用量未知</td><td>待核，不写零成本或已结算，不自动重发</td><td>供应链查原任务、账单，异常交由管理员处理</td></tr><tr><td>图片/视频已生成但平台尚不能交付</td><td>待交付、费用待确认；先恢复取件/归档</td><td>供应链处理上游到平台的交付</td></tr><tr><td>已可鉴权取得完整产物，计量齐备</td><td>按冻结批发规则确认应付</td><td>供应链写费用事件；客户是否点下载不影响已可交付事实</td></tr><tr><td>销售站自己的长期归档/客户端网络失败</td><td>平台可交付条件仍满足时，不因此重复收费或自动撤销批发费用</td><td>销售站恢复取件/交付；最终不可恢复则走争议调整</td></tr><tr><td>最终无法交付或确认服务应退款</td><td>通过关联调整/退款事件冲回应付或释放占用，保留原事件</td><td>供应链有权限人员核准；上游是否退款另外记录</td></tr></table></div><p>文本完整响应按有效用量计费；流式中断只对已交付且有可信计量的部分按合同计算，无法分清时待核，不用整段上游用量猜测。该规则是拟议默认合同，首批实际规格必须能够支持；否则该规格不进入试点。</p><p>晚到用量、实扣及退款追加关联事件，不改写原报价/流水；同一事件重送不重复入账。上游退款不自动等同终端客户退款，按采购、批发、零售各自约定分别处理。平台先向上游付费而暂不能向合作方确认应付的差额由平台承担并显示，不伪装成无成本。</p><p>销售站保留现有扣退费实现；若原引擎已扣款而最终无法交付，通过现有可审计退款路径处理，不直接改余额。上表是新供货合同提案，不是已获准改变线上客户政策或收取新费用。</p><h2>分批交付与验收</h2><p>1. <strong>边界与合同</strong>：列出复用模块、数据主本和唯一写入者；定义目录、调用、任务、报价/费用的接口及错误合同，用假供货服务支持两侧开发。</p><p>2. <strong>供货试点</strong>：独立启动、站点鉴权、供应商凭证与少量供给接通；验证任务、费用版本和权限隔离。不能以资源库独立测试夹具代替生产入口。</p><p>3. <strong>销售站接入</strong>：逐服务切换；核验 new-api 能正确理解新接口的用量和异步结果，再验证客户扣退费。若不兼容，作为明确适配阻塞处理，不另造钱包绕开。</p><p>4. <strong>业务验收</strong>：内部人员完成约定的剧本处理、生图和视频工作流；杭州试用身份完成开号、调用、查询任务/费用的演示。记录操作步骤、耗时、错误与账务证据，而非只展示 HTTP 200。</p><p>各批至少覆盖重复提交、明确拒绝、未知结果、费用延迟、进程重启和跨身份访问；另按上表覆盖生成成功但无法取件、本站归档失败、流式中断及晚到退款。费用缺证据显示未知，不显示免费或对平。具体自动化测试及阈值由工程评审补齐，真实付费验收需另获预算授权。</p><p>沿用既有测试到正式发布流程，补独立构建/启动配置、健康检查和接口兼容验证。回退只改变新请求去向；在途任务沿受理时路径收尾并保留原账，不重复生成。未完成这些条件不能移除旧执行能力。</p><h2>协作与非本期范围</h2><p>卓光负责需求、供给与价格取舍及业务验收；谢海、张海潮按供应链和销售接入两条工作线协作，具体承接人由三人确认。共享接口与费用事件需共同审阅；具体执行待办沿用 GitHub Issue，不建立第二套状态台账。</p><p>本期不整体替换 new-api/身份/客户钱包，不以 OpenMeter 上线为前置，不做全模型迁移、全自动智能路由、完整多品牌站或每模块独立部署。收款主体和区域经营条件单列核对，不据域名位置宣称满足。</p><h2>开放问题与下一项现场工作</h2><p>待确认：首批精确服务/规格与试点预算；两位开发者的职责分工；批发价初始方案；当前多模态用量合同的兼容差距；独立部署及区域安排。以上未确认项不伪装成已排期或已实现。</p><p>卓光的下一项现场工作：请内部制作人员带一组实际剧本、图片和视频任务，按当前路径操作一次，记录最终可交付结果、等待时间、失败位置和费用；据此冻结第一批验收样本。先观察现有操作，不为录制流程新增付费生成。</p><p>本轮观察：你强调“磨刀不误砍柴工”和“各有侧重点”，因此验收既要看调用是否好用，也要看两侧是否能按合同独立修改；你明确先服务自己，第一批证据应来自制作人员实际操作，而非模型目录数量。</p><h2>依据与验证边界</h2><p>依据：2026-11-07 张海潮录音原稿及本轮用户对优先对象、MVP 前提、路线 B 的明确回答；既有全景图和源码调研。核对记录及路线比较位于 <code>output/haichao-api-review-20261107/</code>。原稿不进入本文或 Git。</p><p>本稿是设计，未修改业务代码、迁移数据、部署或调用付费上游。尚未进行完整 CEO 评审；下一步按用户既有要求进入该流程。</p><p>&lt;!-- gstack:office-hours:concerns:start --&gt;</p><h2>Reviewer Concerns</h2><p>Disposition: COMPLETED</p><p>Stop: PASS</p><p>No unresolved findings.</p><p>&lt;!-- gstack:office-hours:concerns:end --&gt;</p>"
+    },
+    {
+      "title": "CEO评审 · 保持范围与验证重点",
+      "html": "<p>日期：2026-11-07，北京时间。模式：HOLD SCOPE，用户明确选择。深度：产品及架构策略评审，保留工程待验证项，不冒充实现就绪或生产验收。</p><p>审阅主方案：<code>docs/designs/api-supply-mvp-20261107.md</code>（用户已批准）。本文件是唯一 CEO 工作报告，保留该方案的所有承诺，不覆盖原录音、旧全景图或 office-hours 设计稿。</p><h2>结论先行</h2><p><strong>路线 B 值得继续推进。真正的首期产品是“可独立维护、可可靠交付、费用能解释的供货服务”，而不是资源库搬家或新增一个 API 门面。</strong> 它同时服务内部制作团队，并为杭州合作方提供开号和演示能力。</p><p>本轮没有发现需要推翻路线 B 或削掉供应链 MVP 的依据。反而需要防止两个偏差：为了“简单”只拆目录而仍由销售站维护全部上游；为了“彻底”把每个模块单独部署、同时更换钱包。两者都不符合用户已确认目标。</p><p>现有资源库、价格版本、媒体任务与 new-api 钱账值得保留。最先验证的是：一条服务经独立供货入口执行后，原销售站能否正确交付、扣退费和定位异常。这个证明通过后再复制到首批其余服务，避免一开始搬动全部模型。</p><p>商业成立的证据目前来自内部真实痛点与用户明确目标；外部付费规模、毛利和运营成本尚无核验数据。保持“内部第一，杭州演示并行”，不把 API 超市的长期愿景当作本期销售预测。</p><h2>决策账：已批准与待落实</h2><div class=\"table-wrap\"><table><tr><th>ID／决策归属</th><th>合同及依据</th><th>当前有效内容</th><th>本轮提案</th><th>状态</th><th>批准范围</th></tr><tr><td>D1／卓光</td><td>首个使用方回答</td><td>内部团队优先，杭州开号演示并行</td><td>无</td><td>approved</td><td>不等于已成交、独立品牌站或所有模型全量开放</td></tr><tr><td>D2／卓光</td><td>MVP 前提回答“符合”</td><td>目录、调用、任务、费用贯通</td><td>无</td><td>approved</td><td>供应链拆分本身是阶段里程碑</td></tr><tr><td>D3／卓光</td><td>路线选择 B</td><td>独立供货服务，原站渐进接入</td><td>无</td><td>approved</td><td>同仓可行，分仓不是前置</td></tr><tr><td>D4／卓光</td><td>前提及设计确认</td><td>客户钱包保持原权威路径</td><td>无</td><td>approved</td><td>不能新建并行客户扣款系统</td></tr><tr><td>D5／卓光</td><td>设计稿明确确认</td><td>三价、资产归属、可交付计费、异常与回退边界</td><td>无</td><td>approved</td><td>是设计授权，不是生产变更或收费调用授权</td></tr><tr><td>M1／卓光</td><td>本轮模式回答</td><td>HOLD SCOPE</td><td>无</td><td>approved</td><td>不新增或删减产品范围</td></tr><tr><td>U1／卓光＋内部使用者</td><td>设计稿开放问题</td><td>首批精确模型/规格未冻结</td><td>从真实工作样本选择</td><td>unresolved</td><td>暂按已批准的文本/图像/视频试点范围；上线前确认</td></tr><tr><td>U2／卓光，技术参数由执行人提出</td><td>预算、批发价、保留上限仍待定</td><td>不编造阈值或合同金额</td><td>上线前形成明确配置清单</td><td>unresolved</td><td>不阻碍接口设计，阻止无约束真实调用和收费启用</td></tr><tr><td>U3／三人共同确认</td><td>用户要求各有侧重点</td><td>尚无获确认的个人承接分工</td><td>两条工作线、共同合同评审</td><td>unresolved</td><td>不把建议写成谢海/张海潮承诺</td></tr><tr><td>U4／工程负责人待 U3 确认</td><td>新供货任务/用量与 new-api 兼容尚未验证</td><td>继续原客户钱包</td><td>以最小合同试验决定执行引擎和适配方式</td><td>unresolved</td><td>不能预设中央必须再加一套 new-api，也不能预设全部自研</td></tr><tr><td>U5／卓光＋工程负责人待确认</td><td>部署与区域、独立发布待落实</td><td>未批准新地域或生产资源变更</td><td>工程方案列运行与发布配置</td><td>unresolved</td><td>不以域名位置替代完整数据和经营边界核对</td></tr></table></div><p>Approval readiness: PASS。检查 D1–D5、M1 的实际用户回答；没有将 U1–U5 写成已确定实现。批准范围足以完成本次策略评审，不代表 U1–U5 已解决。</p><h2>前提核验与现有成果</h2><p>固定源码引用：<code>origin/develop@390d7bb7ff33754eba8a9c1d15a035512e3899d0</code>。本地工作分支仍为旧研究分支，未合并或切换。证据摘录见同目录《CEO源码证据-20261107.md》及《CEO评审前置核对-20261107.md》。</p><div class=\"table-wrap\"><table><tr><th>前提</th><th>证据</th><th>判定</th></tr><tr><td>首期优先内部业务并要求独立供货</td><td>用户回答及已批准设计稿“业务目标”“已确定路线”</td><td>已确认的用户决定</td></tr><tr><td>资源库可直接作为生产独立服务</td><td>固定源码 resource_library/standalone.py:1–6 明确是测试夹具</td><td>不成立；生产入口与服务身份仍需建设</td></tr><tr><td>当前资源模块鉴权已与销售完全分离</td><td>webapi/app.py:2807、2846；standalone.py:23</td><td>不成立；现有挂载及启动依赖需解开</td></tr><tr><td>成本和零售价已有分离基础</td><td>core/sale_prices.py:5–20</td><td>静态已核验；不等同合作方批发合同完成</td></tr><tr><td>同名 supplier_accounts 可直接合并</td><td>resource_library/schema.py:136 与 core/store.py:249 为不同对象</td><td>不成立；需要映射与唯一主本，不能凭表名合并</td></tr><tr><td>任务、幂等、归档恢复从零开始</td><td>docs/unified-media.md:1–32</td><td>不成立；必须复用现有流程，验证新调用路径</td></tr><tr><td>已有供货服务满足多站业务验收</td><td>本轮未部署或实际运行该服务</td><td>unverified</td></tr><tr><td>已知业务量、失败率、延迟和毛利基线</td><td>尚未取得按首批规格归集的实际数据</td><td>unverified</td></tr></table></div><p>unverified=2，分别是新服务运行验收和业务指标基线；不把这些未知写成失败或成功。其他待决策项列 U1–U5，不与事实缺证据混计。</p><p>复用：资源库供应商/凭证/报价版本与采集，现有媒体任务/素材/归档，价格规则与请求快照，new-api 客户账户和扣退费。复用不等于迁移零成本，需核实调用方、鉴权、数据主本及历史 ID。</p><p>开放 PR #217、#437 及 Issue #117、#325、#438、#146 与现有工作重叠；不重复建一套资源库或配置语言。本轮只读核对，未派发工单。原有 stash 与未跟踪研究产物保留。</p><h2>0．范围与复杂度检查</h2><p>文件级实施方案尚未形成，不虚构变更文件数量或交付天数。一个独立供货业务应用加原销售业务应用，不等于全部系统仅两个进程；既有数据库、worker、代理与引擎仍按实际职责保留。没有必要在本期分别创建定价、日志、结算、目录微服务。</p><pre>当前：资源与执行已有基础，但启动、采用、费用与客户流程交织\n  → 当期：独立供货合同＋可运行服务＋A1 分批接入＋业务验收\n  → 长期：多销售实例/实现消费同一供货体系，经营账独立\n</pre><p>时间顺序检查（是阶段，不是按小时完成的承诺）：开始开发前必须知道数据主本与首批验收请求；核心实现时会遇到批发费用状态和任务/用量合同；集成时会遇到重复提交、在途任务、凭证轮换和下载权限；发布时必须处理旧新入口兼容、待核费用和资产保留。将这些检查放在对应阶段，不能留到集中上线才发现。</p><h2>1．架构审查</h2><p><strong>WARNING F1：独立供货必须同时独立启动和鉴权，不能只是原应用多一个 URL。</strong> 现有资源库夹具与 webapi 启动依赖证明该工作真实存在。对应 D2/D3；执行负责人待 U3 确认，须证明无销售站管理员会话和客户库访问也可提供授权供货。</p><p><strong>WARNING F2：最强耦合在任务结果、用量和原客户扣退费。</strong> 同一供应商的资源测试适配能生成，不证明经新供货 API 到 new-api 的计费闭环成立。对应 D4/D5，保持 U4 为工程待选；先证明一条完整路径，再扩大迁入。</p><pre>客户 → A1[客户身份/商品/零售价/new-api客户钱包]\n          │ 站点身份、幂等键、服务/规格、素材引用\n          ▼\n       供货服务[目录/批发合同/上游执行/任务/费用]\n          │ 采购凭证、上游原始协议\n          ▼\n       上游供应商\n\n供货结果/用量/费用引用 → A1 客户扣退费与交付视图\n供货任务/费用事件     → 按站点隔离的运营查询\n采购实扣/退款        → 平台采购账（不向合作方暴露底价）\n</pre><p>新增网络边界会引入超时和不确定提交；保留稳定请求 ID 和原任务查询是 D5 的必要组成，不以自动换线路掩盖不确定结果。供货入口成为集中故障点，需拒绝新的不确定提交并保留旧任务查询/恢复，不能故障时绕过授权直连任意上游。</p><p>10 倍、100 倍流量仅作风险情景：前者可能先压满任务/下载和供应商并发，后者可能扩大日志/费用查询与连接池压力。没有实测基线，不能据此承诺容量，也不为假设的 100 倍需求增加分布式平台。</p><p>本次报告供三人判断分工和工程验证使用；确认后的执行事项回到现有 Issue，报告保留为决策依据，不再作为并行状态表滚动维护。</p><h2>2．错误与恢复映射</h2><p>以下十条是已批准行为的能力级验证要求，不是声称已有实现。错误名为语义分类，具体异常类由工程设计映射，不伪造现有函数名。</p><div class=\"table-wrap\"><table><tr><th>ID／能力</th><th>失败机制</th><th>既定恢复与用户所见</th><th>证明要求</th></tr><tr><td>E1 身份与权限</td><td>Key 无效、跨站/跨客户引用</td><td>调用前明确拒绝，不返回别人的对象；记录拒绝位置</td><td>两个站点及同站两个客户交叉查询/素材/下载</td></tr><tr><td>E2 目录与价格</td><td>缺服务、缺规格、缺合同价格、旧版本</td><td>不以零价兜底；明确未开放/待核，不执行未授权规格</td><td>缺失与旧版本输入均不能产生上游生成</td></tr><tr><td>E3 提交</td><td>明确拒绝、429、超时/断线、响应格式错</td><td>明确未受理与结果未知分开；未知查原请求，不换 ID 重发</td><td>注入发送后断线，统计实际提交不重复</td></tr><tr><td>E4 模型结果</td><td>拒绝、空结果、结构错误、不完整用量</td><td>不把 200 当交付成功；费用按待核/失败分类显示</td><td>空值、拒绝与正常结果使用不同结果断言</td></tr><tr><td>E5 任务执行</td><td>worker 重启、租约交接、重复回调</td><td>续查原上游任务，保留状态，不重新生成</td><td>已受理任务在进程重启后可恢复</td></tr><tr><td>E6 临时产物</td><td>上游已生成但取件失败/链接失效</td><td>待交付，恢复取件；无法交付按既定调整流程处理</td><td>不能向用户显示成功可下载但给失效链接</td></tr><tr><td>E7 销售站归档</td><td>平台可交付，本站归档或网络失败</td><td>从原任务恢复下载，不重复生成/计费</td><td>归档重试不新增上游生成与供货应付</td></tr><tr><td>E8 费用事件</td><td>用量/账单延迟、重复、乱序、退款晚到</td><td>暂估/待核与确认分开；关联追加调整，不覆盖旧流水</td><td>同事件重送、退款前后到达均不重复扣退</td></tr><tr><td>E9 财务接口</td><td>上游余额/账单 API 缺失或失败</td><td>显示未知与采集时间，人工核账入口；不显示零余额/免费</td><td>读取失败与查得空结果有区别</td></tr><tr><td>E10 发布与回退</td><td>旧新服务并行、版本不兼容、迁移失败</td><td>新请求回退；旧任务留原路径收尾；显示异常及关联 ID</td><td>回退不重跑已受理任务、不丢费用及产物引用</td></tr></table></div><p><strong>WARNING F3：只有请求级一条日志不足以说明上述状态。</strong> 验证时必须保留来源站点、本地/平台请求、尝试、上游任务、价格版本和费用事件的关系。对应 D5，未提出另一套钱包。</p><h2>3．安全与数据边界</h2><p><strong>WARNING F4：服务级 Key 隔离不能替代同站客户归属验证。</strong> 对应已批准的资产边界，供应链守站点范围，销售站守客户范围，管理员另有审计。实现与测试仍待证明。</p><div class=\"table-wrap\"><table><tr><th>威胁</th><th>概率／影响（定性判断）</th><th>已批准约束与剩余验证</th></tr><tr><td>替换任务/素材 ID 越权</td><td>中／高</td><td>两侧各验归属；失败必须在访问前拒绝</td></tr><tr><td>返回上游凭证、底价或取件链接</td><td>中／高</td><td>受控引用及鉴权下载；报价只返回合作方批发价</td></tr><tr><td>URL 取件访问内部地址、重定向绕过</td><td>中／高</td><td>复用现有受控资产取件边界；拆分后重新验证出站限制</td></tr><tr><td>Key 轮换使旧任务无法访问或被其他站继承</td><td>中／高</td><td>身份与秘密分离；旧任务归属不随 Key 字符串改变</td></tr><tr><td>原稿/供应商文档中的指令被当管理命令</td><td>低至中／高</td><td>资料是数据；采集不自动批准上架、改价或执行命令</td></tr></table></div><p>不新增依赖清单；尚无新代码可审计注入实现。SQL、模板、文件路径和规格字段验证沿项目既有边界，并由工程验收覆盖类型错误、超长值、非法引用及页面显示转义。业务 Key 与管理员修改价格/凭证权限不合并。</p><h2>4．数据流与交互边界</h2><p><strong>WARNING F5：版本、权限和任务状态跨边界后可能出现时间顺序差异。</strong> 当前是验证风险，不是已复现缺陷；D5 已要求稳定 ID、冻结价格、隔离及重复事件去重。</p><pre>输入 → 校验身份/规格 → 解析获准供给及价格版本 → 持久化关联 → 执行 → 结果/费用\n  ├─ 缺字段：明确拒绝，不采购\n  ├─ 合法空列表：例如无参考素材，仅在该模式允许时接受\n  ├─ 空结果/零用量：区别合法零值与缺证据，不默认免费或成功\n  ├─ 错类型/超长/非法编码：拒绝并保留可排查元数据\n  ├─ 重复/并发：同一身份幂等键复用原请求；冲突内容不静默复用\n  └─ 超时/异常/部分数据：保留已发生事实，状态未知时先查原任务\n\n供货任务：受理 → 执行/待核 → 已生成 → 待取件 → 可交付\n                         └→ 明确失败\n费用事实：估算/占用 → 待核 → 确认应付 → 关联调整/退款\n资产交接：临时产物 → 销售站归档确认 → 按约定保留/清理\n</pre><p>非法跳转：不能从“未知”无证据跳“失败且免费”，不能以回退清除已受理任务，不能用退款覆盖原应付。阻止方式必须由工程在持久化约束及任务/费用合同中证明，不能依赖单进程锁。</p><p>并发验证必须覆盖两个顺序：</p><pre>提交A                 提交B(同幂等键)           共享请求\n登记/暂停             登记/继续                仅一个有效采购\n恢复                  读取结果                  指向同一任务\n反序：B先完成登记，A后恢复，结果仍相同\n\n费用确认A             退款/调整B                共享账务\nA先到，再B            或B先到，再A              原事件都保留，最终净额一致\n\n取件/归档A            清理/过期B                共享产物引用\nA先确认，再B          或B遇到未确认A            不误删仍需交付的对象\n</pre><p>双击、刷新、离开页面再回来、轮询失败重试、目录为空、目录变化、大列表、重复回调均应沿原请求恢复。上述八类交互复用现有流程检验；未实测项保持 unknown，不能把设计覆盖写成测试通过。</p><h2>5．代码组织与复用</h2><p><strong>WARNING F6：同名对象和多条适配链不能机械搬家。</strong> 两个 supplier_accounts 的语义与 ID 不同；资源试用调用和生产客户调用也不是同一个权限/扣费合同。</p><p>保持 Python/Flask/SQLAlchemy 现有体系，先明确供货模块导入边界和数据唯一写入者，再建立独立入口。接口层不复制定价公式；销售站不再为已迁入服务逐家维护上游私有协议。未迁入路径明确保留，不假装已统一。</p><p>没有新实现，不能给函数复杂度评分或宣称没有重复代码。工程阶段需核对采用/发布、费用采集、原生数据库直读的调用方；能提取复用的模块优先，不重造配置语言。</p><h2>6．测试与证明要求</h2><p>以下均落实已批准验收，不是本轮运行结果：</p><pre>合同/价格/权限单元验证\n   → 两侧假服务集成：提交、任务、用量、扣退、素材/下载\n   → 重启/重复/乱序/回退验证\n   → 测试站首批业务端到端（真实收费另获预算）\n   → 内部操作验收 + 杭州隔离身份演示\n</pre><div class=\"table-wrap\"><table><tr><th>验证项</th><th>必须排除的错误结果</th><th>证明范围与不能证明什么</th></tr><tr><td>三价与快照</td><td>改采购价改了已约定批发价/历史零售价</td><td>离线规则一致性；不证明供应商实扣</td></tr><tr><td>两级隔离</td><td>同站另一客户或另一站能读素材/任务/产物</td><td>集成权限合同；不能用单个 helper 测试替代真实入口</td></tr><tr><td>重复提交</td><td>两次请求导致两次采购/应付</td><td>可控暂停/释放并发验证；假上游不能证明真实上游幂等</td></tr><tr><td>未知提交</td><td>断线后自动新建第二任务</td><td>发送后故障注入，保留原请求；真实接口边界另验</td></tr><tr><td>用量适配与扣退</td><td>新供货能生成，但原钱包错扣/漏退</td><td>经销售真实调用入口的集成；不只验证费用计算函数</td></tr><tr><td>产物恢复</td><td>归档失败被当作生成失败并重发</td><td>恢复下载/归档不增加生成次数和供货应付</td></tr><tr><td>费用迟到/退款</td><td>重复入账、先退款后应付造成错误净额</td><td>事件双顺序及持久化重启；不代表财务会计确认完成</td></tr><tr><td>回退</td><td>老任务丢失或走了新上游</td><td>新旧路径共存验收；不承诺未测的任意版本兼容</td></tr><tr><td>业务使用</td><td>200 返回但用户找不到结果或费用</td><td>内部人员完整操作，记录失败和等待；一个样本不证明长期成功率</td></tr></table></div><p>最有价值的压力场景是“已发起视频生成后断线＋worker 重启＋用户重试”，要求仍只有原采购任务且能解释费用。用确定性故障点检验，避免依赖睡眠和随机概率制造不稳定测试。没有新的 LLM 提示词改动，不增加无关模型评测套件。</p><p>验证缺口：上述新边界尚未执行验收，统一计为工程验证未完成；不能报告已通过九项测试。本轮不运行与纯规划无关的后端测试。</p><h2>7．性能</h2><p><strong>WARNING F7：没有可用于承诺延迟和吞吐的基线。</strong> 最可能的慢路径是长视频上游等待、素材/产物传输、费用事件与多条件日志查询；三者应分别观测，不能只看总耗时。</p><p>工程负责人需对首批实际规格确认：分页/批量读取避免逐模型查价，连接池与 worker 并发上限，上传/下载内存边界，供应商超时，版本缓存的失效条件，以及请求/任务/费用查询索引。具体数值归 U1/U2/U4，不在本轮猜 p99。</p><p>价格或权限缓存命中不能越过有效版本或授权；供给采集失败要保留旧事实及时间，不把陈旧价格当最新。达到真实首批峰值再讨论容量扩展，不为假设流量增加独立服务。</p><h2>8．运营与排障</h2><p><strong>WARNING F8：任务“成功”、产物“可交付”、费用“已确认”必须独立可见。</strong> 这是 D5 的直接实现义务，不是新增运营平台。</p><p>最小查询必须能从一个平台请求找到站点、服务规格、实际尝试、任务、采购费用状态、批发费用状态及销售账引用。普通合作方不可看到真实采购底价、凭证或别站记录。</p><p>使用现有后台或受控查询入口展示：未知提交、待交付、费用待核、归档失败和最近采集时间；管理员能知道该查原任务、恢复取件、核账还是回退新流量。无法确认费用时明确待核，不让操作人员猜。</p><p>指标取自实际工作流：可交付请求比例、等待时长、费用待核数量及账龄、重复生成/扣费事件、主力供给新增/变更耗时。统计窗口和分母需明确，供应商公布成功率与本方观测分开。阈值待基线；不承诺一个漂亮的百分比。</p><h2>9．部署、迁移与回退</h2><p><strong>WARNING F9：独立发布和存量任务收尾必须一同设计。</strong> 数据迁移用明确 ID 映射；每类数据只有一个写入主本。先兼容读取和新入口，再迁入指定服务；不能双方都能改价然后靠定时同步碰碰运气。</p><pre>冻结首批合同/映射 → 兼容的数据变更 → 供货入口与鉴权就绪\n → 两侧假服务/测试站验证 → 指定服务新请求切入 → 业务与费用检查\n\n异常？\n  否 → 保持观察，按首批清单逐个迁入\n  是 → 停止新增切入/新请求回旧路径\n       → 已受理任务仍走原路径\n       → 核对费用、产物、退款及权限\n       → 原因查清后再决定恢复\n</pre><p>发布后首先核对鉴权、目录、指定服务受理与查询、费用版本及异常可见；随后覆盖至少一个完整异步生命周期，不能只观察固定几分钟就判视频稳定。回退耗时尚未演练，不承诺恢复时间。</p><p>同仓独立构建/部署可以实现，但仍需流水线验证。建议每个可独立验收的阶段一个主要 PR/发布批次；实际数量由变更依赖决定，未拆任务前不编 PR 数。维护者需协调 #217/#437 等既有工作，避免并行重写同一边界。</p><h2>10．长期维护</h2><p>本期不扩展范围。长期可复用的是服务身份、模型供给映射、报价/费用版本和事件合同；不是把当前某个供应商的字段变成全平台永久模型。</p><p>可逆性主观评估 3/5：新流量按服务切换可回退，数据主本迁移和持久化身份映射回退成本较高。这不是测量值。需要管理的债务三类：旧新适配并存、历史 ID 映射、待核费用及未完成资产交接。各项退场条件应随迁入服务记录，不承诺无限维护双轨。</p><p>一年后新开发者应能回答：这条请求用哪个合同、哪个供给、谁扣客户的钱、谁确认批发费、下载失败由谁恢复。若只能问原作者，拆分没有完成协作目标。</p><h2>11．用户体验</h2><p><strong>WARNING F10：内部“用顺”仍缺现场基线，不能由架构验收代替。</strong> 本轮评审功能信息和状态，不做视觉改版。继续复用现有界面规范、键盘/触控和移动端能力，不引入新设计系统。</p><pre>获准服务与规格 → 提交（可解释校验） → 待处理/处理中/待核\n → 已生成待交付 → 可下载 → 查费用（暂估/确认/调整）\n                    └→ 归档失败：恢复交付，不重新生成\n</pre><p>加载应有状态；空目录应解释未授权/暂无可用服务；错误说明是未提交还是已受理待核；成功意味着结果可取得；部分结果或费用未齐应显示部分状态。页面刷新/返回必须找回原任务。移动端至少能看到价格/任务状态及主要操作，细节验证留到实现后，不在本轮宣称无障碍或视觉合格。</p><h2>失败模式登记</h2><div class=\"table-wrap\"><table><tr><th>能力</th><th>救援约定</th><th>新边界测试</th><th>用户可见</th><th>日志证据</th></tr><tr><td>E1–E2 权限/价格</td><td>已约定调用前拒绝</td><td>未验证</td><td>拒绝原因，不执行</td><td>需证明拒绝位置和版本</td></tr><tr><td>E3–E4 提交/结果</td><td>已约定失败、未知、空结果分开</td><td>未验证</td><td>明确失败或待核</td><td>需证明原请求与上游尝试</td></tr><tr><td>E5 任务</td><td>已约定恢复原任务</td><td>未验证</td><td>原任务状态</td><td>需证明重启后的同一任务</td></tr><tr><td>E6–E7 交付</td><td>已约定取件/归档恢复</td><td>未验证</td><td>待交付或可下载</td><td>需证明不重新生成</td></tr><tr><td>E8 费用</td><td>已约定追加、关联、去重</td><td>未验证</td><td>暂估、待核、确认、调整</td><td>需证明每笔原事件及调整</td></tr><tr><td>E9 财务采集</td><td>已约定未知和人工核对</td><td>未验证</td><td>最近事实和时间</td><td>需证明失败不伪造成零</td></tr><tr><td>E10 发布</td><td>已约定新旧请求分流收尾</td><td>未验证</td><td>原任务可查询</td><td>需证明回退保留事件</td></tr></table></div><p>本次策略合同未留下“无恢复、无测试要求且静默失败”的行，设计级 CRITICAL GAP=0。十条能力的新边界执行证据都还缺，不得把 0 个设计级静默缺口说成 0 个上线风险。</p><h2>非本期范围与图稿核对</h2><p>已批准不纳入本期：整体替换钱包/new-api/身份；以 OpenMeter 为前置；全模型迁移；全自动智能路由；完整多品牌站；每模块独立部署，共六类。A/C 路线未选择，不生成其执行待办。本轮没有新增范围、删减已批准范围或提出另一个长期待办系统。</p><p>旧完整全景图仍有价值，作为长期职责图保留；本轮未修改网页。须警惕将每个框误解为独立应用，或把拿货价画成采购成本别名。当前批准设计的三层调用简图仍成立；本报告补充任务、费用、交付和回退视角，不改变其商业边界。</p><h2>下一阶段工作重点（研究/验证项，不是另建任务台账）</h2><p>以下是已批准四批交付的细化。实际执行继续落到已有 GitHub Issue；不写另一套长期 checkbox/自动任务库。具体个人负责人待 U3 确认。</p><div class=\"table-wrap\"><table><tr><th>顺序</th><th>工作及发现来源</th><th>负责角色</th><th>验证结果</th><th>规模（人工／AI辅助，估计）</th></tr><tr><td>T1</td><td>冻结业务样本和验收口径，F7/F10</td><td>卓光＋内部使用者</td><td>一组真实文本/图像/视频流程、规格、结果与费用证据</td><td>S／S；现场观察无法由代码生成替代</td></tr><tr><td>T2</td><td>数据主本、服务身份与供货合同，F1/F3/F6</td><td>两条开发线共同审阅，承接人待定</td><td>不共享客户库的权限边界、字段主本及版本关系</td><td>M／M；复用既有调研</td></tr><tr><td>T3</td><td>新供货→原引擎用量/任务/费用最小验证，F2/F5</td><td>工程承接人待定</td><td>一条完整链及拒绝/未知/退款，明确适配缺口</td><td>M／M；不以无依据提速倍数排期</td></tr><tr><td>T4</td><td>首批供货服务独立启动与销售接入，F1/F4/F6</td><td>按确认后的两条工作线</td><td>可独立运行、两级隔离、任务和产物恢复</td><td>L／M–L；详细工期取决于 T3</td></tr><tr><td>T5</td><td>三价核账、运营视图与渐进发布验证，F3/F8/F9</td><td>两条开发线＋卓光验收</td><td>已批准费用矩阵、回退保留在途任务、内部及杭州演示</td><td>M／M；真实调用另获预算</td></tr></table></div><p>已知核对文件：resource_library/standalone.py、api.py、schema.py、refresh_worker.py；webapi/app.py；core/sale_prices.py、store.py；docs/unified-media.md。新生产入口和合同具体文件 to be determined，不在策略评审中指定未经验证的类或方法。</p><p>没有产出 PR、分派人员、发布日历或收费预算承诺。PR 合并数和文件变更数须待工程拆解后确定。JSONL 自动执行任务副本不生成，以遵守本仓 GitHub Issue 唯一执行待办规则。</p><h2>独立评审覆盖</h2><p>office-hours 的两轮独立设计核查已完成，但不替代这次 CEO 外部评审。CEO Outside Voice 预检发现 Claude CLI 存在，但 <code>claude auth status --json</code> 返回 exit=1、loggedIn=false、authMethod=none，因此未发送设计材料或启动模型请求。修复方式是用户自行完成 Claude 登录；本轮不安装、不登录或切换外部供应商。技能要求的 Plan 类型只读子代理及配套后台计时/停止工具未提供，按技能的 unavailable 路径不以普通子代理替代。外部评审覆盖为 unavailable，不能报告无发现或跨模型一致。</p><h2>本轮状态</h2><p>Sections 1–11 已完成策略层分析，F1–F10 为十项实施/验收风险，全部映射到已有批准范围，没有新增产品决策。U1–U5 保持开放，工程评审及真实验收尚未进行。策略评审完成不等于实现可直接上线。</p>"
+    },
+    {
+      "title": "历史设计 · 运营支撑与分站计费（以11月7日MVP为准）",
+      "html": "<p>日期：2026-11-06。根据本轮用户讨论修订目标蓝图。仍为设计规划，未实现新的账本、运营接口或站点。</p><h2>与原全景图的关系</h2><p>在原全景图上增量展开，不另换一套架构。上一轮“供应链、运行支撑、销售经营”的图是职责分解视角，本轮将它合并进完整图：供应链与运营支撑并列，统一接口层面对各销售实例，A1在图中展开自己的经营与计费职责，并增加订阅型销售体系C。</p><p>销售经营可以复用代码、组件和接口合同，但当前目标仍是每站拥有独立的客户、定价、权益、钱包和账务归属。不能把“代码共用”画成“所有站只有一个客户钱包”。</p><h2>三类账务关系及唯一职责</h2><div class=\"table-wrap\"><table><tr><th>账务关系</th><th>规则与记录的归属</th><th>对账依据</th></tr><tr><td>供应链向外部上游采购</td><td>供应链采购成本/计量模块、采购财务</td><td>上游合同、用量、实扣、退款和账单</td></tr><tr><td>A1向供应链拿货</td><td>供应链记录对A1的供货规则与应收/内部归集；A1保存对应拿货成本及账单引用</td><td>站点ID、平台请求ID、供货价格版本、费用事件、结算单</td></tr><tr><td>A1向自己的客户销售</td><td>A1维护零售价、套餐、积分、扣款退款和客户销售账</td><td>A1客户/订单/钱包流水，关联同一平台请求ID</td></tr></table></div><p>上游采购成本与A1拿货价分别命名和引用，不能默认两个数字永远一样。现阶段可以按已确定的采购成本做内部归集，不因此预设供应链加价；若拿货价确实不同，需要明确供货规则及版本。A1的销售价由自己制定。</p><p>各域只写自己的账：供应链不扣A1终端客户钱包；运营支撑不再建立一个平行扣费账本；A1不修改供应商结算原件。供货方与采购方各有账务记录属于正常对账，要求关联同一业务和费用事件，不是对同一客户重复收费。</p><h2>统一ID及一对多关联</h2><p>销售站先生成local_request_id，并以本站身份提交稳定幂等键。统一入口受理后签发platform_request_id；站点ID从鉴权身份取得，不信任客户端任填的site_id。</p><p>platform_request_id贯穿本站调用记录、供货任务、采购费用及客户账务关联。它不是所有表共用唯一主键：一次逻辑调用可能有多个attempt_id、upstream_task_id、供货charge_event_id及客户扣款/退款流水。</p><p>关联链：site_id + local_request_id/幂等键 → platform_request_id → attempts/tasks → 供货费用/退款事件；A1的customer_id、钱包流水和销售价格快照独立关联platform_request_id。未知提交查询原请求，不换ID重试。</p><p>站内拒绝、登录失败或余额不足可能没有到达中央执行入口，此时保留local_request_id并上报站内事件，不能伪造一个已执行的上游请求。统一日志允许这类记录平台ID为空，同时显示拒绝位置。</p><h2>运营支撑系统</h2><p>与采购供应链并列为逻辑职责域；初期可共用部署基础，不要求先做复杂微服务。</p><p>职责：各销售站服务身份、站点Key生命周期与权限范围、允许的供给清单、并发/速率/预算限制、统一调用与任务索引、费用关联视图、告警、排障与审计。预算风控检查引用对应域的预算和余额事实，不成为另一本资金账。</p><p>统一的是调用事实合同、关联索引和查询入口。供应链执行、各站入口、原生引擎仍然产生自己的源事件和诊断日志，通过共用SDK/适配器归集；不让每个站重新实现一套日志查询产品。底层诊断日志不冒充已扣款证据。</p><p>采购实扣以供应商证据为准，供货费用以供应链费用记录为准，客户扣款以站点计费引擎为准。运营支撑只读关联并展示未知、延迟、差异和数据完整性。缺账务事件时不能显示免费、零成本或已对平。</p><p>各站只能查询获授权的本站记录。客户提示词、回复和素材与元数据分开，权限和保留期独立；境内外可以分区存储、统一接口检索，不默认为所有正文集中存储。</p><h2>一个站点身份，多个API方法与权限</h2><p>采用统一API体系，按职责提供接口组。它们可由不同后端服务实现，站点看到一致的身份、请求ID和错误合同。下列是目标方法分组，不是已经上线的路径。</p><div class=\"table-wrap\"><table><tr><th>接口组</th><th>主要方法</th><th>建议权限</th></tr><tr><td>供给与调用</td><td>获授权模型/版本/规格、执行提交、任务查询、产物获取</td><td>catalog:read、invoke、tasks:read</td></tr><tr><td>日志与运营</td><td>请求详情、各次尝试、错误、任务状态、筛选和用量统计</td><td>logs:read、usage:read</td></tr><tr><td>计费与查费用</td><td>拿货价版本、请求费用、退款/调整、站点采购用量</td><td>prices:read、charges:read</td></tr><tr><td>结算与对账</td><td>结算单查询、费用明细导出、差异查询及受控确认</td><td>statements:read、reconcile；需要写入时另行授权</td></tr></table></div><p>A1拥有独立站点身份，可用一把具备所需权限的服务Key访问多个方法；不必每个方法一把Key。但不建议将全部结算写权限放进浏览器或普通客户端。可按用途分发同一站点下的调用Key、运营只读Key、财务Key。Key轮换不改变site_id，也不割裂历史记录。</p><p>客户Key与站点服务Key不同：客户Key在A1中关联客户权限和钱包，A1后端以站点身份向中心拿货。对外查询按已认证站点过滤，不能只相信URL中的站点参数。结算接口并不等于自动付款或自动充值授权。</p><h2>A1展开后的功能</h2><p>1. 用户登录与认证：注册、登录、找回、本站用户身份；现有OIDC及账户能力可复用。</p><p>2. 团队与鉴权：团队/主子账号、成员权限、客户Key、模型范围和额度；完整团队功能仍需产品设计，不把现有子账号等同完整企业组织系统。</p><p>3. 商品与销售价格：选卖哪些供给、服务档位、售价版本、促销和套餐。</p><p>4. 客户计费与积分：人民币/积分关系、预扣实扣退款、团队预算归属及客户账单；规则版本冻结，按实际引擎能力实现。</p><p>5. 拿货对账与利润：获取本站供货费用，关联客户销售账，核对差异和成本确认状态。</p><p>6. 分销与经营：客户策略、代理关系、佣金、购买和售后；规划功能不标已上线。</p><p>7. 调用与交付：请求参数、使用体验、任务、资产和下载；复用统一供货合同。</p><p>8. 本站执行/扣费适配：现有A1继续使用new-api；把其原生消费事件接入统一关联查询，不因统一日志就重写钱包。</p><p>请求级毛利先按本站已确认销售净额（扣款减退款）减本站拿货净成本计算，币种、积分换算、含税口径须可比。费用未确认时显示暂估毛利，后续成本补扣/退款追加修正。该值不是扣除带宽、支付、佣金等全部经营费用后的净利润。</p><h2>C体系：订阅站</h2><p>C可以拥有自己的代码和实例，客户按月/周期订阅、购买权益或套餐额度，不一定逐次付费。C仍按真实调用从供应链拿货，记录采购成本和用量，中央通过site_id隔离其日志。</p><p>订阅收入按约定周期管理；权益使用与上游消耗分别记录。某次调用没有客户单独扣款，不代表该次采购零成本；每次调用也不能重复分配整月订阅收入。盈利首先按订阅周期核算，有需要再明确收入分摊规则。</p><h2>new-api在图中的位置</h2><p>保留在A1内部的执行与客户扣费适配中。A2/A3可以复用同代码体系和组件；B/C可以使用其他实现。统一的是站点身份、供货接口、事件格式和查询合同，不强制所有站采用同一种钱包或消费模式。</p><p>当前new-api原生日志继续作为对应实际扣款的证据来源；运营支撑通过适配器归集索引并关联上游费用。不能用一个日志页面的统一替代账本一致性；不能让new-api和新的中央服务同时扣A1客户的钱包。</p><h2>实施先后</h2><p>先定站点身份、请求/费用事件合同、读接口及权威账务来源；以现有A1做只读关联和对账试点，保留原扣费链。再提供第二个实例验证隔离，并以订阅C样例检验合同是否依赖逐次零售扣费。之后按真实需求逐步收拢运营查询与告警，才考虑实际迁移执行/资金。</p><p>本轮仅把这些内容合并进原全景网页，增加运营与账务展开视角；未实现新API、迁移钱包或修改线上配置。</p>"
+    },
+    {
+      "title": "模型目录与采购成本模块设计",
+      "html": "<p>日期：2026-11-06。根据本轮讨论补充目标架构；这是设计稿，不代表已有数据库和调用逻辑完成改造。</p><h2>两个独立模块及关系</h2><p>供应链内部单独设置“统一模型目录与供给映射”和“采购成本与计量规则”。前者回答买的到底是什么，后者回答从哪条具体供给买、按什么条件和用量付多少钱。供应商账号主档、动态采集、采购财务仍是相邻模块。</p><p>关联主线：标准模型家族 → 明确发布版本 → 实现/变种 → 具体供应商供给 → 适用采购价与计量规则版本。报价不能只挂在模型家族名上；模型映射也不能只用价格或同名来证明。</p><p>官方身份不等于闭源身份。官方发布的开源模型同样进入标准目录；闭源/开放权重、许可证和能否取得权重分别记录。用户提出的DeepSeek V4.1、1017和Seedance 2.5、0618在此作为命名设计示例，不据讨论认定这些精确版本已由官方发布或上游已接通。</p><h2>模块一 统一模型目录与供给映射</h2><h3>四层身份</h3><div class=\"table-wrap\"><table><tr><th>层次</th><th>稳定身份与主要字段</th><th>例子及约束</th></tr><tr><td>模型家族</td><td>model_family_id、原厂、家族名、模态</td><td>DeepSeek某系列、MiniMax H3；用于归类和检索，不直接决定路由或报价</td></tr><tr><td>官方/来源发布版本</td><td>release_id、官方原始名称及ID、版本标记、发布时间、文档来源、确认状态</td><td>明确日期版本与滚动别名分开；不能猜日期、许可证或承诺准确型号</td></tr><tr><td>实现与变种</td><td>implementation_id、关联版本（可未知）、权重/checkpoint或修订、量化、推理方式、微调、能力、已知信息与来源</td><td>官方托管、特定自部署、量化版、修改版等；不可观察的权重保持未知</td></tr><tr><td>渠道供给</td><td>offering_id、供应商、采购账号适用范围、地域、分组、原始模型ID、端点协议、配置版本、能力/限制、实现映射</td><td>同型号经三家销售是三条供给；一个账号可以有多种分组和凭证用途</td></tr></table></div><p>现有model_families、offerings、service_products和产品版本可作为演进基础，但现有“服务产品”不能直接当作已具备权重溯源的implementation。先核对原对象语义，再增补release/implementation及映射，不重建或改写已有调用ID。</p><h3>官方版本如何映射多渠道</h3><p>一个已确认发布版本可映射到三家供给，各自保留原始ID、分组、支持模式及采购价。映射记录至少带来源、确认人、确认时间、生效范围及对应供给版本。供应商宣称、资料匹配和实际验证分开。</p><p>模型的“latest”等滚动别名以带时间的别名映射指向具体版本，版本未知时保持未解析；历史调用冻结当时采用的映射。供应商改名、升级或换源先形成待核对变更，不静默把历史任务改成新版本。</p><p>官方型号已确认也不代表三家供给在上下文、工具、流式、输入模式和质量上可以随意互换。销售站请求的是约定的服务能力，供应链只能在符合该约定的已授权供给之间采购切换。</p><h3>非官方、自部署和不透明实现</h3><p>对AutoDL与优云的H3，先分别登记来源供给与已知实现信息，归入同一H3家族做检索。未取得证据时不宣称同一权重，也不凭渠道不同断言权重一定不同。允许两条独立的“实现待核验”记录，后续证据足够再关联同一实现或保留不同变种。</p><p>需维护：权重仓库/修订或供应商说明、模型大小和精度（若可知）、量化、微调、推理配置、首尾帧/全能参考等能力、输入输出限制及验证记录。托管黑盒无法取得权重摘要时，不能伪造一个官方身份。</p><p>映射状态建议为：未识别、供应商声明、候选匹配、已核实、存在冲突、已失效。能力测试通过不等于验证了模型真实权重。自动识别辅助建议，正式采用保留人及来源。</p><h3>管理页面与维护流程</h3><p>统一模型页以“家族 → 发布版本 → 实现/变种 → 供应商供给”展开。每条供给显示来源ID、能力差异、映射状态、采购价版本、最近观测及使用它的销售站，能跳到上游资料和验证依据。</p><p>采集目录进入候选 → 查找现有标准版本 → 提议映射/登记未知实现 → 核对能力与身份 → 采用映射版本 → 向获授权站点发布。采集可更新来源事实，不能未经采用改变已运行服务的身份。停用或换源要展示受影响站点，保留历史关系。</p><h2>模块二 采购成本与计量规则</h2><h3>报价绑定对象</h3><p>采购价绑定具体offering及其配置版本；按需要进一步限定采购账号、合同、地域、分组和有效时间。模型版本仅用于归类，不作为唯一价格键。共享价格模板可以复用，但每条供给必须明确引用，不能凭同名继承。</p><p>规则版本至少包括：币种/积分单位、计量基数、适用规格条件、计量字段来源、费率、公式/舍入方式、最低收费、附加项、成功/失败/取消/退款政策、原文证据、核验状态和生效时间。未知项明确显示，不把缺价或缺退款规则解释为免费。</p><h3>将四件事分开</h3><div class=\"table-wrap\"><table><tr><th>层次</th><th>内容</th><th>规则</th></tr><tr><td>原始报价</td><td>API返回、网页、合同或价目文件</td><td>保存版本与原单位，不能只留下解析后的数字</td></tr><tr><td>用量事实</td><td>输入/输出/缓存Token、张数、输出秒数、参考秒数、分辨率、质量、输入模式等</td><td>带事实来源；区分供应商返回、本地测量、推导和估计</td></tr><tr><td>采购计价</td><td>对某一供给匹配规格与规则，再计算预估或应付成本</td><td>同一用量可以按不同供给规则分别计算，缺事实就未知或区间</td></tr><tr><td>实际结算</td><td>上游真实扣费、补扣、退款与账单</td><td>与预计成本独立保存，差异进入采购财务核对，不覆盖原用量</td></tr></table></div><p>采购成本模块负责规则、估算和核算。采购财务负责余额、资金事件、供应商账单、结算差异与按站归集。两个模块相邻但职责不同；客户零售价和客户钱包继续在销售站。</p><h3>多种计费方式如何共存</h3><p>- 文本：分别识别输入、输出、缓存命中、缓存写入、推理Token，以及上下文长度或峰谷时段条件；不同协议对Token是否包含缓存的定义须明确，不能重复加总。</p><p>- 生图：按张/次、尺寸和质量、输入图片或图像Token等分别建组件；返回多张、部分失败、重试规则要能表达。</p><p>- 视频：按输出秒、整条固定价、分辨率、输入模式、参考视频秒数或供应商视频Token公式计价。按秒也要明确计费时长是请求时长、实际产物时长还是取整后的时长。</p><p>- 音频/其他：按时长、字符、Token或计算资源用量，保留各自量纲；计量规则不得只看“文本/视频”标签推断。</p><p>公式示意而非实际报价：按秒供给成本为计费输出秒数×对应档位单价＋参考素材费；按条供给成本为所选条规格价＋附加费；按Token供给成本为各类计费Token×各自费率。所有公式都以该供应商核实过的规则为准。</p><p>不能把“按秒”和“按Token”的目录单价直接排高低。应先给定同一个业务请求：模型能力、输入模式、输出规格、参考素材和必要的用量假设，再分别计算完整预计成本。若某家必须等输出Token才知道费用，先标估算范围/未知，并在调用后核算。没有供应商定义的换算关系，不能自创Token与视频秒数的通用比例。</p><p>“可比较”还要求服务能力/实现等级满足同一业务约束。H3不同实现可放在同场景评测中比较，但不能借成本归一把它们自动变成同一可替换模型。</p><h2>两个模块交叉的最小合同</h2><p>请求选定或解析为供应链服务ID → 冻结release/implementation映射版本及具体offering版本 → 选择适用采购价/计量版本 → 校验能力与价格条件覆盖 → 返回预估和未知项 → 执行并记录真实用量 → 核算成本 → 关联上游账单与退款。</p><p>每次调用保存：服务身份、供给ID/版本、采购账号、输入规格、采购价格版本、计量规则版本、请求/尝试/上游任务ID、来源站点。供应商后来改价或换实现，不修改这些历史快照。冻结的是我方采用依据，不保证供应商最后按该版本结算，实际差额仍要记录。</p><p>供应链向销售站提供稳定服务ID、能力合同、可选规格、价格/成本查询接口和结果用量。销售站负责选商品、定零售价、客户权限和零售扣款，不再逐家维护上游别名、Token口径、参考素材成本公式。new-api尚不能表达的零售方式需独立处理，不能因采购侧归一就声称零售扣费已自动支持。</p><h2>本期设计边界及后续任务</h2><p>本轮把两块独立呈现在完整全景图、供应链页签和模块说明中，并形成上述逻辑合同；未改生产数据库或真实费用计算。</p><p>后续详细设计依次进行：</p><p>1. 标准目录字段和映射状态；用一个明确版本的多渠道文本样本、H3两个不透明实现验证身份模型。</p><p>2. 采购规则结构；用按Token、按秒、按条和含参考视频费用四类样本验证，不先设计无限表达能力。</p><p>3. 候选匹配、人工采用、失效和价格更新的页面流程；字段如何落入现有表及新增映射。</p><p>4. 固定历史快照和成本对照样本，再设计对站API与执行迁移，保留旧ID与费用证据。</p><p>“三个渠道同版本”和H3变种均为设计案例，不能替代实际供应商文档、权重或账单核验。</p>"
+    },
+    {
+      "title": "历史设计 · 供应链与多站架构（账务边界以当前方案为准）",
+      "html": "<p>更新时间：2026-11-06 22:04，北京时间。依据：卓光对前版架构图的业务边界修正。本图是目标架构，只有A1代表现有站点；其他实例和独立供应链服务均不表示已建成。</p><h2>核心定义</h2><p>上游供应商是我们采购API或计算能力的对象，其中可以有官方平台、专门模型厂商、聚合转售站、订阅或账号池转API的站点，以及其他计算/模型服务。对我们而言，它们统一进入采购供应链，但每个服务的协议、来源、可靠性、费用与查询能力保留差异。</p><p>图中的A1/A2/A3、B1/B2/B3全部是我们经营或向客户交付的销售中转站，不是上游供应商。A/B表示不同代码体系，数字表示部署和经营实例。相同代码可以多实例部署，不同实例各自配置模型范围、定价、客户和分销策略，用户及钱包默认分站隔离；境内外站不默认共享用户身份或余额。</p><p>独立供应链系统是一个完整采购与供货边界，包含管理端、采集任务、模型标准库、上游适配执行、采购财务和对站API。统一供货API就是这个系统向下游销售站提供的出口，不是与供应链平行的第二个系统。</p><h2>总体架构</h2><p>图中实线表示供给和服务关系，不是HTTP调用发起方向；运行时由销售站请求供货API，供应链再调用选定上游。虚线表示资料、状态与资金事实维护。</p><p class=\"inline-note\">架构关系已在上方交互图中展开。</p><p>B1/B2/B3在这里举例为同一B代码体系的配置化实例；如果某一类业务需要再换实现，则另标C代码体系，不把“业务不同”自动等同“代码必须不同”。境内/境外是实例属性，也不是必然分成不同代码体系。</p><h2>一个销售站内应该有什么</h2><p>以A1为例：</p><p class=\"inline-note\">架构关系已在上方交互图中展开。</p><p>图中套餐、促销、分销等是该层的责任范围，不声称A1今天已经全部实现。new-api是A1目前选用的执行引擎，不是供应链的必选依赖；B体系可以使用另一引擎或自研实现，只需遵守供货API合同。</p><h2>供应链的持续维护职责</h2><h3>供应商与上游能力</h3><p>记录供应商、采购账号、凭证用途、渠道分组、来源声明及其核验状态。同一家站点也可能同时有官方Key转发和账号池分组，来源分类应该能落到具体供给，不仅给整个供应商打一个标签。</p><p>对每家分别登记可查询的模型目录、采购报价、账号余额、Key限额、逐笔费用、退款和任务状态。完整API优先；不提供API的，允许定时网页读取或人工补录，保留出处与时间。采集频率按变化和限流配置，单家失败不影响其他供应商。</p><p>Models接口返回“有这个ID”不证明我们的Key能用、型号真实、服务稳定或计费正确。目录发现、账号权限、实际可调用、测试质量和账单确认分状态记录。真实模型探测有费用时遵守单独预算；目录扫描不等于自动发起付费测试。</p><h3>标准模型与采购目录</h3><p>供应链管理端维护标准厂商、型号、版本、能力规格及原始上游ID/别名映射。官方版本与供应商改名分别保留；未证明等价的分组不强行合并。自动识别只产生匹配建议。</p><p>广泛收录形成采购候选池，再明确哪些供给已采用、哪些可向销售站开放。新上游、新型号、分组变化、涨价、下线和协议变更形成差异记录，经过对应采用流程更新当前供给。历史报价与曾用版本保留。</p><p>“API足够全”是供给覆盖目标，不等于所有候选都可以直接对客户销售。各销售站只从供应链授权范围选自己的上架清单。</p><h3>采购价格与采购路由</h3><p>维护真实采购条款和报价：原币、输入输出、缓存、张数、输出秒数、参考素材费用、按条、档位、时段、合同折扣与有效期。实际账单与预计采购成本分别保存。</p><p>供应链可以按采购条件选择上游，但必须满足销售站选定的服务能力/等级；不能为了便宜跨到未经认可的另一种质量供给。销售站无需为同一个采购变化重写接口，但公开能力发生变化不能被供应链悄悄隐藏。</p><p>这层不制定客户零售价、站点促销或分销佣金。此前图中提及“供货价”的地方，本轮目标收敛为采购成本及按站归集/内部结算；不预设供应链另加一层商业利润。以后若决定对外批发，再独立定义交易政策。</p><h3>采购财务</h3><p>记录我们向上游充值/付款、收到的赠额、套餐与有效期、当前余额快照、实际消耗、退款、凭证与账单。能够回答哪些资金已经消耗、哪些仍在供应商账上，以及哪些金额还未核对。</p><p>为每次执行记录来源站点、请求/尝试、采购账号、上游任务与价格版本，按采购成本归集给A1/A2/B1等站。多个站共用一个供应商账号或Key时，必须在执行入口保留站点归属；上游只提供总账时保留无法分配的差额，不猜测逐笔成本。</p><p>中心归集采购成本不等于再扣一次终端客户钱包。销售站自己的充值、零售扣费、退款和收入账在站内维护。预付给上游的钱、赠额及消耗不混算，不能把预付款全当本期成本。</p><h2>实例和用户隔离</h2><p>一个代码体系对应多个站点实例，一个实例有自己的site_id、经营配置、商品清单、售价与用户/钱包归属。数据库可以先物理独立，或以后采用经验证的逻辑隔离方案；图不预设必须一站一台服务器。</p><p>同代码并不意味着共享用户。身份主体、域名、回调、Key、客户账单和资产归属都按站点明确隔离；境内外默认不互通。以后若做账号联通，是额外产品决定，不从同一手机号自动合并客户或余额。</p><p>供应链给每个站独立的服务身份和授权，可限定供给、规格、并发及预算。销售站既不能看到其他站客户，也不应默认获取供应商原始凭证。客户自行掌控服务器的销售站，通过供货接口拿货，中心保管上游Key。</p><h2>与现有改造顺序的关系</h2><p>本稿修正的是最终业务架构，不要求一次搬完所有执行链。资源库、上游账号、报价和资金采集先独立；现有A1逐步改为通过供应链接口采用供给，迁移期间可临时保留旧直连；再按协议逐步接管上游调用。最终目标是所有销售代码体系通过同一供货边界拿货，不能把临时直连当成目标架构已经完成。</p><p>先做采购财务的记录、核账和按站归集，之后按资金规模决定是否需要更严格的集中预算和结算执行。采购财务模块归供应链，销售钱包归各站，两者的独立运行能力分别验收。</p><h2>对上一版图的明确修正</h2><p>1. A、B此前都指我们对外经营的站，本版改用“代码体系A/B＋实例编号”，避免与上游转售站混淆。</p><p>2. 明确上游包含不同类型厂商与转售渠道，并将API查询、网页采集、动态变更和采购财务纳入供应链边界。</p><p>3. 统一供货API归供应链内部，是对销售站的出口；不是上下各一套供应链系统。</p><p>4. 模型标准身份、版本映射、采购目录、接入可用范围和进货价格在供应链维护；客户、分销、零售价和促销在销售站维护。</p><p>5. A1/A2/A3可以同代码不同配置；B1/B2/B3可用另一套代码。各实例用户体系与钱包默认隔离，是否使用new-api是销售站实现选择。</p><p>本轮仅更新架构说明，本地保存，未创建服务、迁移账号、修改原生计费、推送或部署。</p>"
+    },
+    {
+      "title": "源码与解耦调研 · 数据、技术栈、耦合和迁移",
+      "html": "<p>日期：2026-11-06，北京时间。性质：源码及架构调研、分阶段实施建议，不是已批准的改造或部署计划。</p><div class=\"callout\">2026-11-06 22:04 补充：目标业务架构图及供应链/销售站的责任边界，以同目录《API供应链与多站经营架构-v2-20261106-2204.md》为准。本文保留源码调研与迁移建议；原图A/B均指我们经营的销售站。新版明确上游类型、动态采集、采购财务、同代码多实例和分站用户体系，并将统一供货API归入供应链系统内部。</div><h2>结论</h2><p>独立供应链系统方向成立，而且现有resource_library已经提供可提取的基础。建议建设一个有自己数据、API、管理入口、采集任务和权限的供应链服务，供多个中转站使用。初期先独立管理面，保留各站现有调用和扣费；再逐步提供中心化供货调用接口，最后按实际商业需求独立定价服务或更换计费引擎。</p><p>现在既不是全部存在new-api，也不是供应链已经完全独立。资源库数据在独立PostgreSQL schema，核心模块有较好的代码隔离；但API、鉴权和界面依附网关。采购价格、供应商资金证据和生产渠道绑定又落在gateway MySQL。销售扣费由new-api执行，网关还直接读其数据库。需要解开的主要是这些所有权和接口关系，不是简单把文件搬到一个新仓。</p><p>第一期完成的判据：供应链服务不配置NEWAPI_*也能独立运行；A、B两个站通过API读取获授权供给与报价、回报采用版本；供应商余额及账单采集不需要读取任一站的new-api.channels.key。现有站的余额、客户Key、历史任务和扣款保持原权威路径。</p><h2>调研证据与限制</h2><p>源码基准origin/develop：390d7bb7ff33754eba8a9c1d15a035512e3899d0，版本2.28.0。本轮fetch后main为353d641前缀，存在#479将main发布记录同步回develop的开放PR；没有合并当前工作分支。检查了模块、表定义、导入关系、入口、Compose、计费编译和供应商采集路径，附同目录《供应链解耦源码索引-20261106.json》。索引中的列只抽取显式Column声明，不包含展开的公共生命周期列，不当作完整数据库DDL。</p><p>复用本会话正式站只读盘点：资源库48个未删除服务商，部分已有采购账号与凭证；供应商对账入口当时没有账户，19个现行渠道提示供应商未登记。这是11月6日现场快照，不证明整个生产数据库不存在其他历史记录。</p><p>本轮没有读生产DSN、数据库原件或客户正文，没有实测新架构、跑压测、迁移数据或重新调用收费模型。代码与历史发布记录可以证明实现和当时状态，不能替代当前容器现场审计。开放#117/#325及PR #217/#437与拆分工作重叠，应复用其上下文。</p><h2>一 现有技术栈与进程结构</h2><div class=\"table-wrap\"><table><tr><th>层</th><th>当前技术及职责</th><th>证据</th></tr><tr><td>客户/管理前端</td><td>服务端提供静态HTML、原生JavaScript和CSS；无独立npm前端构建要求，多个页面模块共享admin会话</td><td>webapi/static、pyproject.toml、项目指南</td></tr><tr><td>自研Web和领域逻辑</td><td>Python，Flask，Gunicorn，SQLAlchemy；包支持3.10+，CI/容器基准3.12；HTTP适配主要用requests</td><td>pyproject.toml、webapi/app.py</td></tr><tr><td>数据面入口</td><td>Caddy/TLS将/v1读写交给content-proxy，其余给webapi；LineRouter按销售线路改写请求</td><td>deploy/Caddyfile、proxy/line_router.py</td></tr><tr><td>原生模型引擎</td><td>new-api承担客户Key/余额/扣款退款、原生路由、任务插件与对外协议转发</td><td>core/newapi.py、部署配置和固定版本发布记录</td></tr><tr><td>自研上游适配</td><td>Python shim、new-api JavaScript任务插件，部分模型由v3合同编译；不是所有型号都走同一实现</td><td>proxy、deploy/newapi-plugins、core/model_config_*</td></tr><tr><td>数据库</td><td>MySQL的newapi、gateway、gateway_content；资源库独立PostgreSQL schema。身份服务另有其部署数据</td><td>core/store.py、core/content_store.py、resource_library/schema.py、deploy配置</td></tr><tr><td>队列与任务</td><td>多类持久化worker，媒体执行、资源采集/试用、成本巡检分别工作；资源任务用数据库租约</td><td>glue/media_worker.py、resource_library/refresh_worker.py、deploy/resource_runtime.py</td></tr><tr><td>资产</td><td>客户资产本地/受控对象存储适配、可选搬运服务；资源测试资产有单独加密存储</td><td>core/assets.py及相关模块、resource_library/asset_store.py、relay</td></tr><tr><td>身份与运行</td><td>用户OIDC/Logto、管理员独立签名会话；Docker Compose、GitHub Actions、MySQL、Redis、Caddy</td><td>webapi/admin_auth.py、deploy/logto.compose.yml、工作流</td></tr></table></div><p>注意：基础Compose仍写rc.29，独立升级覆盖文件钉rc.47；既有发布记录已说明rc.47切换。不能只读基础Compose就判生产仍是rc.29。pyproject中仍有旧机构业务描述和单worker注释，实际Compose配置MySQL与多worker，应按代码/有效部署组合判断。</p><p>当前主要请求路径：</p><p class=\"inline-note\">架构关系已在上方交互图中展开。</p><p>资源库还有自己的受限测试调用与worker路径，可以直接接供应商；它是内部测试能力，不等同客户统一推理主链已经独立供货。</p><h2>二 数据究竟放在哪、谁维护</h2><div class=\"table-wrap\"><table><tr><th>数据域</th><th>现有主要对象</th><th>存储</th><th>维护入口/生命周期</th></tr><tr><td>供应商与账号身份</td><td>providers、supplier_accounts</td><td>resource_library PostgreSQL</td><td>资源库“服务商与凭证”；新建、修订、停用/软删</td></tr><tr><td>上游凭证</td><td>credentials、credential_versions</td><td>同上，AES-GCM密文；主密钥库外</td><td>录入/轮换；采集或测试出站前按版本读取并审计</td></tr><tr><td>供给目录</td><td>offerings、offering_revisions</td><td>同上</td><td>手工维护或完整采集；provider+namespace+source_id+variant确定来源身份</td></tr><tr><td>原始报价与出处</td><td>quotes、quote_versions、source_snapshots</td><td>同上</td><td>原币/单位/条件保存，账号级报价可覆盖适用范围；不可变版本</td></tr><tr><td>采集过程</td><td>connections、connection_revisions、refresh_runs、observations</td><td>同上</td><td>连接配置、显式刷新队列、worker采集、事务发布完整快照</td></tr><tr><td>模型产品与合同</td><td>model_families、service_products、product_versions/generations、platform_intakes</td><td>同上</td><td>资料发现→人工修订→采用；产品合同版本化</td></tr><tr><td>生产采用成本</td><td>price_rules及相关历史表</td><td>gateway MySQL</td><td>成本录入、核实来源、接入转换；运行读price_store</td></tr><tr><td>客户销售价</td><td>sale_prices、定价设置、销售线路manifest</td><td>gateway MySQL</td><td>管理员直接定价，版本和参数档位；编译后同步原生计费</td></tr><tr><td>渠道归属与执行</td><td>channel_profiles、model_route_bindings、model_route_runs、product_publications</td><td>gateway MySQL</td><td>渠道/路由预览→执行→回读；产品准备、发布、接管、回退</td></tr><tr><td>供应商账户证据</td><td>另一套supplier_accounts、supplier_account_channels、supplier_account_records/links、supplier_topups</td><td>gateway MySQL</td><td>成本对账、手工资金凭证、特定适配器读取、作废保留</td></tr><tr><td>客户资金与调用结算</td><td>原生users/tokens、logs、tasks、channels、options、abilities等</td><td>newapi MySQL</td><td>new-api负责写入；网关用管理API操作并直接SQL读取部分事实</td></tr><tr><td>逐笔核账</td><td>billing_price_captures、billing_supplier_evidence/fees、native_task_billing等</td><td>gateway MySQL</td><td>调用前快照、后续用量/费用关联、补扣退款和差异核验</td></tr><tr><td>客户输入输出及资产</td><td>内容记录、任务、引用关系、加密文件或对象</td><td>gateway_content/任务库/资产存储</td><td>内容代理、worker、鉴权下载；与供应商商务资料不是同类数据</td></tr></table></div><p>因此，“供应商已在资源库登记”不会自动把它写成生产渠道的成本归属，也不会自动建立对账账号。当前缺失关联是多域分离后尚未完成业务串联的具体表现。</p><p>两个supplier_accounts同名却不共享ID：资源账号绑定provider_id并持有凭证，对账账号用supplier字符串、external_scope及channel_id归属资金证据。channel_profiles也主要用裸channel_id和supplier字符串，没有多站命名空间。直接把多站表合并会产生ID冲突和串账。</p><h2>三 耦合程度与真正需要拆的点</h2><h3>已经较独立</h3><p>resource_library使用独立SQLAlchemy metadata和PostgreSQL schema，数据外键在包内。静态检查未发现生产业务模块反向import core/newapi/webapi.app；测试夹具standalone仅复用webapi.admin_auth。仓内有独立性测试，验证不配NEWAPI_*且禁止网络时可挂资源接口；本轮阅读了测试，未重跑。</p><p>目录采集worker、加密凭证、报价原始快照、纯计算合同都值得保留。模型合同的Python与JS求值一致性测试也应继续用，不重新设计一套DSL。当前model_config.py的KINDS是image/video，不能据文件描述把文本、音频也当已统一实现。</p><h3>仍然依附网关</h3><p>1. <strong>启动与鉴权</strong>：webapi/app.py build_from_env先要求NEWAPI_URL/TOKEN/DSN，再挂资源模块；resource_library.register复用网关admin令牌，人民币参考汇率回调又读取gateway库。standalone.py明确只是测试夹具，没有生产入口、登录、静态页面或部署方案。</p><p>2. <strong>进程内调用与数据库直读</strong>：多个core接入/发布模块直接调用resource.catalog/store或ProductStore，传SQLAlchemy engine；分仓以后如果仍让各站直连资源库，依旧是数据耦合。</p><p>3. <strong>采用与编译</strong>：平台接入把资源报价、凭证、源ID转换成站点模型/成本标识，再写gateway价格和new-api渠道。通用聊天接入仍限定固定价和特定协议，视频有不同入口；不是供应商无差别一键接入。</p><p>4. <strong>原生数据库结构</strong>：core/db.py直接SELECT channels.key、abilities、logs、tasks等，core/reporting、billing_reconciliation等多处依赖其字段。即使管理HTTP入口集中于core/newapi.py，仍有数据库契约耦合。</p><p>5. <strong>供应商费用采集依赖渠道</strong>：例如elevenlabs_accounting先按channel_id从new-api库取Key，然后查询供应商。独立供应链若继续要求每站给它new-api数据库密码，就没有真正独立。当前通用账户适配注册只有ElevenLabs；4yi等另有专门链，不能说已经拥有通用全供应商余额采集。</p><p>6. <strong>插件、计量和原生费率</strong>：自研JS插件声明usageSchema并提交/轮询任务；new-api消费这些事实及计价表达式。Python/JS、插件版本、合同与原生表达式必须兼容，移走shim不等于移走整条视频执行链。</p><p>7. <strong>部署与前端</strong>：webapi、代理、多worker和shim多复用同一镜像/Compose，页面共享adminSession、全局状态与相对路径。模块数据库独立不代表能独立发版。</p><p>最强耦合在执行、原生资金和账单适配；最容易先拆的是供应商身份、目录报价、余额/账单观察和管理API。</p><h2>四 目标系统边界</h2><p>建议最终三块，分批交付：</p><p class=\"inline-note\">架构关系已在上方交互图中展开。</p><p>供应链服务拥有“我们能采购什么、用哪个账号、什么规格、采购报价及真实上游消费”；中转站拥有“卖给谁、卖多少钱、给客户什么权限、怎样扣款”；供货执行接口拥有“按获授权线路真实调用并归集用量”。供货执行可与供应链在同仓维护，但应作为独立进程/扩容单元，管理采集不应堵住流式推理。</p><p>资源库已有内部项目测试接口，不直接开放为所有站点的生产供货API。它的授权、预算、协议覆盖、重试与日志语义须单独验收。接口提供方应是供应链，不把new-api原生管理接口暴露给下游站点。</p><h2>五 先定稳定的数据合同</h2><p>保留现有ID并增加明确的映射，不按名称重建记录：</p><p>- provider_id：采购服务商；与模型原厂、网站品牌及结算主体分开表达。</p><p>- supplier_account_id：账号/区域/工作空间；凭证用途版本单独引用。</p><p>- offering_id：供应商原始型号+来源分组+能力/质量级别；标准model_family_id只是归类，不证明各供给等价。</p><p>- procurement_price_version：原币、计量语义、规格条件、有效期、来源及核实状态；采购折扣、赠额和实付充值分开。</p><p>- site_id + environment + engine_instance_id + local_channel_id：各站运行身份；不能把channel_id=12当全局主键。</p><p>- binding/publication_id：哪个站采用哪个offer、协议包、凭证版本及成本版本，何时生效、何时替换。</p><p>- request_id + attempt_id + supplier_account_id + upstream_request/task_id：一次客户调用、多次尝试和上游任务的关系。</p><p>- source_entry_id + source_revision：供应商账单条目与后续更正，幂等依据不能只用一个请求ID，退款/补扣可能另有事件。</p><p>备注、合同、附件遵循前一版供应链规划，新增对象关联而非每表塞一个大JSON。新金额接口使用十进制字符串/明确币种单位；现有price_rules有Float列，sale_prices另有精确金额路径，不能为了拆模块顺手全库改精度，须按迁移对照单独验证。</p><p>建议首批服务API（拟定合同，非现有可调用接口）：供给目录/详情、报价版本、采购账号资金快照、账单证据、授权站点发布包、采用回执、用量/费用事件。必须有分页、版本/ETag、增量游标、幂等键、来源时间和失败状态；普通查询不返回凭证明文。</p><p>每站以自己的机器身份读取获授权供给，运营人员以可验证的用户身份修改资料。不能让所有站共享网关管理员签名密钥，也不能将当前自填操作人名字当成精确的人员身份。复用现有OIDC基础另配受众/权限，比每站复制密码登录更适合中心服务。</p><h2>六 自动余额、上游结算怎么独立</h2><p>拆成“凭证提供器、查询适配器、结果归一、证据持久化、定时调度”五个小边界，复用现有纯解析和队列。查询适配器接收受控凭证及账号上下文，不接收new-api DSN/channel_id；站点关联在独立映射层处理。</p><p>每家能力分别标记目录、报价、账号余额、Key限额、逐笔账单、退款、分页/账期与查询频率。Key限额不是账户余额，赠额不是现金；自动查询未知不能写零，查询失败保留最近观测并标过期。无API站点先人工导入，有明确需要再做受控浏览器读取。</p><p>余额快照只描述供应商返回时刻，不承诺跨站并发下实时可支配。共享一个上游账号时，要有全局预算/告警和按站点归集；严格防超用需要中心执行与原子预留/并发控制，仅靠每12小时查余额做不到。充值仍由人办理，不在这次解耦时顺带自动充值。</p><p>按两条链核对：供应商账单原件/API实扣是外部证据；我们按价格与用量算的是预计成本。两者可对比但不互相覆盖。上游总账可能包含网页和外部Key消费，无法归属的金额留待分配，不能全部算在某站。报价冻结也不保证供应商最终按同价结算，差额要保存。</p><h2>七 定价、计量、扣费、结算分别拆</h2><p>不能把“计费独立”理解成同时搬走五件事：</p><div class=\"table-wrap\"><table><tr><th>职责</th><th>建议归属</th></tr><tr><td>上游采购成本规则</td><td>供应链服务</td></tr><tr><td>用量事实：Token、缓存、张数、输入/输出秒数等</td><td>执行层产生，保留来源与事实版本</td></tr><tr><td>供货给站点的价格</td><td>若存在真实代理交易，供应链供货合同；纯自营站可先仅内部成本分摊</td></tr><tr><td>客户零售价格与营销策略</td><td>各站销售域，未来可抽统一价格服务但按站点/合同隔离</td></tr><tr><td>客户余额预扣、扣款退款</td><td>初期各站new-api；迁换账本是以后独立项目</td></tr><tr><td>供应商账单与资金对账</td><td>供应链采购域；客户账单核验留在销售站</td></tr></table></div><p>因此未来可能有采购价、站点供货价、客户零售价三个金额，但不能一上来做三套钱包。只有独立代理真的向我们买服务时才需要站点结算账户，且必须指定唯一写入者。自营站汇总可以先做管理报表。</p><p>价格发布采用不可变版本/快照，站点明确采用并核对原生计费配置。上游改价不自动修改零售价；已知倒挂由业务决定，保留风险提示。模型或条件变化到new-api无法表达时明确标不支持，不能简单套统一倍率。</p><h2>八 管理面先独立，调用面分批搬</h2><h3>路径A：管理API独立，站点暂时各自调用上游</h3><p>实施量较小，目录、报价、余额和上游账单集中维护；站点按发布包把成本/能力投影到本地，再用已有new-api和适配器调用。适合先服务我们控制的自营站，能保留现行执行链。</p><p>代价是上游凭证仍需部署在可信站点，统一预算和跨站逐笔归属依赖各站可靠上报。凭证下发必须走受控服务端机制，不放普通发布包和浏览器。只集中数据库不能解决账号共享和供应商隐藏问题。</p><h3>路径B：站点调用统一供货API，由中心持有上游Key</h3><p>统一执行层负责供应商请求适配、凭证、任务、用量及来源关联，客户站只得到我方服务凭证。适合客户自己控制服务器、不能交出上游密钥的独立站，也更容易统一供应商并发和采购消耗。</p><p>代价是新增网络跳转与故障域，流式背压、异步状态、重试、取消、素材上传、回调和下载都成为正式接口合同。对不可信站点的结算不能只信其上报Token或成功率；需中心执行观测与上游账单证据。</p><p>建议A先落地，B先选一条有明确业务的线路试点，再逐个接管。外部客户站要求隐藏上游Key时，B是交付条件，不应假装A已满足。目标是最终可统一供货，不把“先保留调用链”变成永久不拆。</p><h2>九 拆分实施顺序及验收</h2><div class=\"table-wrap\"><table><tr><th>阶段</th><th>最小改动</th><th>验收与回退</th></tr><tr><td>0 身份与事实整理</td><td>修正资源账号、对账账号、站点渠道映射；确定哪些记录有业务使用；补资料来源</td><td>不按名称合并；导入去重；历史不改写。先解决本会话发现的19条归属缺项</td></tr><tr><td>1 独立供应链服务外壳</td><td>复用resource_library，提供正式启动、机器鉴权、独立配置/部署和管理入口；替换对gateway汇率/登录的隐式依赖</td><td>不配NEWAPI_*可运行；A/B站隔离读取；暂不搬客户钱账。可回退网关读取入口而不回滚新数据格式</td></tr><tr><td>2 采购证据与采集迁入</td><td>凭证源改为供应链账号，提取供应商适配器和资金证据；旧模块先作为只读兼容入口</td><td>同账号重复同步不重复计费；未知/赠额/现金不混算；单一写入主本。避免两个worker同时采同账号并分别记账</td></tr><tr><td>3 站点采用API化</td><td>用HTTP客户端替代跨库/进程内ProductStore读；发布包落各站本地，new-api细节留站点connector</td><td>相同版本重复采用无副作用；半途失败可回读；配置漂移可见。供应链故障不应导致已采用且有效的全部线路立刻中断</td></tr><tr><td>4 供货执行试点</td><td>选一个协议/模式，将现有适配器包装为统一执行API；各站new-api仍扣零售余额</td><td>两站请求归属、幂等、断线未知、费用回传、素材下载隔离验证；新请求可切回原路径，在途任务继续用原执行器</td></tr><tr><td>5 独立价格/账单演进</td><td>按真实代理业务增加供货合同、站点结算，再评估零售价格服务与账本替代</td><td>旧新价格并行核算、差异解释、历史重放、退款守恒；一次只切一套资金权威</td></tr></table></div><p>阶段3的本地快照不同于现在同机MySQL故障时强行继续收费：供应链管理服务失联，但站点本地鉴权、计费与任务库健康，可以按明确有效期和撤销策略使用已采用版本；本地钱账失败、强制撤销或合同过期则拒绝。此策略是未来设计，不能擅自修改当前price_store fail-closed行为。</p><p>采用迁移：先影子读取对照，不写新钱包；停止旧域写入并记录切换点，导入已去重数据和ID映射，核对笔数/金额/版本，再启用新主本。保留兼容读入口及回退期。已经进入新版本格式的数据不能简单用旧程序回滚，必要时只回退流量或前向修复。</p><h2>十 多人怎么分工而不互相卡住</h2><p>建议按交付边界分三类工作，不指定尚未确认的个人owner：</p><p>1. 供应链管理：采购账号/报价/备注附件/余额账单采集/管理API，只维护供应链主本。</p><p>2. 站点与new-api适配：本地采用快照、渠道、销售价编译、客户权限与扣款、兼容旧任务；谢海当前最接近这部分，具体分工仍需团队确认。</p><p>3. 供应商协议与执行：输入映射、异步任务、用量、下载和供应商错误；通过固定adapter合同加入，不让供应商代码访问客户钱包。</p><p>交付共同的API契约、脱敏样本和契约测试。供应链开发用假站点，站点开发用假供应链，协议开发用假上游，都不要求拿生产全套秘密才可开发。纯计算配置解释器保持版本化共享包/产物和同一测试语料，避免复制后两份漂移。</p><p>可先在同仓建立包边界与独立启动，不以分仓为前置；正式供应链服务有独立发布周期后再提取独立仓库。无论是否分仓，都禁止跨服务共享数据库写权限和直接import私有存储类。模块边界应让“改供应商解析器”不强迫“发布客户登录页”。</p><h2>十一 验证重点与成本</h2><p>首轮重点验证：无new-api启动、两个站相同本地channel_id不串账、同账号多Key不重复资金事件、报价更新不改历史/人工售价、重复事件不重复算款、迟到退款追加更正、供应商429/认证失败不写假零余额、采集进程重启可恢复、采用中断可回读、资源服务故障下有效配置策略、流式断线不自动重放、视频提交未知不重新生成。</p><p>最大的投入是跨边界状态一致性、资料迁移和供货执行协议，不是给表改名。第一期可以明确估价为独立入口、账号映射、读取API、两站契约测试这几项；拿到接口范围后再由实施者估工期，不依据现有文件数量虚构人天。</p><h2>十二 OpenMeter放在哪里</h2><p>本轮查阅的官方资料显示OpenMeter覆盖用量事件聚合、额度/权益、价格与账单等能力，不应简单描述为“只统计不计费”。但它不是供应商资料库，也不会自动解决各上游余额、账单协议及模型映射。见<a href=\"https://github.com/openmeterio/openmeter\" target=\"_blank\" rel=\"noopener noreferrer\">官方仓库能力说明 ↗</a>和<a href=\"https://openmeter.io/docs/billing/entitlements/overview\" target=\"_blank\" rel=\"noopener noreferrer\">权益文档 ↗</a>。</p><p>建议先定义供应链与站点用量事件合同，再按需要做旁路聚合或账单试算，验证乱序/重复/退款和价格版本；初期不要让它与new-api同时扣同一个客户钱包。以后是否由它接管供货结算或零售计费，需要具体能力、部署版本和迁移验证，不能仅因准备拆系统就默认引入。</p><h2>源码证据入口</h2><p>以下均固定到本轮develop SHA，避免本地研究分支旧文件与新源码混用：</p><p>- <a href=\"https://github.com/ailab-co/gateway-ext/blob/390d7bb7ff33754eba8a9c1d15a035512e3899d0/resource_library/schema.py#L128\" target=\"_blank\" rel=\"noopener noreferrer\">资源库表定义 ↗</a>：供应商、账号、凭证及报价。</p><p>- <a href=\"https://github.com/ailab-co/gateway-ext/blob/390d7bb7ff33754eba8a9c1d15a035512e3899d0/core/store.py#L249\" target=\"_blank\" rel=\"noopener noreferrer\">网关资金、渠道与价格表 ↗</a>：另一套supplier_accounts及相关绑定；price_rules在1164行、sale_prices在1408行。</p><p>- <a href=\"https://github.com/ailab-co/gateway-ext/blob/390d7bb7ff33754eba8a9c1d15a035512e3899d0/webapi/app.py#L2840\" target=\"_blank\" rel=\"noopener noreferrer\">宿主启动依赖 ↗</a>：NEWAPI_*必填、资源挂载和汇率回调。</p><p>- <a href=\"https://github.com/ailab-co/gateway-ext/blob/390d7bb7ff33754eba8a9c1d15a035512e3899d0/resource_library/standalone.py\" target=\"_blank\" rel=\"noopener noreferrer\">只用于测试的独立组合 ↗</a>：不能当作已完成生产服务。</p><p>- <a href=\"https://github.com/ailab-co/gateway-ext/blob/390d7bb7ff33754eba8a9c1d15a035512e3899d0/core/db.py\" target=\"_blank\" rel=\"noopener noreferrer\">new-api直接SQL读取 ↗</a>：日志、渠道Key、abilities。</p><p>- <a href=\"https://github.com/ailab-co/gateway-ext/blob/390d7bb7ff33754eba8a9c1d15a035512e3899d0/core/elevenlabs_accounting.py\" target=\"_blank\" rel=\"noopener noreferrer\">供应商费用适配的渠道依赖 ↗</a>：先读new-api渠道凭证。</p><p>- <a href=\"https://github.com/ailab-co/gateway-ext/blob/390d7bb7ff33754eba8a9c1d15a035512e3899d0/core/platform_onboarding.py\" target=\"_blank\" rel=\"noopener noreferrer\">平台资料采用到站点渠道 ↗</a>：报价、凭证、原生模型身份转换。</p><p>- <a href=\"https://github.com/ailab-co/gateway-ext/blob/390d7bb7ff33754eba8a9c1d15a035512e3899d0/resource_library/model_config.py\" target=\"_blank\" rel=\"noopener noreferrer\">现有v3合同解释器 ↗</a>：可复用的纯计算边界及当前模态范围。</p><p>- <a href=\"https://github.com/ailab-co/gateway-ext/blob/390d7bb7ff33754eba8a9c1d15a035512e3899d0/core/newapi_pricing.py\" target=\"_blank\" rel=\"noopener noreferrer\">原生费率编译 ↗</a>：价格到new-api表达式与倍率配置的适配层。</p><p>- <a href=\"https://github.com/ailab-co/gateway-ext/blob/390d7bb7ff33754eba8a9c1d15a035512e3899d0/deploy/docker-compose.yml\" target=\"_blank\" rel=\"noopener noreferrer\">部署组合 ↗</a>、<a href=\"https://github.com/ailab-co/gateway-ext/blob/390d7bb7ff33754eba8a9c1d15a035512e3899d0/deploy/newapi-upgrade.compose.yml\" target=\"_blank\" rel=\"noopener noreferrer\">rc.47覆盖配置 ↗</a>、<a href=\"https://github.com/QuantumNous/new-api\" target=\"_blank\" rel=\"noopener noreferrer\">官方new-api定位 ↗</a>。</p><p>本轮仅本地保存研究及静态源码索引，没有改代码、发Issue、推送或实施迁移。旧规划继续保留，本稿用于下一次确定拆分范围与开发任务。</p>"
+    },
+    {
+      "title": "下一阶段工作计划 · 电话沟通后的业务重点",
+      "html": "<p>整理日期：2026-11-06，北京时间。计划窗口建议：11月9日至13日；这是建议节奏，不是谢海已承诺的工期。</p><h2>最终建议</h2><p>下周以“能给一个真实B端客户交付可用的模型服务”为目标。谢海主抓渠道接入、现有站可用性和企业接入手续；卓光主抓产品取舍、报价和销售；安排实习生按明确步骤做人工作业回归。与此同时，用已有资源库和定价能力补一个能看上游余额、能维护报价的运营入口。</p><p>保留现有new-api、身份、钱包、媒体任务和v3成果。供应链、销售定价、客户站点先在数据和职责上分清，首期仍可在现有系统内实现；不以独立服务、换计费引擎或完整多站平台作为交付前提。</p><h2>电话确认了什么，与上午计划有何变化</h2><p>来源：53分33秒《11-06 会议：AI模型中转站业务规划与系统开发推进》，已完整读取00:00:03.830至00:53:22.900逐字稿。原件URI：viking://user/default/resources/voice-recordings/records/plaud-fa9bfd4c67108290f62c8fd00071b01e/transcript.md。原始音频和逐字稿保留在录音管道，不复制进仓库。ASR中人物、模型与站名有误识别，以下只采用能结合上下文确认的业务含义。</p><div class=\"table-wrap\"><table><tr><th>时间定位</th><th>电话中的明确内容</th><th>对计划的调整</th></tr><tr><td>00:03–03:05、15:39–16:12</td><td>卓光下周集中完善产品；有企业客户需要模型额度、自助配置和查账，不一定需要应用层</td><td>首次客户交付提高到总目标，优先验证文本API账户和账单；视频接入并行，不必等待画布</td></tr><tr><td>01:34–02:06、29:01–30:08</td><td>谢海说快速接入仍未完成，正在把写死的逻辑迁出；他将近期工作描述为填坑</td><td>上午“大架构投入”是代码规模判断，不代表业务效率已有突破；用接入操作演示验证成果</td></tr><tr><td>03:07–06:58</td><td>卓光需要运营人员能维护的报价表，并用经营测算反推价格</td><td>定价操作优先；不再把通盘统一加价当产品方案。此前kuadd×1.05保留为默认候选，人工采用的价格才生效</td></tr><tr><td>11:14–12:45、40:25–40:59</td><td>谢海准备人工测试框架，实习生下周按步骤回归并截图</td><td>人工回归包成为P0交付物，不能只报自动化测试通过</td></tr><tr><td>12:46–15:35、43:10–44:57</td><td>谢海牵头支付、短信、域名等流程，能办的直接推进，需要材料、扫码、法人授权时具体提出</td><td>从“给卓光一份研究大纲”改为办理进度和准确的待配合动作；域名转入不再默认等卓光自行研究</td></tr><tr><td>16:13–19:14、36:01–39:34</td><td>讨论客户独立站、不同价格模板、不同用户群及共享供应链；初期多个实例可能更简单</td><td>独立站不再只是远期想法，列近期小范围方案；账户是否互通未定，不能写成已决定统一身份/钱包</td></tr><tr><td>19:44–23:24、34:11–35:58</td><td>多供应商预充、余额、赠送额度、兑换码难管理；希望查询和低额提醒，充值由人完成</td><td>上游资金台账与余额查询升到P0起步，自动充值不在范围</td></tr><tr><td>26:43–27:38</td><td>用京东/淘宝/拼多多类比不同质量和服务定位</td><td>先明确“精选稳定服务”和“多线路自选”的产品区别，暂不因此开发三个站或认定供应商来源真实</td></tr><tr><td>41:02–42:25</td><td>先接昨天两个来源，保留老来源；谢海先小额充值，录音还提及其月度额度</td><td>记录为对谢海的工作交办；“先充100”币种和每站/合计未明。月度额度不是本AI的支付授权，本轮不充值</td></tr><tr><td>49:01–51:35</td><td>API整体工作交给谢海，要求主动理解需求、交付能卖的东西；张海潮如何加入仍在考虑</td><td>谢海是本阶段推进主线；不能把“张海潮负责供应链或运营系统”写成已确定分工</td></tr><tr><td>51:41–52:17</td><td>卓光希望多实际使用各渠道，形成费用和体验判断</td><td>回归之外加入真实业务试用，记录完整任务成本和质量，而非只比单位价</td></tr></table></div><p>电话没有推翻上午所有方向，但调整了先后：客户可用、人工回归、办理手续和供应商资金管理提高优先级；画布、海外支付、独立计费等仍保留后续。电话里关于来源、折扣、政企采购门槛的口头说法不作为已核实的商业或合规事实。</p><h2>现场代码变化</h2><p>本轮fetch后的develop为390d7bb7ff33754eba8a9c1d15a035512e3899d0，版本2.28.0；本地研究分支未合并。上午复盘基线2.27.0继续保留为历史快照。</p><p>新增PR #475取消“必须有真实测试才能上架/配置发布”的门槛，缺测试显示需人工判断，售价、成本、路由和原生计费检查仍保留。该变更解决尚未上架无法授权测试、未测试又无法上架的循环。计划中的实际业务试用是交付验收建议，不重新加全型号付费上架门禁。2.28.0代码归档不等于本轮已核实其生产部署。</p><p>现有开放PR #437在处理配置性能，#217涉及模型资源库规划；不要平行再做一套。#459图片参数、#463拒绝误判仍开放；部分其他开放Issue已有修复，先核对再安排。执行状态继续放GitHub Issue，本稿不建立第二套长期待办状态库。</p><h2>P0 下周必须形成的五份交付</h2><h3>1 客户可以自己用的最小服务</h3><p>负责人：谢海推进；卓光选定首个客户画像及报价；实习生执行回归。</p><p>先以电话里的企业文本采购场景做验收样板：一个独立客户账户、获准的少量文本模型、自助建Key、调用示例、消耗限制、查账。DeepSeek、Kimi、Qwen是电话中的需求示例，不假设具体型号已全部可用，也不将6万元示例写成已签合同。</p><p>需要明确一件产品规则：客户买的是总钱包余额，还是分别锁定在各模型上的采购额度。现有总钱包不能冒充“每个模型各2万元”的独立额度约束；首个客户没有这种硬要求时先用现有余额和Key权限。若确需硬限制，先定金额口径、跨Key合并及并发扣减规则，再估最小实现。</p><p>交付：可访问的指定站点与版本、测试账户开通办法、模型/规格清单、报价、调用示例、充值方式和问题入口。可审计人工充值可服务首批试点，但页面不得宣称扫码支付已开通。</p><p>完成判据：非开发人员依说明完成登录、取Key、调用、查看余额与账单；用户不能调用未授权型号；错误与扣款状态可解释。只对本批已覆盖业务作结论。</p><h3>2 给实习生执行的人工回归包</h3><p>负责人：谢海准备真实页面步骤和预期结果；卓光安排测试人员；执行人姓名待确认。</p><p>建议交付10个大流程、约50个操作检查点，数量是组织方式，不是完成率目标。下表是编写范围，正式用例需补实际页面、账号条件、按钮步骤与预期结果。</p><div class=\"table-wrap\"><table><tr><th>流程</th><th>必须覆盖</th></tr><tr><td>注册与验证</td><td>正常注册、已注册邮箱、验证码异常、重复提交、提示与返回路径</td></tr><tr><td>登录与找回</td><td>登录、退出、会话过期、找回入口、账号不存在或错误凭证</td></tr><tr><td>模型目录</td><td>实际权限、型号和规格、价格单位、未开放提示、可复制调用ID</td></tr><tr><td>API Key</td><td>创建、模型权限、额度、停用、停用后拒绝调用</td></tr><tr><td>文本调用</td><td>正常结果、流式结束、长输入、限流/拒绝、用量与费用</td></tr><tr><td>生图</td><td>文生图、参考图、必填参数、任务失败、下载</td></tr><tr><td>视频</td><td>文生、已开放的参考模式、时长/规格、轮询、产物与素材费用</td></tr><tr><td>使用与账单</td><td>请求关联、实际扣款、退款、筛选、导出和余额一致性</td></tr><tr><td>账户与隔离</td><td>主/子账号现行行为、不同账户不可串看、无权限、额度不足、权限变更恢复</td></tr><tr><td>充值与恢复</td><td>现有入账、重复凭证、入账失败恢复；扫码未开通则标未实现，已开通再测通知/退款</td></tr></table></div><p>记录至少包含：用例编号、版本/环境、步骤、预期/实际、脱敏截图、请求/任务ID、费用、对应Issue、复测结论。不收集明文Key、验证码或客户原始内容。付费测试使用专用受限账户，先定总额、型号、规格及可重试条件；实习生不自行重复未知提交。</p><p>完成判据：输出通过/失败/阻塞/未覆盖清单；客户开通和资金错误等阻断问题关闭前复测。其余问题按影响分批，不因全站所有旧功能未测完而无限延期首批交付。</p><h3>3 Fox和Gway小批接入，保留旧渠道</h3><p>负责人：谢海；卓光提供采购线索、服务档位和首批型号选择。</p><p>先各选一个有真实需求的服务，核对精确ID、分组来源声明、输入输出契约、完整计量和余额/账单能力。以现有配置和适配器为起点，区分配置即可完成、需小改协议、缺供应商事实三类。现有可用渠道继续服务，不因接新渠道整体下架或重做。</p><p>验收既包括调用，也包括真实业务质量、等待时间、下载、扣款解释和异常处理。新线路未经足够验证不宣传为官Key/满血/稳定；不同服务承诺不只凭同名放进自动切换池。文本重点测拆剧本与中文处理，不把高价编程Agent场景作为第一批门槛。</p><p>交付同时记录本次接入有哪些人工步骤、哪些改了代码、在哪一步等待；随后用同协议第二条线路验证配置化是否省事。此处要求实际演示，不再用V2/V3编号说明业务收益。</p><h3>4 供应商余额和采购资金的最小总览</h3><p>负责人：谢海归并技术数据；卓光补充已有采购账号线索；财务/出纳负责充值执行，具体人员待确认。</p><p>复用现有资源库、供应商成本与对账能力，先加一份持久化台账和只读总览：供应商、采购账户标识、服务范围、资金单位、现金充值、赠额、可用余额、额度限制、有效期、最近查询时间、查询方式、负责补款的人。API Key限额、账户可用余额与实际资金不能混为一个数字；无数据标未知，旧数据标时间。</p><p>能用API就用API；缺API先人工录入或受控只读浏览器采集，逐家确认可行性，不能把“必须爬完所有站”作为第一版前置。录音的12/24小时是可考虑的查询频率示例，高用量站按实际消耗调整；阈值采用各站运营配置，不编造全站统一安全线。</p><p>低余额形成待充值事项，充值由人完成并留凭证。不启用自动购买、兑换或自动充值。兑换码资产只记录金额、数量、状态、归属及安全凭证引用，明文兑换码按密钥管理。</p><p>历史余额可用于提醒优先消耗，但“去库存”不应强制把客户切到不符合其能力/质量承诺的渠道。采购预付款、赠额和模型消耗分开，以免账面余额被误当成本或利润。</p><p>完成判据：能回答“我们在哪些平台还剩多少钱、哪些数据过期、谁补款、哪些钱有到期或使用限制”。第一版允许部分供应商人工更新，不能把缺数据的总和标成完整资产总额。</p><h3>5 企业云、域名、支付和短信由谢海推动办理</h3><p>电话已明确谢海能做的先做，需要卓光/崔磊/法人配合时给具体动作。谢海在电话中说已发送域名转出凭证，卓光尚未办转入；这是双方报告，须核对邮件和注册商当前状态，不能直接认定转移已完成或凭证仍有效。</p><p>办理清单采用：事项、当前步骤、缺什么、由谁提供、需要点哪里、下一个可执行动作。先核对现有企业账号和域名进度，再提出接收账号/服务商建议；不要又要求卓光从头研究云平台。支付与短信分别列商户/签名/模板等实际缺项，授权和付款由对应人员完成。</p><p>下周验收看材料是否齐备、是否已提交、受理状态及剩余阻塞，不承诺外部审核一定一周完成。注册商迁移、DNS、备案与服务器切换分开处理，沿用现有可用业务入口。</p><h2>P1 紧随试点推进的三件事</h2><h3>可由运营维护的报价表</h3><p>卓光确定售价；谢海把现有定价能力做成可操作入口。先让一张表完成基准、采购、销售的对照，支持按模型/线路/规格人工覆盖，显示采用状态与历史版本。采购报价刷新只产生差异或新建议，不静默改销售价；表格/CSV只是编辑和导入手段，采用后的事实须持久化，不另以Excel和HTML各存一份权威价。</p><p>先做统一公开价和少量明确的服务档位，不先做优惠券、积分商城、复杂会员折扣。客户账单以new-api实扣/退款为准；价格发布后验证代表性用量与实扣一致。已知亏损可由业务确认，不将成本必须低于售价硬编码；未知成本保持未知。</p><p>经营模拟器先离线测算，用实际业务占比和价格版本输入，区分充值现金、已消费收入、采购消耗和资金占用；20万/100万情景并非业务预测。财税参数由财务核定。其结果用于调整售价，不阻塞首个客户拿Key使用。</p><h3>客户界面和真实使用反馈</h3><p>卓光下周主抓信息结构、销售表达和服务清单。先按人工回归修客户必经路径，再调整样式。张海潮另一个站的前后端和模拟数据不能视为已与本项目打通；给他一个独立、可交付的模块后再排入主线，负责人范围待三方明确。</p><p>真实使用应记录完整业务费用、质量、时延、缓存表现和失败处理。使用同一业务输入比较，不要求为了试用而立即放弃现有订阅，也不将一次成功视为稳定性证明。</p><h3>一个客户独立站的轻量方案</h3><p>共享供应链、不同售价模板和不同站点是方向，尚未决定统一用户/钱包。先基于一个具名客户明确域名品牌、收款主体、短信署名、管理权限、用户和余额归属。</p><p>初期可以评估单独实例，复用部署模板；若只是品牌入口则评估共用后端。不能把换域名当成账户隔离。上游允许时可每站独立Key；若共用上游Key，客户请求必须关联站点、下游账户、任务与费用，不能指望共享Key的上游总账自动拆出各站成本。</p><p>首期只做一个可复现试点和站点登记，不建通用多站控制平台。独立实例是否绕过我方网关、在哪里扣客户款、我方如何计供货款必须画清，防止重复扣款或绕过权限。画布继续独立试点，不作为企业API交付前置。</p><h2>P2 中期保留</h2><p>独立计费/OpenMeter、供应链微服务化、多站统一后台、统一身份与钱包、复杂促销、海外收款和部署、短信营销及大量自托管计算资源。先积累真实需求和瓶颈，再按业务收益选择。不为了2分钱的局部成本优化占用下一周主要交付时间。</p><h2>建议的一周推进节奏</h2><div class=\"table-wrap\"><table><tr><th>时间</th><th>谢海主线</th><th>卓光与其他人</th><th>当天可检查产物</th></tr><tr><td>周一11/09</td><td>给人工回归包；演示当前客户流程；核对两个新渠道和办理进度</td><td>卓光确定首个客户场景、型号和试用范围；安排实习生</td><td>客户验收清单、用例首版、具体材料缺项</td></tr><tr><td>周二至周三</td><td>修关键阻塞；Fox/Gway各跑首个代表服务；做余额总览首版</td><td>实习生回归截图；卓光填写首批报价；商务材料配合</td><td>缺陷与复测记录、接入结果、资金台账、报价草稿</td></tr><tr><td>周四</td><td>验证报价到实扣；演示同协议新增线路；办理事项跟进</td><td>卓光按真实业务试用、收敛界面；财务核对采购口径</td><td>一个真实客户交付包、价格核对、剩余阻塞</td></tr><tr><td>周五11/13</td><td>演示已完成流程，报告可交付范围及下一批</td><td>卓光决定试点开放范围；实习生复测</td><td>可交付/未完成清单及下周少量明确事项</td></tr></table></div><p>这个节奏需谢海据现状估工作量。若做不完，先保证一个企业文本客户可交付、人工回归和办理事项有人推进；视频首个线路和余额人工台账允许分批，完整运营后台、多站平台向后排。不要以增加大量并行开发为缩短工期的方法。</p><p>每次汇报只先回答：现在谁能用什么、操作入口在哪里、价格和账单是否对得上、阻塞具体在哪、需要卓光做哪一个动作。代码版本、PR和测试明细放证据链接，避免由卓光每周猜提交记录代表什么。</p><h2>实施前只需收敛的关键选择</h2><p>1. 首个B端试点是现有站独立账户，还是必须独立品牌站；客户是否要求分模型硬额度。</p><p>2. 首批型号/规格和采用售价；Fox/Gway小额充值的币种与每站金额由谢海按电话交办核对。</p><p>3. 企业办理的经办身份与短信接收方式；财务补款联系人姓名。</p><p>这些选择分别在对应动作前明确，不阻塞谢海先给回归用例、盘点账户和列现有流程。未确认项不转成默认授权或虚构承诺。</p><h2>本轮交付边界</h2><p>本文更新上午规划的优先级，旧稿保留。没有复制原始会话、密钥或客户资料，没有发送给谢海、创建Issue、充值、部署或改业务代码；仅fetch及只读核查并本地保存规划。执行清单后续归入已有Issue或新建的必要业务Issue，不为每条规划自动创建任务。纯规划文档无需更新行为Changelog或运行代码测试。</p>"
+    }
+  ],
+  "priorities": {
+    "P0": {
+      "label": "P0 · 先定边界",
+      "color": "#b45309",
+      "note": "先明确身份、模型、价格和接口合同，解除协作依赖。"
+    },
+    "P1": {
+      "label": "P1 · MVP必做",
+      "color": "#087f75",
+      "note": "本期必须贯通调用、任务、交付、费用及隔离；可分批实现。"
+    },
+    "P2": {
+      "label": "P2 · 后续深化",
+      "color": "#6454ba",
+      "note": "最小闭环先做，完整自动化与经营能力后续深化。"
+    },
+    "F": {
+      "label": "远期 · 保留蓝图",
+      "color": "#7b8797",
+      "note": "不进入当前MVP；保留未来扩展位置。"
+    }
+  }
+};
+</script><script>/* Hand-routed SVG: stable alignment, no remote graph library or runtime network. */
+(() => {
+ const W=2400,H=2640;
+ const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+ const colors={neutral:['#f4f6f5','#6a7b83'],teal:['#ecf8f3','#167768'],amber:['#fff5df','#a16a13'],blue:['#edf4ff','#3065aa'],violet:['#f5effc','#7654a2'],ops:['#eaf7fb','#267f98'],copper:['#fff0e5','#9b5b35']};
+ const positions={};
+ function box(id,x,y,w,h,title,lines,color='teal'){
+  positions[id]={x,y,w,h};const level=window.PLAN_DATA.nodes[id].priority;const stroke=window.PLAN_DATA.priorities[level].color;const fill={P0:'#fff5e7',P1:'#edfaf6',P2:'#f3f0fd',F:'#f3f5f7'}[level];
+  return `<g class="flow-node" data-priority="${level}" data-node="${id}" tabindex="0" role="button" aria-label="${esc(title)}，点击查看说明" aria-pressed="false"><title>${esc(title)}：点击查看说明</title><rect x="${x}" y="${y}" width="${w}" height="${h}" rx="14" fill="${fill}" stroke="${stroke}"/><text class="flow-priority" x="${x+w-14}" y="${y-9}" text-anchor="end" fill="${stroke}">${level==='F'?'远期':level}</text><rect class="flow-selection" x="${x-5}" y="${y-5}" width="${w+10}" height="${h+10}" rx="18"/><text x="${x+w/2}" y="${y+34}" text-anchor="middle" class="flow-title">${esc(title)}</text>${lines.map((t,i)=>`<text x="${x+w/2}" y="${y+61+i*23}" text-anchor="middle" class="flow-copy">${esc(t)}</text>`).join('')}</g>`;
+ }
+ function path(d,kind='solid',arrow=true){return `<path class="flow-edge ${kind}" d="${d}" fill="none" ${arrow?`marker-end="url(#arrow-${kind})"`:''}/>`;}
+ function caption(x,y,t){return `<text class="flow-caption" x="${x}" y="${y}" text-anchor="middle">${esc(t)}</text>`;}
+ function svg(){let shapes=[],edges=[],labels=[];
+  const group=(x,y,w,h,title,sub,fill,stroke)=>`<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="22" fill="${fill}" stroke="${stroke}" stroke-width="2"/><text class="flow-group-title" x="${x+28}" y="${y+38}">${title}</text><text class="flow-group-sub" x="${x+w-25}" y="${y+38}" text-anchor="end">${sub}</text>`;
+  const b=(id,x,y,w,h,title,lines,color='teal')=>shapes.push(box(id,x,y,w,h,title,lines,color));
+  shapes.push(group(40,30,2320,200,'01　外部上游供应商','只将首批获准供给接入MVP；其余保留候选','#fff','#d6dfda'));
+  [['official',70,'综合官方平台',['阿里云百炼 · 火山引擎']],['special',650,'专业模型厂商',['MiniMax · ElevenLabs']],['reseller',1230,'聚合与转售渠道',['官方Key转发 · 订阅 / 账号池']],['compute',1810,'其他模型与计算',['已有推理API可选 · 自研调度后续']]].forEach(([id,x,t,l])=>b(id,x,105,520,100,t,l,'neutral'));
+  shapes.push(group(40,300,1420,900,'02　独立供应链 MVP','采购成本 → 合作方批发价；逻辑模块不等于微服务','#f7fcf9','#b4d2c0'));
+  shapes.push(group(1500,300,860,900,'03　共用运营能力','横向模块；不另建钱包或大型运营平台','#f3fafc','#b5d7e1'));
+  b('contract',90,385,400,115,'供货合同与协作边界',['身份 · 主本 · 版本 · 错误合同','支持两条开发线并行']);
+  b('connect',530,385,400,115,'上游接入与适配',['复用适配 · 独立供货入口','先证明一条完整执行链']);
+  b('tasks',970,385,440,115,'执行任务与恢复',['平台ID · 幂等 · 异步状态','未知不重发 · 重启续原任务']);
+  b('catalog',90,575,400,115,'供应商与接入主档',['采购账号 · 凭证 · 协议','资源账号与对账账号显式关联']);
+  b('models',530,575,400,115,'统一模型目录与映射',['家族 → 版本 → 实现 → 供给','能力与来源证据，未知不猜']);
+  b('prices',970,575,440,115,'采购成本与计量规则',['Token / 秒 / 张 / 条 / 素材','报价 · 用量 · 核算 · 实扣'],'amber');
+  b('scan',90,765,400,115,'持续采集与资料核验',['首批API＋人工补录先用','全渠道自动化后续深化']);
+  b('wholesale',530,765,400,115,'合作方合同与批发定价',['按合作方/站点约定拿货价','不向合作方暴露真实底价'],'amber');
+  b('finance',970,765,440,115,'上游采购财务',['充值 · 赠额 · 实扣 · 退款','缺接口人工核对，不补假零'],'amber');
+  b('handoff',90,955,400,130,'素材与产物交接',['上游取件 · 临时归档','受控引用 → 销售站归档确认']);
+  b('trade',530,955,400,130,'批发费用与供货账',['可交付＋计量齐备 → 应付','未知待核 · 关联调整与退款'],'amber');
+  b('availability',970,955,440,130,'获准供给与采购选择',['能力匹配后选择有限备选','不因低价越权或重复生成']);
+  b('opsAuth',1550,385,760,115,'站点身份与供货权限',['稳定站点身份 · 独立服务Key · 方法级权限','Key轮换不割裂历史；终端客户权限仍归销售站'],'ops');
+  b('opsLogs',1550,575,760,125,'统一调用与费用关联',['本地请求 → 平台ID → 尝试/任务 → 三类费用','采购账、批发账、客户账各有唯一写入者'],'ops');
+  b('opsRisk',1550,775,760,115,'运行风控与告警',['预算/限流 · 未知任务 · 待交付 · 费用待核','元数据和正文分权；不扩成大型运营平台'],'ops');
+  b('mvpGate',1550,975,760,110,'MVP验收与五项待定',['内部用顺＋杭州演示；不只验证HTTP 200','型号规格 · 预算价格 · 分工 · 适配 · 部署'],'ops');
+  for(let id of ['official','special','reseller','compute']){let p=positions[id];edges.push(path(`M${p.x+p.w/2} 205 V265 H730 V385`));}
+  edges.push(path('M490 442 H530','dashed'));edges.push(path('M930 442 H970'));
+  edges.push(path('M290 500 V575','dashed'));edges.push(path('M730 500 V575','dashed'));
+  edges.push(path('M490 632 H530','dashed'));edges.push(path('M930 632 H970','dashed'));
+  edges.push(path('M290 690 V765','dashed'));edges.push(path('M730 690 V765'));
+  edges.push(path('M1190 690 V765','dashed'));edges.push(path('M970 820 H930','dashed'));
+  edges.push(path('M730 880 V955'));edges.push(path('M1190 880 V955','dashed'));
+  edges.push(path('M1410 442 H1480 V630 H1550','dashed'));
+  edges.push(path('M1930 500 V575','dashed'));edges.push(path('M1930 700 V775','dashed'));edges.push(path('M1930 890 V975','dashed'));
+  edges.push(path('M970 450 H950 V925 H290 V955'));
+  shapes.push(group(40,1290,2320,200,'04　统一供货 API','同一身份、多组方法；首期交付最小闭环，不做自动授信/付款','#fff','#c9d9d6'));
+  b('invokeApi',80,1365,520,95,'供给与调用',['目录 / 提交 / 任务 / 受控产物']);
+  b('logsApi',650,1365,520,95,'日志与运营',['状态 / 尝试 / 可见异常'],'ops');
+  b('chargesApi',1220,1365,520,95,'报价与费用',['合作方批发价 / 应付 / 调整'],'amber');
+  b('settleApi',1790,1365,520,95,'结算与对账',['本期逐笔核账；完整账期后续'],'amber');
+  edges.push(path('M290 1085 V1220 H340 V1365'));edges.push(path('M730 1085 V1245 H1480 V1365'));
+  edges.push(path('M1930 1085 V1220 H910 V1365','dashed'));
+  labels.push(caption(1200,1265,'共享接口与事件合同；销售站不直读供应链库，不取得上游凭证'));
+  shapes.push(group(40,1620,1420,760,'05　销售代码体系 A','A1本期接入；A2/A3为长期实例','#f8faff','#bdcfe8'));
+  shapes.push(group(1500,1620,410,760,'销售体系 B','远期','#fcf9ff','#d5c8e6'));
+  shapes.push(group(1950,1620,410,760,'销售体系 C','远期','#fff9f3','#e2c7b5'));
+  shapes.push('<rect x="70" y="1690" width="890" height="650" rx="18" fill="#fff" stroke="#94b7e0" stroke-width="2"/>');
+  b('A1',100,1720,830,95,'A1 · api.kuadd.com · 现有销售站渐进接入',['内部第一 · 杭州隔离身份开号演示；原客户钱包保留'],'blue');
+  [['users',100,1860,'用户登录与认证',['复用现有账号体系']],['teams',385,1860,'客户Key与隔离',['本站客户/素材/任务归属']],['retail',670,1860,'商品与零售定价',['选货 · 售价 · 历史版本']],['wallet',100,2000,'客户钱包与扣退费',['原生余额 · 唯一写入者']],['siteReconcile',385,2000,'拿货对账与毛差',['零售净额 − 批发净费用']],['delivery',670,2000,'客户交付与长期归档',['鉴权下载 · 恢复归档']]].forEach(([id,x,y,t,l])=>b(id,x,y,260,95,t,l,'blue'));
+  b('newapi',100,2135,830,80,'保留 new-api 客户钱包；验证新供货任务与用量适配',['中央执行引擎放置待工程验证，不预设双New API'],'blue');
+  b('customer',100,2250,830,65,'客户与分销深化 · 先支持试点，完整代理/促销后续',[],'blue');
+  b('A2',1000,1770,420,130,'A2 · 同代码另一实例',['独立客户、售价和钱包','本期不自动交付完整新站'],'blue');
+  b('A3',1000,2110,420,130,'A3 · 境外或客户实例',['区域、主体和数据另定','不是换域名就完成隔离'],'blue');
+  [['B1',1730,'B1 · 轻量站'],['B2',1950,'B2 · 多模态站'],['B3',2170,'B3 · 专属客户站']].forEach(([id,y,t])=>b(id,1530,y,350,125,t,['另一代码体系的实例','共用供货合同，经营独立'],'violet'));
+  b('C1',1980,1730,350,125,'C1 · 订阅销售站',['未来独立订阅经营','共用供货与查询合同'],'copper');
+  b('subscription',1980,1950,350,125,'订阅套餐与权益',['周期 · 模型权限 · 额度','不纳入当前MVP'],'copper');
+  b('subscriptionCost',1980,2170,350,125,'周期收入与采购消耗',['周期收入，实际采购','不重复分摊整月收入'],'copper');
+  edges.push(path('M1200 1490 V1545 H750 V1620'));edges.push(path('M1200 1545 H1705 V1620'));edges.push(path('M1200 1545 H2155 V1620'));
+  labels.push(caption(1200,1585,'实际请求由销售站发起；采购成本、批发费用、客户扣款三层关联但不混账'));
+  edges.push(path('M1210 1900 V2110','dashed'));edges.push(path('M2155 1855 V1950'));edges.push(path('M2155 2075 V2170'));
+  b('clientsA',70,2460,1360,95,'本期：内部制作团队＋杭州试用身份',['未来A2/A3各自经营客户；不共享客户钱包'],'blue');
+  b('clientsB',1530,2460,350,95,'B各实例自己的客户',['独立客户、账单与资产'],'violet');
+  b('clientsC',1980,2460,350,95,'C站订阅客户',['独立权益与周期账单'],'copper');
+  edges.push(path('M750 2380 V2460'));edges.push(path('M1705 2380 V2460'));edges.push(path('M2155 2380 V2460'));
+  labels.push(caption(1200,2610,'分区表示职责归属；模块色与P标签表示实施优先级；不是上线状态或开发人员分工承诺'));
+  return `<svg id="panorama-svg" viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg" aria-label="完整全景流程图"><defs>${['solid','dashed'].map(k=>`<marker id="arrow-${k}" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="${k==='solid'?'#6b8e80':'#b08d4c'}"/></marker>`).join('')}</defs>${shapes.filter(s=>!s.startsWith('<g')).join('')}${edges.join('')}${labels.join('')}${shapes.filter(s=>s.startsWith('<g')).join('')}</svg>`;
+ }
+ function render(){return `<div class="flow-shell"><div class="flow-toolbar"><div><strong>完整全景图</strong><span>拖动画布移动 · 双击模块聚焦 · 点击看说明</span></div><div class="flow-controls"><button data-flow="mvp" aria-pressed="false">突出本期</button><button data-flow="minus" aria-label="缩小">−</button><output id="flow-percent">100%</output><button data-flow="plus" aria-label="放大">＋</button><button data-flow="fit">适应全图</button><button data-flow="width">按宽度查看</button><button data-flow="fullscreen">全屏画布</button></div></div><div class="priority-legend" aria-label="实施优先级图例">${Object.entries(window.PLAN_DATA.priorities).map(([k,v])=>`<span><i style="background:${v.color}"></i><strong>${v.label}</strong><small>${k==='P0'?'定义合同':k==='P1'?'本期闭环':k==='P2'?'本期做最小部分':'暂不实施'}</small></span>`).join('')}</div><div class="flow-viewport" tabindex="0" aria-label="可拖动缩放的完整流程图"><div class="flow-transform">${svg()}</div></div><div class="flow-bottom"><span>分区归属：采购供给 <i class="dot teal"></i>　采购 / 供货账 <i class="dot amber"></i>　运营支撑 <i class="dot ops"></i>　销售体系A <i class="dot blue"></i>　销售体系B <i class="dot violet"></i>　订阅C <i class="dot copper"></i></span><span>优先级是推进建议，不代表上线状态；P2的本期最小部分见模块说明</span></div></div>`;}
+ let cleanup=()=>{};
+ function mount(){cleanup();const shell=document.querySelector('.flow-shell');if(!shell)return;const viewport=shell.querySelector('.flow-viewport'),surface=shell.querySelector('.flow-transform');let scale=1,x=0,y=0,drag=null,dragged=false;const pointers=new Map();let pinch=null;
+  function draw(){surface.style.transform=`translate(${x}px,${y}px) scale(${scale})`;shell.querySelector('#flow-percent').value=Math.round(scale*100)+'%';}
+  function fit(width=false){scale=Math.min((viewport.clientWidth-32)/W,width?2:(viewport.clientHeight-32)/H);scale=Math.max(.16,scale);x=(viewport.clientWidth-W*scale)/2;y=width?16:(viewport.clientHeight-H*scale)/2;draw();}
+  function zoom(f,cx=viewport.clientWidth/2,cy=viewport.clientHeight/2){const s=Math.max(.16,Math.min(2.5,scale*f));x=cx-(cx-x)*s/scale;y=cy-(cy-y)*s/scale;scale=s;draw();}
+  shell.addEventListener('click',async e=>{const key=e.target.closest('[data-flow]')?.dataset.flow;if(!key)return;if(key==='mvp'){const on=shell.classList.toggle('mvp-emphasis');e.target.closest('button').setAttribute('aria-pressed',String(on));}if(key==='minus')zoom(1/1.2);if(key==='plus')zoom(1.2);if(key==='fit')fit();if(key==='width')fit(true);if(key==='fullscreen'){try{if(document.fullscreenElement)await document.exitFullscreen();else await shell.requestFullscreen();}catch{shell.classList.toggle('flow-expanded');fit();}}});
+  viewport.addEventListener('wheel',e=>{e.preventDefault();if(e.ctrlKey||e.metaKey){let r=viewport.getBoundingClientRect();zoom(Math.exp(-e.deltaY*.009),e.clientX-r.left,e.clientY-r.top);}else{x-=e.deltaX;y-=e.deltaY;draw();}},{passive:false});
+  viewport.addEventListener('pointerdown',e=>{if(e.button!==0)return;pointers.set(e.pointerId,{x:e.clientX,y:e.clientY});dragged=false;drag={x:e.clientX,y:e.clientY,tx:x,ty:y};if(!e.target.closest('[data-node]'))viewport.setPointerCapture(e.pointerId);if(pointers.size===2){const a=[...pointers.values()];pinch=Math.hypot(a[0].x-a[1].x,a[0].y-a[1].y);}});
+  viewport.addEventListener('pointermove',e=>{if(!pointers.has(e.pointerId))return;pointers.set(e.pointerId,{x:e.clientX,y:e.clientY});if(pointers.size===2){const a=[...pointers.values()],d=Math.hypot(a[0].x-a[1].x,a[0].y-a[1].y),r=viewport.getBoundingClientRect();if(pinch>0)zoom(d/pinch,(a[0].x+a[1].x)/2-r.left,(a[0].y+a[1].y)/2-r.top);pinch=d;dragged=true;return;}if(!drag)return;const dx=e.clientX-drag.x,dy=e.clientY-drag.y;if(Math.abs(dx)+Math.abs(dy)>5){dragged=true;viewport.setPointerCapture(e.pointerId);x=drag.tx+dx;y=drag.ty+dy;draw();}});
+  const up=e=>{pointers.delete(e.pointerId);drag=null;pinch=null;};viewport.addEventListener('pointerup',up);viewport.addEventListener('pointercancel',up);
+  viewport.addEventListener('click',e=>{if(dragged){e.stopPropagation();dragged=false;}},true);
+  viewport.addEventListener('keydown',e=>{const n=e.target.closest('[data-node]');if(n&&['Enter',' '].includes(e.key)){e.preventDefault();n.dispatchEvent(new MouseEvent('click',{bubbles:true}));return;}if(e.target!==viewport)return;const shifts={ArrowLeft:[65,0],ArrowRight:[-65,0],ArrowUp:[0,65],ArrowDown:[0,-65]};if(shifts[e.key]){e.preventDefault();x+=shifts[e.key][0];y+=shifts[e.key][1];draw();}if(e.key==='+'||e.key==='=')zoom(1.2);if(e.key==='-')zoom(1/1.2);if(e.key==='0')fit();});
+  viewport.addEventListener('dblclick',e=>{let id=e.target.closest('[data-node]')?.dataset.node;if(!id)return;let p=positions[id];scale=Math.min(1.4,(viewport.clientWidth-40)/(p.w+140));x=viewport.clientWidth/2-(p.x+p.w/2)*scale;y=viewport.clientHeight/2-(p.y+p.h/2)*scale;draw();});
+  const resize=()=>fit();const fullscreen=()=>{const inspector=document.getElementById('inspector');if(document.fullscreenElement===shell)shell.append(inspector);else document.querySelector('.workspace').append(inspector);shell.querySelector('[data-flow="fullscreen"]').textContent=document.fullscreenElement?'退出全屏':'全屏画布';fit();};window.addEventListener('resize',resize);document.addEventListener('fullscreenchange',fullscreen);cleanup=()=>{window.removeEventListener('resize',resize);document.removeEventListener('fullscreenchange',fullscreen);};requestAnimationFrame(()=>fit());
+ }
+ window.PANORAMA={render,mount,dispose:()=>cleanup()};
+})();
+</script><script>(() => {
+ 'use strict';
+ const {nodes,reports,priorities}=window.PLAN_DATA;
+ const $=id=>document.getElementById(id);
+ const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+ const views=[
+  ['panorama','完整全景图','一张图看完整业务','上游、供应链、销售站和客户，在一张画布里。','路线B已确认：独立供货服务，现有销售站渐进接入。分区看职责，P标签看优先级；点击模块看会议依据和验收。'],
+  ['overview','业务全景','先看业务关系','从哪里采购，向哪些站供货。','上游供应商与我们的销售站是两类对象。实线方向表示供给关系，实际调用由销售站向供应链发起。'],
+  ['supply','供应链内部','放大采购侧','把资料、价格、执行与采购财务管在一起。','供应链维护采购、模型与供货规则；运营支撑统一记录和权限。它们通过统一API接入层服务各销售站。'],
+  ['support','运营与账务','展开运行支撑','统一调用记录，各域保留自己的账。','站点专属Key可访问多组方法；平台请求ID关联采购、拿货和客户账务，不替代各域的扣费记录。'],
+  ['stations','销售站与多实例','放大经营侧','代码可以复用，经营和用户按站隔离。','A、B代表不同代码体系；1、2、3代表实例。境内外是实例属性，不意味着必须重新写一套代码。'],
+  ['current','现状与目标','回到今天的系统','有可复用的基础，也有尚未拆开的关系。','以下按源码和11月6日页面核查区分现状；规划模块不能当作已经上线的功能。'],
+  ['roadmap','拆分与推进','把目标落成工作','先证明边界成立，再逐步接管执行。','阶段按依赖关系排列，没有承诺固定工期。首批客户可用性、人工回归和商务手续并行推进。']
+ ];
+ let active='panorama',selected=null,lastNode=null;
+ const saved={};
+ function module(id){const n=nodes[id];return `<button class="module${selected===id?' selected':''}" data-node="${id}" data-color="${n.color}" aria-pressed="${selected===id}" aria-controls="detail-content"><span class="arrow" aria-hidden="true">↗</span><strong>${esc(n.title)}</strong><p>${esc(n.short)}</p><span class="priority-badge" style="--priority:${priorities[n.priority].color}">${esc(priorities[n.priority].label)}</span><span class="status">${esc(n.status)}</span></button>`;}
+ function cards(ids,cls=''){return `<div class="cards ${cls}">${ids.map(module).join('')}</div>`;}
+ function band(num,title,note,content,cls=''){return `<section class="band ${cls}"><div class="band-head"><span class="band-no">${num}</span><h3>${title}</h3><small>${note}</small></div>${content}</section>`;}
+ const bridge=t=>`<div class="bridge"><span>${t}</span></div>`;
+ function families(){return `<div class="split overview-families"><div class="family"><h4>A代码体系</h4><p>同一份代码，多实例与独立经营配置</p>${cards(['A1','A2','A3'])}</div><div class="family b"><h4>B代码体系</h4><p>另一套代码，同样可以部署多个实例</p>${cards(['B1','B2','B3'])}</div></div><div class="customer-strip"><span>每个A实例 → 本站自己的客户与代理商</span><span>每个B实例 → 本站自己的客户与代理商</span></div>`;}
+ function overview(){return band('01','外部上游供应商','我们向他们采购',cards(['official','special','reseller','compute']))+bridge('采购与执行事实')+band('02','采购供应链','采购账与对站供货账',cards(['contract','connect','tasks','scan','models','prices','catalog','wholesale','finance','trade','handoff']),'supply-band')+band('03','统一运营支撑','共享能力，按站隔离',cards(['opsAuth','opsLogs','opsRisk'],'three'))+bridge('同一站点身份，不同方法权限')+band('04','统一API接入层','接口合同，不是一个共享客户钱包',cards(['invokeApi','logsApi','chargesApi','settleApi']))+bridge('各销售实例使用专属站点Key')+band('05','销售体系A、B及订阅C','各自经营与计费',families()+module('C1'));}
+ function supply(){return band('01','上游变化进入供应链','API优先，其他方式补充',cards(['connect','scan']))+bridge('保留原始来源、时间与差异')+band('02','两块核心：模型身份与采购成本','分别维护，以供给ID和版本关联',cards(['models','prices'])+'<div class="callout" style="margin-top:18px">模型家族 → 发布版本 → 实现 / 变种 → 渠道供给 → 适用采购价格与计量规则<br>同名不等价；同模型不同渠道，可以采用不同计费方式。</div>','supply-band')+band('03','相邻的采购管理能力','复用现有资源库',cards(['identity','evidence','adopt','availability']))+bridge('采用后的供给与真实执行记录关联')+band('04','采购资金与服务出口','都属于供应链系统',cards(['wholesale','finance','trade','handoff'])+`<div class="statusline"><span>目录发现 ≠ 有权调用</span><span>充值 ≠ 当期成本</span><span>赠额 ≠ 现金</span><span>采购成本 ≠ 批发价 ≠ 零售价</span></div>`);}
+ function stations(){return band('01','同一供应链，支持不同实现','统一接口合同',module('supplyapi'))+bridge('授权供给、能力规格与合作方批发价')+band('02','代码体系与站点实例','用户与钱包默认分站',families()+module('C1'))+bridge('放大其中一个站：A1')+band('03','A1的经营与交付模块','以下包含现有及目标职责',cards(['products','retail','customer','users','teams','wallet','siteReconcile','delivery'])+`<div class="subline"></div>${module('newapi')}<p class="band-note">B体系可选择另一引擎或自研实现；不强制采用new-api，也不强制共享A体系前端。</p>`)+band('04','C体系：订阅销售站','收入按周期，采购按实际调用',cards(['C1','subscription','subscriptionCost'],'three'));}
+ function support(){return band('01','统一运营支撑','职责并列，不另造钱包',cards(['opsAuth','opsLogs','opsRisk'],'three'))+bridge('site_id来自鉴权 · platform_request_id关联全链路')+band('02','一个API体系，四组方法','同一Key可有多种权限，也可按用途拆Key',cards(['invokeApi','logsApi','chargesApi','settleApi']))+bridge('费用事件关联，账务权威分别保留')+band('03','三类账务关系','采购 / 站点拿货 / 客户销售',cards(['finance','trade','wallet'],'three'))+band('04','销售模式不同，仍能按同一合同对账','按量A1与订阅C',cards(['siteReconcile','subscriptionCost']));}
+ function current(){return band('01','今天的数据分布','按实际代码边界',cards(['resourcepg','gatewaydb','nativedb','assets']))+bridge('最先要拆的是接口依赖与身份归属')+band('02','建议先解决的边界','复用已有成果',cards(['identity','p1','p2','p3']))+`<div class="callout" style="margin-top:20px">现场核查：资源库已有48个未删除服务商；采购对账入口当时尚无账户；现行渠道页有19条供应商未登记。它们说明关联与维护仍有缺口，不代表实际采购余额为零。</div>`;}
+ function roadmap(){let ids=['p0','p1','p2','p3'];return band('01','已批准的四批交付','优先级与依赖，不承诺固定工期',`<div class="flow-list">${ids.map((id,i)=>`<div class="flow-row phase"><span class="flow-step">${i+1}</span>${module(id)}</div>`).join('')}</div>`)+`<div class="callout" style="margin-top:20px"><strong>第一期的明确验收</strong><br>供货服务独立启动和鉴权，首批目录、调用、任务、交付与费用实际贯通；A1保持原客户钱包，内部用户用顺，杭州隔离身份能演示。只提供目录查询不算完成。</div>`;}
+ const table=(headers,rows)=>`<div class="table-wrap"><table><thead><tr>${headers.map(h=>`<th>${h}</th>`).join('')}</tr></thead><tbody>${rows.map(r=>`<tr>${r.map(c=>`<td>${c}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`;
+ const prose=items=>`<div class="prose-grid">${items.map(([h,p])=>`<article class="prose"><h3>${h}</h3><p>${p}</p></article>`).join('')}</div>`;
+ const analyses={
+ support:()=>['请求统一追踪，采购与销售分别核算。',table(['业务事实','权威写入者','运营支撑怎样使用'],[['上游采购成本、实扣与退款','供应链采购财务与上游证据','关联请求及上游任务，不用客户售价反算。'],['A1拿货费用和结算单','供应链对站供货账；A1保存对应采购记录','通过平台请求ID及费用事件核账。'],['A1客户扣款、积分和退款','A1自己的计费引擎，现阶段可用new-api','只读关联原生流水，不重复扣款。'],['日志、尝试、任务与状态','各执行点产生事实，运营支撑统一索引','站内拒绝也上报，按站授权查询。']])+prose([['唯一ID不是单一流水','本站请求ID与幂等键映射平台请求ID。一个逻辑调用可能包含多次尝试、多个上游任务和多笔费用/退款，分别保留事件ID。'],['Key身份与方法权限分开','A1使用专属站点身份，可访问调用、日志、费用和结算方法；读日志不等于能确认结算。站点Key由后端保管，终端客户用自己的客户Key。'],['不同销售模式可以共存','A1可以按次、按Token或积分扣款；C站按周期订阅。双方都按真实调用承担拿货成本，C不把整月收入重复计入每次调用。']])],
+
+ overview:()=>['先把采购与经营的边界固定下来。',prose([
+ ['一张图逐层展开','原全景图继续作为总图：上游 → 供应链＋运营支撑 → 统一接口 → 销售实例及客户。新增能力是在原图上补齐，不是另一套相互替代的架构。'],
+ ['两个核心模块','统一模型目录维护官方版本、实现变种和渠道映射；采购成本模块维护每条供给的规格、计量与价格规则。它们通过稳定供给ID和版本相连，让销售站少做上游适配。'],
+ ['各站自己的账','A1独立维护客户、团队、售价和扣费，按请求ID核对拿货成本。A/B可多实例，C可按订阅经营；统一的是API和日志合同，不是把钱包合并。']])+table(['采购供应链负责','各销售站负责'],[['采购账号、上游凭证、模型供给和进货价','终端客户、上架范围、零售价、套餐与促销'],['余额、赠额、上游账单和采购成本归集','本站收款、充值、客户扣费与退款'],['采购范围内的来源选择和执行适配','客户服务等级、分销规则及交付体验']])],
+ supply:()=>['先确认买的是什么，再计算这条供给怎么收费。',table(['模型目录的四层身份','为什么要分开'],[['模型家族','用于归类，例如H3系列；不是可直接路由和计价的唯一身份。'],['官方或来源发布版本','保留官方ID、版本标记和文档来源；滚动别名不能覆盖历史。'],['实现 / 变种','记录权重、量化、微调、推理与能力；黑盒未知保持未知。'],['具体渠道供给','供应商＋原始ID＋分组/地域/配置版本，绑定该供给的成本规则。']])+table(['采购成本的四层事实','维护边界'],[['原始报价','保存API、网页或合同原文及其币种、单位、规格和有效期。'],['用量事实','分别记录输入/输出Token、缓存、张数、输出秒和参考秒；保留来源。'],['采购核算','同一业务请求，按各供给的实际计量与费率计算；不能直接比较不同单位单价。'],['实际结算','保存上游实扣、补扣和退款，与预计成本核对；不覆盖历史规则。']])+prose([
+ ['采集先形成事实','API、网页与人工录入分别标记。查询失败保留最近观测并标过期，不写假零；报价变化形成新版本和差异，不能覆盖已采用的历史。'],
+ ['供给要可追溯','供应商、账号、凭证、型号与渠道分别有ID。自动识别只提供匹配建议；同名模型、不同质量分组不自动认定等价。'],
+ ['财务按真实证据核对','预计成本与上游实扣分开。多个站共用上游账号时记录每次请求归属，无法分配的总账差额保留待核对，不伪造逐笔成本。']])+table(['信息','存储与维护规则'],[['模型与报价','数据库保存结构化事实与版本；人工采用，更新不自动改变客户销售价。'],['备注与协议附件','追加记录＋可修订摘要；原件受控保存，记录来源、时间、版本及关联对象。'],['密钥与登录态','专用秘密存储，普通页面、备注、导出和搜索索引不包含明文。'],['余额与账单','现金、赠额、套餐、Key限额分别表达，标明查询时刻、适用账号和可信度。']])],
+ stations:()=>['一个站是经营单元，一套代码可以复制部署。',prose([
+ ['区分代码和实例','A、B是代码体系；数字是部署实例。不同品牌或地区可以只改配置，业务不同并不自动要求重写代码。'],
+ ['隔离是明确的合同','站点身份必须贯穿用户、Key、任务、资产与费用。换域名不等于隔离，相同手机号也不意味着可以合并两个站的钱包。'],
+ ['上游Key留在供货侧','自营可信站可在迁移期保留现有直连。客户自己掌控服务器的站，若不能交出上游Key，就必须通过中心供货接口执行。']])+table(['价格或资金','归属与第一步做法'],[['上游实际采购价','供应链维护，保留原币、计量条件、报价版本及实扣证据。'],['本站拿货成本','按适用供货规则和费用事件记录，与上游成本分别表达；批发价按合作方合同独立维护，不暴露真实采购底价。'],['对客户的零售价','各站经营侧维护，允许不同售价和已确认的亏损促销；C体系也可以按周期订阅。'],['终端客户钱包','初期由各站现有扣费引擎维护；中心采购财务不重复扣客户款。']])],
+ current:()=>['已有数据库独立，不等于服务已经独立。',prose([
+ ['直接复用','resource_library有独立PostgreSQL、账号和加密凭证、报价版本、采集队列及模型合同。现有纯计算和适配成果优先保留。'],
+ ['需要切开的依赖','正式资源API仍挂在网关，依赖其管理员会话；多个接入模块直接读资源库。部分供应商账单查询还从new-api渠道表取Key。'],
+ ['先收拢，后迁移','各站通过版本API采用供给，把new-api管理API和直接SQL读取收拢到站点适配层。不要边拆供应链边重做客户钱包。']])+table(['当前事实','解耦动作'],[['资源账号与对账账号是两套表','显式关联ID，保留历史；不按名字粗暴合并。'],['渠道主要使用本地channel_id','加入站点、环境和引擎实例范围，防止跨站同号串账。'],['配置与原生计费需要配套','发布版本包，站点受控采用并回读；不上线未知参数的猜测费率。'],['同一镜像承载多个模块','先独立入口和进程，再按发布周期提取仓库；分仓不是完成标准。']])],
+ roadmap:()=>['路线B：先证明供货闭环，再逐服务迁入。',prose([
+ ['首个验收对象','内部制作团队第一，杭州合作方开号与demo并行。独立供货服务和职责拆分本身是本期里程碑，不只做目录查询。'],
+ ['两条开发线共用合同','先确认身份、模型、三价、任务与费用的接口合同。谢海与张海潮按各自承接的工作线推进，具体分工由三人确认，不把建议当承诺。'],
+ ['客户钱包继续复用','先核验新供货接口的任务、用量和交付是否能被现有New API正确扣退费；不兼容时明确补适配，不另造钱包绕过。']])+table(['交付批次','如何判断完成'],[['① 边界与合同','首批样本、供给映射、数据唯一主本及接口明确；两侧可用假服务开发。'],['② 独立供货试点','独立启动与服务鉴权，真实贯通目录、调用、任务和费用。'],['③ 原销售站接入','逐服务迁入，客户原钱账正确扣退，跨站及同站客户隔离。'],['④ 业务与发布验收','内部操作流畅，杭州可演示，下载/归档可恢复，新流量回退不丢在途任务。']])+prose([['五项待定','精确型号规格、预算与批发价/保留上限、个人承接分工、引擎适配、部署与区域安排仍需落实。'],['优先级不是上线状态','P0先定合同；P1本期必做；P2本期做最小部分，完整能力后续深化；灰色保留远期蓝图。'],['不增加一轮大重构','不全量迁模型，不同时更换钱包，不把每个框变成微服务。先用实际业务证明拆分边界。']])]
+
+ };
+ function updateDetail(id){selected=id;const n=nodes[id],p=priorities[n.priority];
+  $('detail-content').innerHTML=`<div class="detail-meta"><span class="priority-badge" style="--priority:${p.color}">${esc(p.label)}</span><span class="detail-status">${esc(n.status)}</span></div><h3 id="detail-title">${esc(n.title)}</h3><p class="detail-lead">${esc(n.purpose)}</p><section class="meeting-note"><h4>会议依据与本轮确认</h4><span class="source-time">${esc(n.meeting.time)}</span><p>${esc(n.meeting.text)}</p><small>根据11月7日张海潮录音转写概括；设计补充和本轮确认单独标注，不是逐字引语。</small></section><div class="detail-grid"><section><h4>模块职责</h4><ul>${n.work.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></section><section><h4>${n.priority==='F'?'本期保留的边界':'本期要做到什么'}</h4><p>${esc(n.mvp)}</p><h4>怎样验收</h4><p>${esc(n.acceptance)}</p></section></div><div class="boundary"><strong>责任边界</strong><p>${esc(n.boundary)}</p></div><section class="pending-note"><h4>仍需确认／不作承诺</h4><p>${esc(n.pending)}</p></section><div class="detail-foot">依据：已批准MVP设计、CEO保持范围评审。优先级是推进顺序，不代表已实现。具体承接人待三人确认。<div class="basis-actions"><button data-report="0">查看已批准设计</button><button data-report="1">查看CEO评审</button></div></div>`;
+  document.querySelectorAll('[data-node]').forEach(el=>{el.classList.toggle('selected',el.dataset.node===id);el.setAttribute('aria-pressed',String(el.dataset.node===id));});
+  document.querySelector('.inspector-inner').scrollTop=0;
+ }
+ function showInspector(open){document.body.classList.toggle('modal-open',open);document.body.classList.toggle('panorama-detail',open&&active==='panorama');document.body.classList.toggle('detail-open',open);$('inspector').hidden=!open;document.querySelector('.workspace').classList.toggle('details-hidden',!open);$('toggle-details').textContent=open?'关闭模块说明':'打开模块说明';if(open)$('close-details').focus();}
+ function render(view,initial=false){showInspector(false);window.PANORAMA.dispose();document.body.classList.toggle('panorama-mode',view==='panorama');document.body.classList.remove('panorama-detail');active=view;selected=saved[view]||null;const v=views.find(v=>v[0]===view);document.querySelector('.tabs').innerHTML=views.map((x,i)=>`<button role="tab" id="tab-${x[0]}" class="tab" data-view="${x[0]}" aria-selected="${x[0]===view}" aria-controls="diagram" tabindex="${x[0]===view?0:-1}"><span class="num">0${i+1}</span>${x[1]}</button>`).join('');$('view-kicker').textContent=v[2];$('view-title').textContent=v[3];$('view-desc').textContent=v[4];$('diagram').setAttribute('aria-labelledby','tab-'+view);$('diagram').innerHTML=(view==='panorama'?window.PANORAMA.render():({overview,supply,support,stations,current,roadmap})[view]());const [title,body]=analyses[view==='panorama'?'overview':view]();$('analysis-title').textContent=title;$('analysis-body').innerHTML=body;updateDetail(selected||({panorama:'supplyapi',overview:'supplyapi',supply:'models',support:'opsLogs',stations:'A1',current:'resourcepg',roadmap:'p1'})[view]);document.body.classList.remove('detail-open');if(view==='panorama'){window.PANORAMA.mount();$('toggle-details').textContent='打开模块说明';}if(!initial)document.getElementById('tab-'+view).focus();}
+ document.querySelector('.tabs').addEventListener('click',e=>{const t=e.target.closest('[data-view]');if(t)location.hash=t.dataset.view;});
+ document.querySelector('.tabs').addEventListener('keydown',e=>{if(!['ArrowLeft','ArrowRight','Home','End'].includes(e.key))return;e.preventDefault();let i=views.findIndex(v=>v[0]===active);i=e.key==='Home'?0:e.key==='End'?views.length-1:(i+(e.key==='ArrowRight'?1:-1)+views.length)%views.length;location.hash=views[i][0];});
+ $('diagram').addEventListener('click',e=>{const b=e.target.closest('[data-node]');if(!b)return;lastNode=b;const id=b.dataset.node;saved[active]=id;updateDetail(id);showInspector(true);history.replaceState(null,'','#'+active+'/'+id);});
+ $('close-details').addEventListener('click',()=>{showInspector(false);history.replaceState(null,'','#'+active);if(lastNode&&lastNode.isConnected)lastNode.focus();});
+ $('toggle-details').addEventListener('click',()=>showInspector((active==='panorama'&&!document.body.classList.contains('panorama-detail'))||document.querySelector('.workspace').classList.contains('details-hidden')||window.innerWidth<=800&&!document.body.classList.contains('detail-open')));
+ $('inspector').addEventListener('click',e=>{if(e.target===$('inspector')){showInspector(false);if(lastNode?.isConnected)lastNode.focus();}});
+ document.addEventListener('keydown',e=>{if(!document.body.classList.contains('modal-open'))return;if(e.key==='Escape'){showInspector(false);if(lastNode?.isConnected)lastNode.focus();history.replaceState(null,'','#'+active);}if(e.key==='Tab'){const fs=[...$('inspector').querySelectorAll('button,a[href]')];const first=fs[0],last=fs.at(-1);if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}}});
+ $('detail-content').addEventListener('click',async e=>{const b=e.target.closest('[data-report]');if(!b)return;showInspector(false);if(document.fullscreenElement)await document.exitFullscreen();const report=$('reports').children[Number(b.dataset.report)];report.open=true;report.scrollIntoView({behavior:'smooth',block:'start'});report.querySelector('summary').focus();});
+ function route(initial=false){const [view,id]=location.hash.slice(1).split('/');const valid=views.some(v=>v[0]===view)?view:'panorama';if(id&&nodes[id])saved[valid]=id;render(valid,initial);if(id&&nodes[id])showInspector(true);}
+ window.addEventListener('hashchange',()=>route());
+ $('reports').innerHTML=reports.map(r=>`<details><summary>${esc(r.title)}</summary><div class="report-body">${r.html}</div></details>`).join('');
+ route(true);
+})();
+</script></body></html>
