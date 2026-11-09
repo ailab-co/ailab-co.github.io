@@ -1,8 +1,8 @@
 {
-  "version": "v05",
-  "date": "2026-11-07",
+  "version": "v07",
+  "date": "2026-11-09",
   "file": "api-supply-plan/index.html",
-  "sha256": "56167064d97856017092866b2fd75ba98f64680991fd7ca18c917d200a2a235e",
+  "sha256": "ee7c86fb580b1700db99b6898f5b7c663ea3c08115369f7bd6b52007ff6e03aa",
   "source_project": "ailab-co/gateway-ext",
-  "description": "已批准MVP、会议依据与实施优先级"
+  "description": "完整全景图、项目总览与 OKR、技术方案及两周行动清单"
 }
