@@ -1,0 +1,47 @@
+%% AIHubMix 信息架构与关键用户流程（2026-11-11 调研整理；虚线 = 前端路由推断、界面未见）
+flowchart LR
+  subgraph PUB["aihubmix.com 官网"]
+    home["/ 首页"] --> models["/models 模型广场"]
+    models --> detail["/model/<id> 模型详情"]
+    models --> compare["/compare 对比 ≤4"]
+    models --> retire["/models/retirements 下线日历"]
+    models --> free["/models/free"]
+    models --> authors["/authors"]
+    home --> router["/llm-router/auto"]
+    home --> pg["/playground"]
+    home --> eco["/ecosystem Apps"]
+    home --> devs["/developers"]
+    home --> blog["/blog"]
+    home --> about["/about /contact"]
+    home --> legal["/legal/* 7 项"]
+  end
+  subgraph AGENT["机器可读"]
+    llms["/llms.txt"]; agentsmd["/agents.md"]; openapi["/openapi.json"]; feed["/feed.json"]; mllms["/model/<id>/llms.txt"]
+  end
+  subgraph CON["console.aihubmix.com"]
+    subgraph ACC["账户级"]
+      ws["/workspaces"]; prof["/profile"]; stat["/statistics Activity"]; tok["/token API Key"]; logs["/logs"]; topup["/topup Credits"]; dev["/developer"]; notif["/notifications"]; sup["/support"]; set["/setting"]
+    end
+    subgraph WS["工作区级 /workspaces/:slug/"]
+      wov[overview]; wact[activity]; wlog[logs]; wkey[keys]; wasync[async-tasks]; wbc[broadcast]; wset[settings]
+    end
+    subgraph ORG["组织级 /org/:orgId/（推断）"]
+      omem[members]; oaud[audit]; otop[topup]; oset[settings]
+    end
+    ws --> wov
+    ws -.-> omem
+  end
+  DOCS["docs.aihubmix.com /cn /en"]
+  STATUS["status.aihubmix.com"]
+  ENT["enterprise.aihubmix.com → /enterprise/form"]
+  API["API: aihubmix.com/v1 · 备用 api.inferera.com · MCP mcp.aihubmix.com/mcp · CLI"]
+  home -- Dashboard --> ws
+  home -- Docs --> DOCS
+  home -- Enterprise --> ENT
+  home -- Status --> STATUS
+  subgraph FLOW["关键流程"]
+    f1[注册/登录 GitHub·Google·邮箱] --> f2[免费模型试用] --> f3[创建 Key 额度/模型/IP/映射/回退] --> f4[首次请求 Quick Start/agents.md] --> f5[充值 $15 起·兑换码·USDC·自动充值] --> f6[监控 Activity/Request logs] --> f7[告警 Inbox/Email/Webhook]
+  end
+  subgraph FOOT["页脚 4 组"]
+    fp[Product]; fd[Developer]; fc[Company]; ft[Terms & Policies]
+  end
