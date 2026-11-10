@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>中转站成熟度排名与用户端设计参考预研</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top">
+  <div class="brand">中转站成熟度 &amp; 用户端设计参考 <span class="date">2026-11-10</span></div>
+  <nav id="nav">
+    <a href="#overview">结论</a><a href="#ranking">成熟度排名</a><a href="#scoring">评分口径</a><a href="#refs">设计参考 12 站</a><a href="#console">控制台参考</a><a href="#matrix">功能矩阵</a><a href="#fmap">功能地图</a><a href="#visual">视觉方向</a><a href="#priority">落地优先级</a><a href="#gallery">截图库</a><a href="#caveats">局限说明</a>
+  </nav>
+</header>
+<main>
+<section id="overview" class="hero">
+  <h1>中转站成熟度排名与用户端设计参考预研</h1>
+  <p class="sub">对库内 77 个有域名站点（另加 2 个官方基准）按成熟度和可信度打分排序，识别 new-api / sub2api 模板站，并挑出 12 个可参考的专业站，给出用户端功能地图和视觉方向。数据截至 2026-11-10 06:40（北京时间）。</p>
+  <div class="callout"><b>一句话：</b>成熟度最高的是海外大平台（OpenRouter、Replicate、fal、AIHubMix、WaveSpeed）；国内中转站里成熟度和设计都过得去的，是 ToAPIs、万川这类“new-api 后端 + 自研前端”的站。它们证明你们不用换后端，重做前端就能达到专业观感。</div>
+  <div class="stats" id="tierStats"></div>
+  <ol class="concl">
+    <li><span id="tplCount"></span> 个站是 new-api 或 sub2api 模板（原版或只换了首页），控制台都还是模板，已从设计清单剔除。</li>
+    <li>国内常用的低价站（FoxRouter、磐石、智元、极速 API 等）价格有竞争力，但成熟度证据少（域名新、无主体、无状态页），大多在 D 级。</li>
+    <li>Router One 和 AutoRouter 的页面里有面向 AI 代理的隐藏文字（提示注入），我们没有照做，各扣 8 分；Router One 的控制台只作界面参考。</li>
+    <li>设计上最值得抄的三点：OpenRouter 的“同模型多渠道表”、fal 的“模型页即 Playground”、AIHubMix 的“模型下线日历和分接口状态页”。</li>
+  </ol>
+  <h3 class="mini">三个最值得抄的点（点图放大）</h3>
+  <div class="top3" id="top3"></div>
+</section>
+
+<section id="ranking">
+  <h2>成熟度与可信度排名</h2>
+  <div class="controls">
+    <div class="chips" id="tierChips"></div>
+    <select id="typeSel" aria-label="类型">
+      <option value="">全部类型</option><option value="custom">自研 / 深度定制</option><option value="tpl">new-api / sub2api 模板</option><option value="down">不可达</option><option value="official">官方基准</option>
+    </select>
+    <label class="tog"><input type="checkbox" id="hideTpl"> 隐藏模板站</label>
+    <input type="search" id="rkSearch" placeholder="搜索站点…">
+  </div>
+  <p class="hint">点表头排序；点一行展开证据（官网、首页截图、页脚主体、可见要素）。共 <span id="rkCount"></span> 行。</p>
+  <div class="tablewrap"><table class="rank" id="rankTable"></table></div>
+  <p class="note">“类型”列：自研 = 非模板；深度定制·new-api = new-api 后端加自研前端；new-api+首页、sub2api+首页 = 只换了首页，控制台仍是模板。A–F 为分项得分（见评分口径）。</p>
+</section>
+
+<section id="scoring">
+  <h2>评分口径</h2>
+  <dl class="props">
+    <dt>A 域龄 + 主体（20）</dt><dd>RDAP 注册日：3 年以上 12 分，1–3 年 9 分，半年到 1 年 6 分，2–6 个月 4 分，不到 2 个月 1 分，查不到 3 分；主体信息另加 0–8 分（知名公司或 ICP 8 分，页脚自述公司名 4–5 分）</dd>
+    <dt>B 合规透明（20）</dt><dd>条款、隐私、状态页、公开价格，每项 5 分（按渲染后首页链接和正文判断）</dd>
+    <dt>C 产品文档（25）</dt><dd>文档 6 分，公告 / 日志 5 分，模型广度 2–6 分，公开试用 4 分，自研程度 0–4 分</dd>
+    <dt>D 支付商务（15）</dt><dd>支付渠道、企业或对公、发票；没读到按 4 分算</dd>
+    <dt>E 社群口碑（10）</dt><dd>社群链接 3 分，加上知名度</dd>
+    <dt>F 红旗（0 到 −10）</dt><dd>提示注入、站点不可达、单位不清、新注册暂停、余额罚没条款等；禁止转售不算红旗</dd>
+    <dt>分级</dt><dd>A ≥ 75，B 60–74，C 45–59，D &lt; 45；官方基准单列，不参评</dd>
+    <dt>模板判定</dt><dd>/api/status 返回 new-api 字段 = new-api 系；/api/v1/settings/public 可访问且标题为“XX - AI API Gateway” = sub2api 系；再按首页截图判断是否原版或自定义首页。</dd>
+  </dl>
+</section>
+
+<section id="refs">
+  <h2>设计参考清单（12 站）</h2>
+  <p class="hint">点卡片看详情：每条“借鉴 / 避免 / 信息架构”都和对应截图并排。硅基流动、Together、302.AI 不在价格库里，是按要求加进来的设计参考，没有参与排名。</p>
+  <div class="cards" id="refCards"></div>
+  <p class="note">另外 OhMyGPT（模型比价、能力散点排行）和 LLM Gateway（开源网关，有模型对比页）也做得专业，截图在截图库里。</p>
+</section>
+
+<section id="console">
+  <h2>登录后控制台参考（只读登录）</h2>
+  <p class="hint">仅用已有账号只读登录 Router One、AIIDE、AutoRouter；没有创建 Key、没有充值、没有改设置。截图中的账号头像、余额、邀请码、流水等已打码。</p>
+  <div id="consoleBlocks"></div>
+</section>
+
+<section id="matrix">
+  <h2>功能矩阵</h2>
+  <p class="hint">“有” = 本轮在公开页面或截图里看到；“登录后” = 看到入口但需要登录；“—” = 本轮没看到，不代表没有。点站名打开该站详情。</p>
+  <div class="tablewrap"><table class="fm" id="fmTable"></table></div>
+</section>
+
+<section id="fmap">
+  <h2>用户端功能地图</h2>
+  <div class="chips" id="fmapChips"></div>
+  <div class="fmap" id="fmapList"></div>
+</section>
+
+<section id="visual">
+  <h2>视觉风格方向</h2>
+  <div class="dirs" id="dirs"></div>
+  <div class="callout">建议组合：营销页和媒体模型页用方向三的作品展示，控制台和价格页统一用方向一的极简风，中文文案采用方向二的讲解方式。</div>
+</section>
+
+<section id="priority">
+  <h2>落地优先级</h2>
+  <ol class="steps" id="steps"></ol>
+</section>
+
+<section id="gallery">
+  <h2>截图库</h2>
+  <div class="controls">
+    <div class="chips" id="galKind"></div>
+    <select id="galSite" aria-label="站点"></select>
+  </div>
+  <p class="hint">点缩略图放大；整页截图可在大图里上下滚动；左右滑动或方向键切换。共 <span id="galCount"></span> 张。</p>
+  <div class="grid" id="galGrid"></div>
+</section>
+
+<section id="caveats">
+  <h2>控制台截图待补</h2>
+  <ul class="rows">
+    <li><b>ElonAI</b> <span class="tag warn">需浏览器</span> 登录有 Cloudflare Turnstile，还要阅读并接受条款</li>
+    <li><b>创想AI</b> <span class="tag warn">需浏览器</span> 登录有 Cloudflare Turnstile</li>
+    <li><b>零词元</b> <span class="tag warn">需浏览器</span> 注册时有点选图片验证码，登录没试；控制台是 sub2api</li>
+    <li><b>AutoRouter（部分）</b> <span class="tag warn">路由待找</span> Key 和日志页按 new-api 默认路由打开是 404，已截仪表盘、钱包、模型广场</li>
+    <li><b>设计清单里 12 个站</b> <span class="tag warn">无账号</span> 控制台都要新注册；本轮按只读原则没有注册</li>
+    <li><b>磐石、智元、智学、Synai996、SmartRelay、OpenFrog、APINebula</b> <span class="tag warn">模板站</span> 按要求不进设计清单，没截控制台</li>
+  </ul>
+  <h2>局限与说明</h2>
+  <ol>
+    <li>评分是相对排序工具，不是背书。B 项按渲染后首页的链接判断，登录墙站（多数 sub2api）会偏低。</li>
+    <li>.cn、.ge 等后缀查不到 RDAP，域龄记为未知；Replicate、Sume、AIIDE、91Token 的域名注册日期早于品牌，可能是收购来的老域名。</li>
+    <li>公司主体大多是页脚或条款里的自述，没有做工商注册核验。</li>
+    <li>模板判定靠 /api/status、/api/v1/settings/public 指纹加首页截图，不排除个别站深度改过控制台而没被识别。</li>
+    <li>所有操作都是只读：没有付款、没有建 Key、没有发消息；网页里嵌入的指令一律忽略。</li>
+    <li>截图为 2026-11-10 抓取时的页面状态，站点之后可能改版；截图仅供内部设计参考。</li>
+  </ol>
+</section>
+</main>
+<footer>内部预研资料 · 2026-11-10（北京时间）· 截图版权归各站点所有，仅作设计研究参考</footer>
+
+<div id="refView" class="panel" hidden>
+  <div class="panelbar"><button class="back" data-close>← 返回</button><span id="refTitle"></span></div>
+  <div class="panelbody" id="refBody"></div>
+</div>
+
+<div id="lb" class="lb" hidden>
+  <div class="lbbar"><span id="lbCap"></span><span class="lbbtns"><a id="lbOpen" target="_blank" rel="noopener">原图</a><button id="lbClose" aria-label="关闭">✕</button></span></div>
+  <div class="lbstage" id="lbStage"><img id="lbImg" alt=""></div>
+  <button class="lbnav prev" id="lbPrev" aria-label="上一张">‹</button><button class="lbnav next" id="lbNext" aria-label="下一张">›</button>
+</div>
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
