@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>截图库 · 中转站成熟度与用户端设计参考</title>
+<link rel="stylesheet" href="style.css?v=20261110b">
+<script src="data/shots.js?v=20261110b" defer></script><script src="app.js?v=20261110b" defer></script>
+</head>
+<body data-page="gallery">
+<header class="top">
+  <div class="brand"><a href="index.html">中转站成熟度 &amp; 用户端设计参考</a> <span class="date">2026-11-10</span></div>
+  <nav id="nav"><a href="index.html">总览与排名</a><a href="refs.html">设计参考 12 站</a><a href="design.html">控制台与落地</a><a href="gallery.html" class=on aria-current=page>截图库</a><a href="method.html">方法与局限</a></nav>
+</header>
+<main>
+<section id="gallery">
+  <h2>截图库</h2>
+  <div class="controls">
+    <div class="chips" id="galKind"></div>
+    <select id="galSite" aria-label="站点"></select>
+  </div>
+  <p class="hint">点缩略图放大，大图上方有“原网页”链接可直接打开截图时的页面；整页截图可在大图里上下滚动；左右滑动或方向键切换。缩略图滚动到时才分批加载。共 <span id="galCount"></span> 张。</p>
+  <div class="grid" id="galGrid"></div><div id="galMore" class="more"></div>
+</section>
+</main>
+<footer>内部预研资料 · 2026-11-10（北京时间）· 截图版权归各站点所有，仅作设计研究参考</footer>
+</body>
+</html>
