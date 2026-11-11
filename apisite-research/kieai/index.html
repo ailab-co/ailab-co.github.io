@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="zh-Hans"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>概览与架构图 · kie.ai 深度调研</title>
+<link rel="stylesheet" href="style.css?v=20261111k">
+<script src="data/shots.js?v=20261111k" defer></script><script src="app.js?v=20261111k" defer></script>
+</head><body>
+<header class="top"><div class="brand"><a class="back" href="../index.html">← 调研总站</a><a class="back" href="../aihubmix/index.html">AIHubMix 调研</a><a href="index.html">kie.ai 深度调研</a><span class="date">2026-11-11</span></div>
+<nav id="nav"><a href="index.html" class=on aria-current=page>概览与架构图</a><a href="pages.html">页面逐一解析</a><a href="recommendations.html">借鉴建议</a></nav><nav class="toc" aria-label="本页目录"><a href="#top">发现</a><a href="#arch">架构图</a><a href="#ia">导航</a><a href="#model">账户/Key</a><a href="#billing">计费</a><a href="#dx">开发者</a><a href="#trust">信任</a><a href="#growth">增长</a><a href="#visual">视觉</a><a href="#compare">对比 AIHubMix</a><a href="#inconsist">不一致</a><a href="#gaps">局限</a></nav></header>
+<main><section class="hero" id="top"><h1>kie.ai 深度调研：官网、控制台、模型页与开发者体验</h1>
+<p class="sub">kie.ai（页面品牌写作 KIE API / KIE AI）定位是「一个 API 接入视频、图像、音乐和 LLM 模型」，主打按量付费、积分永不过期、失败任务不扣费、无月费，首页宣称「对比官方价最高节省 88%」。运营主体是 NEXUSAI SERVICES LLC（美国科罗拉多州 Denver）。它的重心明显在多媒体：价格表 654 行里视频 365 行、图像 164 行，对话只有 93 行；图像、视频、音乐都走「创建任务 → 回调或轮询」的异步模型。商业模式是预充值积分（1 credit = $0.005），大额套餐送 5%～10%，再加 15% 佣金的推广计划。</p>
+<div class="stats"><div class="stat"><div class="n">26</div><div class="l">解析的页面/功能块</div></div><div class="stat"><div class="n">43</div><div class="l">截图（9 张需登录，已脱敏）</div></div><div class="stat"><div class="n">3</div><div class="l">域名：kie.ai / docs / api</div></div><div class="stat"><div class="n">$0.005</div><div class="l">1 credit 的价格</div></div></div>
+<h2 class="h2s">关键发现</h2><ol class="concl"><li><b>控制台和公开站是同一个外壳，价格和模型市场不登录也能看</b>：/market、/pricing 用的是控制台的左侧栏布局，未登录时侧栏没有账户信息和 Discord / Telegram 支持入口，底部显示 Login。模型详情页（/gpt-image-2-6 等）则用公开顶栏布局。注册后直接落在 /billing。</li><li><b>价格展示的核心是「我们的价 vs 官方价 + 折扣百分比」</b>：/pricing 每行同时给积分、美元价、官方价（或 Fal 价）和绿色折扣（如 Seedream 5.5 1K：3.6 credits = $0.018，官方 $0.02，−10%）。首页对比表把官方价划线，Veo 3.1 Fast 1080p $0.325 vs $0.96（−66.1%）。</li><li><b>API Key 默认就引导开 IP 白名单</b>：创建弹窗里 IP Access 默认选中「Only allow specific IPs (Recommended)」，还提供「最近调用过的 IP / 检测我的服务器 / 手动输入」三种填法。有效期 1/7/30/90 天/永久，选 1 天时会提示明天几点失效。列表页有 Safe-Spend Limits 一列。</li><li><b>把规则和限制提前写明</b>：Billing 页直接放「Rate Limit」卡：每个账户每 10 秒 20 个新生成请求，超出返回 429，不排队。Logs 页顶部写明保留期：媒体文件 14 天，日志 2 个月。文档首页的 11 节里，有一节直说「偶尔会不稳定，这是低价的取舍」。</li><li><b>模型页 = 试用 + 价格 + 说明 + 接口文档，四合一</b>：每个模型页都有 Playground / Examples / Similar / README / API 页签，表单和 JSON 可切换，右上「Run with API」「Copy page」。API 页签直接嵌入接口文档并可 Try it。价格按模型类型分别写：视频按秒、对话按 1M tokens 的四档、Suno 按功能。</li><li><b>支持靠私密 Discord 频道，状态页和 Telegram 都没找到入口</b>：VIP 支持页只有 Discord 按钮（授权后在 KIE VIP 服务器里建私密频道）。侧栏的「Get Support On Telegram」没有可见跳转目标。首页「平台实时状态」只是一个带绿点的文字标签，静态 HTML 里没有链接。没有工单系统，邮箱 support@kie.ai 被文档写成「不是首选」。</li><li><b>有几处数字前后对不上</b>：模型数：Market 显示 124，/pricing 页签 All 654（按价格行计），/pricing 静态表写「138 models」，AI Agents 文档写 200+。开发者数：首页 120,000+，Changelog 页 1,000+。</li><li><b>接口约定和常规 REST 不同</b>：文档写明：/api/v1/* 的错误也用 HTTP 200 返回，错误码在响应体的 code 里；200 只代表任务创建成功。Webhook 签名只覆盖 taskId 和时间戳，不覆盖请求体。客户端如果按 HTTP 状态码做重试，需要单独适配。</li></ol>
+<h3 class="mini">代表性截图（点图放大）</h3><div class="grid g4"><figure class="shot"><button class="tb" type="button" data-lb="c-pricing" data-list="c-pricing,c-key-create,c-billing,m-seedance" aria-label="放大：Pricing 价格表（控制台外壳）"><img fetchpriority="high" decoding="async" src="img/thumb/c-pricing.webp" width="480" height="268" alt="Pricing 价格表（控制台外壳）"></button><figcaption><b>Pricing 价格表（控制台外壳）</b><span>页签 All 654 / Chat 93 / Video 365 / Image 164 / Music 31 + 搜索；列：Credits/Gen、Our Price、Official/Fal Price、DISCOUNT（侧栏已遮挡）</span><a class="src" href="https://kie.ai/pricing" target="_blank" rel="noopener noreferrer">↗ 原网页 kie.ai/pricing</a> <span class="rt pub" title="未登录也可访问">公开</span></figcaption></figure><figure class="shot"><button class="tb" type="button" data-lb="c-key-create" data-list="c-pricing,c-key-create,c-billing,m-seedance" aria-label="放大：Create API Key 创建弹窗"><img fetchpriority="high" decoding="async" src="img/thumb/c-key-create.webp" width="480" height="268" alt="Create API Key 创建弹窗"></button><figcaption><b>Create API Key 创建弹窗</b><span>Name；Expiration 1/7/30/90 天/Never（选 1 天时提示明天几点失效）；IP Access 默认「Only allow specific IPs (Recommended)」+ Recently used / Detect my server / Enter manually；Model Access；未填名称时 Create 置灰（本次已取消，未创建）</span><a class="src" href="https://kie.ai/api-key" target="_blank" rel="noopener noreferrer">↗ 原网页 kie.ai/api-key</a> <span class="rt" title="截图时浏览器实际访问的地址，需登录查看">需登录</span></figcaption></figure><figure class="shot"><button class="tb" type="button" data-lb="c-billing" data-list="c-pricing,c-key-create,c-billing,m-seedance" aria-label="放大：Billing 余额与充值"><img loading="lazy" decoding="async" src="img/thumb/c-billing.webp" width="480" height="268" alt="Billing 余额与充值"></button><figcaption><b>Billing 余额与充值</b><span>余额卡 + 永不过期说明 + Rate Limit 卡（每账户每 10 秒 20 个新生成请求，超出返回 429 且不排队）；套餐 $5/$50/$500/$1250；支付页签 Card / Apple / 加密货币 / 更多；账单国家 + 邮编；自动充值开关（余额、国家、侧栏已遮挡）</span><a class="src" href="https://kie.ai/billing" target="_blank" rel="noopener noreferrer">↗ 原网页 kie.ai/billing</a> <span class="rt" title="截图时浏览器实际访问的地址，需登录查看">需登录</span></figcaption></figure><figure class="shot"><button class="tb" type="button" data-lb="m-seedance" data-list="c-pricing,c-key-create,c-billing,m-seedance" aria-label="放大：模型页：Seedance 2.5（按秒计价）"><img loading="lazy" decoding="async" src="img/thumb/m-seedance.webp" width="480" height="268" alt="模型页：Seedance 2.5（按秒计价）"></button><figcaption><b>模型页：Seedance 2.5（按秒计价）</b><span>480P/720P/1080P 各给「带视频输入 / 不带视频输入」两档每秒价格，并写明带视频输入时按「上传时长 + 生成时长」计费（头像已遮挡）</span><a class="src" href="https://kie.ai/seedance-2-5" target="_blank" rel="noopener noreferrer">↗ 原网页 kie.ai/seedance-2-5</a> <span class="rt pub" title="未登录也可访问">公开</span></figcaption></figure></div></section>
+<section id="arch"><h2>站点架构图</h2><p class="hint">架构图依据：①登录巡检记录的 35 张截图及其地址；②未登录补拍的 8 张公开页截图；③官网 HTML 里的链接、sitemap.xml、robots.txt、docs.kie.ai/llms.txt。kie.ai 没有拆子域做控制台：营销页、模型页、控制台都在 kie.ai 主域，文档在 docs.kie.ai，接口在 api.kie.ai。灰色虚线框是页面上有入口、但本次没找到目标或没截到的部分。</p>
+<a class="arch" href="architecture.svg" target="_blank" rel="noopener"><img src="img/architecture.png" width="2520" height="1290" loading="lazy" decoding="async" alt="kie.ai 信息架构与关键用户流程图"></a>
+<p class="note">打开：<a href="architecture.svg" target="_blank" rel="noopener">SVG 矢量图</a> · <a href="img/architecture.png" target="_blank" rel="noopener">PNG</a> · <a href="architecture.mmd" target="_blank" rel="noopener">Mermaid 源码</a></p></section>
+<section id="ia"><h2>信息架构与导航</h2><div class="md"><h3>三种页面外壳</h3>
+<table>
+<thead>
+<tr>
+<th>外壳</th>
+<th>典型页面</th>
+<th>导航</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>控制台外壳（左侧栏）</td>
+<td>/market · /pricing · /api-key · /billing · /usage · /logs · /user/affiliate · /api-updates · /settings</td>
+<td>侧栏 9 项 + 底部 Discord 支持 / Telegram 支持 / Settings / 语言（12 种）/ 登出；可折叠</td>
+</tr>
+<tr>
+<td>公开顶栏</td>
+<td>首页 · 模型页（/seedance-2-5 等扁平地址）· /changelog · /blog · /about · /contact · 法务页</td>
+<td>Models（大菜单）· Pricing · AI Agents（New）· Updates · 主题切换 · 语言 · 头像</td>
+</tr>
+<tr>
+<td>文档站 docs.kie.ai</td>
+<td>Getting Started · Market 模型接口 · File Upload API · Common API · AI Agents</td>
+<td>顶部 4 个页签；左侧按模型族分组的树；右侧本页目录；language / 主题 / Market / Support</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Market 和 Pricing 是公开页</strong>：未登录访问 /market、/pricing，看到的也是控制台外壳，侧栏底部显示 Login，菜单项照样列出（见未登录补拍）。用户从「看价格」到「进控制台」不用换环境。</li>
+<li><strong>Models 大菜单</strong>分四列：AI VIDEO / IMAGE / AUDIO / CHAT API，带 New 标签，底部 Browse all models。巡检记录里的数量：视频约 21 个、图像约 11 个、音频 3 个、对话约 16 个。</li>
+<li><strong>AI Agents 菜单</strong>：Overview / Build apps with KIE models / Run coding agents on KIE / Claude Code setup / Codex CLI setup。</li>
+<li><strong>全站横幅</strong>：「New: GPT Image 2.6 is now live on KIE」，可关闭，控制台和公开页都显示。</li>
+<li><strong>控制台没有 ⌘K 全局命令面板</strong>；Market 搜索框带 ⌘K 提示，只搜模型。</li>
+</ul>
+<h3>页脚</h3>
+<ul>
+<li><strong>COMPANY</strong>：Blog · Sitemap · Terms of Use · Privacy Policy · About Us · Contact · Refund Policy</li>
+<li><strong>RESOURCES</strong>：一组 SEO 文章（模型解读、对比、发布追踪）</li>
+<li><strong>Market</strong>：一组旧版模型落地页（如 /zh-CN/suno-api、/zh-CN/seedream-api）</li>
+<li>底部 © 2026 NEXUSAI SERVICES LLC + 主题切换。</li>
+</ul>
+<h3>站点地图与爬虫规则</h3>
+<ul>
+<li>sitemap.xml 是索引，拆成 pages / models-0 / blog-0 三个子地图（lastmod 2026-11-10～11）。</li>
+<li>robots.txt 禁止抓取 /en/、/api/ 和带 client_id、session_id 参数的地址。</li>
+<li>docs.kie.ai/llms.txt 存在（597 行，列出每个文档页的 .md 版本）；kie.ai/llms.txt 返回 404。</li>
+</ul></div><div class="grid g3"><figure class="shot"><button class="tb" type="button" data-lb="c-market" data-list="c-market,m-megamenu,p-market-pub" aria-label="放大：Models Market 模型市场（控制台外壳）"><img loading="lazy" decoding="async" src="img/thumb/c-market.webp" width="480" height="268" alt="Models Market 模型市场（控制台外壳）"></button><figcaption><b>Models Market 模型市场（控制台外壳）</b><span>左侧控制台栏 + 顶部轮播（Seedance 2.5、Wan 3.0）；搜索框带 ⌘K；「124 models」；27 个厂商标签 + 15 个任务标签；卡片显示厂商角标与任务标签（侧栏账户信息已遮挡）</span><a class="src" href="https://kie.ai/market" target="_blank" rel="noopener noreferrer">↗ 原网页 kie.ai/market</a> <span class="rt pub" title="未登录也可访问">公开</span></figcaption></figure><figure class="shot"><button class="tb" type="button" data-lb="m-megamenu" data-list="c-market,m-megamenu,p-market-pub" aria-label="放大：顶栏 Models 下拉大菜单"><img loading="lazy" decoding="async" src="img/thumb/m-megamenu.webp" width="480" height="268" alt="顶栏 Models 下拉大菜单"></button><figcaption><b>顶栏 Models 下拉大菜单</b><span>四列：AI VIDEO / IMAGE / AUDIO / CHAT API，New 标签，底部 Browse all models（头像已遮挡）</span><a class="src" href="https://kie.ai/gpt-image-2-6" target="_blank" rel="noopener noreferrer">↗ 原网页 kie.ai/gpt-image-2-6</a> <span class="rt pub" title="未登录也可访问">公开</span></figcaption></figure><figure class="shot"><button class="tb" type="button" data-lb="p-market-pub" data-list="c-market,m-megamenu,p-market-pub" aria-label="放大：Models Market 卡片网格（未登录）"><img loading="lazy" decoding="async" src="img/thumb/p-market-pub.webp" width="480" height="268" alt="Models Market 卡片网格（未登录）"></button><figcaption><b>Models Market 卡片网格（未登录）</b><span>未登录也是控制台外壳，侧栏底部变成 Login；卡片 5 列，分页</span><a class="src" href="https://kie.ai/market" target="_blank" rel="noopener noreferrer">↗ 原网页 kie.ai/market</a> <span class="rt pub" title="未登录也可访问">公开</span></figcaption></figure></div></section>
+<section id="model"><h2>账户 / 团队 / Key 模型</h2><div class="md"><h3>账户、团队、Key 的关系</h3>
+<ul>
+<li><strong>扁平结构</strong>：没有 AIHubMix 那样的「账户 → 工作区」两层。一个账户一个积分余额，所有模型共用。</li>
+<li><strong>团队</strong>：Settings 页的 Team &amp; Settings 里用邮箱邀请成员，成员行显示角色（巡检看到 Developer）和状态 Active。本次没有邀请成员，权限细分未知。</li>
+<li><strong>API Key</strong>：每把 Key 自带「有效期 + IP 白名单 + 可用模型 + Safe-Spend Limits」。注册后账户里已经有一把名为 Default 的 Key（创建时间与注册时间一致，推断为注册时自动生成），列表提示它「可从任意 IP 调用」，引导去加 IP。</li>
+<li><strong>限流按账户算</strong>：每 10 秒 20 个新生成请求，文档说这通常能支撑 100+ 个并发运行中的任务；想提额要找客服，「审核会比较谨慎」。</li>
+<li><strong>Webhook HMAC Key</strong>：在 Settings 里单独生成，用于校验回调签名。</li>
+</ul>
+<blockquote>
+<p>对中转站的意义：kie.ai 没做项目层，但把安全和花费控制下放到了每把 Key，而且默认值偏安全（推荐 IP 白名单）。对以个人和小团队为主的中转站，这比做工作区更实用。</p>
+</blockquote></div><div class="grid g3"><figure class="shot"><button class="tb" type="button" data-lb="c-keys" data-list="c-keys,c-settings,c-logs" aria-label="放大：API Keys 列表"><img loading="lazy" decoding="async" src="img/thumb/c-keys.webp" width="480" height="268" alt="API Keys 列表"></button><figcaption><b>API Keys 列表</b><span>列：Name / Key / Expires / IP Whitelist / Allowed Models / Safe-Spend Limits / ⋮；蓝色提示「1 key can be used from any IP… Add IPs」（Key 前缀、侧栏已遮挡）</span><a class="src" href="https://kie.ai/api-key" target="_blank" rel="noopener noreferrer">↗ 原网页 kie.ai/api-key</a> <span class="rt" title="截图时浏览器实际访问的地址，需登录查看">需登录</span></figcaption></figure><figure class="shot"><button class="tb" type="button" data-lb="c-settings" data-list="c-keys,c-settings,c-logs" aria-label="放大：Settings 团队与设置"><img loading="lazy" decoding="async" src="img/thumb/c-settings.webp" width="480" height="268" alt="Settings 团队与设置"></button><figcaption><b>Settings 团队与设置</b><span>Team &amp; Settings（邮箱邀请成员、成员角色 Developer / Active）；Webhook HMAC Key；Dark Mode；Time Zone；Email Subscription；页面下方 Danger Zone 删除账户（成员行、时区已遮挡）</span><a class="src" href="https://kie.ai/settings" target="_blank" rel="noopener noreferrer">↗ 原网页 kie.ai/settings</a> <span class="rt" title="截图时浏览器实际访问的地址，需登录查看">需登录</span></figcaption></figure><figure class="shot"><button class="tb" type="button" data-lb="c-logs" data-list="c-keys,c-settings,c-logs" aria-label="放大：Logs 任务日志"><img loading="lazy" decoding="async" src="img/thumb/c-logs.webp" width="480" height="268" alt="Logs 任务日志"></button><figcaption><b>Logs 任务日志</b><span>保留期横幅（媒体 14 天、日志 2 个月）；筛选：模型 / Task ID / 状态 / 日期；Batch Callback、Refresh；列含 Credits、Task ID、Results、Retry Callback（空账户）</span><a class="src" href="https://kie.ai/logs" target="_blank" rel="noopener noreferrer">↗ 原网页 kie.ai/logs</a> <span class="rt" title="截图时浏览器实际访问的地址，需登录查看">需登录</span></figcaption></figure></div></section>
+<section id="billing"><h2>计费、余额与价格展示</h2><div class="md"><h3>积分与充值</h3>
+<ul>
+<li><strong>单位</strong>：1 credit = $0.005（/pricing 副标题）。新账户送 80 积分（按此汇率约等于 $0.40，为换算值）。积分永不过期。</li>
+<li><strong>套餐</strong>（/billing）：$5 = 1,000 积分；$50 = 10,000；$500 = 105,000（角标 SAVE 5%）；$1250 = 275,000（角标 SAVE 10%）。按 1 credit = $0.005 换算，后两档分别多送 5% 和 10%，和角标一致。模型页的价格说明也写了「高档充值 +10% 赠送，实际价格约低 10%」。</li>
+<li><strong>支付方式</strong>：页签有 Card / Apple / 加密货币图标 / 「…」更多（未展开）。卡支付需要填账单国家和邮编。</li>
+<li><strong>自动充值</strong>：开关式，余额接近阈值时最多每 10 分钟扣一次已存卡。</li>
+<li><strong>交易记录</strong>：Transaction History / Billing Profile 两个页签，空账户显示「No pay order found」。FAQ 说发票在 Billing 页手动生成。</li>
+<li><strong>退款</strong>：退款政策写明可退，需邮件 support@kie.ai 并附订单号。</li>
+</ul>
+<h3>价格展示</h3>
+<ul>
+<li><strong>/pricing 价格表</strong>：页签 All 654 / Chat 93 / Video 365 / Image 164 / Music 31 + 搜索。未登录时按模型分组成卡片（例：seedream 5.5「10 prices」），每行一个「模型 × 模式 × 分辨率」组合，列出 Credits / Gen、Our Price、Official / Fal Price、DISCOUNT。也有没有官方价可比的条目（如 KIE Video Upscale，from $0.0075/s）。</li>
+<li><strong>首页对比表</strong>：ALL 26 / IMAGE 10 / VIDEO 8 / LLM 8 四个页签；每行「KIE 价 → 绿色箭头和折扣 → 划线官方价」。示例：GPT Image 2 1K $0.03 vs $0.211；Nano Banana 2 1K $0.04 vs $0.067；Grok Imagine Video 1.5 720p $0.0225/s vs $0.08/s；GPT-6 Sol 输入 $0.60 vs $2.00（−70%）。</li>
+<li><strong>模型页</strong>：</li>
+<li>Seedance 2.5 按秒、按分辨率、按「是否带视频输入」分两档：480P 17 credits/s（$0.085）/ 28（$0.14）；720P 38（$0.19）/ 63（$0.315）；1080P 95（$0.475）/ 158（$0.79）。注意：带视频输入的单价低，但计费时长是「上传视频时长 + 生成时长」。</li>
+<li>GPT-6.1 Sol 每 1M tokens：输入 120 积分（$0.60）、缓存读 6（$0.03）、缓存写 150（$0.75）、输出 600（$3.00），标「比官方低 70%」。</li>
+<li>GPT Image 2.6 按 token 计价（图像输出 5,400 积分 / 1M tokens = $27，比官方低 10%），另给「每张图约多少积分」的网格：medium 1K ≈ 7.82 积分（$0.039），4K 最高 ≈ 128（$0.64）。</li>
+<li>Suno 按功能计价，Generate Voice 免费。</li>
+<li><strong>三条承诺反复出现</strong>：失败任务不扣费、积分永不过期、$0 月费。首页、FAQ、价格页副标题都写。</li>
+</ul>
+<blockquote>
+<p>问题：GPT Image 2.6 的价格说明是一整段长文本（多个子模型、多种 token 价格挤在一行），读起来费力。积分和美元并列虽然清楚，但用户心里要多做一步换算。</p>
+</blockquote></div><div class="grid g4"><figure class="shot"><button class="tb" type="button" data-lb="c-billing" data-list="c-billing,p-pricing-pub,p-home-price,m-seedance" aria-label="放大：Billing 余额与充值"><img loading="lazy" decoding="async" src="img/thumb/c-billing.webp" width="480" height="268" alt="Billing 余额与充值"></button><figcaption><b>Billing 余额与充值</b><span>余额卡 + 永不过期说明 + Rate Limit 卡（每账户每 10 秒 20 个新生成请求，超出返回 429 且不排队）；套餐 $5/$50/$500/$1250；支付页签 Card / Apple / 加密货币 / 更多；账单国家 + 邮编；自动充值开关（余额、国家、侧栏已遮挡）</span><a class="src" href="https://kie.ai/billing" target="_blank" rel="noopener noreferrer">↗ 原网页 kie.ai/billing</a> <span class="rt" title="截图时浏览器实际访问的地址，需登录查看">需登录</span></figcaption></figure><figure class="shot"><button class="tb" type="button" data-lb="p-pricing-pub" data-list="c-billing,p-pricing-pub,p-home-price,m-seedance" aria-label="放大：Pricing 按模型分组（未登录）"><img loading="lazy" decoding="async" src="img/thumb/p-pricing-pub.webp" width="480" height="268" alt="Pricing 按模型分组（未登录）"></button><figcaption><b>Pricing 按模型分组（未登录）</b><span>副标题「1 credit = $0.005」；每个模型一个分组卡（如 seedream 5.5「10 prices」），逐行列出分辨率/模式的积分、我方价、官方价、折扣</span><a class="src" href="https://kie.ai/pricing" target="_blank" rel="noopener noreferrer">↗ 原网页 kie.ai/pricing</a> <span class="rt pub" title="未登录也可访问">公开</span></figcaption></figure><figure class="shot"><button class="tb" type="button" data-lb="p-home-price" data-list="c-billing,p-pricing-pub,p-home-price,m-seedance" aria-label="放大：首页：官方价对比表"><img loading="lazy" decoding="async" src="img/thumb/p-home-price.webp" width="480" height="268" alt="首页：官方价对比表"></button><figcaption><b>首页：官方价对比表</b><span>页签 ALL 26 / IMAGE 10 / VIDEO 8 / LLM 8；每行 KIE 价 → 绿色折扣百分比 → 划线官方价（头像已遮挡）</span><a class="src" href="https://kie.ai/zh-CN" target="_blank" rel="noopener noreferrer">↗ 原网页 kie.ai/zh-CN</a> <span class="rt pub" title="未登录也可访问">公开</span></figcaption></figure><figure class="shot"><button class="tb" type="button" data-lb="m-seedance" data-list="c-billing,p-pricing-pub,p-home-price,m-seedance" aria-label="放大：模型页：Seedance 2.5（按秒计价）"><img loading="lazy" decoding="async" src="img/thumb/m-seedance.webp" width="480" height="268" alt="模型页：Seedance 2.5（按秒计价）"></button><figcaption><b>模型页：Seedance 2.5（按秒计价）</b><span>480P/720P/1080P 各给「带视频输入 / 不带视频输入」两档每秒价格，并写明带视频输入时按「上传时长 + 生成时长」计费（头像已遮挡）</span><a class="src" href="https://kie.ai/seedance-2-5" target="_blank" rel="noopener noreferrer">↗ 原网页 kie.ai/seedance-2-5</a> <span class="rt pub" title="未登录也可访问">公开</span></figcaption></figure></div></section>
+<section id="dx"><h2>开发者体验（文档 / 异步任务 / Webhook / AI Agents）</h2><div class="md"><h3>文档</h3>
+<ul>
+<li><strong>docs.kie.ai</strong> 首页就是「Getting Started with KIE API (Important)」，11 节：模型与 Playground、价格、Key 安全、请求头、日志、数据保留、异步任务模型、限流、支持、稳定性预期、团队介绍。</li>
+<li><strong>统一任务接口</strong>：图像、视频、音乐都用 POST /api/v1/jobs/createTask（model + input + callBackUrl），再用 GET /api/v1/jobs/recordInfo?taskId= 查结果。状态有 waiting / queuing / generating / success / fail，返回 resultJson、failCode、creditsConsumed。文档建议用回调，轮询要指数退避，并提醒部分视频会超过 10 分钟。对话模型是同步返回，GPT-6.1 Sol 的 README 写的是 OpenAI Responses 兼容接口 POST /codex/v1/responses。</li>
+<li><strong>错误约定</strong>：/api/v1/* 和上传接口的错误都用 HTTP 200 返回，code 写在响应体里（如 {"code":429,…}）；缺少请求头时返回 {"code":401,"msg":"You do not have access permissions"}。文档反复提醒「200 只代表任务创建成功」。</li>
+<li><strong>Common API</strong>：Base URL https://api.kie.ai；GET /api/v1/chat/credit 查余额；另有获取下载链接的接口。</li>
+<li><strong>Webhook 签名</strong>：X-Webhook-Signature = Base64(HMAC-SHA256(taskId + "." + 时间戳秒, webhookHmacKey))，配合 X-Webhook-Timestamp；文档明确说签名不覆盖请求体。</li>
+<li><strong>文档工具</strong>：每页有 Copy Page；接口页可 Try it、Run in Apidog，代码示例有 Shell / JS / Java 等。</li>
+</ul>
+<h3>面向 AI 代理</h3>
+<ul>
+<li>docs.kie.ai/ai-agent/overview：<code>npx skills add https://kie.ai</code> 一条命令装两个 skill：kie-models（标 200+ models，用于在应用里调图像/视频/音乐/语音模型）和 kie-chat-agents（用 KIE 积分跑 Codex CLI、Claude Code、Grok Build）。用 KIE_API_KEY 环境变量，配一张「我该装哪个 skill」的对照表。</li>
+<li>模型页 API 页签顶部有横幅「Prefer a coding agent? See the AI Agents guide」。</li>
+<li>docs.kie.ai/llms.txt 存在；主站没有 llms.txt。</li>
+</ul>
+<h3>控制台里的开发者工具</h3>
+<ul>
+<li><strong>Logs</strong>：按模型、Task ID、状态、日期筛选；有 Batch Callback（批量重发回调）、Retry Callback 列和 Refresh。文档称 Logs 是「核对扣费的唯一依据」。</li>
+<li><strong>API Usage</strong>：日期范围、Export、Spend / Credits 切换图、按接口和按 Key 两个表。</li>
+<li><strong>API Updates</strong>：控制台内的模型更新流，可搜索、按 API 筛选，每条带文档链接和试用链接。</li>
+</ul>
+<blockquote>
+<p>对中转站的意义：多媒体模型天然是异步的，kie.ai 用「一个 createTask + 一个 recordInfo」统一了几十个模型，再配回调重发和保留期说明，排障路径很清楚。但「错误也返回 200」这一点不建议照抄。</p>
+</blockquote></div><div class="grid g4"><figure class="shot"><button class="tb" type="button" data-lb="d-home" data-list="d-home,d-task,d-webhook,d-agents" aria-label="放大：Docs 首页：Getting Started（Important）"><img loading="lazy" decoding="async" src="img/thumb/d-home.webp" width="480" height="268" alt="Docs 首页：Getting Started（Important）"></button><figcaption><b>Docs 首页：Getting Started（Important）</b><span>顶部页签 Market / File Upload API / Common API / AI Agents；左侧按模型族的树；右侧 11 节目录</span><a class="src" href="https://docs.kie.ai/" target="_blank" rel="noopener noreferrer">↗ 原网页 docs.kie.ai</a> <span class="rt pub" title="未登录也可访问">公开</span></figcaption></figure><figure class="shot"><button class="tb" type="button" data-lb="d-task" data-list="d-home,d-task,d-webhook,d-agents" aria-label="放大：Docs：Get Task Details"><img loading="lazy" decoding="async" src="img/thumb/d-task.webp" width="480" height="268" alt="Docs：Get Task Details"></button><figcaption><b>Docs：Get Task Details</b><span>GET /api/v1/jobs/recordInfo?taskId=；状态 waiting / queuing / generating / success / fail；最佳实践：回调、指数退避、部分视频超 10 分钟</span><a class="src" href="https://docs.kie.ai/market/common/get-task-detail" target="_blank" rel="noopener noreferrer">↗ 原网页 docs.kie.ai/market/common/get-task-detail</a> <span class="rt pub" title="未登录也可访问">公开</span></figcaption></figure><figure class="shot"><button class="tb" type="button" data-lb="d-webhook" data-list="d-home,d-task,d-webhook,d-agents" aria-label="放大：Docs：Webhook 签名校验"><img loading="lazy" decoding="async" src="img/thumb/d-webhook.webp" width="480" height="268" alt="Docs：Webhook 签名校验"></button><figcaption><b>Docs：Webhook 签名校验</b><span>X-Webhook-Signature = Base64(HMAC-SHA256(taskId + &quot;.&quot; + 时间戳, webhookHmacKey))，X-Webhook-Timestamp；签名不覆盖请求体</span><a class="src" href="https://docs.kie.ai/common-api/webhook-verification" target="_blank" rel="noopener noreferrer">↗ 原网页 docs.kie.ai/common-api/webhook-verification</a> <span class="rt pub" title="未登录也可访问">公开</span></figcaption></figure><figure class="shot"><button class="tb" type="button" data-lb="d-agents" data-list="d-home,d-task,d-webhook,d-agents" aria-label="放大：Docs：AI Agents Overview"><img loading="lazy" decoding="async" src="img/thumb/d-agents.webp" width="480" height="268" alt="Docs：AI Agents Overview"></button><figcaption><b>Docs：AI Agents Overview</b><span>npx skills add https://kie.ai 安装 kie-models（200+ models）与 kie-chat-agents；KIE_API_KEY 环境变量；「我需要哪个 skill」对照表</span><a class="src" href="https://docs.kie.ai/ai-agent/overview" target="_blank" rel="noopener noreferrer">↗ 原网页 docs.kie.ai/ai-agent/overview</a> <span class="rt pub" title="未登录也可访问">公开</span></figcaption></figure></div></section>
+<section id="trust"><h2>信任信号</h2><div class="md"><ul>
+<li><strong>主体与法务</strong>：运营主体 NEXUSAI SERVICES LLC，地址 118 Krameria St, Denver, CO 80220, United States（About 页、退款政策）。服务条款生效 2025-08-01、最近更新 2026-10-26，要求 13 岁以上。隐私政策生效 2025-08-01。</li>
+<li><strong>隐私政策和实际不一致</strong>：隐私政策说「只收集邮箱」「不使用 cookies」，但登录方式是 Google、Microsoft、手机号（手机号显然不止邮箱），同一份政策又写了使用 Google Analytics（它会用 cookies）。</li>
+<li><strong>状态页</strong>：首页指标卡里的「平台实时状态」是带绿点的文字，静态 HTML 中没有链接；本次没找到公开状态页。99.9% 可用率无法核实。</li>
+<li><strong>支持渠道</strong>：VIP 页只有 Discord 按钮，授权（scopes identify、guilds.join、email）后在 KIE VIP 服务器建私密频道，宣传优先协助、实时告警、低余额提醒。About、FAQ、文档都说 Discord 或 Telegram，但 Telegram 入口没有可见目标。邮件 support@kie.ai 可用，但文档写「不是首选，也不是最快」。</li>
+<li><strong>支持时段</strong>：文档写 UTC 21:00 至次日 UTC 17:00，换算成北京时间是每天 05:00 至次日 01:00，凌晨 01:00–05:00（北京时间）不在服务时段。</li>
+<li><strong>坦诚的稳定性说明</strong>：文档第 10 节写「我们并不完美，偶尔会不稳定，这是有意识的取舍」，第 11 节说是「小型创业团队」。对买家来说是诚实的预期管理，对 B2B 转售来说是风险信号。</li>
+<li><strong>社会证明</strong>：首页 120,000+ 开发者、80+ 国家/地区、99.9% 可用、24/7；Changelog 页却是 1,000+ 开发者。这些都是 kie.ai 自己公布的，本次无法核实。</li>
+</ul></div><div class="grid g3"><figure class="shot"><button class="tb" type="button" data-lb="p-vip" data-list="p-vip,p-about,p-privacy" aria-label="放大：VIP 支持频道"><img loading="lazy" decoding="async" src="img/thumb/p-vip.webp" width="480" height="268" alt="VIP 支持频道"></button><figcaption><b>VIP 支持频道</b><span>「加入您的私密 VIP 支持频道」：优先协助、实时告警、低余额提醒、私密频道；只有 Discord 按钮（头像已遮挡）</span><a class="src" href="https://kie.ai/zh-CN/vip-support" target="_blank" rel="noopener noreferrer">↗ 原网页 kie.ai/zh-CN/vip-support</a> <span class="rt pub" title="未登录也可访问">公开</span></figcaption></figure><figure class="shot"><button class="tb" type="button" data-lb="p-about" data-list="p-vip,p-about,p-privacy" aria-label="放大：About 关于（未登录）"><img loading="lazy" decoding="async" src="img/thumb/p-about.webp" width="480" height="268" alt="About 关于（未登录）"></button><figcaption><b>About 关于（未登录）</b><span>运营主体 NEXUSAI SERVICES LLC，地址 Denver, CO；写明支持渠道为邮件 + Discord 或 Telegram 私密 VIP 频道</span><a class="src" href="https://kie.ai/about" target="_blank" rel="noopener noreferrer">↗ 原网页 kie.ai/about</a> <span class="rt pub" title="未登录也可访问">公开</span></figcaption></figure><figure class="shot"><button class="tb" type="button" data-lb="p-privacy" data-list="p-vip,p-about,p-privacy" aria-label="放大：Privacy Policy 隐私政策（未登录）"><img loading="lazy" decoding="async" src="img/thumb/p-privacy.webp" width="480" height="268" alt="Privacy Policy 隐私政策（未登录）"></button><figcaption><b>Privacy Policy 隐私政策（未登录）</b><span>生效 2025-08-01；称只收集邮箱；使用 Google Analytics</span><a class="src" href="https://kie.ai/privacy-policy" target="_blank" rel="noopener noreferrer">↗ 原网页 kie.ai/privacy-policy</a> <span class="rt pub" title="未登录也可访问">公开</span></figcaption></figure></div></section>
+<section id="growth"><h2>增长：返佣、内容、AI 代理</h2><div class="md"><ul>
+<li><strong>推广返佣（Affiliate）</strong>：申请制，审核通过后才发推广链接。规则：被邀请用户前 30 天消费的 15% 作为佣金，45 天安全期，按支付指纹防作弊，每周结算；加密货币订单暂不计佣（页面顶部橙色提示）。页签 Dashboard / Invites / Orders / Withdrawals / FAQ。统计卡在未申请时展示 DEMO 数据（$1,450 总收益等），每张卡都打了 DEMO 标签，下方还有「Viewing Demo Data」说明。</li>
+<li><strong>定向招募</strong>：推广横幅写明面向 YouTube、X、TikTok 创作者和 KOL。</li>
+<li><strong>SEO 内容</strong>：Blog 大量「模型解读 / 对比 / 发布追踪」文章；文章页右侧吸附「Kie.ai API Directory」模型卡和 Get API Key 按钮，阅读直接转注册。页脚 RESOURCES 和 Market 两组链接也是 SEO 入口。模型页的 README 页签本身就是一篇发布说明式长文。</li>
+<li><strong>多语言</strong>：控制台 12 种语言；首页 HTML 里有 de / es / fr / id / ja / pt / ru 等语言版本链接。但 /zh-CN/blog 里是英文文章，本地化只做到界面层。</li>
+<li><strong>免费额度</strong>：注册送 80 积分；首页底部 CTA「获取免费 API Key」。</li>
+<li><strong>AI 代理渠道</strong>：npx skills 和「用 KIE 积分跑 Claude Code / Codex CLI」把编程代理用户也拉成付费用户。</li>
+</ul></div><div class="grid g3"><figure class="shot"><button class="tb" type="button" data-lb="c-affiliate" data-list="c-affiliate,p-blog-post,c-api-updates" aria-label="放大：Affiliate Program 推广返佣"><img loading="lazy" decoding="async" src="img/thumb/c-affiliate.webp" width="480" height="268" alt="Affiliate Program 推广返佣"></button><figcaption><b>Affiliate Program 推广返佣</b><span>页签 Dashboard / Invites / Orders / Withdrawals / FAQ；申请制推广链接、15% 佣金；四张统计卡全部打 DEMO 标签；顶部橙色提示加密货币订单暂不计佣</span><a class="src" href="https://kie.ai/user/affiliate" target="_blank" rel="noopener noreferrer">↗ 原网页 kie.ai/user/affiliate</a> <span class="rt" title="截图时浏览器实际访问的地址，需登录查看">需登录</span></figcaption></figure><figure class="shot"><button class="tb" type="button" data-lb="p-blog-post" data-list="c-affiliate,p-blog-post,c-api-updates" aria-label="放大：Blog 文章页"><img loading="lazy" decoding="async" src="img/thumb/p-blog-post.webp" width="480" height="268" alt="Blog 文章页"></button><figcaption><b>Blog 文章页</b><span>面包屑、作者与日期、TLDR 框；右侧吸附「Kie.ai API Directory」模型卡 + Get API Key（头像已遮挡）</span><a class="src" href="https://kie.ai/blog/seedream-5-5-vs-gpt-image-2-6" target="_blank" rel="noopener noreferrer">↗ 原网页 kie.ai/blog/seedream-5-5-vs-gpt-image-2-6</a> <span class="rt pub" title="未登录也可访问">公开</span></figcaption></figure><figure class="shot"><button class="tb" type="button" data-lb="c-api-updates" data-list="c-affiliate,p-blog-post,c-api-updates" aria-label="放大：API Updates 模型更新流（控制台内）"><img loading="lazy" decoding="async" src="img/thumb/c-api-updates.webp" width="480" height="268" alt="API Updates 模型更新流（控制台内）"></button><figcaption><b>API Updates 模型更新流（控制台内）</b><span>搜索 + 「All APIs」下拉；按日期排列的卡片：标签、标题、文档链接、Key Features、试用链接；首条 Seedream 5.5（2026-11-10）</span><a class="src" href="https://kie.ai/api-updates" target="_blank" rel="noopener noreferrer">↗ 原网页 kie.ai/api-updates</a> <span class="rt" title="截图时浏览器实际访问的地址，需登录查看">需登录</span></figcaption></figure></div></section>
+<section id="visual"><h2>视觉风格</h2><div class="md"><ul>
+<li><strong>技术栈</strong>：Next.js + HeroUI（CSS 变量 --heroui-primary），控制台和公开站共用一套组件。</li>
+<li><strong>字体</strong>：标题 Space Grotesk，数字和代码 Geist Mono；价格、积分、折扣大量用等宽字体，表格对得很齐。正文跟随系统字体。</li>
+<li><strong>颜色</strong>：主色 #2b7fff（--primary，hover #1c6bff），顶部横幅是蓝紫渐变；折扣统一用绿色（截图取色约 #16a34a）加向下箭头；DEMO、警示用橙色。</li>
+<li><strong>控制台</strong>：浅灰侧栏（截图取色约 #f4f4f5）+ 白色卡片，选中项是黑底白字胶囊；卡片圆角较大、阴影很轻。</li>
+<li><strong>公开站</strong>：首页 Hero 用柔和的静物摄影图；模型市场用深色封面大卡片，左上厂商角标、底部任务标签；首页「精选模型」两行自动横向滚动。</li>
+<li><strong>密度</strong>：价格表和模型页价格说明信息很密；控制台其他页面留白较多。</li>
+<li><strong>深色模式</strong>：Settings 里有 Dark Mode 开关，公开站顶栏有主题切换（本次未截深色效果）。</li>
+</ul></div>
+<div class="swatches"><span style="background:#2b7fff">#2b7fff 主色</span><span style="background:#16a34a">#16a34a 折扣</span><span style="background:#f4f4f5;color:#111;border:1px solid #e5e7eb">#f4f4f5 侧栏</span><span style="background:#111827">黑底胶囊（选中项）</span><span class="r" style="background:#fff;color:#111;border:1px solid #e5e7eb">Space Grotesk + Geist Mono</span></div></section>
+<section id="compare"><h2>与 AIHubMix 对比</h2><p class="hint">依据本报告与 <a href="../aihubmix/index.html">AIHubMix 深度调研</a>（同日完成）。</p><div class="md"><table>
+<thead>
+<tr>
+<th>维度</th>
+<th>kie.ai</th>
+<th>AIHubMix</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>定位</td>
+<td>多媒体优先：654 个价格行里视频 365、图像 164</td>
+<td>文本 LLM 网关优先：「统一 AI 模型网关」，强调官方云渠道</td>
+</tr>
+<tr>
+<td>域名结构</td>
+<td>营销、模型页、控制台都在 kie.ai；文档 docs.kie.ai；接口 api.kie.ai</td>
+<td>官网 / 控制台 / 文档 / 状态页 / 企业站 5 个子域</td>
+</tr>
+<tr>
+<td>账户层级</td>
+<td>扁平：账户 + 团队成员 + Key</td>
+<td>账户 → 工作区两层，代码里还有组织层</td>
+</tr>
+<tr>
+<td>Key 能力</td>
+<td>有效期、IP 白名单（默认推荐）、模型范围、Safe-Spend Limits</td>
+<td>额度、过期、模型范围、IP、模型名映射、失败回退</td>
+</tr>
+<tr>
+<td>价格展示</td>
+<td>积分 + 美元 + 官方价 + 折扣 %，按模型 × 分辨率逐行</td>
+<td>输入/输出价 + 上下文 + TTFT / 吞吐 + 限时折扣胶囊；渠道并排比较</td>
+</tr>
+<tr>
+<td>计费口径</td>
+<td>1 credit = $0.005，套餐 $5～$1250，大额送 5%～10%</td>
+<td>美元余额，$15 / $50 / $100 + 自定义，手续费平台承担</td>
+</tr>
+<tr>
+<td>调用方式</td>
+<td>多媒体统一 createTask + recordInfo 异步；错误也返回 HTTP 200</td>
+<td>4 种协议直连；图像视频走异步；错误带 tid，标准状态码和限流头</td>
+</tr>
+<tr>
+<td>限流说明</td>
+<td>Billing 页直接写：每账户 10 秒 20 个请求</td>
+<td>文档写限流响应头；免费额度用 JSON 公示</td>
+</tr>
+<tr>
+<td>可信度</td>
+<td>没找到状态页；文档坦白「偶尔不稳定」</td>
+<td>公开状态页（按协议拆组件）+ 模型下线日历</td>
+</tr>
+<tr>
+<td>支持</td>
+<td>Discord 私密 VIP 频道 + 邮件；无工单</td>
+<td>FAQ 卡片 + 工单（带 Trace ID）</td>
+</tr>
+<tr>
+<td>增长</td>
+<td>15% 佣金推广计划（申请制）+ SEO 博客 + skills</td>
+<td>邀请链接 + 生态/开发者计划 + 企业站销售表单</td>
+</tr>
+<tr>
+<td>给 AI 代理</td>
+<td>npx skills 两个 skill；docs llms.txt</td>
+<td>llms.txt、agents.md、MCP / CLI / HTTP 管理接口</td>
+</tr>
+<tr>
+<td>数字不一致</td>
+<td>模型 124 / 138 / 200+ / 654 行；开发者 120,000+ / 1,000+</td>
+<td>模型 730+ / 954 / 961 / 500+</td>
+</tr>
+</tbody>
+</table>
+<p><strong>一句话</strong>：AIHubMix 的长处是「治理」（工作区、下线日历、状态页、通知、工单），kie.ai 的长处是「卖多媒体」（统一异步任务、按分辨率逐行标价、官方价对比、Playground 和文档合在模型页里）。中转站重做用户端时，价格页和 Key 弹窗可以学 kie.ai，日志、通知、状态和客服链路更该学 AIHubMix。</p></div></section>
+<section id="inconsist"><h2>数字与说法不一致</h2><ul><li>模型数量：/market 显示「124 models」；/pricing 页签 All 654（Chat 93 / Video 365 / Image 164 / Music 31，按价格行计）；/pricing 静态 HTML 写「Starting price for each of 138 models」；AI Agents 文档 kie-models 标 200+ models；首页价格对比表 ALL 26（只是展示条目）。</li><li>开发者数量：首页「120,000+ 开发者 · 80+ 国家/地区」；/changelog 页「1,000+ Developers」。</li><li>支持渠道：About、FAQ、文档写 Discord 或 Telegram；VIP 支持页只有 Discord 按钮；侧栏 Telegram 入口无可见目标。</li><li>隐私政策写只收集邮箱、不用 cookies；实际登录方式含手机号，且同一政策写了使用 Google Analytics。</li></ul></section>
+<section id="gaps"><h2>局限与缺口</h2><ul><li>测试账户是新注册的空账户（只有赠送的 80 积分），用量图、任务日志、交易记录都是空态，没看到有数据时的样子。</li><li>没有发起任何生成任务，80 积分未动用；没有新建 API Key（创建弹窗已取消），账户里那把 Default Key 是原有的；没有充值，没有申请推广链接，没有邀请成员。</li><li>Telegram 支持入口没有找到目标地址；首页「平台实时状态」不是链接，本次没找到公开状态页。</li><li>没截到：Billing 页下方的交易记录和账单资料详情、Key 行的 ⋮ 菜单、支付方式「…」里的其他方式、模型页 Examples 页签、错误码页、旧版功能落地页、深色模式。Market 只补拍了 Lip Sync 一种筛选状态。</li><li>kie.ai/market 和 docs.kie.ai 的页面里存在写给 AI 代理的隐藏文字，巡检和本次抓取都把它当作页面数据，没有照做，也不在本报告里复述。</li><li>43 张截图中 35 张来自登录巡检（2026-11-11 约 08:50，北京时间），8 张为未登录的无头浏览器补拍（约 09:00）。模型名称、价格、数量都照抄页面显示，未独立核实；价格可能随时调整（页面自己标注 beta）。</li><li>团队成员权限、自动充值阈值设置、推广提现流程等需要实际操作才能看到的部分均未覆盖。</li></ul></section></main>
+<footer class="foot">资料截至 2026-11-11（北京时间）。截图中的账户名、邮箱、头像、余额、API Key 前缀、账单国家、成员行与时区均已用深色块遮挡。「需登录」= 截图时浏览器实际访问的控制台地址；「公开」= 未登录也能打开。页面中写给 AI 代理的隐藏文字已忽略。仅供内部参考。<br><a href="../index.html">返回调研总站</a> · <a href="../aihubmix/index.html">AIHubMix 调研</a> · <a href="kie.ai深度调研_2026-11-11.md" download>下载 Markdown</a> · <a href="img/architecture.png" target="_blank" rel="noopener">架构图 PNG</a></footer>
+</body></html>

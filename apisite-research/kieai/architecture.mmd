@@ -1,0 +1,56 @@
+%% kie.ai 信息架构（2026-11-11，依据登录巡检截图、未登录补拍与公开页面链接）
+flowchart LR
+  subgraph PUB["kie.ai 公开站（顶栏布局）"]
+    HOME["首页 / · /zh-CN<br/>Hero · 价格对比 · 精选模型 · FAQ"]
+    MODEL["模型页 /seedance-2-5 等<br/>Playground · Examples · Similar · README · API"]
+    MEGA["Models 大菜单<br/>VIDEO · IMAGE · AUDIO · CHAT"]
+    CHG["/changelog"]
+    VIP["/vip-support（Discord）"]
+    BLOG["/blog · /blog/&lt;slug&gt;"]
+    CO["/about · /contact"]
+    LEGAL["/terms-of-use · /privacy-policy · /refund-policy"]
+    MAP["/sitemap.xml → pages / models / blog"]
+  end
+  subgraph CON["kie.ai 控制台（左侧栏布局）"]
+    MKT["/market（公开）"]
+    PRC["/pricing（公开）"]
+    KEY["/api-key 有效期·IP 白名单·模型·花费上限"]
+    BIL["/billing 余额·套餐·自动充值（注册后落地页）"]
+    USE["/usage"]
+    LOG["/logs 任务日志·回调重发"]
+    AFF["/user/affiliate 推广返佣 15%"]
+    UPD["/api-updates"]
+    SET["/settings 团队·Webhook HMAC Key·时区"]
+    SUPD["Get Support On Discord → Discord OAuth → VIP 频道"]
+    SUPT["Get Support On Telegram（无可见目标）"]:::gap
+  end
+  subgraph DOCS["docs.kie.ai"]
+    GS["Getting Started（Important，11 节）"]
+    MK["Market 模型接口（按模型族）"]
+    TASK["Get Task Details"]
+    COM["Common API：查余额 · 下载链接"]
+    WH["Webhook 签名校验"]
+    AG["AI Agents：npx skills add https://kie.ai"]
+    LLMS["/llms.txt"]
+  end
+  subgraph API["api.kie.ai"]
+    CT["POST /api/v1/jobs/createTask"]
+    RI["GET /api/v1/jobs/recordInfo"]
+    CR["GET /api/v1/chat/credit"]
+    RESP["POST /codex/v1/responses"]
+  end
+  STATUS["公开状态页（未找到；首页「平台实时状态」不是链接）"]:::gap
+  HOME --> MKT
+  HOME --> PRC
+  MEGA --> MODEL
+  MKT --> MODEL
+  MODEL -->|Run with API| DOCS
+  MODEL -->|API 页签| CT
+  KEY --> CT
+  CT --> RI
+  CT -. 回调 .-> LOG
+  BIL --> USE
+  LOG --> RI
+  SUPD --> VIP
+  CON -->|Document| DOCS
+  classDef gap stroke-dasharray: 5 4,stroke:#64748b,fill:#f1f5f9

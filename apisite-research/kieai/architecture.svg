@@ -1,0 +1,199 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1680 860" width="1680" height="860">
+<defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+<rect x="0" y="0" width="1680" height="860" rx="0" fill="#f8fafc" stroke="#f8fafc" stroke-width="1.5"/>
+<text x="24" y="38" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="22" font-weight="700" fill="#1f2937" text-anchor="start">kie.ai 信息架构与关键用户流程</text>
+<text x="24" y="62" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12.5" font-weight="400" fill="#64748b" text-anchor="start">依据 2026-11-11 登录巡检 35 张截图、未登录补拍 8 张、官网 HTML 链接 / sitemap / docs llms.txt 整理；灰色虚线框 = 有入口但未找到目标或未截到</text>
+<rect x="24" y="78" width="1632" height="40" rx="8" fill="#eef4ff" stroke="#c7dbff" stroke-width="1.5"/>
+<text x="40" y="103" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="13" font-weight="500" fill="#1d4ed8" text-anchor="start">kie.ai 主域同时承载：公开顶栏页（首页 / 模型页 / 博客 / 法务）＋ 控制台侧栏页（Market / Pricing 公开，其余需登录）｜ 全站横幅「New: GPT Image 2.6 is now live」｜ 12 种语言</text>
+<rect x="24" y="136" width="380" height="252" rx="10" fill="#ffffff" stroke="#2b7fff" stroke-width="1.5"/>
+<rect x="24" y="136" width="380" height="30" rx="10" fill="#2b7fff" stroke="#2b7fff" stroke-width="1.5"/>
+<rect x="24" y="154" width="380" height="12" rx="0" fill="#2b7fff" stroke="#2b7fff" stroke-width="1.5"/>
+<text x="36" y="157" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="14" font-weight="700" fill="#ffffff" text-anchor="start">kie.ai 公开站（顶栏布局）</text>
+<text x="36" y="182" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="11.5" font-weight="400" fill="#6b7280" text-anchor="start">顶栏：Models · Pricing · AI Agents · Updates</text>
+<text x="38" y="199" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12.5" font-weight="500" fill="#1f2937" text-anchor="start">首页（Hero·价格对比·精选·FAQ）</text>
+<text x="392" y="199" font-family="JetBrains Mono, Noto Sans Mono CJK SC, monospace" font-size="11" font-weight="400" fill="#6b7280" text-anchor="end">/zh-CN</text>
+<text x="38" y="218" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12.5" font-weight="500" fill="#1f2937" text-anchor="start">模型页（扁平地址，5 个页签）</text>
+<text x="392" y="218" font-family="JetBrains Mono, Noto Sans Mono CJK SC, monospace" font-size="11" font-weight="400" fill="#6b7280" text-anchor="end">/seedance-2-5</text>
+<text x="38" y="237" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12.5" font-weight="500" fill="#1f2937" text-anchor="start">厂商页 / 任务分类页</text>
+<text x="392" y="237" font-family="JetBrains Mono, Noto Sans Mono CJK SC, monospace" font-size="11" font-weight="400" fill="#6b7280" text-anchor="end">/market/openai</text>
+<text x="38" y="256" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12.5" font-weight="500" fill="#1f2937" text-anchor="start">Changelog 公开更新</text>
+<text x="392" y="256" font-family="JetBrains Mono, Noto Sans Mono CJK SC, monospace" font-size="11" font-weight="400" fill="#6b7280" text-anchor="end">/changelog</text>
+<text x="38" y="275" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12.5" font-weight="500" fill="#1f2937" text-anchor="start">VIP 支持（Discord 授权）</text>
+<text x="392" y="275" font-family="JetBrains Mono, Noto Sans Mono CJK SC, monospace" font-size="11" font-weight="400" fill="#6b7280" text-anchor="end">/vip-support</text>
+<text x="38" y="294" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12.5" font-weight="500" fill="#1f2937" text-anchor="start">Blog 列表 / 文章</text>
+<text x="392" y="294" font-family="JetBrains Mono, Noto Sans Mono CJK SC, monospace" font-size="11" font-weight="400" fill="#6b7280" text-anchor="end">/blog /blog/&lt;slug&gt;</text>
+<text x="38" y="313" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12.5" font-weight="500" fill="#1f2937" text-anchor="start">About · Contact</text>
+<text x="392" y="313" font-family="JetBrains Mono, Noto Sans Mono CJK SC, monospace" font-size="11" font-weight="400" fill="#6b7280" text-anchor="end">/about /contact</text>
+<text x="38" y="332" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12.5" font-weight="500" fill="#1f2937" text-anchor="start">Terms · Privacy · Refund</text>
+<text x="392" y="332" font-family="JetBrains Mono, Noto Sans Mono CJK SC, monospace" font-size="11" font-weight="400" fill="#6b7280" text-anchor="end">法务 3 页</text>
+<text x="38" y="351" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12.5" font-weight="500" fill="#1f2937" text-anchor="start">SEO 专题 / 旧版落地页</text>
+<text x="392" y="351" font-family="JetBrains Mono, Noto Sans Mono CJK SC, monospace" font-size="11" font-weight="400" fill="#6b7280" text-anchor="end">/zh-CN/features</text>
+<text x="38" y="370" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12.5" font-weight="500" fill="#1f2937" text-anchor="start">站点地图（pages/models/blog）</text>
+<text x="392" y="370" font-family="JetBrains Mono, Noto Sans Mono CJK SC, monospace" font-size="11" font-weight="400" fill="#6b7280" text-anchor="end">/sitemap.xml</text>
+<rect x="24" y="402" width="380" height="157" rx="10" fill="#ffffff" stroke="#0f766e" stroke-width="1.5"/>
+<rect x="24" y="402" width="380" height="30" rx="10" fill="#0f766e" stroke="#0f766e" stroke-width="1.5"/>
+<rect x="24" y="420" width="380" height="12" rx="0" fill="#0f766e" stroke="#0f766e" stroke-width="1.5"/>
+<text x="36" y="423" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="14" font-weight="700" fill="#ffffff" text-anchor="start">Models 大菜单（四列）</text>
+<text x="36" y="448" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="11.5" font-weight="400" fill="#6b7280" text-anchor="start">New 标签标出新模型</text>
+<text x="38" y="465" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12.5" font-weight="500" fill="#1f2937" text-anchor="start">AI VIDEO（约 21 个）</text>
+<text x="392" y="465" font-family="JetBrains Mono, Noto Sans Mono CJK SC, monospace" font-size="11" font-weight="400" fill="#6b7280" text-anchor="end">/market/text-to-video</text>
+<text x="38" y="484" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12.5" font-weight="500" fill="#1f2937" text-anchor="start">AI IMAGE（约 11 个）</text>
+<text x="392" y="484" font-family="JetBrains Mono, Noto Sans Mono CJK SC, monospace" font-size="11" font-weight="400" fill="#6b7280" text-anchor="end">/market/text-to-image</text>
+<text x="38" y="503" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12.5" font-weight="500" fill="#1f2937" text-anchor="start">AI AUDIO（3 个）</text>
+<text x="392" y="503" font-family="JetBrains Mono, Noto Sans Mono CJK SC, monospace" font-size="11" font-weight="400" fill="#6b7280" text-anchor="end">/market/text-to-music</text>
+<text x="38" y="522" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12.5" font-weight="500" fill="#1f2937" text-anchor="start">AI CHAT（约 16 个）</text>
+<text x="392" y="522" font-family="JetBrains Mono, Noto Sans Mono CJK SC, monospace" font-size="11" font-weight="400" fill="#6b7280" text-anchor="end">/market/chat</text>
+<text x="38" y="541" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12.5" font-weight="400" fill="#1f2937" text-anchor="start">底部 Browse all models → /market</text>
+<rect x="430" y="136" width="420" height="252" rx="10" fill="#ffffff" stroke="#4f46e5" stroke-width="1.5"/>
+<rect x="430" y="136" width="420" height="30" rx="10" fill="#4f46e5" stroke="#4f46e5" stroke-width="1.5"/>
+<rect x="430" y="154" width="420" height="12" rx="0" fill="#4f46e5" stroke="#4f46e5" stroke-width="1.5"/>
+<text x="442" y="157" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="14" font-weight="700" fill="#ffffff" text-anchor="start">kie.ai 控制台（左侧栏布局）</text>
+<text x="442" y="182" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="11.5" font-weight="400" fill="#6b7280" text-anchor="start">登录：Google / Microsoft / 手机号（无邮箱）；注册后落地 /billing</text>
+<text x="444" y="199" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12.5" font-weight="500" fill="#1f2937" text-anchor="start">Models Market（公开）</text>
+<text x="838" y="199" font-family="JetBrains Mono, Noto Sans Mono CJK SC, monospace" font-size="11" font-weight="400" fill="#6b7280" text-anchor="end">/market</text>
+<text x="444" y="218" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12.5" font-weight="500" fill="#1f2937" text-anchor="start">Pricing 价格表（公开）</text>
+<text x="838" y="218" font-family="JetBrains Mono, Noto Sans Mono CJK SC, monospace" font-size="11" font-weight="400" fill="#6b7280" text-anchor="end">/pricing</text>
+<text x="444" y="237" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12.5" font-weight="500" fill="#1f2937" text-anchor="start">API Keys（有效期/IP/模型/花费上限）</text>
+<text x="838" y="237" font-family="JetBrains Mono, Noto Sans Mono CJK SC, monospace" font-size="11" font-weight="400" fill="#6b7280" text-anchor="end">/api-key</text>
+<text x="444" y="256" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12.5" font-weight="500" fill="#1f2937" text-anchor="start">Billing 余额·套餐·自动充值</text>
+<text x="838" y="256" font-family="JetBrains Mono, Noto Sans Mono CJK SC, monospace" font-size="11" font-weight="400" fill="#6b7280" text-anchor="end">/billing</text>
+<text x="444" y="275" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12.5" font-weight="500" fill="#1f2937" text-anchor="start">API Usage 用量</text>
+<text x="838" y="275" font-family="JetBrains Mono, Noto Sans Mono CJK SC, monospace" font-size="11" font-weight="400" fill="#6b7280" text-anchor="end">/usage</text>
+<text x="444" y="294" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12.5" font-weight="500" fill="#1f2937" text-anchor="start">Logs 任务日志·回调重发</text>
+<text x="838" y="294" font-family="JetBrains Mono, Noto Sans Mono CJK SC, monospace" font-size="11" font-weight="400" fill="#6b7280" text-anchor="end">/logs</text>
+<text x="444" y="313" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12.5" font-weight="500" fill="#1f2937" text-anchor="start">Affiliate Program 推广返佣</text>
+<text x="838" y="313" font-family="JetBrains Mono, Noto Sans Mono CJK SC, monospace" font-size="11" font-weight="400" fill="#6b7280" text-anchor="end">/user/affiliate</text>
+<text x="444" y="332" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12.5" font-weight="500" fill="#1f2937" text-anchor="start">API Updates 更新流</text>
+<text x="838" y="332" font-family="JetBrains Mono, Noto Sans Mono CJK SC, monospace" font-size="11" font-weight="400" fill="#6b7280" text-anchor="end">/api-updates</text>
+<text x="444" y="351" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12.5" font-weight="500" fill="#1f2937" text-anchor="start">Document → 文档站</text>
+<text x="838" y="351" font-family="JetBrains Mono, Noto Sans Mono CJK SC, monospace" font-size="11" font-weight="400" fill="#6b7280" text-anchor="end">docs.kie.ai</text>
+<text x="444" y="370" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12.5" font-weight="500" fill="#1f2937" text-anchor="start">Settings 团队·Webhook Key·时区</text>
+<text x="838" y="370" font-family="JetBrains Mono, Noto Sans Mono CJK SC, monospace" font-size="11" font-weight="400" fill="#6b7280" text-anchor="end">/settings</text>
+<rect x="430" y="402" width="420" height="119" rx="10" fill="#ffffff" stroke="#475569" stroke-width="1.5"/>
+<rect x="430" y="402" width="420" height="30" rx="10" fill="#475569" stroke="#475569" stroke-width="1.5"/>
+<rect x="430" y="420" width="420" height="12" rx="0" fill="#475569" stroke="#475569" stroke-width="1.5"/>
+<text x="442" y="423" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="14" font-weight="700" fill="#ffffff" text-anchor="start">侧栏底部</text>
+<text x="442" y="448" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="11.5" font-weight="400" fill="#6b7280" text-anchor="start">未登录时只显示 Settings / 语言 / Login</text>
+<text x="444" y="465" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12.5" font-weight="500" fill="#1f2937" text-anchor="start">Get Support On Discord</text>
+<text x="838" y="465" font-family="JetBrains Mono, Noto Sans Mono CJK SC, monospace" font-size="11" font-weight="400" fill="#6b7280" text-anchor="end">Discord OAuth → VIP 频道</text>
+<text x="444" y="484" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12.5" font-weight="500" fill="#1f2937" text-anchor="start">Get Support On Telegram</text>
+<text x="838" y="484" font-family="JetBrains Mono, Noto Sans Mono CJK SC, monospace" font-size="11" font-weight="400" fill="#6b7280" text-anchor="end">无可见目标</text>
+<text x="444" y="503" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12.5" font-weight="500" fill="#1f2937" text-anchor="start">Settings · 语言（12 种）· Log Out</text>
+<text x="838" y="503" font-family="JetBrains Mono, Noto Sans Mono CJK SC, monospace" font-size="11" font-weight="400" fill="#6b7280" text-anchor="end"></text>
+<rect x="430" y="535" width="420" height="101" rx="10" fill="#ffffff" stroke="#6d28d9" stroke-width="1.5"/>
+<rect x="430" y="535" width="420" height="30" rx="10" fill="#6d28d9" stroke="#6d28d9" stroke-width="1.5"/>
+<rect x="430" y="553" width="420" height="12" rx="0" fill="#6d28d9" stroke="#6d28d9" stroke-width="1.5"/>
+<text x="442" y="556" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="14" font-weight="700" fill="#ffffff" text-anchor="start">子页签</text>
+<text x="444" y="580" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12.5" font-weight="500" fill="#1f2937" text-anchor="start">Billing</text>
+<text x="838" y="580" font-family="JetBrains Mono, Noto Sans Mono CJK SC, monospace" font-size="11" font-weight="400" fill="#6b7280" text-anchor="end">Transaction History · Billing Profile</text>
+<text x="444" y="599" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12.5" font-weight="500" fill="#1f2937" text-anchor="start">Affiliate</text>
+<text x="838" y="599" font-family="JetBrains Mono, Noto Sans Mono CJK SC, monospace" font-size="11" font-weight="400" fill="#6b7280" text-anchor="end">Dashboard·Invites·Orders·Withdrawals·FAQ</text>
+<text x="444" y="618" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12.5" font-weight="500" fill="#1f2937" text-anchor="start">模型页</text>
+<text x="838" y="618" font-family="JetBrains Mono, Noto Sans Mono CJK SC, monospace" font-size="11" font-weight="400" fill="#6b7280" text-anchor="end">Playground·Examples·Similar·README·API</text>
+<rect x="876" y="136" width="380" height="214" rx="10" fill="#ffffff" stroke="#0f766e" stroke-width="1.5"/>
+<rect x="876" y="136" width="380" height="30" rx="10" fill="#0f766e" stroke="#0f766e" stroke-width="1.5"/>
+<rect x="876" y="154" width="380" height="12" rx="0" fill="#0f766e" stroke="#0f766e" stroke-width="1.5"/>
+<text x="888" y="157" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="14" font-weight="700" fill="#ffffff" text-anchor="start">docs.kie.ai 文档</text>
+<text x="888" y="182" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="11.5" font-weight="400" fill="#6b7280" text-anchor="start">每页 Copy Page；Try it / Run in Apidog</text>
+<text x="890" y="199" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12.5" font-weight="400" fill="#1f2937" text-anchor="start">顶部：Market · File Upload API · Common API · AI Agents</text>
+<text x="890" y="218" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12.5" font-weight="500" fill="#1f2937" text-anchor="start">Getting Started（Important，11 节）</text>
+<text x="1244" y="218" font-family="JetBrains Mono, Noto Sans Mono CJK SC, monospace" font-size="11" font-weight="400" fill="#6b7280" text-anchor="end">/</text>
+<text x="890" y="237" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12.5" font-weight="500" fill="#1f2937" text-anchor="start">模型接口（按模型族分组）</text>
+<text x="1244" y="237" font-family="JetBrains Mono, Noto Sans Mono CJK SC, monospace" font-size="11" font-weight="400" fill="#6b7280" text-anchor="end">/market/&lt;族&gt;/&lt;模型&gt;</text>
+<text x="890" y="256" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12.5" font-weight="500" fill="#1f2937" text-anchor="start">Get Task Details</text>
+<text x="1244" y="256" font-family="JetBrains Mono, Noto Sans Mono CJK SC, monospace" font-size="11" font-weight="400" fill="#6b7280" text-anchor="end">/market/common/get-task-detail</text>
+<text x="890" y="275" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12.5" font-weight="500" fill="#1f2937" text-anchor="start">Common API 查余额·下载链接</text>
+<text x="1244" y="275" font-family="JetBrains Mono, Noto Sans Mono CJK SC, monospace" font-size="11" font-weight="400" fill="#6b7280" text-anchor="end">/common-api/quickstart</text>
+<text x="890" y="294" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12.5" font-weight="500" fill="#1f2937" text-anchor="start">Webhook 签名校验</text>
+<text x="1244" y="294" font-family="JetBrains Mono, Noto Sans Mono CJK SC, monospace" font-size="11" font-weight="400" fill="#6b7280" text-anchor="end">/common-api/webhook-verification</text>
+<text x="890" y="313" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12.5" font-weight="500" fill="#1f2937" text-anchor="start">AI Agents（npx skills）</text>
+<text x="1244" y="313" font-family="JetBrains Mono, Noto Sans Mono CJK SC, monospace" font-size="11" font-weight="400" fill="#6b7280" text-anchor="end">/ai-agent/overview</text>
+<text x="890" y="332" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12.5" font-weight="500" fill="#1f2937" text-anchor="start">机器可读索引</text>
+<text x="1244" y="332" font-family="JetBrains Mono, Noto Sans Mono CJK SC, monospace" font-size="11" font-weight="400" fill="#6b7280" text-anchor="end">/llms.txt</text>
+<rect x="876" y="364" width="380" height="158" rx="10" fill="#ffffff" stroke="#be185d" stroke-width="1.5"/>
+<rect x="876" y="364" width="380" height="30" rx="10" fill="#be185d" stroke="#be185d" stroke-width="1.5"/>
+<rect x="876" y="382" width="380" height="12" rx="0" fill="#be185d" stroke="#be185d" stroke-width="1.5"/>
+<text x="888" y="385" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="14" font-weight="700" fill="#ffffff" text-anchor="start">接口 api.kie.ai</text>
+<text x="890" y="409" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12.5" font-weight="500" fill="#1f2937" text-anchor="start">创建任务（图/视频/音乐）</text>
+<text x="1244" y="409" font-family="JetBrains Mono, Noto Sans Mono CJK SC, monospace" font-size="11" font-weight="400" fill="#6b7280" text-anchor="end">POST /api/v1/jobs/createTask</text>
+<text x="890" y="428" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12.5" font-weight="500" fill="#1f2937" text-anchor="start">查任务</text>
+<text x="1244" y="428" font-family="JetBrains Mono, Noto Sans Mono CJK SC, monospace" font-size="11" font-weight="400" fill="#6b7280" text-anchor="end">GET /api/v1/jobs/recordInfo</text>
+<text x="890" y="447" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12.5" font-weight="500" fill="#1f2937" text-anchor="start">查余额</text>
+<text x="1244" y="447" font-family="JetBrains Mono, Noto Sans Mono CJK SC, monospace" font-size="11" font-weight="400" fill="#6b7280" text-anchor="end">GET /api/v1/chat/credit</text>
+<text x="890" y="466" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12.5" font-weight="500" fill="#1f2937" text-anchor="start">对话（Responses 兼容）</text>
+<text x="1244" y="466" font-family="JetBrains Mono, Noto Sans Mono CJK SC, monospace" font-size="11" font-weight="400" fill="#6b7280" text-anchor="end">POST /codex/v1/responses</text>
+<text x="890" y="485" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12.5" font-weight="400" fill="#1f2937" text-anchor="start">错误也返回 HTTP 200，code 在响应体</text>
+<text x="890" y="504" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12.5" font-weight="400" fill="#1f2937" text-anchor="start">限流：每账户 10 秒 20 个新请求，超出 429 不排队</text>
+<rect x="876" y="536" width="380" height="101" rx="10" fill="#ffffff" stroke="#475569" stroke-width="1.5" stroke-dasharray="6 4"/>
+<rect x="876" y="536" width="380" height="30" rx="10" fill="#475569" stroke="#475569" stroke-width="1.5"/>
+<rect x="876" y="554" width="380" height="12" rx="0" fill="#475569" stroke="#475569" stroke-width="1.5"/>
+<text x="888" y="557" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="14" font-weight="700" fill="#ffffff" text-anchor="start">未找到 / 未截到</text>
+<text x="890" y="581" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12.5" font-weight="400" fill="#1f2937" text-anchor="start">公开状态页（首页「平台实时状态」不是链接）</text>
+<text x="890" y="600" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12.5" font-weight="400" fill="#1f2937" text-anchor="start">Telegram 支持地址</text>
+<text x="890" y="619" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12.5" font-weight="400" fill="#1f2937" text-anchor="start">错误码页 · Examples 页签 · 交易记录详情</text>
+<rect x="1282" y="136" width="374" height="158" rx="10" fill="#ffffff" stroke="#15803d" stroke-width="1.5"/>
+<rect x="1282" y="136" width="374" height="30" rx="10" fill="#15803d" stroke="#15803d" stroke-width="1.5"/>
+<rect x="1282" y="154" width="374" height="12" rx="0" fill="#15803d" stroke="#15803d" stroke-width="1.5"/>
+<text x="1294" y="157" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="14" font-weight="700" fill="#ffffff" text-anchor="start">支持渠道</text>
+<text x="1296" y="181" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12.5" font-weight="400" fill="#1f2937" text-anchor="start">Discord 私密 VIP 频道（主推）</text>
+<text x="1296" y="200" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12.5" font-weight="400" fill="#1f2937" text-anchor="start">Telegram（各页提到，无入口目标）</text>
+<text x="1296" y="219" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12.5" font-weight="400" fill="#1f2937" text-anchor="start">邮件 support@kie.ai（文档称非首选）</text>
+<text x="1296" y="238" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12.5" font-weight="400" fill="#1f2937" text-anchor="start">支持时段 UTC 21:00–次日 17:00</text>
+<text x="1296" y="257" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12.5" font-weight="400" fill="#1f2937" text-anchor="start">= 北京时间 05:00–次日 01:00</text>
+<text x="1296" y="276" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12.5" font-weight="400" fill="#1f2937" text-anchor="start">FAQ 16 条（首页）</text>
+<rect x="1282" y="308" width="374" height="158" rx="10" fill="#ffffff" stroke="#b45309" stroke-width="1.5"/>
+<rect x="1282" y="308" width="374" height="30" rx="10" fill="#b45309" stroke="#b45309" stroke-width="1.5"/>
+<rect x="1282" y="326" width="374" height="12" rx="0" fill="#b45309" stroke="#b45309" stroke-width="1.5"/>
+<text x="1294" y="329" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="14" font-weight="700" fill="#ffffff" text-anchor="start">主体与信任信号</text>
+<text x="1296" y="353" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12.5" font-weight="400" fill="#1f2937" text-anchor="start">NEXUSAI SERVICES LLC（Denver, CO）</text>
+<text x="1296" y="372" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12.5" font-weight="400" fill="#1f2937" text-anchor="start">条款 生效 2025-08-01 · 更新 2026-10-26</text>
+<text x="1296" y="391" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12.5" font-weight="400" fill="#1f2937" text-anchor="start">隐私政策 生效 2025-08-01</text>
+<text x="1296" y="410" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12.5" font-weight="400" fill="#1f2937" text-anchor="start">退款：邮件附订单号</text>
+<text x="1296" y="429" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12.5" font-weight="400" fill="#1f2937" text-anchor="start">首页：99.9% · 24/7 · $0 月费</text>
+<text x="1296" y="448" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12.5" font-weight="400" fill="#1f2937" text-anchor="start">文档：「偶尔不稳定，是低价的取舍」</text>
+<rect x="1282" y="480" width="374" height="120" rx="10" fill="#ffffff" stroke="#2b7fff" stroke-width="1.5"/>
+<rect x="1282" y="480" width="374" height="30" rx="10" fill="#2b7fff" stroke="#2b7fff" stroke-width="1.5"/>
+<rect x="1282" y="498" width="374" height="12" rx="0" fill="#2b7fff" stroke="#2b7fff" stroke-width="1.5"/>
+<text x="1294" y="501" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="14" font-weight="700" fill="#ffffff" text-anchor="start">增长</text>
+<text x="1296" y="525" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12.5" font-weight="400" fill="#1f2937" text-anchor="start">推广返佣 15%（前 30 天消费，45 天安全期）</text>
+<text x="1296" y="544" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12.5" font-weight="400" fill="#1f2937" text-anchor="start">SEO 博客 + API Directory 侧栏</text>
+<text x="1296" y="563" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12.5" font-weight="400" fill="#1f2937" text-anchor="start">npx skills（kie-models / kie-chat-agents）</text>
+<text x="1296" y="582" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12.5" font-weight="400" fill="#1f2937" text-anchor="start">注册送 80 积分</text>
+<text x="24" y="676" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="16" font-weight="700" fill="#1f2937" text-anchor="start">关键用户流程（截图与文档可见）</text>
+<rect x="24.0" y="690" width="214.28571428571428" height="96" rx="10" fill="#ffffff" stroke="#2b7fff" stroke-width="1.5"/>
+<text x="36.0" y="716" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="14.5" font-weight="700" fill="#2b7fff" text-anchor="start">① 登录</text>
+<text x="36.0" y="740" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12.5" font-weight="400" fill="#1f2937" text-anchor="start">Google·Microsoft·手机号</text>
+<text x="36.0" y="762" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="11.5" font-weight="400" fill="#6b7280" text-anchor="start">不支持邮箱注册</text>
+<line x1="240.28571428571428" y1="738" x2="258.2857142857143" y2="738" stroke="#2b7fff" stroke-width="1.6" marker-end="url(#ah)"/>
+<rect x="260.2857142857143" y="690" width="214.28571428571428" height="96" rx="10" fill="#ffffff" stroke="#2b7fff" stroke-width="1.5"/>
+<text x="272.2857142857143" y="716" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="14.5" font-weight="700" fill="#2b7fff" text-anchor="start">② 免费积分</text>
+<text x="272.2857142857143" y="740" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12.5" font-weight="400" fill="#1f2937" text-anchor="start">注册送 80 积分</text>
+<text x="272.2857142857143" y="762" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="11.5" font-weight="400" fill="#6b7280" text-anchor="start">1 credit = $0.005</text>
+<line x1="476.57142857142856" y1="738" x2="494.57142857142856" y2="738" stroke="#2b7fff" stroke-width="1.6" marker-end="url(#ah)"/>
+<rect x="496.57142857142856" y="690" width="214.28571428571428" height="96" rx="10" fill="#ffffff" stroke="#2b7fff" stroke-width="1.5"/>
+<text x="508.57142857142856" y="716" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="14.5" font-weight="700" fill="#2b7fff" text-anchor="start">③ 创建 Key</text>
+<text x="508.57142857142856" y="740" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12.5" font-weight="400" fill="#1f2937" text-anchor="start">有效期·IP 白名单</text>
+<text x="508.57142857142856" y="762" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="11.5" font-weight="400" fill="#6b7280" text-anchor="start">模型范围·花费上限</text>
+<line x1="712.8571428571429" y1="738" x2="730.8571428571429" y2="738" stroke="#2b7fff" stroke-width="1.6" marker-end="url(#ah)"/>
+<rect x="732.8571428571429" y="690" width="214.28571428571428" height="96" rx="10" fill="#ffffff" stroke="#2b7fff" stroke-width="1.5"/>
+<text x="744.8571428571429" y="716" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="14.5" font-weight="700" fill="#2b7fff" text-anchor="start">④ 试用</text>
+<text x="744.8571428571429" y="740" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12.5" font-weight="400" fill="#1f2937" text-anchor="start">模型页 Playground</text>
+<text x="744.8571428571429" y="762" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="11.5" font-weight="400" fill="#6b7280" text-anchor="start">Form / JSON · Run with API</text>
+<line x1="949.1428571428571" y1="738" x2="967.1428571428571" y2="738" stroke="#2b7fff" stroke-width="1.6" marker-end="url(#ah)"/>
+<rect x="969.1428571428571" y="690" width="214.28571428571428" height="96" rx="10" fill="#ffffff" stroke="#2b7fff" stroke-width="1.5"/>
+<text x="981.1428571428571" y="716" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="14.5" font-weight="700" fill="#2b7fff" text-anchor="start">⑤ 调用</text>
+<text x="981.1428571428571" y="740" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12.5" font-weight="400" fill="#1f2937" text-anchor="start">createTask 异步</text>
+<text x="981.1428571428571" y="762" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="11.5" font-weight="400" fill="#6b7280" text-anchor="start">回调 或 recordInfo 轮询</text>
+<line x1="1185.4285714285713" y1="738" x2="1203.4285714285713" y2="738" stroke="#2b7fff" stroke-width="1.6" marker-end="url(#ah)"/>
+<rect x="1205.4285714285713" y="690" width="214.28571428571428" height="96" rx="10" fill="#ffffff" stroke="#2b7fff" stroke-width="1.5"/>
+<text x="1217.4285714285713" y="716" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="14.5" font-weight="700" fill="#2b7fff" text-anchor="start">⑥ 充值</text>
+<text x="1217.4285714285713" y="740" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12.5" font-weight="400" fill="#1f2937" text-anchor="start">$5 / $50 / $500 / $1250</text>
+<text x="1217.4285714285713" y="762" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="11.5" font-weight="400" fill="#6b7280" text-anchor="start">大额送 5%～10%</text>
+<line x1="1421.7142857142856" y1="738" x2="1439.7142857142856" y2="738" stroke="#2b7fff" stroke-width="1.6" marker-end="url(#ah)"/>
+<rect x="1441.7142857142858" y="690" width="214.28571428571428" height="96" rx="10" fill="#ffffff" stroke="#2b7fff" stroke-width="1.5"/>
+<text x="1453.7142857142858" y="716" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="14.5" font-weight="700" fill="#2b7fff" text-anchor="start">⑦ 核对</text>
+<text x="1453.7142857142858" y="740" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12.5" font-weight="400" fill="#1f2937" text-anchor="start">Logs 按 Task ID</text>
+<text x="1453.7142857142858" y="762" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="11.5" font-weight="400" fill="#6b7280" text-anchor="start">Usage 导出 · 回调重发</text>
+<text x="24" y="818" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12.5" font-weight="400" fill="#475569" text-anchor="start">承诺：失败任务不扣费 · 积分永不过期 · $0 月费。保留期：生成的媒体 14 天、日志 2 个月。限流写在 Billing 页。</text>
+<text x="24" y="840" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="11.5" font-weight="400" fill="#94a3b8" text-anchor="start">数字口径不一：模型 124（Market）/ 138（Pricing 静态表）/ 200+（AI Agents 文档）/ 654 个价格行；开发者 120,000+（首页）/ 1,000+（Changelog）。</text>
+</svg>
