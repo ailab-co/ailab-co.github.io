@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="zh-Hans"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>总览与建议方向 · AI 聚合站对比精选与建议策划</title>
+<link rel="stylesheet" href="style.css?v=20261111c">
+<script src="data/shots.js?v=20261111c" defer></script><script src="app.js?v=20261111c" defer></script>
+</head><body>
+<header class="top"><div class="brand"><a class="back" href="../index.html">← 调研总站</a><a class="back" href="../aihubmix/index.html">AIHubMix 调研</a><a class="back" href="../kieai/index.html">kie.ai 调研</a><a href="index.html">对比精选与建议策划</a><span class="date">2026-11-11</span></div>
+<nav id="nav"><a href="index.html" class=on aria-current=page>总览与建议方向</a><a href="modules.html">逐模块对比</a><a href="bestof.html">优点精选与弊端规避</a><a href="design.html">设计参考优先级</a><a href="gaps.html">缺失功能与 OpenRouter 补充</a><a href="plan.html">建议策划</a><a href="sources.html">来源清单</a></nav><nav class="toc" aria-label="本页目录"><a href="#verdict">一句话结论</a><a href="#key">最重要的 8 条结论</a><a href="#position">三站定位速览</a><a href="#direction">给光哥的建议方向</a><a href="#roadmap">分阶段路线（P0 / P1 / P2）</a><a href="#guide">怎么读这份报告</a></nav></header>
+<main><section class="hero" id="top"><h1>AI 聚合站对比、精选与建议策划</h1><div class="sub md"><p>光哥，这份报告把 <a href="../aihubmix/index.html">AIHubMix 深度调研</a> 和 <a href="../kieai/index.html">kie.ai 深度调研</a> 合在一起，逐模块比较两站做法，再用 OpenRouter（当前最成熟的模型聚合站）的公开文档补齐两站没有的能力，最后给出你自己的 AI 聚合站的目标形态、页面优先级和分阶段路线。AIHubMix、kie.ai 的结论均来自前两份调研（含登录巡检截图）；OpenRouter 只引用本次实际读过的公开页面和文档，每条都附来源编号，编号对应「来源清单」页。</p></div><div class="stats"><div class="stat"><div class="n">3</div><div class="l">对照站点（2 个原型 + 1 个基准）</div></div><div class="stat"><div class="n">20</div><div class="l">逐项对比的模块</div></div><div class="stat"><div class="n">60</div><div class="l">引用的 OpenRouter 来源</div></div><div class="stat"><div class="n">75</div><div class="l">报告内使用的截图</div></div></div></section><section id="verdict" class="md"><h2>一句话结论</h2><p><strong>AIHubMix 擅长「治理」，kie.ai 擅长「卖货」，OpenRouter 擅长「路由与可信」。</strong> 你的站最合适的组合是：<strong>用 kie.ai 的方式标价和卖多媒体，用 AIHubMix 的方式管理 Key、日志、通知和客服，用 OpenRouter 的方式做计费规则、错误码、渠道透明和预算控制，再补上三站都没有的国内 B2B 能力（企业认证、对公充值、增值税发票、子账号与代理商）。</strong></p>
+<blockquote>
+<p>三站都犯过同一个错：同一个指标在不同页面给出不同数字。AIHubMix 的模型数有 730+ / 954 / 961 / 500+ 四种说法，kie.ai 有 124 / 138 / 200+ / 654 行，OpenRouter 的文档写 400+ <a class="cite" href="https://openrouter.ai/docs/guides/overview/models" target="_blank" rel="noopener noreferrer" title="Models 模型目录文档（含 RSS）">[OR5]</a>、价格页写 600+ <a class="cite" href="https://openrouter.ai/pricing" target="_blank" rel="noopener noreferrer" title="OpenRouter Pricing 套餐对比页">[OR1]</a>，Models API 默认返回 469 个文本模型、全部模态 718 个 <a class="cite" href="https://openrouter.ai/api/v1/models" target="_blank" rel="noopener noreferrer" title="Models API 实测（默认 469 个文本模型，output_modalities=all 为 718 个）">[OR6]</a>。<strong>你的站从第一天起就应该让所有对外数字来自同一个数据源，并写清口径（按模型、按价格行还是按渠道计数）。</strong></p>
+</blockquote></section><section id="key" class="md"><h2>最重要的 8 条结论</h2><ol>
+<li><strong>价格页是中转站的第一转化页，抄 kie.ai。</strong> 每行给出「我们价 + 官方价 + 折扣 %」，多媒体按「分辨率 × 时长 × 是否带参考输入」逐行列价，并写出计费公式。AIHubMix 的「输入/输出 + 上下文 + 限时折扣胶囊」适合文本模型卡片，两者合并。OpenRouter 的做法是写明「推理价不加价，充值时收 5.5%（Standard）/ 8%（Business）平台费」<a class="cite" href="https://openrouter.ai/pricing" target="_blank" rel="noopener noreferrer" title="OpenRouter Pricing 套餐对比页">[OR1]</a>。你做批发转售，不必照搬零加价，但应该同样把「你的钱怎么算」一句话讲清楚。</li>
+<li><strong>API Key 是策略对象，表单抄 kie.ai，字段抄 AIHubMix，风险视图抄 OpenRouter。</strong> kie.ai 默认推荐 IP 白名单、能一键填入「最近调用过的 IP」；AIHubMix 把额度、过期、模型范围、IP、模型映射、失败回退放进同一个抽屉；OpenRouter 有专门的 Key 安全页，用 Risk 列标出「无限额 / 无过期」，额度 ≥ $1,000 或过期超过 365 天的 Key 也会被标出 <a class="cite" href="https://openrouter.ai/docs/guides/overview/auth/security-settings" target="_blank" rel="noopener noreferrer" title="Security settings（Key 风险列表、IP 白名单）">[OR24]</a>。</li>
+<li><strong>计费规则要写进产品，不能只写在群公告里。</strong> kie.ai 把限流写在充值页、保留期写在日志页顶部；OpenRouter 写明空回复和报错不计费 <a class="cite" href="https://openrouter.ai/docs/guides/features/zero-completion-insurance" target="_blank" rel="noopener noreferrer" title="Zero Completion Insurance（空回复不计费）">[OR43]</a>，回退时只按最终成功的模型计费 <a class="cite" href="https://openrouter.ai/docs/guides/routing/model-fallbacks" target="_blank" rel="noopener noreferrer" title="Model Fallbacks 模型回退">[OR14]</a>，并对并发请求做「在途预扣」，避免同时跑的请求把余额扣成负数 <a class="cite" href="https://openrouter.ai/docs/api_reference/limits" target="_blank" rel="noopener noreferrer" title="Limits（额度、在途预扣、限流）">[OR56]</a>。中转站最常见的纠纷正是「为什么扣这么多」和「余额怎么成负的」。</li>
+<li><strong>可信度靠公开数据，不靠首页的 99.9%。</strong> AIHubMix 的状态页按协议拆组件，敢公开 92.91% 的低可用率；kie.ai 的「平台实时状态」点不进去。OpenRouter 不仅有按 API 端点拆分的 90 天状态页 <a class="cite" href="https://status.openrouter.ai/" target="_blank" rel="noopener noreferrer" title="状态页 status.openrouter.ai（截图读取）">[OR12]</a>，还在每个模型页按渠道公开延迟、吞吐和 Uptime <a class="cite" href="https://openrouter.ai/anthropic/claude-sonnet-4.6" target="_blank" rel="noopener noreferrer" title="模型详情页（Claude Sonnet 4.6）">[OR8]</a>，路由本身也依据这些实时数据 <a class="cite" href="https://openrouter.ai/docs/guides/best-practices/uptime-optimization" target="_blank" rel="noopener noreferrer" title="Uptime Optimization">[OR59]</a>。你的 P1 应该至少做到 AIHubMix 的水平，P2 再做到按模型、按渠道公开。</li>
+<li><strong>错误码必须用标准 HTTP 状态码。</strong> kie.ai 的 /api/v1/* 出错也返回 HTTP 200，客户端无法按状态码重试和熔断；OpenRouter 区分 400/401/402/403/408/429/502/503，并带 Retry-After 头 <a class="cite" href="https://openrouter.ai/docs/api_reference/errors-and-debugging" target="_blank" rel="noopener noreferrer" title="Errors and Debugging 错误码">[OR57]</a>；AIHubMix 的错误带 tid，工单里可以填 Trace ID。你的站：标准状态码 + 中文原因 + trace id + 工单一键带入。</li>
+<li><strong>两站都缺「路由与容灾」这一层，这是 OpenRouter 和普通中转站的主要差距。</strong> OpenRouter 支持同一模型按价格、吞吐或延迟给渠道排序，可以指定、排除或只用某些渠道，按价格上限、数据政策过滤 <a class="cite" href="https://openrouter.ai/docs/guides/routing/provider-selection" target="_blank" rel="noopener noreferrer" title="Provider Routing 渠道路由">[OR13]</a>；也支持模型级回退数组 <a class="cite" href="https://openrouter.ai/docs/guides/routing/model-fallbacks" target="_blank" rel="noopener noreferrer" title="Model Fallbacks 模型回退">[OR14]</a>，用 <code>:floor</code>（最便宜）/<code>:nitro</code>（最快）后缀切换偏好 <a class="cite" href="https://openrouter.ai/docs/guides/routing/model-variants/floor" target="_blank" rel="noopener noreferrer" title=":floor 变体">[OR18]</a> <a class="cite" href="https://openrouter.ai/docs/guides/routing/model-variants/nitro" target="_blank" rel="noopener noreferrer" title=":nitro 变体">[OR17]</a>，用 <code>~latest</code> 别名自动跟随新版本 <a class="cite" href="https://openrouter.ai/docs/guides/features/latest-resolution" target="_blank" rel="noopener noreferrer" title="Latest Model Resolution（~latest 别名）">[OR20]</a>。你的后端（new-api 类，推断）已有渠道权重和重试，主要工作是<strong>把它变成用户能选、能看到结果的产品功能</strong>，并在日志里显示每次实际走了哪个渠道、是否发生了回退。</li>
+<li><strong>企业与团队能力，OpenRouter 的分层最清楚，但个人用户为主的站不必首发就做。</strong> OpenRouter 的结构是：组织统一出钱，工作区隔离 Key、路由默认值和观测配置 <a class="cite" href="https://openrouter.ai/docs/guides/features/workspaces" target="_blank" rel="noopener noreferrer" title="Workspaces 工作区">[OR37]</a>，工作区预算按日、周、月或累计封顶 <a class="cite" href="https://openrouter.ai/docs/guides/features/workspaces/workspace-budgets" target="_blank" rel="noopener noreferrer" title="Workspace Budgets 工作区预算">[OR38]</a>，护栏按成员或 Key 限额、限定可用模型 <a class="cite" href="https://openrouter.ai/docs/guides/features/guardrails" target="_blank" rel="noopener noreferrer" title="Guardrails 护栏">[OR36]</a>，再往上是 SSO/SCIM <a class="cite" href="https://openrouter.ai/docs/guides/features/sso" target="_blank" rel="noopener noreferrer" title="SSO 单点登录">[OR47]</a>。对你的 B2B 客户，最先需要的是「一个企业账号 + 多个子账号/项目 + 各自额度 + 统一开票」，SSO 放到 P2。</li>
+<li><strong>国内 B2B 的硬需求三站都没有：实名/企业认证、对公转账、增值税发票、合同和对账单。</strong> AIHubMix 的发票要走工单；kie.ai 的发票在 Billing 页手动生成；OpenRouter 支持在发票上加税号，通过 Stripe 计税 <a class="cite" href="https://openrouter.ai/docs/cookbook/administration/tax-id" target="_blank" rel="noopener noreferrer" title="Tax ID 发票税号">[OR51]</a>。这些都不适用于国内对公。国内可参考硅基流动：实名后才能充值和开票，企业认证可开增值税专用发票，只对已消费金额开票 <a class="cite" href="https://docs.siliconflow.cn/cn/faqs/authentication" target="_blank" rel="noopener noreferrer" title="硅基流动 · 实名认证 FAQ（经搜索结果读取镜像）">[X5]</a> <a class="cite" href="https://docs.siliconflow.cn/cn/faqs/invoice" target="_blank" rel="noopener noreferrer" title="硅基流动 · 开具发票 FAQ（经搜索结果读取镜像）">[X7]</a>。<strong>这是你相对三站最容易建立的差异化。</strong></li>
+</ol></section><section id="position" class="md"><h2>三站定位速览</h2><table>
+<thead>
+<tr>
+<th>维度</th>
+<th>AIHubMix</th>
+<th>kie.ai</th>
+<th>OpenRouter（基准）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>主打</td>
+<td>文本 LLM 网关，强调「官方云渠道」</td>
+<td>多媒体优先（654 个价格行里视频 365、图像 164），主打低价</td>
+<td>多模型、多渠道路由；推理按渠道标价不加价，充值收平台费 <a class="cite" href="https://openrouter.ai/pricing" target="_blank" rel="noopener noreferrer" title="OpenRouter Pricing 套餐对比页">[OR1]</a> <a class="cite" href="https://openrouter.ai/docs/guides/overview/principles" target="_blank" rel="noopener noreferrer" title="Principles 产品原则">[OR4]</a></td>
+</tr>
+<tr>
+<td>规模口径</td>
+<td>730+ / 954 / 961 / 500+（口径不一）</td>
+<td>124 / 138 / 200+ / 654 行（口径不一）</td>
+<td>600+ 模型、80+ 渠道（价格页）<a class="cite" href="https://openrouter.ai/pricing" target="_blank" rel="noopener noreferrer" title="OpenRouter Pricing 套餐对比页">[OR1]</a></td>
+</tr>
+<tr>
+<td>计费单位</td>
+<td>美元余额</td>
+<td>积分（1 credit = $0.005）</td>
+<td>美元 credits；FAQ 写明保留对购买满一年未用的额度做过期处理 <a class="cite" href="https://openrouter.ai/docs/faq" target="_blank" rel="noopener noreferrer" title="FAQ（费用、退款、额度过期、支付方式）">[OR3]</a></td>
+</tr>
+<tr>
+<td>账户层级</td>
+<td>账户 → 工作区（个人最多 5 个），代码里有组织层</td>
+<td>扁平：账户 + 团队成员 + Key</td>
+<td>组织 → 工作区 → 成员 / Key，护栏 + 预算 <a class="cite" href="https://openrouter.ai/docs/guides/features/workspaces" target="_blank" rel="noopener noreferrer" title="Workspaces 工作区">[OR37]</a> <a class="cite" href="https://openrouter.ai/docs/guides/features/guardrails" target="_blank" rel="noopener noreferrer" title="Guardrails 护栏">[OR36]</a></td>
+</tr>
+<tr>
+<td>可信</td>
+<td>公开状态页、模型下线日历、工单带 Trace ID</td>
+<td>无公开状态页；文档坦白「偶尔不稳定」</td>
+<td>状态页 + 每个模型按渠道公开 Uptime；空回复不计费 <a class="cite" href="https://status.openrouter.ai/" target="_blank" rel="noopener noreferrer" title="状态页 status.openrouter.ai（截图读取）">[OR12]</a> <a class="cite" href="https://openrouter.ai/docs/guides/features/zero-completion-insurance" target="_blank" rel="noopener noreferrer" title="Zero Completion Insurance（空回复不计费）">[OR43]</a></td>
+</tr>
+<tr>
+<td>开发者</td>
+<td>4 种协议直连；llms.txt、MCP、CLI</td>
+<td>统一异步任务接口；npx skills</td>
+<td>多协议 + SDK（TS / Python / Go）+ MCP + 每页 .md 文档 <a class="cite" href="https://openrouter.ai/docs/llms.txt" target="_blank" rel="noopener noreferrer" title="文档 llms.txt（每页提供 .md）">[OR60]</a> <a class="cite" href="https://openrouter.ai/docs/guides/overview/mcp-server" target="_blank" rel="noopener noreferrer" title="MCP Server">[OR49]</a></td>
+</tr>
+<tr>
+<td>增长</td>
+<td>邀请链接、生态页、企业站</td>
+<td>15% 佣金推广（申请制）、SEO 博客</td>
+<td>公开用量排行、App 归因上榜 <a class="cite" href="https://openrouter.ai/rankings" target="_blank" rel="noopener noreferrer" title="Rankings 用量排行页">[OR10]</a> <a class="cite" href="https://openrouter.ai/docs/app-attribution" target="_blank" rel="noopener noreferrer" title="App Attribution 应用归因">[OR48]</a></td>
+</tr>
+<tr>
+<td>最大短板</td>
+<td>发票走工单；GET 接口会轮换 Key</td>
+<td>错误返回 HTTP 200；隐私政策与实际不符；无工单</td>
+<td>面向海外：Stripe 计税、美元计价，没有国内对公与增值税发票</td>
+</tr>
+</tbody>
+</table>
+<div class="grid g3"><figure class="shot"><button class="tb" type="button" data-lb="ah-p-home" data-list="ah-p-home,ki-p-home-zh,or-enterprise" aria-label="放大：AIHubMix · 官网首页（整页，未登录）"><img loading="lazy" decoding="async" src="img/thumb/ah-p-home.webp" width="480" height="300" alt="AIHubMix · 官网首页（整页，未登录）"></button><figcaption><b>AIHubMix · 官网首页（整页，未登录）</b><span>Hero「The Unified Gateway for AI Models」+ 730+ models / Official cloud routes / Pay as you go；三卡：一个 Key / SDK 直替 / 跨云容灾；桌面客户端；生态；Model Rankings；Blog；四列页脚（2026-11-10 公开截图）</span><a class="src" href="https://aihubmix.com/" target="_blank" rel="noopener noreferrer">↗ 原网页 aihubmix.com</a> <span class="rt pub">公开</span></figcaption></figure><figure class="shot"><button class="tb" type="button" data-lb="ki-p-home-zh" data-list="ah-p-home,ki-p-home-zh,or-enterprise" aria-label="放大：kie.ai · 中文首页首屏"><img loading="lazy" decoding="async" src="img/thumb/ki-p-home-zh.webp" width="480" height="268" alt="kie.ai · 中文首页首屏"></button><figcaption><b>kie.ai · 中文首页首屏</b><span>Hero「用一个 API 接入全球顶级视频、图像、音乐与 LLM 模型」；CTA 探索 AI API / API 文档；120,000+ 开发者 · 80+ 国家/地区；99.9% / 24/7 / $0 月费 + 平台实时状态（头像已遮挡）</span><a class="src" href="https://kie.ai/zh-CN" target="_blank" rel="noopener noreferrer">↗ 原网页 kie.ai/zh-CN</a> <span class="rt pub">公开</span></figcaption></figure><figure class="shot"><button class="tb" type="button" data-lb="or-enterprise" data-list="ah-p-home,ki-p-home-zh,or-enterprise" aria-label="放大：OpenRouter · Enterprise 企业页"><img loading="lazy" decoding="async" src="img/thumb/or-enterprise.webp" width="480" height="300" alt="OpenRouter · Enterprise 企业页"></button><figcaption><b>OpenRouter · Enterprise 企业页</b><span>「Your inference control plane」：按任务的 Top 模型、路由后混合单价 −27% 示例；面向研发、财务、安全、采购四类角色分别讲卖点（2026-11-11 未登录无头浏览器截图）</span><a class="src" href="https://openrouter.ai/enterprise" target="_blank" rel="noopener noreferrer">↗ 原网页 openrouter.ai/enterprise</a> <span class="rt pub">公开</span></figcaption></figure></div></section><section id="direction" class="md"><h2>给光哥的建议方向</h2><h3>定位</h3>
+<p><strong>「面向国内开发者和中小企业的透明 AI 模型网关：一个 Key 调文本和多媒体，人民币结算，可开发票，价格、渠道、可用率都摆在明面上。」</strong></p>
+<h3>五个核心差异化（按重要度）</h3>
+<ol>
+<li><strong>价格透明</strong>：每个模型都给「我们价 / 官方价 / 折扣」，人民币直接标价（不搞积分换算）；多媒体写计费公式；同一模型不同渠道或分组的价格并排列出，渠道来源写清楚。</li>
+<li><strong>计费可核对</strong>：报错和空回复不扣费，回退时只按实际成功的那次计费，并发请求先预扣，日志里每条都能看到扣费明细和 trace id。规则写在价格页、充值页和日志页，而不是只写在群公告里。</li>
+<li><strong>国内 B2B 闭环</strong>：企业认证 → 对公转账 → 增值税发票（按已消费金额开）→ 合同与月度对账单 → 子账号/项目额度。这一块三站都没有。</li>
+<li><strong>可信度公开</strong>：状态页按协议和模型族拆组件；公告中心集中发布上新、调价和下线（带替代模型）；通知推送到飞书、企业微信或钉钉。</li>
+<li><strong>多媒体与文本一体</strong>：文本走 OpenAI / Claude / Gemini 兼容协议直连；图像、视频、音乐统一走「创建任务 + 查询 + 签名回调」，保留期写在日志页。</li>
+</ol>
+<h3>明确不做（至少首发不做）</h3>
+<ul>
+<li>不做积分制和「看起来像真实数据」的营销数字；不在首页放点不开的「实时状态」。</li>
+<li>首发不做 SSO/SCIM、私有化部署、Auto Router 和 MCP。这些是 OpenRouter 和 AIHubMix 的企业级功能，个人和小团队客户用不上，先把 P0 做扎实。</li>
+<li>不照搬 kie.ai「错误也返回 200」和「回调签名不覆盖请求体」，也不照搬 AIHubMix「GET 请求会轮换 Key」。</li>
+</ul></section><section id="roadmap" class="md"><h2>分阶段路线（P0 / P1 / P2）</h2><h3><span class="pri p0">P0</span> 首发（约 4～6 周的用户端重做范围，按 new-api 类后端已有能力估算，属推断）</h3>
+<ul>
+<li><strong>价格页 + 模型广场</strong>：我们价 / 官方价 / 折扣列，人民币标价；按模态、厂商、用途筛选，筛选状态写进 URL；多媒体按分辨率逐行列价并写计费公式。</li>
+<li><strong>模型详情页 v1</strong>：价格表（输入、输出、缓存读、缓存写）、上下文、能力清单、可复制的代码示例（Base URL 和模型名已填好）。</li>
+<li><strong>控制台首页</strong>：余额、本月花费、「创建 Key → 复制代码」两步完成首次调用。</li>
+<li><strong>Key 创建抽屉</strong>：名称、额度、有效期、模型白名单、IP 白名单（默认推荐，可一键填入最近调用的 IP）；列表用警示图标标出「任意 IP / 永不过期 / 无限额」的 Key。</li>
+<li><strong>请求日志 + 任务日志</strong>：时间、模型、渠道分组、输入/输出 tokens、扣费、状态、Finish reason、trace id；任务按 Task ID 搜索；支持 CSV 导出；保留期写在页面顶部。</li>
+<li><strong>充值页</strong>：人民币预设金额 + 赠送比例角标 + 支付方式 + 兑换码 + 交易记录；限流规则写在同一页。</li>
+<li><strong>计费规则</strong>：标准 HTTP 错误码；报错和空回复不扣费；并发请求预扣。</li>
+<li><strong>实名 / 企业认证 + 发票申请</strong>：先上线表单和人工处理流程，再逐步自动化。</li>
+<li><strong>低余额告警</strong>（邮件 + 站内信）；<strong>错误码 FAQ + 工单（带 trace id）</strong>；<strong>接入必读</strong>一页；<strong>主体、条款、隐私、退款、发票政策</strong>。</li>
+</ul>
+<h3><span class="pri p1">P1</span> 第二阶段（上线后 1～3 个月）</h3>
+<ul>
+<li>公开状态页（按协议 / 模型族拆组件）；公告中心（上新 / 调价 / 下线日历 + 替代模型）；通知推送到飞书、企业微信、钉钉的 Webhook。</li>
+<li>项目（工作区）层：把令牌分组包装成项目，每个项目单独看花费、Key 和日志，并设日、周、月预算。</li>
+<li>用量分析：按 Key / 模型 / 成员统计，展示缓存命中率和混合单价；时区默认 Asia/Shanghai。</li>
+<li>子账号与团队：成员、角色、额度分配；企业统一付款、统一开票。</li>
+<li>网页 Playground（文本 + 图像），余额不足时直接引导充值；在常用工具里接入的教程卡片（Cherry Studio、Cursor、Claude Code、Dify）。</li>
+<li>推广返佣（申请制、安全期、防刷、周结算）；付费客户专属飞书或企业微信群。</li>
+<li>响应内返回 usage 和 cost；余额与 Key 查询接口；llms.txt；Changelog + RSS。</li>
+</ul>
+<h3><span class="pri p2">P2</span> 远期（有数据、有企业客户之后）</h3>
+<ul>
+<li>路由偏好：渠道优先级、「经济 / 高速」两种模式、模型级回退数组、<code>latest</code> 别名；每个模型按渠道公开 Uptime、延迟和吞吐。</li>
+<li>预设（模型 + 参数 + 系统提示词）、批量接口（Batch）、相同请求缓存。</li>
+<li>代理商 / 分销：下级账号、加价规则、对账单（服务你的 B2B 转售客户）。</li>
+<li>管理 API（先做只读）、MCP / CLI；模型对比页；本站用量排行。</li>
+<li>企业：审计日志、SSO、数据不留存承诺、SLA 与赔付条款。</li>
+</ul></section><section id="guide" class="md"><h2>怎么读这份报告</h2><table>
+<thead>
+<tr>
+<th>页面</th>
+<th>回答的问题</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="modules.html">逐模块对比</a></td>
+<td>20 个模块里，每块哪个站做得好、好在哪里、我们怎么取</td>
+</tr>
+<tr>
+<td><a href="bestof.html">优点精选与弊端规避</a></td>
+<td>两站加 OpenRouter 的优点合成一份清单；每个坑附「我们怎么避开」</td>
+</tr>
+<tr>
+<td><a href="design.html">设计参考优先级</a></td>
+<td>哪个站的哪个页面先抄（必抄 / 推荐 / 可选），抄的时候改什么；视觉规范怎么定</td>
+</tr>
+<tr>
+<td><a href="gaps.html">缺失功能与 OpenRouter 补充</a></td>
+<td>两站都没有的能力、其他成熟网关的补充，以及国内 B2B 场景下容易漏掉的事项</td>
+</tr>
+<tr>
+<td><a href="plan.html">建议策划</a></td>
+<td>目标站点地图、关键页线框描述、「功能 → 取自哪个站」映射表、指标与风险</td>
+</tr>
+<tr>
+<td><a href="sources.html">来源清单</a></td>
+<td>全部 OpenRouter / 其他网站来源 URL，以及本报告的局限</td>
+</tr>
+</tbody>
+</table>
+<p><a href="AI聚合站对比精选与建议策划_2026-11-11.md">下载整份报告 Markdown</a></p></section></main>
+<footer class="foot">资料截至 2026-11-11（北京时间）。AIHubMix、kie.ai 的结论与截图出自前两份深度调研（截图中的账户信息已遮挡）；OpenRouter 截图为本次未登录无头浏览器拍摄的公开页面。[ORn] / [Xn] 为来源编号，见「来源清单」。页面中写给 AI 代理的隐藏文字已忽略。仅供内部参考。<br><a href="../index.html">返回调研总站</a> · <a href="../aihubmix/index.html">AIHubMix 调研</a> · <a href="../kieai/index.html">kie.ai 调研</a> · <a href="AI聚合站对比精选与建议策划_2026-11-11.md" download>下载 Markdown</a> · <a href="img/sitemap.png" target="_blank" rel="noopener">站点地图 PNG</a></footer>
+</body></html>

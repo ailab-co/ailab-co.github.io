@@ -1,0 +1,385 @@
+<!doctype html>
+<html lang="zh-Hans"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>建议策划 · AI 聚合站对比精选与建议策划</title>
+<link rel="stylesheet" href="style.css?v=20261111c">
+<script src="data/shots.js?v=20261111c" defer></script><script src="app.js?v=20261111c" defer></script>
+</head><body>
+<header class="top"><div class="brand"><a class="back" href="../index.html">← 调研总站</a><a class="back" href="../aihubmix/index.html">AIHubMix 调研</a><a class="back" href="../kieai/index.html">kie.ai 调研</a><a href="index.html">对比精选与建议策划</a><span class="date">2026-11-11</span></div>
+<nav id="nav"><a href="index.html">总览与建议方向</a><a href="modules.html">逐模块对比</a><a href="bestof.html">优点精选与弊端规避</a><a href="design.html">设计参考优先级</a><a href="gaps.html">缺失功能与 OpenRouter 补充</a><a href="plan.html" class=on aria-current=page>建议策划</a><a href="sources.html">来源清单</a></nav><nav class="toc" aria-label="本页目录"><a href="#ia">目标站点地图</a><a href="#wire">关键页面线框描述</a><a href="#map">功能 → 来源映射表</a><a href="#metrics">上线后看哪些指标</a><a href="#risks">风险与待确认</a></nav></header>
+<main><section class="hero" id="top"><h1>建议策划</h1><div class="sub md"><p>这一页把前面的结论落成可以开工的方案：目标站点地图、导航和数据模型、关键页面的线框描述、「功能 → 取自哪个站」映射表，以及上线后看哪些指标。后端按 new-api 类系统（令牌、分组、渠道、日志）估算，这一点是推断，需要光哥按实际系统确认。</p></div></section><section id="ia" class="md"><h2>目标站点地图</h2><p>下图是建议的信息架构。每项下方的标签是优先级和主要参考来源。SVG 和 Mermaid 源码见 <a href="sitemap.svg">sitemap.svg</a> 和 <a href="sitemap.mmd">sitemap.mmd</a>。</p>
+<a class="arch" href="img/sitemap.png" target="_blank" rel="noopener"><img src="img/sitemap.png" alt="光哥 AI 聚合站 · 建议信息架构" loading="lazy"></a>
+<h3>导航</h3>
+<ul>
+<li><strong>公开站顶栏</strong>：模型 · 价格 · 公告 · 文档 · 状态 · 企业 · 「控制台」按钮。价格页和模型广场未登录也能看，用控制台外壳（参考 kie.ai），看完价格可以直接注册，不用换环境。</li>
+<li><strong>控制台左栏 · 账户级</strong>：总览 · 充值与账单 · 发票 · 通知 · 安全 · 团队与子账号 · 推广 · 工单 · 设置。</li>
+<li><strong>控制台左栏 · 项目级</strong>（面包屑「企业名 / 项目名」切换，参考 AIHubMix）：项目总览 · API Key · 日志（请求 / 任务两个页签）· 用量 · 预算 · 设置。</li>
+<li><strong>全局</strong>：⌘K 搜模型和页面（P1）；铃铛打开站内信，页签为 全部 / 系统 / 模型 / 公告（P1）。</li>
+</ul>
+<h3>数据模型</h3>
+<p><code>主体（个人 / 企业，带认证状态）→ 钱包（余额、预扣、发票额度）→ 项目（预算、默认分组）→ Key（额度、有效期、模型白名单、IP 白名单、默认路由档位）→ 请求 / 任务（trace id、渠道、扣费、状态）</code>。企业主体下可以挂多个子账号（成员），成员自建的 Key 计入该成员的额度，新建 Key 不会重置成员计数（这一条照 OpenRouter 的规则 <a class="cite" href="https://openrouter.ai/docs/guides/best-practices/spend-controls" target="_blank" rel="noopener noreferrer" title="Spend Controls 花费控制最佳实践">[OR39]</a>）。代理商（P2）是一种特殊主体，可以给下级主体设加价规则。</p></section><section id="wire" class="md"><h2>关键页面线框描述</h2><p>以下是 8 个关键页面的区块和来源，从上到下排列。</p><div class="pg"><h3>控制台首页 <span class="note">参考：AIHubMix Profile KPI 卡 + Quick Start</span></h3><div class="wf"><div class="wfrow"><div class="wfc" style="grid-column:span 12">顶栏：面包屑「个人 / 默认项目」· ⌘K · 铃铛 · 头像</div></div><div class="wfrow"><div class="wfc" style="grid-column:span 4">余额（人民币）+ 「充值」按钮</div><div class="wfc" style="grid-column:span 4">本月花费 / 昨日花费</div><div class="wfc" style="grid-column:span 4">认证状态：未认证时显示「完成企业认证可开专票」</div></div><div class="wfrow"><div class="wfc" style="grid-column:span 8">两步上手：① 创建 Key（打开抽屉）② 复制代码（curl / Python / Node 页签，Base URL 和 Key 已填好）</div><div class="wfc" style="grid-column:span 4">公告：最近 3 条上新 / 调价 / 下线</div></div><div class="wfrow"><div class="wfc" style="grid-column:span 8">最近 7 天花费柱状图（按模型）</div><div class="wfc" style="grid-column:span 4">低余额告警开关（默认开启，阈值可改）</div></div></div></div><div class="pg"><h3>价格总表 <span class="note">参考：kie.ai /pricing</span></h3><div class="wf"><div class="wfrow"><div class="wfc" style="grid-column:span 12">页签：全部 / 对话 / 图像 / 视频 / 音频（计数按模型）· 搜索 · 「仅看折扣」开关</div></div><div class="wfrow"><div class="wfc" style="grid-column:span 12">说明条：价格单位 ¥；官方价来源与更新时间；失败不扣费；限流规则链接</div></div><div class="wfrow"><div class="wfc" style="grid-column:span 3">模型分组卡：模型名 + 厂商 + 用途标签 + 「详情 / 试用」</div><div class="wfc" style="grid-column:span 9">逐行：模式 × 分辨率 / 时长 → 我们价（¥）· 官方价（划线）· 折扣（绿色）· 计费公式提示</div></div></div></div><div class="pg"><h3>模型广场 <span class="note">参考：AIHubMix /models + kie.ai /market</span></h3><div class="wf"><div class="wfrow"><div class="wfc" style="grid-column:span 12">一行横向标签：模态 · 厂商 · 用途（点击后写进 URL）；「更多筛选」默认收起</div></div><div class="wfrow"><div class="wfc" style="grid-column:span 4">卡片：模型名 · 厂商角标 · 输入 / 输出价 · 上下文 · 折扣胶囊 · New 标 · 复制模型 ID</div><div class="wfc" style="grid-column:span 4">卡片 …</div><div class="wfc" style="grid-column:span 4">卡片 …</div></div></div></div><div class="pg"><h3>模型详情（文本） <span class="note">参考：OpenRouter 模型页 + AIHubMix 详情</span></h3><div class="wf"><div class="wfrow"><div class="wfc" style="grid-column:span 12">标题 · 复制 ID · 「试用」「API」· 首屏摘要：输入 / 输出价、上下文、发布日期</div></div><div class="wfrow"><div class="wfc" style="grid-column:span 3">左侧锚点：价格 · 规格 · 渠道 · 稳定性 · 代码 · FAQ</div><div class="wfc" style="grid-column:span 9">价格表（输入 / 输出 / 缓存读 / 缓存写）→ 能力清单（不支持的项灰显）→ 渠道分组表（P2 加可用率、延迟）→ 代码示例 → 下线计划（如有）</div></div></div></div><div class="pg"><h3>API Key 创建抽屉 <span class="note">参考：kie.ai Create API Key + AIHubMix 抽屉</span></h3><div class="wf"><div class="wfrow"><div class="wfc" style="grid-column:span 12">名称（必填，未填时「创建」按钮置灰）· 所属项目</div></div><div class="wfrow"><div class="wfc" style="grid-column:span 6">额度上限（默认建议值）+ 重置周期</div><div class="wfc" style="grid-column:span 6">有效期：1 / 7 / 30 / 90 天 / 永久（选永久时给出警示）</div></div><div class="wfrow"><div class="wfc" style="grid-column:span 12">IP 访问：仅指定 IP（推荐，默认选中）· 一键填入最近调用的 IP / 本机 IP / 手动输入（CIDR）</div></div><div class="wfrow"><div class="wfc" style="grid-column:span 8">模型范围：全部 / 指定模型 · 路由档位（P2）</div><div class="wfc" style="grid-column:span 4">底部提示：Key 只显示一次</div></div></div></div><div class="pg"><h3>日志 <span class="note">参考：AIHubMix Request logs + kie.ai Logs</span></h3><div class="wf"><div class="wfrow"><div class="wfc" style="grid-column:span 12">顶部横幅：日志保留 N 天，媒体文件保留 N 天</div></div><div class="wfrow"><div class="wfc" style="grid-column:span 12">页签：请求 / 任务 · 筛选：时间、Key、模型、状态、trace id 或 Task ID · 导出 CSV · 列设置</div></div><div class="wfrow"><div class="wfc" style="grid-column:span 12">列：时间 · 模型（实际） · 渠道分组 · 输入 / 输出 / 缓存 tokens · 扣费（¥） · 状态（成功 / 失败未计费 / 回退） · Finish reason · trace id</div></div><div class="wfrow"><div class="wfc" style="grid-column:span 12">行展开：费用拆分 · 回退过程（P2）· 「复制 trace id 去提工单」· 任务行可重发回调</div></div></div></div><div class="pg"><h3>充值与发票 <span class="note">参考：AIHubMix Purchase + kie.ai Billing + 自研</span></h3><div class="wf"><div class="wfrow"><div class="wfc" style="grid-column:span 4">余额 + 预扣中金额 + 可开票金额</div><div class="wfc" style="grid-column:span 4">限流档位与提额申请</div><div class="wfc" style="grid-column:span 4">自动充值（P1）</div></div><div class="wfrow"><div class="wfc" style="grid-column:span 12">预设金额（带赠送角标）+ 自定义 · 支付方式：微信 / 支付宝 / 对公转账 · 兑换码 · 底部显示当前充值账户</div></div><div class="wfrow"><div class="wfc" style="grid-column:span 6">交易记录（可导出）</div><div class="wfc" style="grid-column:span 6">发票中心：申请（按已消费金额）· 进度 · 下载；未认证时引导认证</div></div></div></div><div class="pg"><h3>状态页 <span class="note">参考：AIHubMix status + OpenRouter status</span></h3><div class="wf"><div class="wfrow"><div class="wfc" style="grid-column:span 12">总状态横幅 + 订阅（邮件 / 飞书）</div></div><div class="wfrow"><div class="wfc" style="grid-column:span 12">组件：OpenAI 兼容 · Claude 兼容 · Gemini 兼容 · 图像 · 视频 · 控制台；每个组件 90 天条形图 + 可用率</div></div><div class="wfrow"><div class="wfc" style="grid-column:span 12">事件记录：时间（北京时间）· 影响范围 · 处理过程 · 复盘链接</div></div></div></div></section><section id="map" class="md"><h2>功能 → 来源映射表</h2><table>
+<thead>
+<tr>
+<th>功能</th>
+<th>取自</th>
+<th>级别</th>
+<th>落地说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>价格总表（我们价 / 官方价 / 折扣）</td>
+<td>kie.ai</td>
+<td><span class="pri p0">P0</span></td>
+<td>人民币直标；按模型计数</td>
+</tr>
+<tr>
+<td>模型卡片（价格、上下文、速度、折扣胶囊）</td>
+<td>AIHubMix</td>
+<td><span class="pri p0">P0</span></td>
+<td>速度数据等有监控后再显示</td>
+</tr>
+<tr>
+<td>筛选写进 URL、用途标签</td>
+<td>kie.ai</td>
+<td><span class="pri p0">P0</span></td>
+<td>/models/video/lip-sync 一类路径</td>
+</tr>
+<tr>
+<td>模型详情：价格 4 档 + 规格 + 代码</td>
+<td>AIHubMix + kie.ai</td>
+<td><span class="pri p0">P0</span></td>
+<td>代码里自动填好 Base URL 和模型名</td>
+</tr>
+<tr>
+<td>模型详情：渠道表 + 可用率</td>
+<td>OpenRouter + AIHubMix</td>
+<td><span class="pri p2">P2</span></td>
+<td>需要渠道监控数据</td>
+</tr>
+<tr>
+<td>多媒体参数表单 + 价格网格 + 试跑</td>
+<td>kie.ai</td>
+<td><span class="pri p1">P1</span></td>
+<td>试跑前显示预计扣费</td>
+</tr>
+<tr>
+<td>首页：定位 + 三条承诺 + 价格对比 + FAQ</td>
+<td>kie.ai</td>
+<td><span class="pri p0">P0</span></td>
+<td>数字来自同一配置</td>
+</tr>
+<tr>
+<td>控制台首页：余额、本月花费、首段代码</td>
+<td>AIHubMix（建议）</td>
+<td><span class="pri p0">P0</span></td>
+<td>新用户 1 分钟内完成首次调用</td>
+</tr>
+<tr>
+<td>Key 弹窗：安全默认值 + 最近 IP</td>
+<td>kie.ai</td>
+<td><span class="pri p0">P0</span></td>
+<td>new-api 已有字段，主要是重做表单</td>
+</tr>
+<tr>
+<td>Key 字段：额度、项目、模型范围</td>
+<td>AIHubMix</td>
+<td><span class="pri p0">P0</span></td>
+<td></td>
+</tr>
+<tr>
+<td>Key 风险列表、批量设限</td>
+<td>OpenRouter</td>
+<td><span class="pri p1">P1</span></td>
+<td></td>
+</tr>
+<tr>
+<td>Key 映射 / 回退</td>
+<td>AIHubMix</td>
+<td><span class="pri p2">P2</span></td>
+<td>BETA 标记 + 数量上限</td>
+</tr>
+<tr>
+<td>请求日志列 + 列设置</td>
+<td>AIHubMix</td>
+<td><span class="pri p0">P0</span></td>
+<td>加 trace id、扣费明细</td>
+</tr>
+<tr>
+<td>任务日志：Task ID、回调重发、保留期</td>
+<td>kie.ai</td>
+<td><span class="pri p0">P0</span></td>
+<td></td>
+</tr>
+<tr>
+<td>生成详情：上游尝试明细、费用拆分</td>
+<td>OpenRouter</td>
+<td><span class="pri p2">P2</span></td>
+<td></td>
+</tr>
+<tr>
+<td>用量导出 CSV</td>
+<td>OpenRouter + kie.ai</td>
+<td><span class="pri p0">P0</span></td>
+<td>月度对账单的数据来源</td>
+</tr>
+<tr>
+<td>用量 KPI：缓存命中率、混合单价</td>
+<td>AIHubMix + OpenRouter</td>
+<td><span class="pri p1">P1</span></td>
+<td>时区 Asia/Shanghai</td>
+</tr>
+<tr>
+<td>充值弹窗：预设金额、手续费说明、当前账户</td>
+<td>AIHubMix</td>
+<td><span class="pri p0">P0</span></td>
+<td></td>
+</tr>
+<tr>
+<td>套餐赠送角标</td>
+<td>kie.ai</td>
+<td><span class="pri p0">P0</span></td>
+<td>角标比例与实际赠送一致</td>
+</tr>
+<tr>
+<td>限流规则写在充值页</td>
+<td>kie.ai</td>
+<td><span class="pri p0">P0</span></td>
+<td></td>
+</tr>
+<tr>
+<td>对公转账、企业认证、发票中心</td>
+<td>自研（参考硅基流动）</td>
+<td><span class="pri p0">P0</span></td>
+<td>先上表单 + 人工处理</td>
+</tr>
+<tr>
+<td>合同、月度对账单</td>
+<td>自研</td>
+<td><span class="pri p1">P1</span></td>
+<td></td>
+</tr>
+<tr>
+<td>空回复 / 报错不计费</td>
+<td>OpenRouter + kie.ai</td>
+<td><span class="pri p0">P0</span></td>
+<td>写进条款</td>
+</tr>
+<tr>
+<td>在途预扣</td>
+<td>OpenRouter</td>
+<td><span class="pri p0">P0</span></td>
+<td>超出时返回 402 并说明原因</td>
+</tr>
+<tr>
+<td>标准错误码 + 中文原因 + trace id</td>
+<td>OpenRouter + AIHubMix</td>
+<td><span class="pri p0">P0</span></td>
+<td>反面教材是 kie.ai 的「错误也返回 200」</td>
+</tr>
+<tr>
+<td>响应内 cost 字段</td>
+<td>OpenRouter</td>
+<td><span class="pri p1">P1</span></td>
+<td></td>
+</tr>
+<tr>
+<td>低余额告警</td>
+<td>AIHubMix + OpenRouter</td>
+<td><span class="pri p0">P0</span></td>
+<td>余额明显回升后才会再次提醒</td>
+</tr>
+<tr>
+<td>下线 / 调价 / Key 限额通知</td>
+<td>AIHubMix + OpenRouter</td>
+<td><span class="pri p1">P1</span></td>
+<td></td>
+</tr>
+<tr>
+<td>飞书 / 企微 / 钉钉 Webhook</td>
+<td>AIHubMix（Lark 等）+ 自研</td>
+<td><span class="pri p1">P1</span></td>
+<td></td>
+</tr>
+<tr>
+<td>状态页（按协议拆组件）</td>
+<td>AIHubMix + OpenRouter</td>
+<td><span class="pri p1">P1</span></td>
+<td>Uptime Kuma 一类工具</td>
+</tr>
+<tr>
+<td>公告中心（上新 / 调价 / 下线日历）</td>
+<td>AIHubMix + kie.ai</td>
+<td><span class="pri p1">P1</span></td>
+<td>下线模型返回专用错误码</td>
+</tr>
+<tr>
+<td>接入必读 + 备用域名</td>
+<td>kie.ai + AIHubMix</td>
+<td><span class="pri p0">P0</span></td>
+<td></td>
+</tr>
+<tr>
+<td>错误码页</td>
+<td>OpenRouter</td>
+<td><span class="pri p0">P0</span></td>
+<td></td>
+</tr>
+<tr>
+<td>统一异步任务接口 + 签名回调</td>
+<td>kie.ai（签名改进）</td>
+<td><span class="pri p0">P0</span></td>
+<td>签名覆盖时间戳 + 原始请求体</td>
+</tr>
+<tr>
+<td>llms.txt / 每页 .md</td>
+<td>AIHubMix + OpenRouter</td>
+<td><span class="pri p1">P1</span></td>
+<td></td>
+</tr>
+<tr>
+<td>工具接入教程卡片</td>
+<td>AIHubMix</td>
+<td><span class="pri p1">P1</span></td>
+<td>Cherry Studio、Cursor、Claude Code、Dify</td>
+</tr>
+<tr>
+<td>工单（FAQ 卡片 + trace id）</td>
+<td>AIHubMix</td>
+<td><span class="pri p0">P0</span></td>
+<td></td>
+</tr>
+<tr>
+<td>付费客户专属群</td>
+<td>kie.ai（VIP 频道思路）</td>
+<td><span class="pri p1">P1</span></td>
+<td>飞书 / 企业微信</td>
+</tr>
+<tr>
+<td>推广返佣规则</td>
+<td>kie.ai</td>
+<td><span class="pri p1">P1</span></td>
+<td>安全期 + 防刷 + 周结算</td>
+</tr>
+<tr>
+<td>项目 / 工作区 + 预算</td>
+<td>AIHubMix + OpenRouter</td>
+<td><span class="pri p1">P1</span></td>
+<td>日 / 周 / 月预算</td>
+</tr>
+<tr>
+<td>子账号、成员额度</td>
+<td>OpenRouter + LiteLLM</td>
+<td><span class="pri p1">P1</span></td>
+<td>下级额度不能超过上级 <a class="cite" href="https://docs.litellm.ai/docs/proxy/virtual_keys" target="_blank" rel="noopener noreferrer" title="LiteLLM · Virtual Keys（自建网关，按 Key 预算/多时间窗）">[X1]</a></td>
+</tr>
+<tr>
+<td>安全中心（登录记录、IP 白名单）</td>
+<td>OpenRouter</td>
+<td><span class="pri p1">P1</span></td>
+<td></td>
+</tr>
+<tr>
+<td>审计日志</td>
+<td>AIHubMix（路由）+ 自研</td>
+<td><span class="pri p1">P1</span></td>
+<td></td>
+</tr>
+<tr>
+<td>路由档位（经济 / 标准 / 高速）+ 回退数组</td>
+<td>OpenRouter</td>
+<td><span class="pri p2">P2</span></td>
+<td>对应后台渠道分组</td>
+</tr>
+<tr>
+<td>latest 别名、预设</td>
+<td>OpenRouter</td>
+<td><span class="pri p2">P2</span></td>
+<td></td>
+</tr>
+<tr>
+<td>代理商 / 分销后台</td>
+<td>自研</td>
+<td><span class="pri p2">P2</span></td>
+<td>加价规则 + 对账</td>
+</tr>
+<tr>
+<td>Playground</td>
+<td>AIHubMix</td>
+<td><span class="pri p1">P1</span></td>
+<td>余额不足时引导充值</td>
+</tr>
+<tr>
+<td>模型对比、用量排行</td>
+<td>AIHubMix + OpenRouter</td>
+<td><span class="pri p2">P2</span></td>
+<td></td>
+</tr>
+<tr>
+<td>管理 API / MCP / CLI</td>
+<td>AIHubMix + OpenRouter</td>
+<td><span class="pri p2">P2</span></td>
+<td>先做只读</td>
+</tr>
+<tr>
+<td>SSO、SLA、数据不留存承诺</td>
+<td>OpenRouter</td>
+<td><span class="pri p2">P2</span></td>
+<td>企业客户出现后做</td>
+</tr>
+</tbody>
+</table></section><section id="metrics" class="md"><h2>上线后看哪些指标</h2><table>
+<thead>
+<tr>
+<th>指标</th>
+<th>定义</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>首次调用时长</td>
+<td>注册到第一次成功请求的时间中位数</td>
+<td>衡量首页、Key 弹窗、接入必读做得好不好；目标是几分钟以内</td>
+</tr>
+<tr>
+<td>首充转化率</td>
+<td>注册后 7 天内完成首次充值的比例</td>
+<td>衡量价格页和充值页</td>
+</tr>
+<tr>
+<td>扣费类工单占比</td>
+<td>「为什么扣这么多」「余额怎么变负的」类工单占全部工单的比例</td>
+<td>衡量计费规则、日志明细和预扣</td>
+</tr>
+<tr>
+<td>错误率与平均恢复时间</td>
+<td>按协议 / 模型族统计 5xx 比例和事件恢复时间</td>
+<td>和状态页保持一致</td>
+</tr>
+<tr>
+<td>模型变动类咨询量</td>
+<td>下线、调价相关咨询数量</td>
+<td>衡量公告中心和通知</td>
+</tr>
+<tr>
+<td>企业客户占比与开票金额</td>
+<td>企业认证账号数、对公充值金额、开票金额</td>
+<td>衡量 B2B 闭环</td>
+</tr>
+<tr>
+<td>月留存与净收入留存</td>
+<td>次月仍有消费的客户比例；老客户消费金额变化</td>
+<td>B2B 转售的核心经营指标</td>
+</tr>
+</tbody>
+</table></section><section id="risks" class="md"><h2>风险与待确认</h2><ul>
+<li><strong>合规</strong>：面向国内提供生成式 AI 服务、转售境外模型、跨境数据传输的具体义务，本报告没有核实，上线前需要律师确认。</li>
+<li><strong>后端能力</strong>：在途预扣、空回复不计费、标准错误码、渠道健康度统计，是否需要改造现有 new-api 类后端，需要光哥按实际代码确认。本报告的工期估算是推断。</li>
+<li><strong>价格对比的依据</strong>：「官方价」要有可查的出处，并标注更新时间；活动价到期要自动恢复，避免宣传口径和实际扣费不一致。</li>
+<li><strong>渠道透明的边界</strong>：公开渠道分组和来源类型有助于建立信任，但具体上游供应商是否公开，需要权衡商业因素。</li>
+<li><strong>OpenRouter 的做法不能全部照搬</strong>：它的收入来自充值平台费，推理按渠道标价、不加价 <a class="cite" href="https://openrouter.ai/pricing" target="_blank" rel="noopener noreferrer" title="OpenRouter Pricing 套餐对比页">[OR1]</a>；你是批发转售，毛利在价差里。可以借鉴的是规则透明，而不是定价模式本身。</li>
+</ul></section></main>
+<footer class="foot">资料截至 2026-11-11（北京时间）。AIHubMix、kie.ai 的结论与截图出自前两份深度调研（截图中的账户信息已遮挡）；OpenRouter 截图为本次未登录无头浏览器拍摄的公开页面。[ORn] / [Xn] 为来源编号，见「来源清单」。页面中写给 AI 代理的隐藏文字已忽略。仅供内部参考。<br><a href="../index.html">返回调研总站</a> · <a href="../aihubmix/index.html">AIHubMix 调研</a> · <a href="../kieai/index.html">kie.ai 调研</a> · <a href="AI聚合站对比精选与建议策划_2026-11-11.md" download>下载 Markdown</a> · <a href="img/sitemap.png" target="_blank" rel="noopener">站点地图 PNG</a></footer>
+</body></html>

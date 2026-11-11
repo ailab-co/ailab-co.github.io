@@ -1,0 +1,459 @@
+<!doctype html>
+<html lang="zh-Hans"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>缺失功能与 OpenRouter 补充 · AI 聚合站对比精选与建议策划</title>
+<link rel="stylesheet" href="style.css?v=20261111c">
+<script src="data/shots.js?v=20261111c" defer></script><script src="app.js?v=20261111c" defer></script>
+</head><body>
+<header class="top"><div class="brand"><a class="back" href="../index.html">← 调研总站</a><a class="back" href="../aihubmix/index.html">AIHubMix 调研</a><a class="back" href="../kieai/index.html">kie.ai 调研</a><a href="index.html">对比精选与建议策划</a><span class="date">2026-11-11</span></div>
+<nav id="nav"><a href="index.html">总览与建议方向</a><a href="modules.html">逐模块对比</a><a href="bestof.html">优点精选与弊端规避</a><a href="design.html">设计参考优先级</a><a href="gaps.html" class=on aria-current=page>缺失功能与 OpenRouter 补充</a><a href="plan.html">建议策划</a><a href="sources.html">来源清单</a></nav><nav class="toc" aria-label="本页目录"><a href="#a">A OpenRouter 有、两站缺或弱</a><a href="#b">B 其他成熟网关的补充思路</a><a href="#c">C 遗漏分析：国内 B2B 中转站容易漏掉的事</a></nav></header>
+<main><section class="hero" id="top"><h1>缺失功能与 OpenRouter 补充</h1><div class="sub md"><p>分三部分：<strong>A</strong> 是 OpenRouter 有、两站没有或做得弱的能力；<strong>B</strong> 是其他成熟网关（LiteLLM、Portkey、Vercel AI Gateway）的补充思路，只读了文档目录或首页，单独标出；<strong>C</strong> 是站在国内 B2B 中转站角度、三站都没覆盖或容易被忽略的事项。每条都标了优先级 <span class="pri p0">P0</span> <span class="pri p1">P1</span> <span class="pri p2">P2</span>。</p></div></section><section id="a" class="md"><h2>A · OpenRouter 有、两站缺或弱</h2><table>
+<thead>
+<tr>
+<th>能力</th>
+<th>OpenRouter 的做法</th>
+<th>AIHubMix</th>
+<th>kie.ai</th>
+<th>对我们</th>
+<th>级别</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>空回复 / 报错不计费</td>
+<td>没有输出 tokens 且 finish reason 为空，或 finish reason 是错误时，不扣模型费用；已执行的联网搜索等附加服务仍计费 <a class="cite" href="https://openrouter.ai/docs/guides/features/zero-completion-insurance" target="_blank" rel="noopener noreferrer" title="Zero Completion Insurance（空回复不计费）">[OR43]</a></td>
+<td>未见成文规则</td>
+<td>「失败任务不扣费」（多媒体）</td>
+<td>写进条款，文本和多媒体统一判定；日志标记「未计费」</td>
+<td><span class="pri p0">P0</span></td>
+</tr>
+<tr>
+<td>在途预扣防透支</td>
+<td>按输入 tokens + max_tokens 预估费用，请求进行中先占用额度；超出时返回 402，并在 metadata 里说明原因 <a class="cite" href="https://openrouter.ai/docs/api_reference/limits" target="_blank" rel="noopener noreferrer" title="Limits（额度、在途预扣、限流）">[OR56]</a></td>
+<td>未见</td>
+<td>未见</td>
+<td>中转站并发高，最容易出现负余额；计费引擎必须做</td>
+<td><span class="pri p0">P0</span></td>
+</tr>
+<tr>
+<td>标准错误码 + Retry-After</td>
+<td>400 / 401 / 402 / 403 / 408 / 429 / 502 / 503 分别对应明确含义，429 带 Retry-After；流式中途出错有专门格式 <a class="cite" href="https://openrouter.ai/docs/api_reference/errors-and-debugging" target="_blank" rel="noopener noreferrer" title="Errors and Debugging 错误码">[OR57]</a></td>
+<td>有 tid 和限流头</td>
+<td>错误返回 HTTP 200</td>
+<td>错误码页 + 中文原因 + trace id</td>
+<td><span class="pri p0">P0</span></td>
+</tr>
+<tr>
+<td>响应内返回费用</td>
+<td>每个响应都带 tokens、费用、推理 tokens 和缓存 tokens，不需要额外调用 <a class="cite" href="https://openrouter.ai/docs/cookbook/administration/usage-accounting" target="_blank" rel="noopener noreferrer" title="Usage Accounting（响应内返回用量与费用）">[OR53]</a></td>
+<td>未见</td>
+<td>任务结果里有 creditsConsumed</td>
+<td>在 usage 里加 cost 字段（人民币）</td>
+<td><span class="pri p1">P1</span></td>
+</tr>
+<tr>
+<td>渠道路由偏好</td>
+<td>按价格、吞吐或延迟排序；指定、排除、只用某些渠道；价格上限；吞吐、延迟门槛可按 P50～P99 设置 <a class="cite" href="https://openrouter.ai/docs/guides/routing/provider-selection" target="_blank" rel="noopener noreferrer" title="Provider Routing 渠道路由">[OR13]</a></td>
+<td>仅 Key 级回退（BETA）</td>
+<td>无</td>
+<td>先给「经济 / 标准 / 高速」三档，对应你后台的渠道分组</td>
+<td><span class="pri p2">P2</span></td>
+</tr>
+<tr>
+<td>模型回退数组</td>
+<td><code>models</code> 数组按顺序尝试，按最终成功的模型计费，响应里返回实际模型 <a class="cite" href="https://openrouter.ai/docs/guides/routing/model-fallbacks" target="_blank" rel="noopener noreferrer" title="Model Fallbacks 模型回退">[OR14]</a></td>
+<td>Key 级回退（≤3 个）</td>
+<td>无</td>
+<td>请求参数 + Key 默认值两种方式</td>
+<td><span class="pri p2">P2</span></td>
+</tr>
+<tr>
+<td>变体后缀</td>
+<td><code>:free</code>、<code>:floor</code>（最便宜）、<code>:nitro</code>（最快）、<code>:batch</code> 等后缀，各自在目录里单列价格和上下文；<code>:floor</code> 会让上游的 flex 档参与比价，<code>:nitro</code> 会让 priority 档参与比速 <a class="cite" href="https://openrouter.ai/docs/guides/routing/model-variants/overview" target="_blank" rel="noopener noreferrer" title="Model Variants 变体总览">[OR15]</a> <a class="cite" href="https://openrouter.ai/docs/guides/features/service-tiers" target="_blank" rel="noopener noreferrer" title="Service Tiers（flex / priority 等档位）">[OR44]</a></td>
+<td>无</td>
+<td>无</td>
+<td>用分组后缀表达渠道档位，比让用户记一堆模型名更清楚</td>
+<td><span class="pri p2">P2</span></td>
+</tr>
+<tr>
+<td><code>latest</code> 别名</td>
+<td><code>~anthropic/claude-opus-latest</code> 自动指向该系列最新版本，响应里返回实际版本 <a class="cite" href="https://openrouter.ai/docs/guides/features/latest-resolution" target="_blank" rel="noopener noreferrer" title="Latest Model Resolution（~latest 别名）">[OR20]</a></td>
+<td>无</td>
+<td>无</td>
+<td>降低模型升级时的客服量</td>
+<td><span class="pri p2">P2</span></td>
+</tr>
+<tr>
+<td>预设 Preset</td>
+<td>把模型、路由、系统提示词和参数存成命名配置，在请求里引用 <a class="cite" href="https://openrouter.ai/docs/guides/features/presets" target="_blank" rel="noopener noreferrer" title="Presets 预设">[OR29]</a></td>
+<td>无</td>
+<td>无</td>
+<td>适合企业客户统一配置</td>
+<td><span class="pri p2">P2</span></td>
+</tr>
+<tr>
+<td>Prompt 缓存 + 粘性路由</td>
+<td>缓存请求之后，后续请求尽量路由到同一渠道，提高命中率 <a class="cite" href="https://openrouter.ai/docs/guides/best-practices/prompt-caching" target="_blank" rel="noopener noreferrer" title="Prompt Caching（含渠道粘性路由）">[OR25]</a></td>
+<td>有 Session-Id 粘性</td>
+<td>未见</td>
+<td>渠道路由要考虑缓存命中；日志显示缓存读写 tokens</td>
+<td><span class="pri p1">P1</span></td>
+</tr>
+<tr>
+<td>相同请求缓存</td>
+<td>相同请求直接返回缓存结果且不计费，TTL 默认 300 秒，可设 1～86400 秒 <a class="cite" href="https://openrouter.ai/docs/guides/features/response-caching" target="_blank" rel="noopener noreferrer" title="Response Caching（相同请求缓存）">[OR28]</a></td>
+<td>无</td>
+<td>无</td>
+<td>适合评测、重复调用场景</td>
+<td><span class="pri p2">P2</span></td>
+</tr>
+<tr>
+<td>结构化输出 + JSON 修复</td>
+<td>支持 JSON Schema 约束输出；Response Healing 插件修复格式错误的 JSON <a class="cite" href="https://openrouter.ai/docs/guides/features/structured-outputs" target="_blank" rel="noopener noreferrer" title="Structured Outputs">[OR26]</a> <a class="cite" href="https://openrouter.ai/docs/guides/features/plugins/response-healing" target="_blank" rel="noopener noreferrer" title="Response Healing（修复 JSON）">[OR27]</a></td>
+<td>Key 级「结构化输出修复」</td>
+<td>无</td>
+<td>先在文档说明哪些模型支持</td>
+<td><span class="pri p2">P2</span></td>
+</tr>
+<tr>
+<td>Batch 批量接口</td>
+<td>批量任务一般为同步价格的 50%，多数 24 小时内完成 <a class="cite" href="https://openrouter.ai/docs/guides/features/batch-api" target="_blank" rel="noopener noreferrer" title="Batch API">[OR45]</a></td>
+<td>无</td>
+<td>无</td>
+<td>上游有批量价时转售给评测、数据标注类客户</td>
+<td><span class="pri p2">P2</span></td>
+</tr>
+<tr>
+<td>BYOK 自带上游 Key</td>
+<td>用户可以接入自己的上游 Key；每月 $25,000 列表价以内免平台费，超出部分收 5% <a class="cite" href="https://openrouter.ai/docs/guides/overview/auth/byok" target="_blank" rel="noopener noreferrer" title="BYOK 自带上游 Key">[OR21]</a> <a class="cite" href="https://openrouter.ai/pricing" target="_blank" rel="noopener noreferrer" title="OpenRouter Pricing 套餐对比页">[OR1]</a></td>
+<td>无</td>
+<td>无</td>
+<td>企业客户已有官方账号时的方案；对中转站属于可选</td>
+<td><span class="pri p2">P2</span></td>
+</tr>
+<tr>
+<td>OAuth PKCE</td>
+<td>第三方应用引导用户登录授权，拿到用户自己的 Key，推理费用由用户自己承担 <a class="cite" href="https://openrouter.ai/docs/guides/overview/auth/oauth" target="_blank" rel="noopener noreferrer" title="OAuth PKCE（让下游应用的用户自付）">[OR22]</a></td>
+<td>无</td>
+<td>无</td>
+<td>给下游 AI 应用开发者用，是 B2B2C 的入口</td>
+<td><span class="pri p2">P2</span></td>
+</tr>
+<tr>
+<td>终端用户标识</td>
+<td>请求带 <code>user</code> 参数，用于按终端用户隔离滥用和统计 <a class="cite" href="https://openrouter.ai/docs/cookbook/administration/user-tracking" target="_blank" rel="noopener noreferrer" title="User Tracking（终端用户标识）">[OR54]</a></td>
+<td>有 App 维度</td>
+<td>无</td>
+<td>让转售客户能按他们的用户对账</td>
+<td><span class="pri p1">P1</span></td>
+</tr>
+<tr>
+<td>护栏与多层预算</td>
+<td>工作区预算（日 / 周 / 月 / 累计）+ 成员或 Key 护栏（限额、模型和渠道白名单、数据政策）<a class="cite" href="https://openrouter.ai/docs/guides/features/workspaces/workspace-budgets" target="_blank" rel="noopener noreferrer" title="Workspace Budgets 工作区预算">[OR38]</a> <a class="cite" href="https://openrouter.ai/docs/guides/features/guardrails" target="_blank" rel="noopener noreferrer" title="Guardrails 护栏">[OR36]</a> <a class="cite" href="https://openrouter.ai/docs/guides/best-practices/spend-controls" target="_blank" rel="noopener noreferrer" title="Spend Controls 花费控制最佳实践">[OR39]</a></td>
+<td>有工作区，未见预算</td>
+<td>有 Key 花费上限</td>
+<td>子账号和项目额度的规则可以照 OpenRouter 设计</td>
+<td><span class="pri p1">P1</span></td>
+</tr>
+<tr>
+<td>Key 安全中心</td>
+<td>风险列（无限额 / 无过期 / 额度过高）、批量设限或停用；IP 白名单可按工作区生效 <a class="cite" href="https://openrouter.ai/docs/guides/overview/auth/security-settings" target="_blank" rel="noopener noreferrer" title="Security settings（Key 风险列表、IP 白名单）">[OR24]</a></td>
+<td>有 IP 限制</td>
+<td>有 IP 白名单</td>
+<td>安全中心页</td>
+<td><span class="pri p1">P1</span></td>
+</tr>
+<tr>
+<td>管理 Key 与轮换</td>
+<td>管理 Key 只用于管理操作，建议设置过期时间；有零停机轮换指南；写操作每天有次数上限 <a class="cite" href="https://openrouter.ai/docs/guides/overview/auth/management-api-keys" target="_blank" rel="noopener noreferrer" title="Management API Keys 管理密钥">[OR23]</a> <a class="cite" href="https://openrouter.ai/docs/cookbook/administration/api-key-rotation" target="_blank" rel="noopener noreferrer" title="API Key Rotation">[OR55]</a> <a class="cite" href="https://openrouter.ai/docs/api_reference/limits" target="_blank" rel="noopener noreferrer" title="Limits（额度、在途预扣、限流）">[OR56]</a></td>
+<td>Management Key（GET 会轮换）</td>
+<td>无</td>
+<td>先做只读接口</td>
+<td><span class="pri p2">P2</span></td>
+</tr>
+<tr>
+<td>降价 / 下线通知</td>
+<td>只给最近用过的模型发提醒；降价按日汇总，列出新旧价格 <a class="cite" href="https://openrouter.ai/docs/guides/features/notifications" target="_blank" rel="noopener noreferrer" title="Notifications 通知">[OR33]</a></td>
+<td>有新模型、下线、调价规则</td>
+<td>无</td>
+<td>通知中心</td>
+<td><span class="pri p1">P1</span></td>
+</tr>
+<tr>
+<td>观测数据外送</td>
+<td>Broadcast 把每个请求的 trace 推到 Langfuse、Datadog、S3 或自定义 Webhook（OTLP 格式）<a class="cite" href="https://openrouter.ai/docs/guides/features/broadcast" target="_blank" rel="noopener noreferrer" title="Broadcast（把 trace 推到外部观测平台）">[OR34]</a> <a class="cite" href="https://openrouter.ai/docs/guides/features/broadcast/webhook" target="_blank" rel="noopener noreferrer" title="Broadcast · Webhook（OTLP 格式）">[OR35]</a></td>
+<td>无</td>
+<td>无</td>
+<td>企业客户的需求，先做 Webhook</td>
+<td><span class="pri p2">P2</span></td>
+</tr>
+<tr>
+<td>数据政策过滤</td>
+<td>可以只路由到不留存数据的渠道，或排除可能用数据训练的渠道；默认不存提示词和输出 <a class="cite" href="https://openrouter.ai/docs/guides/features/zdr" target="_blank" rel="noopener noreferrer" title="Zero Data Retention">[OR40]</a> <a class="cite" href="https://openrouter.ai/docs/guides/privacy/provider-logging" target="_blank" rel="noopener noreferrer" title="Provider Logging 渠道数据政策">[OR42]</a> <a class="cite" href="https://openrouter.ai/docs/guides/privacy/data-collection" target="_blank" rel="noopener noreferrer" title="Data Collection 数据收集说明">[OR41]</a></td>
+<td>有 ZDR 条款</td>
+<td>无</td>
+<td>在模型详情里标出每个渠道的数据政策</td>
+<td><span class="pri p1">P1</span></td>
+</tr>
+<tr>
+<td>用量导出</td>
+<td>Activity 可导出 CSV / PDF，可按模型、Key、成员分组 <a class="cite" href="https://openrouter.ai/docs/cookbook/administration/activity-export" target="_blank" rel="noopener noreferrer" title="Activity Export（CSV / PDF）">[OR50]</a></td>
+<td>Key 页可导出</td>
+<td>用量页可导出</td>
+<td>月度对账单的基础</td>
+<td><span class="pri p0">P0</span></td>
+</tr>
+<tr>
+<td>公开排行与应用归因</td>
+<td>按真实 tokens 用量公开排行，数据以 CC BY 4.0 开放；带上应用标识即可上榜 <a class="cite" href="https://openrouter.ai/rankings" target="_blank" rel="noopener noreferrer" title="Rankings 用量排行页">[OR10]</a> <a class="cite" href="https://openrouter.ai/docs/app-attribution" target="_blank" rel="noopener noreferrer" title="App Attribution 应用归因">[OR48]</a></td>
+<td>有排行模块</td>
+<td>无</td>
+<td>内容和 SEO 手段，P2</td>
+<td><span class="pri p2">P2</span></td>
+</tr>
+<tr>
+<td>模型目录 API + RSS</td>
+<td>Models API 可按模态过滤，新模型有 RSS <a class="cite" href="https://openrouter.ai/docs/guides/overview/models" target="_blank" rel="noopener noreferrer" title="Models 模型目录文档（含 RSS）">[OR5]</a></td>
+<td>有 llms.txt、feed.json</td>
+<td>有 sitemap</td>
+<td>公开模型目录 JSON</td>
+<td><span class="pri p1">P1</span></td>
+</tr>
+<tr>
+<td>区域路由 / 数据驻留</td>
+<td>区域端点（美国 / 欧盟）单独标价，模型页可见 <a class="cite" href="https://openrouter.ai/anthropic/claude-sonnet-4.6" target="_blank" rel="noopener noreferrer" title="模型详情页（Claude Sonnet 4.6）">[OR8]</a> <a class="cite" href="https://openrouter.ai/pricing" target="_blank" rel="noopener noreferrer" title="OpenRouter Pricing 套餐对比页">[OR1]</a></td>
+<td>无</td>
+<td>无</td>
+<td>国内可对应「境内节点 / 境外节点」</td>
+<td><span class="pri p2">P2</span></td>
+</tr>
+<tr>
+<td>企业身份</td>
+<td>SSO（Okta、Entra ID、Google Workspace、SAML），自助验证域名；SCIM 同步 <a class="cite" href="https://openrouter.ai/docs/guides/features/sso" target="_blank" rel="noopener noreferrer" title="SSO 单点登录">[OR47]</a></td>
+<td>未见</td>
+<td>无</td>
+<td>大客户出现后再做</td>
+<td><span class="pri p2">P2</span></td>
+</tr>
+<tr>
+<td>SLA 与合规</td>
+<td>企业版有合同 SLA；企业页写 SOC 2 Type II、DPA <a class="cite" href="https://openrouter.ai/pricing" target="_blank" rel="noopener noreferrer" title="OpenRouter Pricing 套餐对比页">[OR1]</a> <a class="cite" href="https://openrouter.ai/enterprise" target="_blank" rel="noopener noreferrer" title="OpenRouter Enterprise 企业页">[OR2]</a></td>
+<td>宣称 99.9%</td>
+<td>宣称 99.9%</td>
+<td>先写清服务等级和补偿规则</td>
+<td><span class="pri p1">P1</span></td>
+</tr>
+</tbody>
+</table>
+<div class="grid g3"><figure class="shot"><button class="tb" type="button" data-lb="or-model-providers" data-list="or-model-providers,or-pricing,or-docs-routing" aria-label="放大：OpenRouter · 模型详情 Providers 渠道表"><img loading="lazy" decoding="async" src="img/thumb/or-model-providers.webp" width="480" height="300" alt="OpenRouter · 模型详情 Providers 渠道表"></button><figcaption><b>OpenRouter · 模型详情 Providers 渠道表</b><span>同一模型 5 家渠道并排：输入/输出/缓存读价、延迟、吞吐、Uptime，可切 P50–P99；美国/欧盟区域端点价格高 10%，标注「Not used in Standard routing」（2026-11-11 未登录无头浏览器截图）</span><a class="src" href="https://openrouter.ai/anthropic/claude-sonnet-4.6/providers" target="_blank" rel="noopener noreferrer">↗ 原网页 openrouter.ai/anthropic/claude-sonnet-4.6/providers</a> <span class="rt pub">公开</span></figcaption></figure><figure class="shot"><button class="tb" type="button" data-lb="or-pricing" data-list="or-model-providers,or-pricing,or-docs-routing" aria-label="放大：OpenRouter · Pricing 套餐对比"><img loading="lazy" decoding="async" src="img/thumb/or-pricing.webp" width="480" height="300" alt="OpenRouter · Pricing 套餐对比"></button><figcaption><b>OpenRouter · Pricing 套餐对比</b><span>Free / Standard / Business / Enterprise 四档逐项对比：平台费 N/A / 5.5% / 8% / 可议，预算、通知、SSO、SLA、BYOK 额度等（2026-11-11 未登录无头浏览器截图）</span><a class="src" href="https://openrouter.ai/pricing" target="_blank" rel="noopener noreferrer">↗ 原网页 openrouter.ai/pricing</a> <span class="rt pub">公开</span></figcaption></figure><figure class="shot"><button class="tb" type="button" data-lb="or-docs-routing" data-list="or-model-providers,or-pricing,or-docs-routing" aria-label="放大：OpenRouter · 文档 Provider Routing"><img loading="lazy" decoding="async" src="img/thumb/or-docs-routing.webp" width="480" height="300" alt="OpenRouter · 文档 Provider Routing"></button><figcaption><b>OpenRouter · 文档 Provider Routing</b><span>provider 对象参数表：order / allow_fallbacks / only / ignore / sort / max_price / zdr / data_collection 等（2026-11-11 未登录无头浏览器截图）</span><a class="src" href="https://openrouter.ai/docs/guides/routing/provider-selection" target="_blank" rel="noopener noreferrer">↗ 原网页 openrouter.ai/docs/guides/routing/provider-selection</a> <span class="rt pub">公开</span></figcaption></figure></div></section><section id="b" class="md"><h2>B · 其他成熟网关的补充思路（仅读文档目录或首页，标注来源）</h2><table>
+<thead>
+<tr>
+<th>思路</th>
+<th>出处</th>
+<th>对我们</th>
+<th>级别</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>每个 Key 可设多个预算时间窗（例如 7 天 $50 + 24 小时 $5），且 Key 的预算不能超过创建者自己的预算</td>
+<td>LiteLLM Virtual Keys <a class="cite" href="https://docs.litellm.ai/docs/proxy/virtual_keys" target="_blank" rel="noopener noreferrer" title="LiteLLM · Virtual Keys（自建网关，按 Key 预算/多时间窗）">[X1]</a></td>
+<td>子账号额度分配时防止下级额度大于上级</td>
+<td><span class="pri p1">P1</span></td>
+</tr>
+<tr>
+<td>团队软预算告警、临时提额（带到期时间）、预算重置时间和时区可配置</td>
+<td>LiteLLM Budgets <a class="cite" href="https://docs.litellm.ai/docs/proxy/users" target="_blank" rel="noopener noreferrer" title="LiteLLM · Budgets, Rate Limits（团队软预算告警、临时提额、预算重置时区）">[X2]</a></td>
+<td>企业客户临时冲量时不用改正式额度</td>
+<td><span class="pri p2">P2</span></td>
+</tr>
+<tr>
+<td>熔断、自动重试、负载均衡、金丝雀测试、语义缓存</td>
+<td>Portkey 文档目录 <a class="cite" href="https://portkey.ai/docs/product/ai-gateway" target="_blank" rel="noopener noreferrer" title="Portkey · AI Gateway 文档目录（语义缓存、熔断、金丝雀、负载均衡）">[X3]</a></td>
+<td>渠道健康度差时自动熔断；新渠道先放小流量</td>
+<td><span class="pri p1">P1</span>（熔断）/ <span class="pri p2">P2</span></td>
+</tr>
+<tr>
+<td>预算超限后，对该范围内的所有请求返回 HTTP 402，包括 BYOK 请求</td>
+<td>Vercel AI Gateway <a class="cite" href="https://vercel.com/docs/ai-gateway" target="_blank" rel="noopener noreferrer" title="Vercel AI Gateway 文档首页（预算超限返回 402、BYOK）">[X4]</a></td>
+<td>超预算的错误码和 OpenRouter 一致，用 402</td>
+<td><span class="pri p0">P0</span></td>
+</tr>
+</tbody>
+</table></section><section id="c" class="md"><h2>C · 遗漏分析：国内 B2B 中转站容易漏掉的事</h2><table>
+<thead>
+<tr>
+<th>事项</th>
+<th>为什么重要</th>
+<th>三站现状</th>
+<th>建议</th>
+<th>级别</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>实名 / 企业认证</td>
+<td>国内平台常见做法是先实名再充值、开票；企业认证决定账号归属和能开的发票类型</td>
+<td>三站都没有。国内参考：硅基流动要求实名后才能充值和开票，企业可以通过法人人脸识别或对公打款认证 <a class="cite" href="https://docs.siliconflow.cn/cn/faqs/authentication" target="_blank" rel="noopener noreferrer" title="硅基流动 · 实名认证 FAQ（经搜索结果读取镜像）">[X5]</a></td>
+<td>个人和企业两种认证；账号归属以认证主体为准</td>
+<td><span class="pri p0">P0</span></td>
+</tr>
+<tr>
+<td>增值税发票</td>
+<td>B2B 客户的硬需求；没有发票，企业很难走报销和采购流程</td>
+<td>AIHubMix 走工单；kie.ai 手动生成；OpenRouter 在 Stripe 发票上加税号 <a class="cite" href="https://openrouter.ai/docs/cookbook/administration/tax-id" target="_blank" rel="noopener noreferrer" title="Tax ID 发票税号">[OR51]</a>。硅基流动只对已消费金额开票，企业认证可开专票 <a class="cite" href="https://docs.siliconflow.cn/cn/faqs/invoice" target="_blank" rel="noopener noreferrer" title="硅基流动 · 开具发票 FAQ（经搜索结果读取镜像）">[X7]</a></td>
+<td>发票中心：按已消费金额申请，专票和普票，查看进度、下载</td>
+<td><span class="pri p0">P0</span></td>
+</tr>
+<tr>
+<td>对公转账充值</td>
+<td>企业付款通常走对公账户</td>
+<td>三站都没有</td>
+<td>先下单再转账，打款账户名须与认证主体一致，到账后自动入账</td>
+<td><span class="pri p0">P0</span></td>
+</tr>
+<tr>
+<td>合同、对账单、预付协议</td>
+<td>采购流程需要；也是续费的依据</td>
+<td>OpenRouter 企业版有合同和发票付款 <a class="cite" href="https://openrouter.ai/enterprise" target="_blank" rel="noopener noreferrer" title="OpenRouter Enterprise 企业页">[OR2]</a></td>
+<td>月度对账单（PDF / Excel）自动生成；合同模板</td>
+<td><span class="pri p1">P1</span></td>
+</tr>
+<tr>
+<td>合规与备案</td>
+<td>面向国内提供生成式 AI 服务、转售境外模型都涉及监管要求（具体义务需律师确认，本报告未核实）</td>
+<td>三站都在境外，不适用</td>
+<td>上线前咨询律师；写清主体、服务范围和内容安全措施</td>
+<td><span class="pri p0">P0</span>（咨询）</td>
+</tr>
+<tr>
+<td>内容安全</td>
+<td>国内平台普遍对提示词和输出做安全审核（例如硅基流动的个人信息收集清单把「内容安全与风控」列为收集提示词和输出的用途之一 <a class="cite" href="https://docs.siliconflow.cn/docs/legals/personal-information-collection-list" target="_blank" rel="noopener noreferrer" title="硅基流动 · 个人信息收集清单（经搜索结果读取）">[X6]</a>）</td>
+<td>OpenRouter 有护栏，并对 CSAM 做筛查 <a class="cite" href="https://openrouter.ai/docs/guides/privacy/data-collection" target="_blank" rel="noopener noreferrer" title="Data Collection 数据收集说明">[OR41]</a></td>
+<td>至少做关键词和接口级审核，并在条款中写明</td>
+<td><span class="pri p0">P0</span></td>
+</tr>
+<tr>
+<td>数据不留存选项</td>
+<td>企业客户会问：提示词存不存、存多久、谁能看</td>
+<td>OpenRouter 默认不存，私有日志需主动开启 <a class="cite" href="https://openrouter.ai/docs/guides/privacy/data-collection" target="_blank" rel="noopener noreferrer" title="Data Collection 数据收集说明">[OR41]</a></td>
+<td>默认只存元数据；内容日志可选，并写明保留期</td>
+<td><span class="pri p1">P1</span></td>
+</tr>
+<tr>
+<td>人民币定价与汇率</td>
+<td>上游多以美元计价，汇率波动会影响毛利</td>
+<td>三站都是美元</td>
+<td>人民币标价；说明调价机制（例如汇率变动超过一定幅度时调整，提前通知）</td>
+<td><span class="pri p0">P0</span></td>
+</tr>
+<tr>
+<td>价格变动通知与价格历史</td>
+<td>转售客户要向他们的客户报价</td>
+<td>OpenRouter 有降价日报 <a class="cite" href="https://openrouter.ai/docs/guides/features/notifications" target="_blank" rel="noopener noreferrer" title="Notifications 通知">[OR33]</a>；AIHubMix 有调价通知</td>
+<td>调价提前 N 天通知；每个模型显示价格历史</td>
+<td><span class="pri p1">P1</span></td>
+</tr>
+<tr>
+<td>渠道真实性（是否掺水、降级）</td>
+<td>中转站行业的核心信任问题：用户担心「标的是 A 模型，实际给的是更便宜的模型」</td>
+<td>OpenRouter 模型页公开每个渠道，端点数据带量化精度字段，请求时可按量化精度过滤 <a class="cite" href="https://openrouter.ai/anthropic/claude-sonnet-4.6" target="_blank" rel="noopener noreferrer" title="模型详情页（Claude Sonnet 4.6）">[OR8]</a> <a class="cite" href="https://openrouter.ai/api/v1/models/anthropic/claude-sonnet-4.6/endpoints" target="_blank" rel="noopener noreferrer" title="模型渠道端点 API 实测（Claude Sonnet 4.6：各渠道价格、uptime_last_30m/1d）">[OR7]</a> <a class="cite" href="https://openrouter.ai/docs/guides/routing/provider-selection" target="_blank" rel="noopener noreferrer" title="Provider Routing 渠道路由">[OR13]</a>；AIHubMix 公开渠道</td>
+<td>渠道分组写明来源类型（官方 / 云厂商 / 其他）；日志显示实际模型名；定期公开抽检方法</td>
+<td><span class="pri p1">P1</span></td>
+</tr>
+<tr>
+<td>渠道健康度</td>
+<td>决定可用率和路由质量</td>
+<td>OpenRouter 实时追踪响应时间、错误率和可用性，并据此路由 <a class="cite" href="https://openrouter.ai/docs/guides/best-practices/uptime-optimization" target="_blank" rel="noopener noreferrer" title="Uptime Optimization">[OR59]</a></td>
+<td>内部按 5 分钟窗口统计成功率、首字时间和吞吐；对外先公开汇总结果</td>
+<td><span class="pri p0">P0</span>（内部）/ <span class="pri p1">P1</span>（公开）</td>
+</tr>
+<tr>
+<td>风控</td>
+<td>Key 泄露被盗刷、支付欺诈、批量注册薅羊毛</td>
+<td>kie.ai 推广计划用支付指纹防作弊；OpenRouter 对管理接口按 IP 限频 <a class="cite" href="https://openrouter.ai/docs/api_reference/limits" target="_blank" rel="noopener noreferrer" title="Limits（额度、在途预扣、限流）">[OR56]</a></td>
+<td>Key 异常用量告警和自动冻结；新账号设充值和并发上限；推广设安全期</td>
+<td><span class="pri p0">P0</span></td>
+</tr>
+<tr>
+<td>并发与提额</td>
+<td>企业客户要知道上限，以及怎么提额</td>
+<td>kie.ai 写明每 10 秒 20 个请求；OpenRouter 付费请求的限流直接沿用上游 <a class="cite" href="https://openrouter.ai/pricing" target="_blank" rel="noopener noreferrer" title="OpenRouter Pricing 套餐对比页">[OR1]</a></td>
+<td>限流档位写在充值页；提供自助申请提额</td>
+<td><span class="pri p1">P1</span></td>
+</tr>
+<tr>
+<td>子账号与额度分配</td>
+<td>企业内部分部门、分项目用；转售客户要分给他们的客户</td>
+<td>OpenRouter 有成员、Key 两级预算 <a class="cite" href="https://openrouter.ai/docs/guides/best-practices/spend-controls" target="_blank" rel="noopener noreferrer" title="Spend Controls 花费控制最佳实践">[OR39]</a></td>
+<td>企业账号下设子账号和项目，各自限额；下级额度不能超过上级</td>
+<td><span class="pri p1">P1</span></td>
+</tr>
+<tr>
+<td>代理商 / 分销 / 白标</td>
+<td>你做 B2B 转售，下游可能也是转售商</td>
+<td>三站都没有</td>
+<td>代理商后台：下级账号、加价规则、佣金、对账；P2 再考虑白标域名</td>
+<td><span class="pri p2">P2</span></td>
+</tr>
+<tr>
+<td>审计日志</td>
+<td>企业客户要知道谁在什么时候创建、删除了 Key，改了额度</td>
+<td>AIHubMix 代码里有审计路由；OpenRouter 有 Key 审计指南（本次未读正文）</td>
+<td>记录登录、Key、额度、充值、成员变更</td>
+<td><span class="pri p1">P1</span></td>
+</tr>
+<tr>
+<td>业务 Webhook</td>
+<td>客户要把低余额、任务完成、调价等事件接进自己的系统</td>
+<td>AIHubMix 有通知 Webhook；kie.ai 有任务回调</td>
+<td>统一事件 Webhook，带签名和重试</td>
+<td><span class="pri p1">P1</span></td>
+</tr>
+<tr>
+<td>备用域名与网络</td>
+<td>国内网络环境下，单一域名风险大</td>
+<td>AIHubMix 在 Quick Start 给出备用域名</td>
+<td>主域名 + 备用域名 + 状态页里写明切换方法</td>
+<td><span class="pri p0">P0</span></td>
+</tr>
+<tr>
+<td>客服时段与响应时效</td>
+<td>B2B 客户要知道「出事了多久能找到人」</td>
+<td>kie.ai 写明支持时段（北京时间 05:00 至次日 01:00）</td>
+<td>写明时段和响应时效；付费客户群有值班</td>
+<td><span class="pri p0">P0</span></td>
+</tr>
+<tr>
+<td>账户注销与余额退款</td>
+<td>预充值模式的信任基础</td>
+<td>AIHubMix 注销要 15 个工作日审核，停服时退余额；OpenRouter 24 小时内可退 <a class="cite" href="https://openrouter.ai/docs/faq" target="_blank" rel="noopener noreferrer" title="FAQ（费用、退款、额度过期、支付方式）">[OR3]</a></td>
+<td>写清退款条件、时效和手续费</td>
+<td><span class="pri p0">P0</span></td>
+</tr>
+<tr>
+<td>成本预估</td>
+<td>多媒体单价复杂，用户想先知道一条大概多少钱</td>
+<td>kie.ai 给出「每张图约多少积分」的网格</td>
+<td>模型页和 Playground 显示预计扣费</td>
+<td><span class="pri p1">P1</span></td>
+</tr>
+<tr>
+<td>模型对比工具</td>
+<td>帮客户选型，也是 SEO 页面</td>
+<td>AIHubMix、OpenRouter 都有 Compare</td>
+<td>P2</td>
+<td><span class="pri p2">P2</span></td>
+</tr>
+<tr>
+<td>Playground</td>
+<td>试用到付费的转化路径最短</td>
+<td>AIHubMix 余额为 0 时直接弹充值</td>
+<td>P1 先做文本和图像</td>
+<td><span class="pri p1">P1</span></td>
+</tr>
+</tbody>
+</table></section></main>
+<footer class="foot">资料截至 2026-11-11（北京时间）。AIHubMix、kie.ai 的结论与截图出自前两份深度调研（截图中的账户信息已遮挡）；OpenRouter 截图为本次未登录无头浏览器拍摄的公开页面。[ORn] / [Xn] 为来源编号，见「来源清单」。页面中写给 AI 代理的隐藏文字已忽略。仅供内部参考。<br><a href="../index.html">返回调研总站</a> · <a href="../aihubmix/index.html">AIHubMix 调研</a> · <a href="../kieai/index.html">kie.ai 调研</a> · <a href="AI聚合站对比精选与建议策划_2026-11-11.md" download>下载 Markdown</a> · <a href="img/sitemap.png" target="_blank" rel="noopener">站点地图 PNG</a></footer>
+</body></html>

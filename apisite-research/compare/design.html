@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="zh-Hans"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>设计参考优先级 · AI 聚合站对比精选与建议策划</title>
+<link rel="stylesheet" href="style.css?v=20261111c">
+<script src="data/shots.js?v=20261111c" defer></script><script src="app.js?v=20261111c" defer></script>
+</head><body>
+<header class="top"><div class="brand"><a class="back" href="../index.html">← 调研总站</a><a class="back" href="../aihubmix/index.html">AIHubMix 调研</a><a class="back" href="../kieai/index.html">kie.ai 调研</a><a href="index.html">对比精选与建议策划</a><span class="date">2026-11-11</span></div>
+<nav id="nav"><a href="index.html">总览与建议方向</a><a href="modules.html">逐模块对比</a><a href="bestof.html">优点精选与弊端规避</a><a href="design.html" class=on aria-current=page>设计参考优先级</a><a href="gaps.html">缺失功能与 OpenRouter 补充</a><a href="plan.html">建议策划</a><a href="sources.html">来源清单</a></nav><nav class="toc" aria-label="本页目录"><a href="#rank">总表</a><a href="#must">必抄</a><a href="#rec">推荐</a><a href="#opt">可选</a><a href="#visual">视觉规范</a></nav></header>
+<main><section class="hero" id="top"><h1>设计参考优先级</h1><div class="sub md"><p>按「先抄哪一页」排序。<strong><span class="lv lv1">必抄</span></strong> = 首发版本直接按这个页面的结构做；<strong><span class="lv lv2">推荐</span></strong> = 第二阶段参考；<strong><span class="lv lv3">可选</span></strong> = 有余力再做。每一行都写了「抄的时候要改什么」，因为两站的页面都有各自的问题。</p></div></section><section id="rank" class="md"><h2>页面优先级总表</h2><table>
+<thead>
+<tr>
+<th>#</th>
+<th>我们的页面</th>
+<th>参考</th>
+<th>级别</th>
+<th>理由</th>
+<th>抄的时候要改什么</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>价格总表</td>
+<td>kie.ai /pricing</td>
+<td><span class="lv lv1">必抄</span></td>
+<td>我们价 / 官方价 / 折扣三列直接回答「为什么用你」；按模型分组，多媒体逐行列价</td>
+<td>按模型计数（不是按价格行）；人民币直标；长段说明改成表格；表头写明对比依据</td>
+</tr>
+<tr>
+<td>2</td>
+<td>API Key 创建弹窗 + 列表</td>
+<td>kie.ai /api-key</td>
+<td><span class="lv lv1">必抄</span></td>
+<td>安全默认值（推荐 IP 白名单）+ 一键填入最近调用的 IP + 列表警示图标</td>
+<td>加入 AIHubMix 的额度和项目字段；「永不过期」也加警示</td>
+</tr>
+<tr>
+<td>3</td>
+<td>模型广场卡片</td>
+<td>AIHubMix /models</td>
+<td><span class="lv lv1">必抄</span></td>
+<td>卡片上直接给价格、上下文、速度和折扣，便于横向比较</td>
+<td>筛选区默认收起；加上 kie.ai 的用途标签，筛选写进 URL</td>
+</tr>
+<tr>
+<td>4</td>
+<td>请求日志</td>
+<td>AIHubMix Request logs</td>
+<td><span class="lv lv1">必抄</span></td>
+<td>列最全（渠道、App、Finish reason），可设置列</td>
+<td>加 trace id、扣费明细、「未计费」标记；加导出</td>
+</tr>
+<tr>
+<td>5</td>
+<td>任务日志</td>
+<td>kie.ai /logs</td>
+<td><span class="lv lv1">必抄</span></td>
+<td>Task ID 搜索、回调重发、保留期横幅，适合多媒体任务</td>
+<td>合并进日志页，作为「任务」页签</td>
+</tr>
+<tr>
+<td>6</td>
+<td>充值页 / 充值弹窗</td>
+<td>AIHubMix Purchase + kie.ai Billing</td>
+<td><span class="lv lv1">必抄</span></td>
+<td>AIHubMix：手续费说明、显示当前账户；kie.ai：套餐赠送角标、把限流写在充值页</td>
+<td>人民币；加入对公转账、企业认证入口和发票说明</td>
+</tr>
+<tr>
+<td>7</td>
+<td>接入必读（文档首页）</td>
+<td>kie.ai docs Getting Started</td>
+<td><span class="lv lv1">必抄</span></td>
+<td>上线前必须知道的事集中在一页</td>
+<td>加备用域名（AIHubMix Quick Start 的做法）和错误码表（OpenRouter 的写法）</td>
+</tr>
+<tr>
+<td>8</td>
+<td>首页</td>
+<td>kie.ai 首页</td>
+<td><span class="lv lv1">必抄</span></td>
+<td>定位 + 三条承诺 + 官方价对比表 + FAQ，适合以价格竞争为主的站</td>
+<td>去掉点不开的状态标签；所有数字来自同一数据源；自动滚动的卡片改成静态网格</td>
+</tr>
+<tr>
+<td>9</td>
+<td>工单与 FAQ</td>
+<td>AIHubMix Support</td>
+<td><span class="lv lv1">必抄</span></td>
+<td>先自助排查，再开工单，工单里带 Trace ID</td>
+<td>另加「付费客户专属群」入口</td>
+</tr>
+<tr>
+<td>10</td>
+<td>模型详情（文本）</td>
+<td>OpenRouter 模型页 + AIHubMix 模型详情</td>
+<td><span class="lv lv2">推荐</span></td>
+<td>锚点导航 + 渠道并排表，一页讲清价格、渠道、稳定性和调用方式</td>
+<td>首发版本只做价格 / 规格 / 代码；渠道可用率等有监控数据后再加</td>
+</tr>
+<tr>
+<td>11</td>
+<td>模型详情（多媒体）</td>
+<td>kie.ai 模型页</td>
+<td><span class="lv lv2">推荐</span></td>
+<td>参数表单 + 价格网格 + 试跑 + 代码一页完成</td>
+<td>价格说明改成表格；试跑前先显示预计扣费</td>
+</tr>
+<tr>
+<td>12</td>
+<td>通知设置</td>
+<td>AIHubMix Notifications</td>
+<td><span class="lv lv2">推荐</span></td>
+<td>规则 + 配置抽屉 + 推送目的地，结构清楚</td>
+<td>目的地换成飞书、企业微信、钉钉；加入 OpenRouter 的 Key 限额 80% / 100% 提醒</td>
+</tr>
+<tr>
+<td>13</td>
+<td>状态页</td>
+<td>AIHubMix status + OpenRouter status</td>
+<td><span class="lv lv2">推荐</span></td>
+<td>按协议或端点拆组件，90 天历史，可订阅</td>
+<td>组件按「OpenAI 兼容 / Claude 兼容 / Gemini 兼容 / 图像 / 视频」拆分</td>
+</tr>
+<tr>
+<td>14</td>
+<td>公告中心（上新 / 调价 / 下线）</td>
+<td>AIHubMix Retirements + kie.ai API Updates</td>
+<td><span class="lv lv2">推荐</span></td>
+<td>下线日历 + 替代模型；每条更新带「去试用」</td>
+<td>三类合并成一个页面，用页签区分；同步推送到站内信</td>
+</tr>
+<tr>
+<td>15</td>
+<td>用量分析</td>
+<td>AIHubMix Activity</td>
+<td><span class="lv lv2">推荐</span></td>
+<td>KPI 行 + 缓存命中率 + 混合单价</td>
+<td>时区默认 Asia/Shanghai；首发只做 3～4 张图</td>
+</tr>
+<tr>
+<td>16</td>
+<td>项目 / 工作区</td>
+<td>AIHubMix Workspaces</td>
+<td><span class="lv lv2">推荐</span></td>
+<td>面包屑两级切换，不另起一套导航</td>
+<td>用 new-api 的令牌分组包装成项目，先不做多成员</td>
+</tr>
+<tr>
+<td>17</td>
+<td>推广返佣</td>
+<td>kie.ai Affiliate</td>
+<td><span class="lv lv2">推荐</span></td>
+<td>规则写得最具体</td>
+<td>演示数据整块置灰；入口放到顶栏</td>
+</tr>
+<tr>
+<td>18</td>
+<td>套餐 / 企业采购页</td>
+<td>OpenRouter Pricing + AIHubMix Enterprise</td>
+<td><span class="lv lv3">可选</span></td>
+<td>逐项对比的套餐表清楚说明各档差异；企业站单独讲合规和定制</td>
+<td>按你的「个人 / 企业 / 代理商」三档写</td>
+</tr>
+<tr>
+<td>19</td>
+<td>Playground</td>
+<td>AIHubMix Playground</td>
+<td><span class="lv lv3">可选</span></td>
+<td>12 类能力，余额为 0 时直接弹出充值</td>
+<td>先做文本和图像</td>
+</tr>
+<tr>
+<td>20</td>
+<td>⌘K 全局搜索 + 站内信</td>
+<td>AIHubMix ⌘K / Inbox</td>
+<td><span class="lv lv3">可选</span></td>
+<td>高级用户不用点菜单就能跳转；上新消息集中展示</td>
+<td>先做「搜模型 + 搜页面」</td>
+</tr>
+<tr>
+<td>21</td>
+<td>模型对比</td>
+<td>AIHubMix Compare / OpenRouter Compare</td>
+<td><span class="lv lv3">可选</span></td>
+<td>选择写进 URL，方便分享，也利于 SEO；OpenRouter 还预置了旗舰、编程、低价、图像四组热门对比 <a class="cite" href="https://openrouter.ai/compare" target="_blank" rel="noopener noreferrer" title="Compare 模型对比页">[OR11]</a></td>
+<td>有了足够的模型元数据之后再做</td>
+</tr>
+<tr>
+<td>22</td>
+<td>用量排行</td>
+<td>OpenRouter Rankings</td>
+<td><span class="lv lv3">可选</span></td>
+<td>用真实调用数据做内容和 SEO</td>
+<td>只发布匿名聚合数据，并在隐私政策里写明</td>
+</tr>
+<tr>
+<td>23</td>
+<td>开发者页（MCP / CLI / HTTP）</td>
+<td>AIHubMix Developer</td>
+<td><span class="lv lv3">可选</span></td>
+<td>每个工具都标明需要的凭证和是否计费</td>
+<td>先做只读的管理 API</td>
+</tr>
+</tbody>
+</table></section><section id="must" class="md"><h2>必抄页面截图对照</h2><div class="pg"><h3>#1 价格总表 <span class="lv lv1">必抄</span></h3><p class="hint">参考：kie.ai /pricing。改：按模型计数（不是按价格行）；人民币直标；长段说明改成表格；表头写明对比依据</p><div class="grid g2"><figure class="shot"><button class="tb" type="button" data-lb="ki-c-pricing" data-list="ki-c-pricing,ki-p-pricing-pub" aria-label="放大：kie.ai · Pricing 价格表（控制台外壳）"><img loading="lazy" decoding="async" src="img/thumb/ki-c-pricing.webp" width="480" height="268" alt="kie.ai · Pricing 价格表（控制台外壳）"></button><figcaption><b>kie.ai · Pricing 价格表（控制台外壳）</b><span>页签 All 654 / Chat 93 / Video 365 / Image 164 / Music 31 + 搜索；列：Credits/Gen、Our Price、Official/Fal Price、DISCOUNT（侧栏已遮挡）</span><a class="src" href="https://kie.ai/pricing" target="_blank" rel="noopener noreferrer">↗ 原网页 kie.ai/pricing</a> <span class="rt pub">公开</span></figcaption></figure><figure class="shot"><button class="tb" type="button" data-lb="ki-p-pricing-pub" data-list="ki-c-pricing,ki-p-pricing-pub" aria-label="放大：kie.ai · Pricing 按模型分组（未登录）"><img loading="lazy" decoding="async" src="img/thumb/ki-p-pricing-pub.webp" width="480" height="268" alt="kie.ai · Pricing 按模型分组（未登录）"></button><figcaption><b>kie.ai · Pricing 按模型分组（未登录）</b><span>副标题「1 credit = $0.005」；每个模型一个分组卡（如 seedream 5.5「10 prices」），逐行列出分辨率/模式的积分、我方价、官方价、折扣</span><a class="src" href="https://kie.ai/pricing" target="_blank" rel="noopener noreferrer">↗ 原网页 kie.ai/pricing</a> <span class="rt pub">公开</span></figcaption></figure></div></div><div class="pg"><h3>#2 API Key 创建弹窗 + 列表 <span class="lv lv1">必抄</span></h3><p class="hint">参考：kie.ai /api-key。改：加入 AIHubMix 的额度和项目字段；「永不过期」也加警示</p><div class="grid g2"><figure class="shot"><button class="tb" type="button" data-lb="ki-c-key-create" data-list="ki-c-key-create,ki-c-keys" aria-label="放大：kie.ai · Create API Key 创建弹窗"><img loading="lazy" decoding="async" src="img/thumb/ki-c-key-create.webp" width="480" height="268" alt="kie.ai · Create API Key 创建弹窗"></button><figcaption><b>kie.ai · Create API Key 创建弹窗</b><span>Name；Expiration 1/7/30/90 天/Never（选 1 天时提示明天几点失效）；IP Access 默认「Only allow specific IPs (Recommended)」+ Recently used / Detect my server / Enter manually；Model Access；未填名称时 Create 置灰（本次已取消，未创建）</span><a class="src" href="https://kie.ai/api-key" target="_blank" rel="noopener noreferrer">↗ 原网页 kie.ai/api-key</a> <span class="rt" title="截图时浏览器实际访问的地址，需登录查看">需登录</span></figcaption></figure><figure class="shot"><button class="tb" type="button" data-lb="ki-c-keys" data-list="ki-c-key-create,ki-c-keys" aria-label="放大：kie.ai · API Keys 列表"><img loading="lazy" decoding="async" src="img/thumb/ki-c-keys.webp" width="480" height="268" alt="kie.ai · API Keys 列表"></button><figcaption><b>kie.ai · API Keys 列表</b><span>列：Name / Key / Expires / IP Whitelist / Allowed Models / Safe-Spend Limits / ⋮；蓝色提示「1 key can be used from any IP… Add IPs」（Key 前缀、侧栏已遮挡）</span><a class="src" href="https://kie.ai/api-key" target="_blank" rel="noopener noreferrer">↗ 原网页 kie.ai/api-key</a> <span class="rt" title="截图时浏览器实际访问的地址，需登录查看">需登录</span></figcaption></figure></div></div><div class="pg"><h3>#3 模型广场卡片 <span class="lv lv1">必抄</span></h3><p class="hint">参考：AIHubMix /models。改：筛选区默认收起；加上 kie.ai 的用途标签，筛选写进 URL</p><div class="grid g3"><figure class="shot"><button class="tb" type="button" data-lb="ah-p-models" data-list="ah-p-models,ah-p-models-2,ki-p-market-filter" aria-label="放大：AIHubMix · Models 模型广场"><img loading="lazy" decoding="async" src="img/thumb/ah-p-models.webp" width="480" height="268" alt="AIHubMix · Models 模型广场"></button><figcaption><b>AIHubMix · Models 模型广场</b><span>Filter：Output Modalities / Categories / Model Authors / Refine（排序 + 输入模态）；954 models + Models API；卡片：输入/输出价、Context、TTFT、Throughput、New 标、Copy ID；首卡为 auto 路由</span><a class="src" href="https://aihubmix.com/models" target="_blank" rel="noopener noreferrer">↗ 原网页 aihubmix.com/models</a> <span class="rt pub">公开</span></figcaption></figure><figure class="shot"><button class="tb" type="button" data-lb="ah-p-models-2" data-list="ah-p-models,ah-p-models-2,ki-p-market-filter" aria-label="放大：AIHubMix · Models：折扣与免费标记"><img loading="lazy" decoding="async" src="img/thumb/ah-p-models-2.webp" width="480" height="268" alt="AIHubMix · Models：折扣与免费标记"></button><figcaption><b>AIHubMix · Models：折扣与免费标记</b><span>限时折扣以粉色胶囊显示「10% off · 起止时间」并划掉原价；免费模型 $0；部分模型标注 Throughput</span><a class="src" href="https://aihubmix.com/models" target="_blank" rel="noopener noreferrer">↗ 原网页 aihubmix.com/models</a> <span class="rt pub">公开</span></figcaption></figure><figure class="shot"><button class="tb" type="button" data-lb="ki-p-market-filter" data-list="ah-p-models,ah-p-models-2,ki-p-market-filter" aria-label="放大：kie.ai · Market 按任务筛选：Lip Sync"><img loading="lazy" decoding="async" src="img/thumb/ki-p-market-filter.webp" width="480" height="268" alt="kie.ai · Market 按任务筛选：Lip Sync"></button><figcaption><b>kie.ai · Market 按任务筛选：Lip Sync</b><span>点任务标签后 URL 变为 /market/lip-sync，显示「7 models found」，筛选结果可分享</span><a class="src" href="https://kie.ai/market/lip-sync" target="_blank" rel="noopener noreferrer">↗ 原网页 kie.ai/market/lip-sync</a> <span class="rt pub">公开</span></figcaption></figure></div></div><div class="pg"><h3>#4 请求日志 <span class="lv lv1">必抄</span></h3><p class="hint">参考：AIHubMix Request logs。改：加 trace id、扣费明细、「未计费」标记；加导出</p><div class="grid g2"><figure class="shot"><button class="tb" type="button" data-lb="ah-c-logs" data-list="ah-c-logs,ah-c-logs-columns" aria-label="放大：AIHubMix · Request logs 请求日志"><img loading="lazy" decoding="async" src="img/thumb/ah-c-logs.webp" width="480" height="270" alt="AIHubMix · Request logs 请求日志"></button><figcaption><b>AIHubMix · Request logs 请求日志</b><span>列：Date/Model/Provider/App/Input/Output/Cost/Finish reason；空态文案引导「试试更长的时间范围」</span><a class="src" href="https://console.aihubmix.com/logs" target="_blank" rel="noopener noreferrer">↗ 原网页 console.aihubmix.com/logs</a> <span class="rt" title="截图时浏览器实际访问的地址，需登录查看">需登录</span></figcaption></figure><figure class="shot"><button class="tb" type="button" data-lb="ah-c-logs-columns" data-list="ah-c-logs,ah-c-logs-columns" aria-label="放大：AIHubMix · 请求日志列设置"><img loading="lazy" decoding="async" src="img/thumb/ah-c-logs-columns.webp" width="480" height="268" alt="AIHubMix · 请求日志列设置"></button><figcaption><b>AIHubMix · 请求日志列设置</b><span>Table settings：Columns（可拖拽排序、钉住列）/ Density 两个页签</span><a class="src" href="https://console.aihubmix.com/logs" target="_blank" rel="noopener noreferrer">↗ 原网页 console.aihubmix.com/logs</a> <span class="rt" title="截图时浏览器实际访问的地址，需登录查看">需登录</span></figcaption></figure></div></div><div class="pg"><h3>#5 任务日志 <span class="lv lv1">必抄</span></h3><p class="hint">参考：kie.ai /logs。改：合并进日志页，作为「任务」页签</p><div class="grid g2"><figure class="shot"><button class="tb" type="button" data-lb="ki-c-logs" data-list="ki-c-logs" aria-label="放大：kie.ai · Logs 任务日志"><img loading="lazy" decoding="async" src="img/thumb/ki-c-logs.webp" width="480" height="268" alt="kie.ai · Logs 任务日志"></button><figcaption><b>kie.ai · Logs 任务日志</b><span>保留期横幅（媒体 14 天、日志 2 个月）；筛选：模型 / Task ID / 状态 / 日期；Batch Callback、Refresh；列含 Credits、Task ID、Results、Retry Callback（空账户）</span><a class="src" href="https://kie.ai/logs" target="_blank" rel="noopener noreferrer">↗ 原网页 kie.ai/logs</a> <span class="rt" title="截图时浏览器实际访问的地址，需登录查看">需登录</span></figcaption></figure></div></div><div class="pg"><h3>#6 充值页 / 充值弹窗 <span class="lv lv1">必抄</span></h3><p class="hint">参考：AIHubMix Purchase + kie.ai Billing。改：人民币；加入对公转账、企业认证入口和发票说明</p><div class="grid g2"><figure class="shot"><button class="tb" type="button" data-lb="ah-c-purchase" data-list="ah-c-purchase,ki-c-billing" aria-label="放大：AIHubMix · Purchase Credits 充值弹窗"><img loading="lazy" decoding="async" src="img/thumb/ah-c-purchase.webp" width="480" height="268" alt="AIHubMix · Purchase Credits 充值弹窗"></button><figcaption><b>AIHubMix · Purchase Credits 充值弹窗</b><span>快捷额 $15/$50/$100 + 自定义；Processing fee「Covered by AIHubMix」；支付方式 Alipay / Card / Google Pay；底部显示当前账户（已遮挡）</span><a class="src" href="https://console.aihubmix.com/topup" target="_blank" rel="noopener noreferrer">↗ 原网页 console.aihubmix.com/topup</a> <span class="rt" title="截图时浏览器实际访问的地址，需登录查看">需登录</span></figcaption></figure><figure class="shot"><button class="tb" type="button" data-lb="ki-c-billing" data-list="ah-c-purchase,ki-c-billing" aria-label="放大：kie.ai · Billing 余额与充值"><img loading="lazy" decoding="async" src="img/thumb/ki-c-billing.webp" width="480" height="268" alt="kie.ai · Billing 余额与充值"></button><figcaption><b>kie.ai · Billing 余额与充值</b><span>余额卡 + 永不过期说明 + Rate Limit 卡（每账户每 10 秒 20 个新生成请求，超出返回 429 且不排队）；套餐 $5/$50/$500/$1250；支付页签 Card / Apple / 加密货币 / 更多；账单国家 + 邮编；自动充值开关（余额、国家、侧栏已遮挡）</span><a class="src" href="https://kie.ai/billing" target="_blank" rel="noopener noreferrer">↗ 原网页 kie.ai/billing</a> <span class="rt" title="截图时浏览器实际访问的地址，需登录查看">需登录</span></figcaption></figure></div></div><div class="pg"><h3>#7 接入必读（文档首页） <span class="lv lv1">必抄</span></h3><p class="hint">参考：kie.ai docs Getting Started。改：加备用域名（AIHubMix Quick Start 的做法）和错误码表（OpenRouter 的写法）</p><div class="grid g2"><figure class="shot"><button class="tb" type="button" data-lb="ki-d-home" data-list="ki-d-home,ah-d-quickstart" aria-label="放大：kie.ai · Docs 首页：Getting Started（Important）"><img loading="lazy" decoding="async" src="img/thumb/ki-d-home.webp" width="480" height="268" alt="kie.ai · Docs 首页：Getting Started（Important）"></button><figcaption><b>kie.ai · Docs 首页：Getting Started（Important）</b><span>顶部页签 Market / File Upload API / Common API / AI Agents；左侧按模型族的树；右侧 11 节目录</span><a class="src" href="https://docs.kie.ai/" target="_blank" rel="noopener noreferrer">↗ 原网页 docs.kie.ai</a> <span class="rt pub">公开</span></figcaption></figure><figure class="shot"><button class="tb" type="button" data-lb="ah-d-quickstart" data-list="ki-d-home,ah-d-quickstart" aria-label="放大：AIHubMix · Docs：Quick Start"><img loading="lazy" decoding="async" src="img/thumb/ah-d-quickstart.webp" width="480" height="268" alt="AIHubMix · Docs：Quick Start"></button><figcaption><b>AIHubMix · Docs：Quick Start</b><span>主域 + 备用域 api.inferera.com；Python/JavaScript/Curl 代码页签；Copy page</span><a class="src" href="https://docs.aihubmix.com/en/quick-start" target="_blank" rel="noopener noreferrer">↗ 原网页 docs.aihubmix.com/en/quick-start</a> <span class="rt pub">公开</span></figcaption></figure></div></div><div class="pg"><h3>#8 首页 <span class="lv lv1">必抄</span></h3><p class="hint">参考：kie.ai 首页。改：去掉点不开的状态标签；所有数字来自同一数据源；自动滚动的卡片改成静态网格</p><div class="grid g3"><figure class="shot"><button class="tb" type="button" data-lb="ki-p-home-zh" data-list="ki-p-home-zh,ki-p-home-price,ki-p-home-faq" aria-label="放大：kie.ai · 中文首页首屏"><img loading="lazy" decoding="async" src="img/thumb/ki-p-home-zh.webp" width="480" height="268" alt="kie.ai · 中文首页首屏"></button><figcaption><b>kie.ai · 中文首页首屏</b><span>Hero「用一个 API 接入全球顶级视频、图像、音乐与 LLM 模型」；CTA 探索 AI API / API 文档；120,000+ 开发者 · 80+ 国家/地区；99.9% / 24/7 / $0 月费 + 平台实时状态（头像已遮挡）</span><a class="src" href="https://kie.ai/zh-CN" target="_blank" rel="noopener noreferrer">↗ 原网页 kie.ai/zh-CN</a> <span class="rt pub">公开</span></figcaption></figure><figure class="shot"><button class="tb" type="button" data-lb="ki-p-home-price" data-list="ki-p-home-zh,ki-p-home-price,ki-p-home-faq" aria-label="放大：kie.ai · 首页：官方价对比表"><img loading="lazy" decoding="async" src="img/thumb/ki-p-home-price.webp" width="480" height="268" alt="kie.ai · 首页：官方价对比表"></button><figcaption><b>kie.ai · 首页：官方价对比表</b><span>页签 ALL 26 / IMAGE 10 / VIDEO 8 / LLM 8；每行 KIE 价 → 绿色折扣百分比 → 划线官方价（头像已遮挡）</span><a class="src" href="https://kie.ai/zh-CN" target="_blank" rel="noopener noreferrer">↗ 原网页 kie.ai/zh-CN</a> <span class="rt pub">公开</span></figcaption></figure><figure class="shot"><button class="tb" type="button" data-lb="ki-p-home-faq" data-list="ki-p-home-zh,ki-p-home-price,ki-p-home-faq" aria-label="放大：kie.ai · 首页：FAQ 与支持入口"><img loading="lazy" decoding="async" src="img/thumb/ki-p-home-faq.webp" width="480" height="268" alt="kie.ai · 首页：FAQ 与支持入口"></button><figcaption><b>kie.ai · 首页：FAQ 与支持入口</b><span>左侧「还有疑问?」卡片 Discord / Telegram / API Docs；右侧 16 条带标签的手风琴 FAQ（头像已遮挡）</span><a class="src" href="https://kie.ai/zh-CN" target="_blank" rel="noopener noreferrer">↗ 原网页 kie.ai/zh-CN</a> <span class="rt pub">公开</span></figcaption></figure></div></div><div class="pg"><h3>#9 工单与 FAQ <span class="lv lv1">必抄</span></h3><p class="hint">参考：AIHubMix Support。改：另加「付费客户专属群」入口</p><div class="grid g2"><figure class="shot"><button class="tb" type="button" data-lb="ah-c-support" data-list="ah-c-support" aria-label="放大：AIHubMix · Support 支持 + 新建工单"><img loading="lazy" decoding="async" src="img/thumb/ah-c-support.webp" width="480" height="268" alt="AIHubMix · Support 支持 + 新建工单"></button><figcaption><b>AIHubMix · Support 支持 + 新建工单</b><span>Common questions（401/403/429、连不上、有余额仍失败）→ Browse all FAQs；New ticket 抽屉：Reply email、Category、Subject、Description(0/10000)、附件、Trace ID（邮箱已遮挡）</span><a class="src" href="https://console.aihubmix.com/support" target="_blank" rel="noopener noreferrer">↗ 原网页 console.aihubmix.com/support</a> <span class="rt" title="截图时浏览器实际访问的地址，需登录查看">需登录</span></figcaption></figure></div></div></section><section id="rec" class="md"><h2>推荐页面截图对照</h2><div class="pg"><h3>#10 模型详情（文本） <span class="lv lv2">推荐</span></h3><p class="hint">参考：OpenRouter 模型页 + AIHubMix 模型详情。改：首发版本只做价格 / 规格 / 代码；渠道可用率等有监控数据后再加</p><div class="grid g3"><figure class="shot"><button class="tb" type="button" data-lb="or-model" data-list="or-model,or-model-providers,ah-p-model-detail" aria-label="放大：OpenRouter · 模型详情首屏（Claude Sonnet 4.6）"><img loading="lazy" decoding="async" src="img/thumb/or-model.webp" width="480" height="300" alt="OpenRouter · 模型详情首屏（Claude Sonnet 4.6）"></button><figcaption><b>OpenRouter · 模型详情首屏（Claude Sonnet 4.6）</b><span>首屏给输入/输出价 $3/$15、1.0M 上下文、发布日期；左侧锚点 Providers / Pricing / Performance / Uptime / Benchmarks / Apps / Activity / Documentation / FAQ；右上 Compare / API / Try this model（2026-11-11 未登录无头浏览器截图）</span><a class="src" href="https://openrouter.ai/anthropic/claude-sonnet-4.6" target="_blank" rel="noopener noreferrer">↗ 原网页 openrouter.ai/anthropic/claude-sonnet-4.6</a> <span class="rt pub">公开</span></figcaption></figure><figure class="shot"><button class="tb" type="button" data-lb="or-model-providers" data-list="or-model,or-model-providers,ah-p-model-detail" aria-label="放大：OpenRouter · 模型详情 Providers 渠道表"><img loading="lazy" decoding="async" src="img/thumb/or-model-providers.webp" width="480" height="300" alt="OpenRouter · 模型详情 Providers 渠道表"></button><figcaption><b>OpenRouter · 模型详情 Providers 渠道表</b><span>同一模型 5 家渠道并排：输入/输出/缓存读价、延迟、吞吐、Uptime，可切 P50–P99；美国/欧盟区域端点价格高 10%，标注「Not used in Standard routing」（2026-11-11 未登录无头浏览器截图）</span><a class="src" href="https://openrouter.ai/anthropic/claude-sonnet-4.6/providers" target="_blank" rel="noopener noreferrer">↗ 原网页 openrouter.ai/anthropic/claude-sonnet-4.6/providers</a> <span class="rt pub">公开</span></figcaption></figure><figure class="shot"><button class="tb" type="button" data-lb="ah-p-model-detail" data-list="or-model,or-model-providers,ah-p-model-detail" aria-label="放大：AIHubMix · 模型详情：GPT 6.1 Terra"><img loading="lazy" decoding="async" src="img/thumb/ah-p-model-detail.webp" width="480" height="268" alt="AIHubMix · 模型详情：GPT 6.1 Terra"></button><figcaption><b>AIHubMix · 模型详情：GPT 6.1 Terra</b><span>左侧锚点导航（Pricing/Specifications/Providers/Performance/Usage/Try this model/FAQ/Compare/More Models）；能力清单灰显不支持项；Providers 多渠道（Azure/OpenAI）并排：价格、缓存、精度、延迟、吞吐、Uptime</span><a class="src" href="https://aihubmix.com/model/gpt-6.1-terra" target="_blank" rel="noopener noreferrer">↗ 原网页 aihubmix.com/model/gpt-6.1-terra</a> <span class="rt pub">公开</span></figcaption></figure></div></div><div class="pg"><h3>#11 模型详情（多媒体） <span class="lv lv2">推荐</span></h3><p class="hint">参考：kie.ai 模型页。改：价格说明改成表格；试跑前先显示预计扣费</p><div class="grid g3"><figure class="shot"><button class="tb" type="button" data-lb="ki-m-seedance" data-list="ki-m-seedance,ki-m-gptimage,ki-m-gptimage-api" aria-label="放大：kie.ai · 模型页：Seedance 2.5（按秒计价）"><img loading="lazy" decoding="async" src="img/thumb/ki-m-seedance.webp" width="480" height="268" alt="kie.ai · 模型页：Seedance 2.5（按秒计价）"></button><figcaption><b>kie.ai · 模型页：Seedance 2.5（按秒计价）</b><span>480P/720P/1080P 各给「带视频输入 / 不带视频输入」两档每秒价格，并写明带视频输入时按「上传时长 + 生成时长」计费（头像已遮挡）</span><a class="src" href="https://kie.ai/seedance-2-5" target="_blank" rel="noopener noreferrer">↗ 原网页 kie.ai/seedance-2-5</a> <span class="rt pub">公开</span></figcaption></figure><figure class="shot"><button class="tb" type="button" data-lb="ki-m-gptimage" data-list="ki-m-seedance,ki-m-gptimage,ki-m-gptimage-api" aria-label="放大：kie.ai · 模型页：GPT Image 2.6 Playground"><img loading="lazy" decoding="async" src="img/thumb/ki-m-gptimage.webp" width="480" height="268" alt="kie.ai · 模型页：GPT Image 2.6 Playground"></button><figcaption><b>kie.ai · 模型页：GPT Image 2.6 Playground</b><span>面包屑 + Commercial use 徽章 + Run with API + Copy page；Model Type 6 个变体；价格说明一段长文本；页签 Playground / Examples / Similar / README / API；左表单右预览（头像已遮挡）</span><a class="src" href="https://kie.ai/gpt-image-2-6" target="_blank" rel="noopener noreferrer">↗ 原网页 kie.ai/gpt-image-2-6</a> <span class="rt pub">公开</span></figcaption></figure><figure class="shot"><button class="tb" type="button" data-lb="ki-m-gptimage-api" data-list="ki-m-seedance,ki-m-gptimage,ki-m-gptimage-api" aria-label="放大：kie.ai · 模型页：API 页签（内嵌接口文档）"><img loading="lazy" decoding="async" src="img/thumb/ki-m-gptimage-api.webp" width="480" height="268" alt="kie.ai · 模型页：API 页签（内嵌接口文档）"></button><figcaption><b>kie.ai · 模型页：API 页签（内嵌接口文档）</b><span>顶部提示「Prefer a coding agent? See the AI Agents guide」；内嵌 POST /api/v1/jobs/createTask 文档、Try it、Shell / JS / Java 示例（头像已遮挡）</span><a class="src" href="https://kie.ai/gpt-image-2-6" target="_blank" rel="noopener noreferrer">↗ 原网页 kie.ai/gpt-image-2-6</a> <span class="rt pub">公开</span></figcaption></figure></div></div><div class="pg"><h3>#12 通知设置 <span class="lv lv2">推荐</span></h3><p class="hint">参考：AIHubMix Notifications。改：目的地换成飞书、企业微信、钉钉；加入 OpenRouter 的 Key 限额 80% / 100% 提醒</p><div class="grid g2"><figure class="shot"><button class="tb" type="button" data-lb="ah-c-notifications" data-list="ah-c-notifications,ah-c-notify-lowbalance" aria-label="放大：AIHubMix · Notifications 通知规则（整页）"><img loading="lazy" decoding="async" src="img/thumb/ah-c-notifications.webp" width="480" height="300" alt="AIHubMix · Notifications 通知规则（整页）"></button><figcaption><b>AIHubMix · Notifications 通知规则（整页）</b><span>分组：Budget &amp; Spend / Models / Account &amp; Services / Delivery destinations；规则：低余额、新模型、模型下线、模型调价、产品更新、促销、安全告警；Webhook 目的地（邮箱已遮挡）</span><a class="src" href="https://console.aihubmix.com/notifications" target="_blank" rel="noopener noreferrer">↗ 原网页 console.aihubmix.com/notifications</a> <span class="rt" title="截图时浏览器实际访问的地址，需登录查看">需登录</span></figcaption></figure><figure class="shot"><button class="tb" type="button" data-lb="ah-c-notify-lowbalance" data-list="ah-c-notifications,ah-c-notify-lowbalance" aria-label="放大：AIHubMix · 低余额告警配置抽屉"><img loading="lazy" decoding="async" src="img/thumb/ah-c-notify-lowbalance.webp" width="480" height="268" alt="AIHubMix · 低余额告警配置抽屉"></button><figcaption><b>AIHubMix · 低余额告警配置抽屉</b><span>Enabled、Credit threshold（$）、Delivery methods：Inbox/Email 必选、Webhook；Send to（邮箱已遮挡）</span><a class="src" href="https://console.aihubmix.com/notifications" target="_blank" rel="noopener noreferrer">↗ 原网页 console.aihubmix.com/notifications</a> <span class="rt" title="截图时浏览器实际访问的地址，需登录查看">需登录</span></figcaption></figure></div></div><div class="pg"><h3>#13 状态页 <span class="lv lv2">推荐</span></h3><p class="hint">参考：AIHubMix status + OpenRouter status。改：组件按「OpenAI 兼容 / Claude 兼容 / Gemini 兼容 / 图像 / 视频」拆分</p><div class="grid g2"><figure class="shot"><button class="tb" type="button" data-lb="ah-s-status" data-list="ah-s-status,or-status" aria-label="放大：AIHubMix · Status 状态页"><img loading="lazy" decoding="async" src="img/thumb/ah-s-status.webp" width="480" height="300" alt="AIHubMix · Status 状态页"></button><figcaption><b>AIHubMix · Status 状态页</b><span>按协议分组件：Chat Completions / Gemini-Compatible / Claude-Compatible / Homepage / Data API，90 天条形图 + 自动化事件记录；Powered by OnlineOrNot</span><a class="src" href="https://status.aihubmix.com/" target="_blank" rel="noopener noreferrer">↗ 原网页 status.aihubmix.com</a> <span class="rt pub">公开</span></figcaption></figure><figure class="shot"><button class="tb" type="button" data-lb="or-status" data-list="ah-s-status,or-status" aria-label="放大：OpenRouter · 状态页 status.openrouter.ai"><img loading="lazy" decoding="async" src="img/thumb/or-status.webp" width="480" height="300" alt="OpenRouter · 状态页 status.openrouter.ai"></button><figcaption><b>OpenRouter · 状态页 status.openrouter.ai</b><span>Datadog 托管；按 API 端点拆组件（Chat / Video / Image / TTS / STT…），90 天条形图：Chat 99.99%、Video 99.96%、Image 与 TTS 100%；可订阅（2026-11-11 未登录无头浏览器截图）</span><a class="src" href="https://status.openrouter.ai/" target="_blank" rel="noopener noreferrer">↗ 原网页 status.openrouter.ai</a> <span class="rt pub">公开</span></figcaption></figure></div></div><div class="pg"><h3>#14 公告中心（上新 / 调价 / 下线） <span class="lv lv2">推荐</span></h3><p class="hint">参考：AIHubMix Retirements + kie.ai API Updates。改：三类合并成一个页面，用页签区分；同步推送到站内信</p><div class="grid g2"><figure class="shot"><button class="tb" type="button" data-lb="ah-p-retirements" data-list="ah-p-retirements,ki-c-api-updates" aria-label="放大：AIHubMix · Model Retirements 模型下线"><img loading="lazy" decoding="async" src="img/thumb/ah-p-retirements.webp" width="480" height="268" alt="AIHubMix · Model Retirements 模型下线"></button><figcaption><b>AIHubMix · Model Retirements 模型下线</b><span>12 scheduled / 120 retired；三态说明 Active/Deprecating/Retired（404 model_retired）；按厂商筛选；表格含公告日、下线日、替代模型</span><a class="src" href="https://aihubmix.com/models/retirements" target="_blank" rel="noopener noreferrer">↗ 原网页 aihubmix.com/models/retirements</a> <span class="rt pub">公开</span></figcaption></figure><figure class="shot"><button class="tb" type="button" data-lb="ki-c-api-updates" data-list="ah-p-retirements,ki-c-api-updates" aria-label="放大：kie.ai · API Updates 模型更新流（控制台内）"><img loading="lazy" decoding="async" src="img/thumb/ki-c-api-updates.webp" width="480" height="268" alt="kie.ai · API Updates 模型更新流（控制台内）"></button><figcaption><b>kie.ai · API Updates 模型更新流（控制台内）</b><span>搜索 + 「All APIs」下拉；按日期排列的卡片：标签、标题、文档链接、Key Features、试用链接；首条 Seedream 5.5（2026-11-10）</span><a class="src" href="https://kie.ai/api-updates" target="_blank" rel="noopener noreferrer">↗ 原网页 kie.ai/api-updates</a> <span class="rt" title="截图时浏览器实际访问的地址，需登录查看">需登录</span></figcaption></figure></div></div><div class="pg"><h3>#15 用量分析 <span class="lv lv2">推荐</span></h3><p class="hint">参考：AIHubMix Activity。改：时区默认 Asia/Shanghai；首发只做 3～4 张图</p><div class="grid g2"><figure class="shot"><button class="tb" type="button" data-lb="ah-c-activity" data-list="ah-c-activity" aria-label="放大：AIHubMix · Activity 用量分析（整页）"><img loading="lazy" decoding="async" src="img/thumb/ah-c-activity.webp" width="480" height="300" alt="AIHubMix · Activity 用量分析（整页）"></button><figcaption><b>AIHubMix · Activity 用量分析（整页）</b><span>KPI：Total spend/Requests/Token volume/Cache hit rate/Blended $/1M；图表：Top API Keys/Top apps/Usage by model/Usage type/Request volume by model/Token breakdown/Prompt token caching</span><a class="src" href="https://console.aihubmix.com/statistics" target="_blank" rel="noopener noreferrer">↗ 原网页 console.aihubmix.com/statistics</a> <span class="rt" title="截图时浏览器实际访问的地址，需登录查看">需登录</span></figcaption></figure></div></div><div class="pg"><h3>#16 项目 / 工作区 <span class="lv lv2">推荐</span></h3><p class="hint">参考：AIHubMix Workspaces。改：用 new-api 的令牌分组包装成项目，先不做多成员</p><div class="grid g2"><figure class="shot"><button class="tb" type="button" data-lb="ah-c-workspaces" data-list="ah-c-workspaces,ah-c-ws-overview" aria-label="放大：AIHubMix · Workspaces 工作区列表"><img loading="lazy" decoding="async" src="img/thumb/ah-c-workspaces.webp" width="480" height="270" alt="AIHubMix · Workspaces 工作区列表"></button><figcaption><b>AIHubMix · Workspaces 工作区列表</b><span>表格：Name/Description/Spend/Keys/Actions；「1 of 5」表示配额 5 个工作区；默认工作区带 Default 标</span><a class="src" href="https://console.aihubmix.com/workspaces" target="_blank" rel="noopener noreferrer">↗ 原网页 console.aihubmix.com/workspaces</a> <span class="rt" title="截图时浏览器实际访问的地址，需登录查看">需登录</span></figcaption></figure><figure class="shot"><button class="tb" type="button" data-lb="ah-c-ws-overview" data-list="ah-c-workspaces,ah-c-ws-overview" aria-label="放大：AIHubMix · 工作区 Overview（工作区级导航）"><img loading="lazy" decoding="async" src="img/thumb/ah-c-ws-overview.webp" width="480" height="268" alt="AIHubMix · 工作区 Overview（工作区级导航）"></button><figcaption><b>AIHubMix · 工作区 Overview（工作区级导航）</b><span>顶部面包屑「Personal / Default workspace」双层切换；左栏换成 WORKSPACE 级 7 项：Overview/Activity/Request logs/API Key/Async tasks/Broadcast/Settings；Usage summary 可切 Tokens/Spend/Requests（金额已遮挡）</span><a class="src" href="https://console.aihubmix.com/workspaces/default/overview" target="_blank" rel="noopener noreferrer">↗ 原网页 console.aihubmix.com/workspaces/default/overview</a> <span class="rt" title="截图时浏览器实际访问的地址，需登录查看">需登录</span></figcaption></figure></div></div><div class="pg"><h3>#17 推广返佣 <span class="lv lv2">推荐</span></h3><p class="hint">参考：kie.ai Affiliate。改：演示数据整块置灰；入口放到顶栏</p><div class="grid g2"><figure class="shot"><button class="tb" type="button" data-lb="ki-c-affiliate" data-list="ki-c-affiliate" aria-label="放大：kie.ai · Affiliate Program 推广返佣"><img loading="lazy" decoding="async" src="img/thumb/ki-c-affiliate.webp" width="480" height="268" alt="kie.ai · Affiliate Program 推广返佣"></button><figcaption><b>kie.ai · Affiliate Program 推广返佣</b><span>页签 Dashboard / Invites / Orders / Withdrawals / FAQ；申请制推广链接、15% 佣金；四张统计卡全部打 DEMO 标签；顶部橙色提示加密货币订单暂不计佣</span><a class="src" href="https://kie.ai/user/affiliate" target="_blank" rel="noopener noreferrer">↗ 原网页 kie.ai/user/affiliate</a> <span class="rt" title="截图时浏览器实际访问的地址，需登录查看">需登录</span></figcaption></figure></div></div></section><section id="opt" class="md"><h2>可选页面截图对照</h2><div class="pg"><h3>#18 套餐 / 企业采购页 <span class="lv lv3">可选</span></h3><p class="hint">参考：OpenRouter Pricing + AIHubMix Enterprise。改：按你的「个人 / 企业 / 代理商」三档写</p><div class="grid g2"><figure class="shot"><button class="tb" type="button" data-lb="or-pricing" data-list="or-pricing,ah-p-enterprise" aria-label="放大：OpenRouter · Pricing 套餐对比"><img loading="lazy" decoding="async" src="img/thumb/or-pricing.webp" width="480" height="300" alt="OpenRouter · Pricing 套餐对比"></button><figcaption><b>OpenRouter · Pricing 套餐对比</b><span>Free / Standard / Business / Enterprise 四档逐项对比：平台费 N/A / 5.5% / 8% / 可议，预算、通知、SSO、SLA、BYOK 额度等（2026-11-11 未登录无头浏览器截图）</span><a class="src" href="https://openrouter.ai/pricing" target="_blank" rel="noopener noreferrer">↗ 原网页 openrouter.ai/pricing</a> <span class="rt pub">公开</span></figcaption></figure><figure class="shot"><button class="tb" type="button" data-lb="ah-p-enterprise" data-list="or-pricing,ah-p-enterprise" aria-label="放大：AIHubMix · Enterprise 企业站首屏"><img loading="lazy" decoding="async" src="img/thumb/ah-p-enterprise.webp" width="480" height="268" alt="AIHubMix · Enterprise 企业站首屏"></button><figcaption><b>AIHubMix · Enterprise 企业站首屏</b><span>独立子域、衬线大标题；500+ Models / 40+ 云推理商 / 1T+ Tokens weekly / 99.9% Uptime；三协议代码切换</span><a class="src" href="https://enterprise.aihubmix.com/" target="_blank" rel="noopener noreferrer">↗ 原网页 enterprise.aihubmix.com</a> <span class="rt pub">公开</span></figcaption></figure></div></div><div class="pg"><h3>#19 Playground <span class="lv lv3">可选</span></h3><p class="hint">参考：AIHubMix Playground。改：先做文本和图像</p><div class="grid g2"><figure class="shot"><button class="tb" type="button" data-lb="ah-p-playground-text" data-list="ah-p-playground-text,ah-p-playground-credit" aria-label="放大：AIHubMix · Playground：文本"><img loading="lazy" decoding="async" src="img/thumb/ah-p-playground-text.webp" width="480" height="268" alt="AIHubMix · Playground：文本"></button><figcaption><b>AIHubMix · Playground：文本</b><span>左栏 12 类能力：Text/Image/Speech/Video/Transcription/Realtime/Embeddings/Rerank/OCR/Moderation/Search/Decision；中部模型卡（价格、上下文、Provider）；历史仅存本机</span><a class="src" href="https://aihubmix.com/playground" target="_blank" rel="noopener noreferrer">↗ 原网页 aihubmix.com/playground</a> <span class="rt pub">公开</span></figcaption></figure><figure class="shot"><button class="tb" type="button" data-lb="ah-p-playground-credit" data-list="ah-p-playground-text,ah-p-playground-credit" aria-label="放大：AIHubMix · Playground：余额不足拦截"><img loading="lazy" decoding="async" src="img/thumb/ah-p-playground-credit.webp" width="480" height="268" alt="AIHubMix · Playground：余额不足拦截"></button><figcaption><b>AIHubMix · Playground：余额不足拦截</b><span>零余额时点模型弹「Add credits to use this model」→ Top up</span><a class="src" href="https://aihubmix.com/playground" target="_blank" rel="noopener noreferrer">↗ 原网页 aihubmix.com/playground</a> <span class="rt pub">公开</span></figcaption></figure></div></div><div class="pg"><h3>#20 ⌘K 全局搜索 + 站内信 <span class="lv lv3">可选</span></h3><p class="hint">参考：AIHubMix ⌘K / Inbox。改：先做「搜模型 + 搜页面」</p><div class="grid g2"><figure class="shot"><button class="tb" type="button" data-lb="ah-c-cmdk" data-list="ah-c-cmdk,ah-c-inbox" aria-label="放大：AIHubMix · ⌘K 全局搜索"><img loading="lazy" decoding="async" src="img/thumb/ah-c-cmdk.webp" width="480" height="268" alt="AIHubMix · ⌘K 全局搜索"></button><figcaption><b>AIHubMix · ⌘K 全局搜索</b><span>搜索 Pages、API keys、models；默认展示「Latest models · November 2026」；键盘导航提示</span><a class="src" href="https://console.aihubmix.com/topup" target="_blank" rel="noopener noreferrer">↗ 原网页 console.aihubmix.com/topup</a> <span class="rt" title="控制台页面，地址按前端路由推断">需登录</span></figcaption></figure><figure class="shot"><button class="tb" type="button" data-lb="ah-c-inbox" data-list="ah-c-cmdk,ah-c-inbox" aria-label="放大：AIHubMix · Inbox 站内信抽屉"><img loading="lazy" decoding="async" src="img/thumb/ah-c-inbox.webp" width="480" height="268" alt="AIHubMix · Inbox 站内信抽屉"></button><figcaption><b>AIHubMix · Inbox 站内信抽屉</b><span>铃铛 → 右侧抽屉：All/System/Models/Changelog 四个页签；消息卡片含模型海报、价格与「View model」</span><a class="src" href="https://console.aihubmix.com/topup" target="_blank" rel="noopener noreferrer">↗ 原网页 console.aihubmix.com/topup</a> <span class="rt" title="控制台页面，地址按前端路由推断">需登录</span></figcaption></figure></div></div><div class="pg"><h3>#21 模型对比 <span class="lv lv3">可选</span></h3><p class="hint">参考：AIHubMix Compare / OpenRouter Compare。改：有了足够的模型元数据之后再做</p><div class="grid g2"><figure class="shot"><button class="tb" type="button" data-lb="ah-p-compare" data-list="ah-p-compare,or-compare" aria-label="放大：AIHubMix · Compare 模型对比"><img loading="lazy" decoding="async" src="img/thumb/ah-p-compare.webp" width="480" height="268" alt="AIHubMix · Compare 模型对比"></button><figcaption><b>AIHubMix · Compare 模型对比</b><span>最多 4 个模型；说明对比维度（价格、上下文、TTFT/吞吐、LMArena、真实用量、月成本估算）；URL 保存选择可分享；Popular comparisons</span><a class="src" href="https://aihubmix.com/compare" target="_blank" rel="noopener noreferrer">↗ 原网页 aihubmix.com/compare</a> <span class="rt pub">公开</span></figcaption></figure><figure class="shot"><button class="tb" type="button" data-lb="or-compare" data-list="ah-p-compare,or-compare" aria-label="放大：OpenRouter · Compare 模型对比"><img loading="lazy" decoding="async" src="img/thumb/or-compare.webp" width="480" height="300" alt="OpenRouter · Compare 模型对比"></button><figcaption><b>OpenRouter · Compare 模型对比</b><span>选择模型 + Popular comparisons（旗舰、编程、低价、图像生成四组预设对比）（2026-11-11 未登录无头浏览器截图）</span><a class="src" href="https://openrouter.ai/compare" target="_blank" rel="noopener noreferrer">↗ 原网页 openrouter.ai/compare</a> <span class="rt pub">公开</span></figcaption></figure></div></div><div class="pg"><h3>#22 用量排行 <span class="lv lv3">可选</span></h3><p class="hint">参考：OpenRouter Rankings。改：只发布匿名聚合数据，并在隐私政策里写明</p><div class="grid g2"><figure class="shot"><button class="tb" type="button" data-lb="or-rankings" data-list="or-rankings" aria-label="放大：OpenRouter · Rankings 用量排行"><img loading="lazy" decoding="async" src="img/thumb/or-rankings.webp" width="480" height="300" alt="OpenRouter · Rankings 用量排行"></button><figcaption><b>OpenRouter · Rankings 用量排行</b><span>按真实 tokens 用量的周度堆叠图 + 排行榜，左侧按任务、语言、编程、上下文长度等维度切换；数据以 CC BY 4.0 开放（2026-11-11 未登录无头浏览器截图）</span><a class="src" href="https://openrouter.ai/rankings" target="_blank" rel="noopener noreferrer">↗ 原网页 openrouter.ai/rankings</a> <span class="rt pub">公开</span></figcaption></figure></div></div><div class="pg"><h3>#23 开发者页（MCP / CLI / HTTP） <span class="lv lv3">可选</span></h3><p class="hint">参考：AIHubMix Developer。改：先做只读的管理 API</p><div class="grid g2"><figure class="shot"><button class="tb" type="button" data-lb="ah-c-developer-mcp" data-list="ah-c-developer-mcp" aria-label="放大：AIHubMix · Developer：MCP Server（整页）"><img loading="lazy" decoding="async" src="img/thumb/ah-c-developer-mcp.webp" width="480" height="300" alt="AIHubMix · Developer：MCP Server（整页）"></button><figcaption><b>AIHubMix · Developer：MCP Server（整页）</b><span>Management Key（MCP/CLI/HTTP 三路共用）；Pick a client：Claude Code/Cursor/VS Code/Codex/Claude Desktop；12 个 MCP 工具表（凭证类型/是否计费）；Try asking；排障折叠（Management Key 已遮挡）</span><a class="src" href="https://console.aihubmix.com/developer" target="_blank" rel="noopener noreferrer">↗ 原网页 console.aihubmix.com/developer</a> <span class="rt" title="截图时浏览器实际访问的地址，需登录查看">需登录</span></figcaption></figure></div></div></section><section id="visual" class="md"><h2>视觉与交互规范</h2><h3>视觉规范建议（合并两站优点）</h3>
+<table>
+<thead>
+<tr>
+<th>项</th>
+<th>建议</th>
+<th>依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>字体</td>
+<td>界面用系统中文字体（PingFang SC / 微软雅黑）+ 一套西文无衬线字体；价格、额度、Key 用等宽字体（如 Geist Mono / JetBrains Mono）</td>
+<td>kie.ai 的价格表用等宽字体，列对得很齐；AIHubMix 字体太多</td>
+</tr>
+<tr>
+<td>主色</td>
+<td>一种偏深的蓝色作为主色（两站都用蓝：AIHubMix #2563eb、kie.ai #2b7fff）；折扣统一用绿色加向下箭头；警示用橙色；危险操作用红色</td>
+<td>两站的共同选择，用户已经习惯</td>
+</tr>
+<tr>
+<td>形状</td>
+<td>圆角 8～12px，细线分隔，阴影很轻</td>
+<td>两站相近</td>
+</tr>
+<tr>
+<td>外壳</td>
+<td>公开站用顶栏；控制台用左侧栏，账户级和项目级分两层，用面包屑切换；价格页和模型广场未登录也能看，用的是控制台外壳（kie.ai 的做法），看完价格不用换环境就能进控制台</td>
+<td>AIHubMix 的两层侧栏 + kie.ai 的外壳复用</td>
+</tr>
+<tr>
+<td>密度</td>
+<td>价格表、日志可以密；控制台首页和充值页留白多一些</td>
+<td>两站都是这样</td>
+</tr>
+<tr>
+<td>空态</td>
+<td>每个空态都给下一步按钮（「创建第一个 Key」「试试更长的时间范围」）</td>
+<td>AIHubMix 日志空态文案</td>
+</tr>
+<tr>
+<td>状态色</td>
+<td>成功、失败、未计费、回退四种状态，用固定颜色和图标表示</td>
+<td>日志和任务页可读性</td>
+</tr>
+<tr>
+<td>深色模式</td>
+<td>P2</td>
+<td>两站都有，但不是必需</td>
+</tr>
+</tbody>
+</table></section></main>
+<footer class="foot">资料截至 2026-11-11（北京时间）。AIHubMix、kie.ai 的结论与截图出自前两份深度调研（截图中的账户信息已遮挡）；OpenRouter 截图为本次未登录无头浏览器拍摄的公开页面。[ORn] / [Xn] 为来源编号，见「来源清单」。页面中写给 AI 代理的隐藏文字已忽略。仅供内部参考。<br><a href="../index.html">返回调研总站</a> · <a href="../aihubmix/index.html">AIHubMix 调研</a> · <a href="../kieai/index.html">kie.ai 调研</a> · <a href="AI聚合站对比精选与建议策划_2026-11-11.md" download>下载 Markdown</a> · <a href="img/sitemap.png" target="_blank" rel="noopener">站点地图 PNG</a></footer>
+</body></html>
