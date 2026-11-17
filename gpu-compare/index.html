@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>RTX 5090 / PRO 6000 节点比价与韩国法律要点</title>
+<style>
+:root{
+  --bg:#efe8dc;
+  --bg2:#e4d9c8;
+  --paper:#fffaf3;
+  --paper2:#f7f1e7;
+  --ink:#1c1a16;
+  --muted:#5c564c;
+  --line:#d7cbb8;
+  --accent:#1f4d3a;
+  --accent2:#c45c26;
+  --danger:#8b1e1e;
+  --warn:#8a5a12;
+  --ok:#1f4d3a;
+  --chip:#ece3d4;
+  --shadow:0 10px 30px rgba(50,36,16,.08);
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:
+  radial-gradient(1200px 500px at 10% -10%, #f7f0e4 0%, transparent 60%),
+  linear-gradient(180deg,var(--bg),var(--bg2));
+  color:var(--ink);
+  font-family:"Microsoft YaHei","PingFang SC","Noto Sans SC",sans-serif;
+  line-height:1.65;font-size:16px}
+a{color:#1a4f7a;text-decoration:underline;text-underline-offset:2px}
+a:hover{color:#0d2f48}
+.wrap{max-width:1180px;margin:0 auto;padding:18px 16px 80px}
+header.hero{background:var(--paper);border:1px solid var(--line);border-radius:22px;padding:28px 26px 22px;box-shadow:var(--shadow);position:relative;overflow:hidden}
+header.hero:before{content:"";position:absolute;inset:auto -40px -60px auto;width:220px;height:220px;border-radius:50%;background:#e8d3b0;opacity:.45}
+.kicker{color:var(--accent);font-size:13px;letter-spacing:.08em;text-transform:uppercase;font-weight:700}
+h1{font-size:clamp(1.45rem,3vw,2.05rem);margin:8px 0 10px;line-height:1.3}
+.meta{color:var(--muted);font-size:14px}
+nav.toc{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+nav.toc a{background:var(--chip);color:var(--ink);text-decoration:none;border-radius:999px;padding:6px 12px;font-size:13px;border:1px solid var(--line)}
+.grid{display:grid;gap:14px;margin:18px 0}
+@media(min-width:800px){.grid.cols-3{grid-template-columns:repeat(3,1fr)}.grid.cols-2{grid-template-columns:repeat(2,1fr)}}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:18px 18px 16px;box-shadow:var(--shadow)}
+.card h2,.sec h2{font-size:1.25rem;margin:0 0 10px}
+.sec{margin:22px 0;background:var(--paper2);border:1px solid var(--line);border-radius:20px;padding:22px 18px}
+.tag{display:inline-block;border-radius:999px;padding:1px 8px;font-size:12px;border:1px solid var(--line);background:#fff}
+.tag.ban{background:#f8e4e2;color:var(--danger);border-color:#e7b8b4}
+.tag.gray{background:#f7ecd4;color:var(--warn);border-color:#e6d0a0}
+.tag.ok{background:#e4efe8;color:var(--ok);border-color:#b9d0c2}
+.tag.warn{background:#f3e6d2;color:#6a3b0d}
+.tag.off{background:#eee;color:#666}
+ul.tight,ol.tight{margin:8px 0 0 1.15em;padding:0}
+ul.tight li,ol.tight li{margin:4px 0}
+.note{font-size:13px;color:var(--muted)}
+.call{border-left:4px solid var(--accent2);background:#fff;padding:12px 14px;border-radius:0 12px 12px 0;margin:12px 0}
+.call.danger{border-left-color:var(--danger)}
+.call.warn{border-left-color:var(--warn)}
+.controls{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 14px;align-items:center}
+.controls label{font-size:13px;color:var(--muted)}
+.controls select,.controls input{font:inherit;font-size:14px;border:1px solid var(--line);background:#fff;border-radius:10px;padding:7px 10px}
+.table-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:14px;background:#fff}
+table{border-collapse:collapse;width:100%;min-width:1100px;font-size:13.5px}
+th,td{border-bottom:1px solid var(--line);padding:9px 8px;vertical-align:top;text-align:left}
+th{background:#f3ece1;position:sticky;top:0;cursor:pointer;white-space:nowrap;user-select:none}
+th .arrow{color:#999;font-weight:400}
+tr:hover td{background:#fbf6ee}
+td.price{font-variant-numeric:tabular-nums;white-space:nowrap;font-weight:700}
+.hidden{display:none !important}
+footer{margin-top:28px;color:var(--muted);font-size:13px}
+.source-list{columns:1;gap:24px}
+@media(min-width:800px){.source-list{columns:2}}
+.source-list a{display:inline-block;word-break:break-all}
+.badge-row{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="hero">
+  <div class="kicker">内部调研 · 不是法律意见 · 请勿当作下单或合规承诺</div>
+  <h1>RTX 5090 / PRO 6000 节点比价，以及韩国法律要点</h1>
+  <p class="meta">核价日期：<strong>2026 年 11 月 16 日</strong>（亚洲/上海，UTC+8）。汇率按 <strong>1 美元 = 6.67 元人民币</strong>（在岸即期收盘约 6.6678）；韩元按 <strong>1 美元 ≈ 1,335.7 韩元</strong>（首尔 15:30 KST）。欧元按 <strong>1 欧元 ≈ 1.15 美元 ≈ 7.67 元人民币</strong>估算，Hetzner 同时保留欧元原价。本页只覆盖这两张卡的公开价，以及拟在韩国注册公司时与性暗示、淫秽、深度伪造、儿童形象有关的公开法条要点。完整注释见同目录 <code>research.md</code>。</p>
+  <nav class="toc">
+    <a href="#conclusions">硬结论</a>
+    <a href="#korea">韩国法律</a>
+    <a href="#table">价格表</a>
+    <a href="#notes">厂商说明</a>
+    <a href="#h200">H200 并发</a>
+    <a href="#sources">来源</a>
+  </nav>
+</header>
+
+<section class="sec" id="conclusions">
+  <h2>先说硬结论</h2>
+  <div class="grid cols-3">
+    <div class="card">
+      <span class="tag ban">法律</span>
+      <h3>韩国禁止散布淫秽内容，哪怕对象是成年人</h3>
+      <p>在韩国注册公司，不会让成人内容变得合法。网上散布被评价为淫秽的图像或视频，可能触犯《信息通信网法》第 44 条之 7、第 74 条，也可能同时讨论《刑法》第 243 条。真人换脸/深度伪造的制作、存储和观看，2024 年修订后处罚更重。任何可识别为未成年人的形象（含 AI、虚拟）都是重罪。</p>
+    </div>
+    <div class="card">
+      <span class="tag">卡型</span>
+      <h3>生图和 MiniMax H3，优先 5090；显存不够再上 PRO 6000</h3>
+      <p>5090（32GB）的按时单价通常最低，适合中等生图模型和若干 H3 实例。PRO 6000（96GB）适合更大模型或同卡多实例。不要为尚未到来的高并发提前按月去租 H200。</p>
+    </div>
+    <div class="card">
+      <span class="tag ok">选型</span>
+      <h3>价格优先，但只要别太离谱、能稳定出片</h3>
+      <p>5090 先看 Vast.ai 中位约 <strong>$0.67 / ¥4.47</strong> 的日韩机房级、不可中断主机。PRO 6000 同样先看 Vast 中位约 <strong>$1.40–1.73</strong>；要自有机房再看 Massed $2.19 或 Hetzner 赫尔辛基月租 €999。RunPod 价格整齐，但条款禁止色情，不适合这次用途。</p>
+    </div>
+  </div>
+  <div class="call danger">
+    <strong>不要做的事：</strong>不要用 RunPod、Akamai、Lambda、AutoDL 跑成人内容（条款明文禁止）。不要把韩国的 iwinv、Naver、KT、Kakao 当作成人内容的生产节点。不要把 CloudV 的「IDC 月费」当成租 5090 的价格（那是托管费，硬件另买）。不要把 Salad Lowest $0.25 或 Vast 最低价当成稳定预算。
+  </div>
+  <div class="call">
+    <strong>比较现实的路径：</strong>本机双 4090D 继续作出片底盘；海外节点用 5090 或一张 PRO 6000 跑生图和 H3。先在 Vast 控制台筛日本/韩国的机房级主机试一周。若更在乎合同和稳定性，再对比 Massed（美国）或 Hetzner GEX63（赫尔辛基，有安装费）。韩国公司只处理不涉及淫秽散布和真人深度伪造的业务，并另请韩国律师审事业目的与内容边界。
+  </div>
+</section>
+
+<section class="sec" id="korea">
+  <h2>韩国法律要点（拟在韩注册公司）</h2>
+  <p class="note">以下只整理公开法条和官方说明，不是法律意见，也不能代替韩国或中国律师的判断。官方韩文本以 <a href="https://www.law.go.kr/" target="_blank" rel="noopener">law.go.kr</a> 为准。</p>
+  <ol class="tight">
+    <li><strong>《刑法》第 243–245 条。</strong>散布、销售、出租或公开展示淫秽物品，处 1 年以下徒刑或 500 万韩元以下罚金（第 243 条）。第 244 条处罚的是<strong>以为实施第 243 条行为为目的</strong>而制造、持有、进口或出口。第 245 条是公然淫秽。判例曾指出计算机程序文件不一定属于这两条中的「物品」，网上传播更常见的是按《信息通信网法》追诉。</li>
+    <li><strong>《信息通信网法》第 44 条之 7、第 74 条。</strong>任何人不得通过信息通信网散布、销售、出租或公然展示淫秽的符号、文句、音响、画像或影像。违反可处 1 年以下徒刑或 <strong>1 千万韩元</strong>以下罚金。大法院对「淫秽」有较严格的整体判断标准（须达到严重损害人的尊严与价值的程度），但艺术短剧中的成人情节是否过线，是事实认定，不是公司注册能预定的结论。</li>
+    <li><strong>《性暴力犯罪的处罚等特别法》第 14 条之 2（深度伪造）。</strong>2024 年 10 月 16 日修订施行：针对他人的脸、身体或声音、违反其意愿做成的性暗示虚伪影像，<strong>制作不再以散布目的为必要</strong>；散布可处 7 年以下徒刑或 5 千万韩元以下罚金；以营利通过信息通信网散布可处 3 年以上有期徒刑；<strong>持有、购买、存储或观看</strong>可处 3 年以下徒刑或 3 千万韩元以下罚金。应只用完全虚构、不可识别为真实个人的成年角色。倾向新闻 2026 年 8 月报道称，纯虚拟人物可能难以按该法处罚，但散布仍可能构成《信息通信网法》上的淫秽物流通。</li>
+    <li><strong>《儿童、青少年性保护法律》。</strong>第 2 条第 5 号覆盖「可明显感知为儿童或青少年的人或表现物」。制作可处无期或 5 年以上徒刑；购买、持有或观看可处 1 年以上徒刑。虚拟或 AI 生成不能作为免责理由。2026 年有报道称宪法法院就处罚 AI 生成虚拟儿童性剥削物作出合宪判断。任何「看起来像未成年」的角色库都是绝对红线。</li>
+    <li><strong>KCSC 等行政管制。</strong>放送通信审议委员会等机构可对网上违法/淫秽信息采取删除或限制接入。即使尚未被起诉，在韩国网络上可访问的成人生成内容也面临行政屏蔽。</li>
+    <li><strong>《人工智能基本法》自 2026 年 1 月 22 日施行。</strong>第 31 条要求人工智能事业者对生成式结果做标识/水印。MSIT 指南认为：义务主体是向使用者提供 AI 产品或服务的事业者；<strong>仅把 AI 当内部工具的使用者通常不是该义务主体</strong>。若日后向韩国用户提供生成服务，标识义务会落下。这不能使淫秽散布变得合法。执法有至少一年暂缓期。</li>
+    <li><strong>公司注册。</strong>外国人可设株式会社，出资达 1 亿韩元且持股 10% 以上通常须办外商投资申报。事业目的必须合法。注册影视或软件公司，不等于获得制作或发行淫秽物品的许可；韩国法人一旦成立，韩国对这家实体的管辖更直接。</li>
+    <li><strong>关于「只做内部生产、不散布」。</strong>第 244 条的持有以散布目的为要件，不能简单等同于「私人持有一律犯罪」；但也不能写成合法。真人深度伪造的制作和存储/观看、以及任何儿童形象，不存在「内部就没事」的空间。文件一旦外传、上云共享或日后发行，韩国法和中国法都可能用来评价同一批人。中国《刑法》第 363、364 条不因公司在韩国而自动失效。</li>
+  </ol>
+</section>
+
+<section class="sec" id="table">
+  <h2>价格对照表（可筛选、可排序）</h2>
+  <p class="note">默认按「相对便宜且还能用」的顺序排列。价格离谱、可抢占或未核实的行，已在「标记」列标出。点击表头可排序。下单以各官网控制台现价为准。</p>
+  <div class="controls">
+    <label>显卡
+      <select id="fGpu">
+        <option value="all">全部</option>
+        <option value="5090">仅 RTX 5090</option>
+        <option value="pro">仅 PRO 6000</option>
+      </select>
+    </label>
+    <label>稳定性
+      <select id="fStab">
+        <option value="all">全部</option>
+        <option value="dc">自有/专用机房</option>
+        <option value="mkt">市场主机</option>
+        <option value="comm">社区/抢占</option>
+      </select>
+    </label>
+    <label>成人条款
+      <select id="fAup">
+        <option value="all">全部</option>
+        <option value="ban">明文禁止</option>
+        <option value="gray">灰色</option>
+        <option value="loose">相对宽松</option>
+        <option value="unk">未核实或韩国法优先</option>
+      </select>
+    </label>
+    <label>地区偏好
+      <select id="fReg">
+        <option value="all">全部</option>
+        <option value="asia">含日韩新港台或东南亚</option>
+        <option value="kr">韩国</option>
+        <option value="us">美国</option>
+        <option value="eu">欧洲</option>
+      </select>
+    </label>
+    <label>搜索
+      <input id="fQ" type="search" placeholder="厂商名或付款方式">
+    </label>
+    <span class="note" id="count"></span>
+  </div>
+  <div class="table-wrap">
+    <table id="cmp">
+      <thead>
+        <tr>
+          <th data-k="rank">建议序 <span class="arrow">▾</span></th>
+          <th data-k="name">厂商</th>
+          <th data-k="hq">总部</th>
+          <th data-k="region">服务地区</th>
+          <th data-k="gpu">显卡</th>
+          <th data-k="usd">按时（美元）</th>
+          <th data-k="cny">按时（人民币）</th>
+          <th data-k="month">包月/折算</th>
+          <th data-k="bill">计费与启停</th>
+          <th data-k="pay">付款</th>
+          <th data-k="aup">成人条款</th>
+          <th data-k="stab">稳定性</th>
+          <th>链接</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+</section>
+
+<section class="sec" id="notes">
+  <h2>厂商说明与未上架者</h2>
+  <div class="grid cols-2">
+    <div class="card">
+      <h3>CloudV 的低价不是租卡</h3>
+      <p><a href="https://www.cloudv.kr/server/gpu.html" target="_blank" rel="noopener">cloudv.kr</a> 上 5090.G1 的「IDC 요금 264,300 韩元/月」和 PRO 6000 的 189,800 韩元/月，是把已购买或分期的机器放进机房的托管费，硬件要另询。不能拿来和 Vast / RunPod 比小时租价。</p>
+    </div>
+    <div class="card">
+      <h3>没有这两种卡、但仍值得记下的官网</h3>
+      <p>Lambda、Vultr、Nebius、GMI、OVH、Scaleway、CUDO、Elice、KT Cloud、Kakao Cloud、Gabia、Sakura、GMO、Highreso，以及多数香港/新加坡本地商，本次均未在公开自助价目中核实到 RTX 5090 或 RTX PRO 6000 Blackwell。官网链接见文末来源。Vultr 付款最方便（含 Alipay、UnionPay），但目前没有这两张卡；关机仍计费。GMI 有台、新、泰、日机房，公开线是 H100/H200/B200。TensorDock 条款相对宽松，但价目停在 2024-07-24，且未列这两张卡。</p>
+    </div>
+    <div class="card">
+      <h3>Novita、Naver 市场、Shadeform</h3>
+      <p>Novita 定价主页以模型 API 为主，第三方跟踪常见 5090 按需约 $0.56，须回控制台确认。Naver Cloud 市场 gcube 有 5090 约 910–1,300 韩元/时的检索结果，属市场合作方。Shadeform 是聚合商，价格来自上游，不当第一手官价。</p>
+    </div>
+    <div class="card">
+      <h3>付款速查</h3>
+      <p>对中国客户相对方便：Vultr（Alipay、银联，但无这两张卡）。Vast：信用卡 + 加密货币，未见 Alipay。TensorDock：卡 + BTC/ETH/USDT。Hetzner：信用卡、PayPal、电汇、SEPA。iwinv：偏韩国本地支付。Akamai：卡和 PayPal。企业云多为国际卡或对公账单。</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="h200">
+  <h2>后话：H200 能不能把并发生图做很高？</h2>
+  <p>H200 约 141GB HBM3e，显存带宽大约是 5090 / PRO 6000（GDDR7，约 1.7 TB/s 量级）的两倍以上（公开规格约 4.8 TB/s 量级）。它的优势是把更大模型或更多复制进程放进一张卡，抬高并发路数；不是在单路、中等分辨率生图上必然更便宜。</p>
+  <p>公开租价量级：RunPod Community / Secure H200 为 $3.59 / $5.29；Massed H200 NVL $3.62；GMI 官网 from $3.20；Vast 中位此前约 $4.65。</p>
+  <div class="call warn">
+    <strong>以下单张成本是估算，不是上机实测。</strong>假设 1024 像素、Flux 量级任务：5090 单路约 6–12 秒/张（取 8 秒 ≈ 450 张/时），按 Vast 中位 $0.67 约 <strong>$0.0015 / ¥0.010 每张</strong>。PRO 6000 单路通常不更快，但 96GB 可开更大 batch；若吞吐达到 5090 的 2–3 倍，按 $1.73 大约 <strong>$0.0013–0.0019/张</strong>。H200 若能稳定跑 4–8 路同等任务，按 $3.62 大约 <strong>$0.0010–0.0020/张</strong>。只有排队把 32GB/96GB 撑满，或模型本身超过这些显存时，H200 才明显更合适。建议到那一步再用同一套提示词对照，不要提前 24 小时占着 H200。
+  </div>
+</section>
+
+<section class="sec" id="sources">
+  <h2>来源与声明</h2>
+  <p>本页是 2026 年 11 月 16 日对公开网页的整理，供内部决策参考，不构成法律意见或采购建议。涉及公司设立、内容合规或跨境运营，应咨询有资质的律师。完整注释、法条摘要和未上架厂商说明见 <code>/workspace/gpu-compare/research.md</code>。</p>
+  <div class="source-list">
+    <p><a href="https://www.law.go.kr/" target="_blank" rel="noopener">韩国法令信息中心 law.go.kr</a></p>
+    <p><a href="https://koreanics.com/laws/criminal-act/article-243/" target="_blank" rel="noopener">刑法第 243 条英译（非官方）</a></p>
+    <p><a href="https://www.moj.go.kr/bbs/moj/159/588549/artclView.do" target="_blank" rel="noopener">韩国法务部：深度伪造修订说明</a></p>
+    <p><a href="https://www.reuters.com/world/asia-pacific/south-korea-criminalise-watching-or-possessing-sexually-explicit-deepfakes-2024-09-26/" target="_blank" rel="noopener">路透社 2024-09-26 深度伪造持有入罪</a></p>
+    <p><a href="https://www.khan.co.kr/en/article/202608031753007" target="_blank" rel="noopener">倾向新闻 2026-08：虚拟人物与性暴力处罚法</a></p>
+    <p><a href="https://www.msit.go.kr/eng/bbs/view.do?bbsSeqNo=42&amp;nttSeqNo=1215" target="_blank" rel="noopener">MSIT：AI 透明度指南</a></p>
+    <p><a href="https://www.law.go.kr/LSW/lsInfoP.do?efYd=20260122&amp;lsiSeq=268543" target="_blank" rel="noopener">人工智能基本法（2026-01-22 施行）</a></p>
+    <p><a href="https://www.investkorea.org/file/ik-en/252025Guide_to_Establishing_a_Business_in_Korea.pdf" target="_blank" rel="noopener">Invest KOREA：在韩设立企业指南</a></p>
+    <p><a href="https://vast.ai/" target="_blank" rel="noopener">Vast.ai 官网</a> · <a href="https://vast.ai/pricing" target="_blank" rel="noopener">定价</a> · <a href="https://storage.googleapis.com/vast-public-gpu-pricing/gpu-pricing-public.json" target="_blank" rel="noopener">官方价格 feed</a></p>
+    <p><a href="https://www.runpod.io/" target="_blank" rel="noopener">RunPod 官网</a> · <a href="https://www.runpod.io/pricing" target="_blank" rel="noopener">定价</a> · <a href="https://www.runpod.io/legal/terms-of-service" target="_blank" rel="noopener">服务条款</a></p>
+    <p><a href="https://salad.com/" target="_blank" rel="noopener">Salad 官网</a> · <a href="https://salad.com/pricing/" target="_blank" rel="noopener">定价</a></p>
+    <p><a href="https://verda.com/" target="_blank" rel="noopener">Verda 官网</a> · <a href="https://verda.com/pricing" target="_blank" rel="noopener">定价</a></p>
+    <p><a href="https://massedcompute.com/" target="_blank" rel="noopener">Massed Compute 官网</a> · <a href="https://vm.massedcompute.com/pricing" target="_blank" rel="noopener">定价</a></p>
+    <p><a href="https://www.akamai.com/" target="_blank" rel="noopener">Akamai 官网</a> · <a href="https://www.akamai.com/cloud/pricing/gpu" target="_blank" rel="noopener">GPU 定价</a> · <a href="https://www.akamai.com/legal/acceptable-use-policy" target="_blank" rel="noopener">AUP</a></p>
+    <p><a href="https://www.hetzner.com/" target="_blank" rel="noopener">Hetzner 官网</a> · <a href="https://www.hetzner.com/dedicated-rootserver/gex63/" target="_blank" rel="noopener">GEX63 定价</a></p>
+    <p><a href="https://www.iwinv.kr/" target="_blank" rel="noopener">iwinv 官网</a> · <a href="https://www.iwinv.kr/llm-gpu/gpu" target="_blank" rel="noopener">GPU 定价</a> · <a href="https://www.cloudv.kr/server/gpu.html" target="_blank" rel="noopener">CloudV GPU（托管，非租卡）</a></p>
+    <p><a href="https://novita.ai/" target="_blank" rel="noopener">Novita 官网</a> · <a href="https://novita.ai/pricing" target="_blank" rel="noopener">定价</a></p>
+    <p><a href="https://www.ncloud.com/" target="_blank" rel="noopener">Naver Cloud</a> · <a href="https://www.ncloud.com/marketplace/gcube" target="_blank" rel="noopener">gcube 市场</a></p>
+    <p><a href="https://lambda.ai/" target="_blank" rel="noopener">Lambda</a> · <a href="https://lambda.ai/pricing" target="_blank" rel="noopener">定价</a> · <a href="https://docs.lambda.com/public-cloud/on-demand/" target="_blank" rel="noopener">区域文档</a></p>
+    <p><a href="https://www.vultr.com/" target="_blank" rel="noopener">Vultr</a> · <a href="https://www.vultr.com/products/cloud-gpu/" target="_blank" rel="noopener">Cloud GPU</a></p>
+    <p><a href="https://www.gmicloud.ai/en/" target="_blank" rel="noopener">GMI Cloud</a> · <a href="https://www.gmicloud.ai/en/pricing" target="_blank" rel="noopener">定价</a></p>
+    <p><a href="https://www.tensordock.com/" target="_blank" rel="noopener">TensorDock</a> · <a href="https://www.tensordock.com/cloud-gpus.html" target="_blank" rel="noopener">定价（2024-07-24）</a> · <a href="https://docs.tensordock.com/legal-information/acceptable-use-policy-aup" target="_blank" rel="noopener">AUP</a></p>
+    <p><a href="https://www.hyperbolic.ai/" target="_blank" rel="noopener">Hyperbolic</a> · <a href="https://nebius.com/prices" target="_blank" rel="noopener">Nebius 定价</a> · <a href="https://www.ovhcloud.com/en/public-cloud/prices/" target="_blank" rel="noopener">OVH 定价</a> · <a href="https://www.scaleway.com/en/pricing/" target="_blank" rel="noopener">Scaleway 定价</a> · <a href="https://www.cudocompute.com/" target="_blank" rel="noopener">CUDO</a> · <a href="https://www.shadeform.ai/" target="_blank" rel="noopener">Shadeform</a></p>
+    <p><a href="https://cloud.kt.com/" target="_blank" rel="noopener">KT Cloud</a> · <a href="https://www.kakaocloud.com/" target="_blank" rel="noopener">Kakao Cloud</a> · <a href="https://www.gabia.com/" target="_blank" rel="noopener">Gabia</a> · <a href="https://www.elice.io/" target="_blank" rel="noopener">Elice</a></p>
+    <p><a href="https://www.sakura.ad.jp/" target="_blank" rel="noopener">Sakura Internet</a> · <a href="https://www.gmo.jp/" target="_blank" rel="noopener">GMO</a> · <a href="https://www.highreso.jp/" target="_blank" rel="noopener">Highreso</a></p>
+  </div>
+  <footer>核价与检索完成于 2026 年 11 月 16 日，亚洲/上海（UTC+8）。本页为静态文件，可自行发布，请勿把未复核的最低价直接写进预算。</footer>
+</section>
+</div>
+<script>
+const ROWS = [
+  {rank:1,name:"Vast.ai（中位）",hq:"美国",region:"全球市场，控制台可筛日/韩等",gpu:"RTX 5090 32GB",usd:0.6694,usdText:"中位 $0.6694\nP10 $0.4674 / 最低 $0.3338",cny:"¥4.47",month:"720 时约 $482 / ¥3,215",bill:"按用量；API 可启停。停卡后通常不再按 GPU 计，磁盘和流量仍计",pay:"Visa/Mastercard（Stripe），加密货币（BitPay/Crypto.com）。未见 Alipay",aup:"灰色：禁止 unlawful / obscene，未单写禁止成人",aupK:"gray",stab:"市场主机，须选机房级、不可中断",stabK:"mkt",regK:"asia",official:"https://vast.ai/",pricing:"https://vast.ai/pricing",flag:"官方 feed 2026-11-16 20:30 上海时间；最低价可能混可中断机"},
+  {rank:2,name:"Salad High",hq:"美国",region:"社区节点，位置分散",gpu:"RTX 5090 32GB",usd:0.60,usdText:"High $0.600\nMed $0.483 / Low $0.367 / Lowest $0.250",cny:"¥4.00",month:"Lowest×730 时 $183，不当预算",bill:"按秒，仅 running。High 不被其他负载抢占，仍可能因节点掉线重调度",pay:"以信用卡为主（以控制台为准）",aup:"本次未逐句核对",aupK:"unk",stab:"社区/消费者 GPU，无数据中心 SLA",stabK:"comm",regK:"us",official:"https://salad.com/",pricing:"https://salad.com/pricing/",flag:"价格低但不稳定；Lowest 不要当生产价"},
+  {rank:3,name:"RunPod Community",hq:"美国",region:"多区；日本 AP-JP-1 有记录，新加坡当前 listed=false",gpu:"RTX 5090 32GB",usd:0.69,usdText:"$0.69",cny:"¥4.60",month:"720 时 $497 / ¥3,313",bill:"按秒。停 Pod 后 GPU 不计；网络盘 $0.05–0.07/GB/月",pay:"信用卡为主，亦见加密货币充值",aup:"明文禁止 pornography or graphic adult content，可封号并终身禁用",aupK:"ban",stab:"审核过的第三方主机，体验较整齐",stabK:"mkt",regK:"asia",official:"https://www.runpod.io/",pricing:"https://www.runpod.io/pricing",flag:"价格好，但不适合成人内容"},
+  {rank:4,name:"Novita.ai（跟踪价，须复核）",hq:"新加坡（公开资料；美国有运营）",region:"公开材料含多区 GPU 云",gpu:"RTX 5090 32GB",usd:0.56,usdText:"跟踪约 $0.56 按需\nSpot 约 $0.35–0.37",cny:"约 ¥3.73",month:"未核实官方月价",bill:"须看控制台；官网另有 Spot 说明",pay:"以信用卡等为主（以控制台为准）",aup:"本次未从官网页核到成人条款正文",aupK:"unk",stab:"自有 GPU 云，库存看控制台",stabK:"dc",regK:"asia",official:"https://novita.ai/",pricing:"https://novita.ai/pricing",flag:"定价主页以模型 API 为主，此价非本次直接官表"},
+  {rank:5,name:"Naver Cloud 市场 gcube（检索，须复核）",hq:"韩国",region:"韩国",gpu:"RTX 5090 32GB",usd:0.68,usdText:"检索约 ₩910–1,300/时（未含税）\n约 $0.68–0.97",cny:"约 ¥4.54–6.47",month:"另有周套餐等，以市场页为准",bill:"市场/合作方规则，须打开市场页",pay:"韩国本地支付为主",aup:"须遵守韩国法；不建议放成人内容",aupK:"unk",stab:"市场机，不是 Naver 自有统一价目",stabK:"mkt",regK:"kr",official:"https://www.ncloud.com/",pricing:"https://www.ncloud.com/marketplace/gcube",flag:"未保存动态市场页逐行报价"},
+  {rank:6,name:"RunPod Secure",hq:"美国",region:"同 RunPod，日本有高端卡记录",gpu:"RTX 5090 32GB",usd:1.39,usdText:"$1.39",cny:"¥9.27",month:"720 时 $1,001 / ¥6,677",bill:"按秒，停后 GPU 不计",pay:"信用卡为主",aup:"同上，明文禁止色情",aupK:"ban",stab:"RunPod 运营机房",stabK:"dc",regK:"asia",official:"https://www.runpod.io/",pricing:"https://www.runpod.io/pricing",flag:"更稳但贵，且条款禁止"},
+  {rank:10,name:"Vast.ai Max-Q（中位）",hq:"美国",region:"全球市场，可筛日/韩",gpu:"RTX PRO 6000 Max-Q 96GB",usd:1.395,usdText:"中位 $1.395\nP10 $0.868 / 最低 $0.638",cny:"¥9.30",month:"720 时约 $1,004 / ¥6,699",bill:"同 Vast，API 可启停",pay:"卡 + 加密货币",aup:"灰色：obscene 条款",aupK:"gray",stab:"市场主机；Max-Q 功耗更低",stabK:"mkt",regK:"asia",official:"https://vast.ai/",pricing:"https://vast.ai/pricing",flag:"46 条在售（官方 feed）"},
+  {rank:11,name:"Vast.ai WS（中位）",hq:"美国",region:"全球市场",gpu:"RTX PRO 6000 WS 96GB",usd:1.469,usdText:"中位 $1.469\nP10 $1.321 / 最低 $1.001",cny:"¥9.80",month:"720 时约 $1,058 / ¥7,055",bill:"同 Vast",pay:"卡 + 加密货币",aup:"灰色",aupK:"gray",stab:"市场主机",stabK:"mkt",regK:"asia",official:"https://vast.ai/",pricing:"https://vast.ai/pricing",flag:"72 条在售"},
+  {rank:12,name:"RunPod Community",hq:"美国",region:"多区；日本有记录",gpu:"RTX PRO 6000 96GB",usd:1.69,usdText:"$1.69",cny:"¥11.27",month:"720 时 $1,217 / ¥8,117",bill:"按秒，停后 GPU 不计",pay:"信用卡为主",aup:"明文禁止色情",aupK:"ban",stab:"第三方审核主机",stabK:"mkt",regK:"asia",official:"https://www.runpod.io/",pricing:"https://www.runpod.io/pricing",flag:"条款不适合本次用途"},
+  {rank:13,name:"Vast.ai S（中位）",hq:"美国",region:"全球市场，可筛日/韩",gpu:"RTX PRO 6000 S 96GB",usd:1.7337,usdText:"中位 $1.7337\nP10 $1.3338 / 最低 $1.3336",cny:"¥11.56",month:"720 时约 $1,248 / ¥8,326",bill:"同 Vast",pay:"卡 + 加密货币",aup:"灰色",aupK:"gray",stab:"市场主机，154 条在售",stabK:"mkt",regK:"asia",official:"https://vast.ai/",pricing:"https://vast.ai/pricing",flag:"官方 feed 中位"},
+  {rank:14,name:"Hetzner GEX63",hq:"德国",region:"仅 HEL1 赫尔辛基",gpu:"RTX PRO 6000 Max-Q 96GB",usd:1.841,usdText:"€1.6009/时（不含税）\n约 $1.84（1 EUR≈1.15 USD）",cny:"约 ¥12.28",month:"€999/月 ≈ $1,149 / ¥7,662；另一次性安装费 €999",bill:"专用服务器，无最短合同，可立即取消。不是按秒云主机",pay:"信用卡、PayPal、电汇、SEPA（欧元区）",aup:"须另读使用政策；服务器在芬兰",aupK:"unk",stab:"欧洲专用机房，网络可用性宣传 99.9%",stabK:"dc",regK:"eu",official:"https://www.hetzner.com/",pricing:"https://www.hetzner.com/dedicated-rootserver/gex63/",flag:"真正的月租专用机；大陆延迟高；有安装费"},
+  {rank:15,name:"Massed Compute",hq:"美国（拉斯维加斯）",region:"美国自有基础设施",gpu:"RTX PRO 6000 96GB",usd:2.19,usdText:"$2.19",cny:"¥14.61",month:"720 时 $1,577 / ¥10,517",bill:"按小时按需；承诺/裸金属另询",pay:"信用卡/企业账单（以官网为准）",aup:"须另读 EULA，本次未逐句核对成人条款",aupK:"unk",stab:"自有数据中心，NVIDIA Preferred Partner",stabK:"dc",regK:"us",official:"https://massedcompute.com/",pricing:"https://vm.massedcompute.com/pricing",flag:"稳定优先时的合理价"},
+  {rank:16,name:"iwinv / 스마일서브",hq:"韩国",region:"韩国（KR1-Z09 等）",gpu:"RTX PRO 6000 96GB",usd:2.47,usdText:"月 ₩2,375,000（附加税另计）\n折合 $2.47/时；日付 ₩88,100 ≈ $2.75/时",cny:"月约 ¥11,859；含 10% 税约 ¥13,046",month:"官方月价 ₩2,375,000 未含税",bill:"按日/月；官网写明关机仍计费",pay:"韩国本地对公/卡为主",aup:"须遵守韩国法；不建议放成人内容",aupK:"unk",stab:"韩国本地机房",stabK:"dc",regK:"kr",official:"https://www.iwinv.kr/",pricing:"https://www.iwinv.kr/llm-gpu/gpu",flag:"虚拟机价目无 5090；5090 仅定制裸金属询价"},
+  {rank:17,name:"RunPod Secure",hq:"美国",region:"同 RunPod",gpu:"RTX PRO 6000 96GB",usd:2.69,usdText:"$2.69",cny:"¥17.94",month:"720 时 $1,937 / ¥13,320",bill:"按秒，停后 GPU 不计",pay:"信用卡为主",aup:"明文禁止色情",aupK:"ban",stab:"RunPod 运营机房",stabK:"dc",regK:"asia",official:"https://www.runpod.io/",pricing:"https://www.runpod.io/pricing",flag:""},
+  {rank:18,name:"Verda（原 DataCrunch）",hq:"芬兰",region:"芬兰、冰岛",gpu:"RTX PRO 6000 96GB",usd:2.864,usdText:"按需 $2.864\nSpot $1.432",cny:"¥19.10 / Spot ¥9.55",month:"720 时按需约 $2,062 / ¥13,754",bill:"可随时开始/结束；NVMe 存储约 $0.20/GiB/月",pay:"信用卡/企业账单",aup:"本次未逐句核对",aupK:"unk",stab:"自有 AI 云（SOC 2 / GDPR），大陆延迟高",stabK:"dc",regK:"eu",official:"https://verda.com/",pricing:"https://verda.com/pricing",flag:"北欧机房，不优先"},
+  {rank:19,name:"Akamai Cloud",hq:"美国",region:"新加坡、东京、大阪等（限量，要申请）",gpu:"RTX PRO 6000 96GB",usd:3.00,usdText:"$3.00",cny:"¥20.01",month:"720 时 $2,160 / ¥14,407",bill:"按小时；关机仍计全价，停费须删实例",pay:"Visa/Mastercard/Amex/Discover，可用 PayPal 充值",aup:"禁止传输、分发或存储 pornographic 材料",aupK:"ban",stab:"一线数据中心，SLA 完善",stabK:"dc",regK:"asia",official:"https://www.akamai.com/",pricing:"https://www.akamai.com/cloud/pricing/gpu",flag:"硬件和地区合适，条款和关机计费不合适"}
+];
+
+const tbody = document.querySelector("#cmp tbody");
+let sortKey = "rank", sortDir = 1;
+
+function tagAup(k,text){
+  const cls = k==="ban"?"ban":k==="gray"?"gray":k==="loose"?"ok":"warn";
+  return `<span class="tag ${cls}">${esc(text)}</span>`;
+}
+function esc(s){return String(s).replace(/[&<>"]/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"}[m]))}
+function nl(s){return esc(s).replace(/\n/g,"<br>")}
+
+function visible(r){
+  const gpu = document.getElementById("fGpu").value;
+  const stab = document.getElementById("fStab").value;
+  const aup = document.getElementById("fAup").value;
+  const reg = document.getElementById("fReg").value;
+  const q = document.getElementById("fQ").value.trim().toLowerCase();
+  if(gpu==="5090" && !r.gpu.includes("5090")) return false;
+  if(gpu==="pro" && !r.gpu.includes("PRO 6000")) return false;
+  if(stab!=="all" && r.stabK!==stab) return false;
+  if(aup!=="all" && r.aupK!==aup) return false;
+  if(reg!=="all" && r.regK!==reg) return false;
+  if(q){
+    const blob = (r.name+r.hq+r.region+r.pay+r.gpu+r.flag).toLowerCase();
+    if(!blob.includes(q)) return false;
+  }
+  return true;
+}
+
+function render(){
+  const rows = ROWS.filter(visible).sort((a,b)=>{
+    const ka=a[sortKey], kb=b[sortKey];
+    if(typeof ka==="number" && typeof kb==="number") return (ka-kb)*sortDir;
+    return String(ka).localeCompare(String(kb),"zh")*sortDir;
+  });
+  tbody.innerHTML = rows.map(r=>`<tr>
+    <td>${r.rank}</td>
+    <td><strong>${esc(r.name)}</strong>${r.flag?`<div class="note">${esc(r.flag)}</div>`:""}</td>
+    <td>${esc(r.hq)}</td>
+    <td>${esc(r.region)}</td>
+    <td>${esc(r.gpu)}</td>
+    <td class="price">${nl(r.usdText)}</td>
+    <td class="price">${esc(r.cny)}</td>
+    <td>${esc(r.month)}</td>
+    <td>${esc(r.bill)}</td>
+    <td>${esc(r.pay)}</td>
+    <td>${tagAup(r.aupK,r.aup)}</td>
+    <td>${esc(r.stab)}</td>
+    <td><a href="${r.official}" target="_blank" rel="noopener">官网</a><br><a href="${r.pricing}" target="_blank" rel="noopener">定价页</a></td>
+  </tr>`).join("");
+  document.getElementById("count").textContent = "显示 "+rows.length+" / "+ROWS.length+" 行";
+}
+
+document.querySelectorAll("#cmp th[data-k]").forEach(th=>{
+  th.addEventListener("click",()=>{
+    const k=th.dataset.k;
+    if(sortKey===k) sortDir*=-1; else {sortKey=k; sortDir=1;}
+    render();
+  });
+});
+["fGpu","fStab","fAup","fReg","fQ"].forEach(id=>{
+  document.getElementById(id).addEventListener("input",render);
+  document.getElementById(id).addEventListener("change",render);
+});
+render();
+</script>
+</body>
+</html>
